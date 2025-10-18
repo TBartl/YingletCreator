@@ -2,6 +2,9 @@
 Unity Jiggle Physics by naelstrof
 https://github.com/naelstrof/UnityJigglePhysics
 
+FacePunch Steamworks
+https://github.com/Facepunch/Facepunch.Steamworks
+
 Game-icons.net
 https://game-icons.net/
 
