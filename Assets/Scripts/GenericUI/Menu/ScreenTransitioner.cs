@@ -2,34 +2,35 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public interface IScreenTransitioner
-{
-	void TransitionToOpaque();
-	float TransitionTime { get; }
-}
-
-public class ScreenTransitioner : MonoBehaviour, IScreenTransitioner
+public class ScreenTransitioner : MonoBehaviour
 {
 	[SerializeField] private SoundEffect _soundEffect;
-	[SerializeField] EaseSettings _easeSettings;
 	[SerializeField] Vector2 _transitionRange = new Vector2(0, 1);
 
 	private Coroutine _coroutine;
+	private IScreenTransitionManager _screenTransitionManager;
 	private IAudioPlayer _audioPlayer;
 	private Image _image;
 
-	public float TransitionTime => _easeSettings.Duration;
-
 	IEnumerator Start()
 	{
+		_screenTransitionManager = Singletons.GetSingleton<IScreenTransitionManager>();
 		_audioPlayer = Singletons.GetSingleton<IAudioPlayer>();
 		_image = this.GetComponent<Image>();
 		_image.material = new Material(_image.material); // Instance so we can modify it
 
 		_image.enabled = true;
 		SetVal(1);
+
+		_screenTransitionManager.OnStartTransitionToOpaque += TransitionToOpaque;
+
 		yield return null;
 		TransitionToClear();
+	}
+
+	private void OnDestroy()
+	{
+		_screenTransitionManager.OnStartTransitionToOpaque -= TransitionToOpaque;
 	}
 
 	void TransitionToClear()
@@ -41,7 +42,7 @@ public class ScreenTransitioner : MonoBehaviour, IScreenTransitioner
 		float from = _transitionRange.y;
 		float to = _transitionRange.x;
 
-		this.StartEaseCoroutine(ref _coroutine, _easeSettings, Apply, OnComplete);
+		this.StartEaseCoroutine(ref _coroutine, _screenTransitionManager.EaseSettings, Apply, OnComplete);
 		void Apply(float p)
 		{
 			SetVal(Mathf.Lerp(from, to, p));
@@ -51,7 +52,7 @@ public class ScreenTransitioner : MonoBehaviour, IScreenTransitioner
 			_image.enabled = false;
 		}
 	}
-	public void TransitionToOpaque()
+	void TransitionToOpaque()
 	{
 		_image.enabled = true;
 		_image.material.SetFloat("_X", -1);
@@ -61,7 +62,7 @@ public class ScreenTransitioner : MonoBehaviour, IScreenTransitioner
 		float to = _transitionRange.y;
 
 
-		this.StartEaseCoroutine(ref _coroutine, _easeSettings, Apply);
+		this.StartEaseCoroutine(ref _coroutine, _screenTransitionManager.EaseSettings, Apply);
 		void Apply(float p)
 		{
 			SetVal(Mathf.Lerp(from, to, p));

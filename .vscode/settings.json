@@ -55,5 +55,5 @@
         "Temp/": true,
         "UserSettings/": true
     },
-    "dotnet.defaultSolution": "EnclaveExpeditions.sln"
+    "dotnet.defaultSolution": "YingletCreator.sln"
 }

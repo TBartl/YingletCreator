@@ -15,6 +15,7 @@ public class EyeExpressionsMutator_Blink : MonoBehaviour, ICurrentEyeExpressionM
 	[SerializeField] float _squintTime = .015f;
 	[SerializeField] float _closedTime = .03f;
 
+	private EyeGatherer _eyeGatherer;
 	private IBlinkTimer _blinkTimer;
 
 	Observable<BlinkState> _blinkState = new Observable<BlinkState>();

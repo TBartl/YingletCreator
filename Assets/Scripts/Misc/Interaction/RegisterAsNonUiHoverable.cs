@@ -5,7 +5,7 @@ using UnityEngine;
 /// Used to determine if the mouse is hovering over the UI or not.
 /// </summary>
 [RequireComponent(typeof(UiHoverable))]
-public class UiHoverManager_NonUi : MonoBehaviour
+public class RegisterAsNonUiHoverable : MonoBehaviour
 {
 	private void Awake()
 	{

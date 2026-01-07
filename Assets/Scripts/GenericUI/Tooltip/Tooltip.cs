@@ -7,23 +7,19 @@ public interface ITooltip
 	RectTransform RectTransform { get; }
 }
 
-public class Tooltip : MonoBehaviour, ITooltip, IPointerEnterHandler, IPointerExitHandler
+
+public abstract class Tooltip : MonoBehaviour, ITooltip, IPointerEnterHandler, IPointerExitHandler
 {
-	[SerializeField, TextArea] string _text;
 	private ITooltipManager _tooltipManager;
 
-	public string Text => _text;
+	public abstract string Text { get; }
 
 	public RectTransform RectTransform { get; private set; }
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		RectTransform = GetComponent<RectTransform>();
 		_tooltipManager = Singletons.GetSingleton<ITooltipManager>();
-		if (string.IsNullOrWhiteSpace(_text))
-		{
-			Debug.LogWarning($"Tooltip on GameObject '{gameObject.name}' has no text set.", this);
-		}
 	}
 
 	private void OnDestroy()

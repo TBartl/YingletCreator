@@ -1,4 +1,7 @@
 <size=150%><b>Misc</b></size>
+Export functionality contributed by aaronfranke
+https://github.com/aaronfranke
+
 Unity Jiggle Physics by naelstrof
 https://github.com/naelstrof/UnityJigglePhysics
 

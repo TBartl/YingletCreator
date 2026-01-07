@@ -8,6 +8,7 @@ namespace Character.Creator.UI
 	public enum OpenFolderOnClickType
 	{
 		Custom,
+		Export,
 		Photos
 	}
 
@@ -16,14 +17,16 @@ namespace Character.Creator.UI
 		[SerializeField] private OpenFolderOnClickType _type;
 
 		private Button _button;
-		private ICharacterCreatorFolderProvider _folderProvider;
+		private ISaveFolderProvider _rootFolderProvider;
+		private ICharacterCreatorFolderProvider _characterCreatorFolderProvider;
 
 		private void Awake()
 		{
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);
 
-			_folderProvider = this.GetComponentInParent<ICharacterCreatorFolderProvider>();
+			_rootFolderProvider = Singletons.GetSingleton<ISaveFolderProvider>();
+			_characterCreatorFolderProvider = this.GetComponentInParent<ICharacterCreatorFolderProvider>();
 		}
 
 		private void OnDestroy()
@@ -35,9 +38,10 @@ namespace Character.Creator.UI
 		{
 			var folder = _type switch
 			{
-				OpenFolderOnClickType.Custom => _folderProvider.CustomFolderRoot,
-				OpenFolderOnClickType.Photos => _folderProvider.PhotoRoot,
-				_ => _folderProvider.CustomFolderRoot
+				OpenFolderOnClickType.Custom => _characterCreatorFolderProvider.CustomFolderRoot,
+				OpenFolderOnClickType.Export => _rootFolderProvider.ExportsFolderPath,
+				OpenFolderOnClickType.Photos => _characterCreatorFolderProvider.PhotoRoot,
+				_ => _characterCreatorFolderProvider.CustomFolderRoot
 			};
 			Process.Start("explorer.exe", folder);
 		}

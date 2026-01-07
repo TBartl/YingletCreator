@@ -8,7 +8,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Responsible for 
+/// Responsible for
 /// </summary>
 public interface IYingSnapshotManager
 {

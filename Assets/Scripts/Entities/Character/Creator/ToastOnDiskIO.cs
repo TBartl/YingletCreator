@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class ToastOnDiskIO : MonoBehaviour
 {
-	private IToastDisplay _toastDisplay;
+	private IToastManager _toastDisplay;
 	private ICustomizationDiskIO _diskIO;
 
 	void Start()
 	{
-		_toastDisplay = Singletons.GetSingleton<IToastDisplay>();
+		_toastDisplay = Singletons.GetSingleton<IToastManager>();
 		_diskIO = this.GetComponent<ICustomizationDiskIO>();
 
 		_diskIO.OnSaved += DiskIO_OnSaved;

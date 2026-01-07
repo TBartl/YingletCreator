@@ -7,6 +7,7 @@ public interface ITooltipManager
 	void Register(ITooltip tooltip);
 	void Unregister(ITooltip tooltip);
 	IReadOnlyObservable<ITooltip> CurrentTooltip { get; }
+	void NotifyTextChanged(ITooltip tooltip);
 }
 public class TooltipManager : MonoBehaviour, ITooltipManager
 {
@@ -32,6 +33,16 @@ public class TooltipManager : MonoBehaviour, ITooltipManager
 
 		if (_currentTooltip.Val != tooltip) return;
 		_currentTooltip.Val = null;
+	}
+
+	public void NotifyTextChanged(ITooltip tooltip)
+	{
+		if (_currentTooltip.Val == tooltip)
+		{
+			// Force-refresh the text by re-assigning null and then the same tooltip.
+			_currentTooltip.Val = null;
+			_currentTooltip.Val = tooltip;
+		}
 	}
 
 	IEnumerator DelayAndMakeTooltip(ITooltip tooltip)

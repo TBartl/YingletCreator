@@ -12,7 +12,7 @@ public interface IBlinkTimer
 public class BlinkTimer : MonoBehaviour, IBlinkTimer
 {
 	[SerializeField] Vector2 _blinkTimeRange; // Humans blink between 2 and 4
-
+	private IEyeControl _eyeControl;
 	private IEyeExpressions _eyeExpressions;
 	public event Action OnBlink = delegate { };
 
@@ -25,6 +25,7 @@ public class BlinkTimer : MonoBehaviour, IBlinkTimer
 
 	void Awake()
 	{
+		_eyeControl = this.GetComponent<IEyeControl>();
 		_eyeExpressions = this.GetComponent<IEyeExpressions>();
 	}
 
@@ -39,11 +40,13 @@ public class BlinkTimer : MonoBehaviour, IBlinkTimer
 		while (true)
 		{
 			yield return new WaitForSeconds(Random.Range(_blinkTimeRange.x, _blinkTimeRange.y));
+
+			// Don't blink if idle eye movement is disabled
+			if (!_eyeControl.IdleEyeMovementEnabled) continue;
+
 			// Don't blink antenna if the eye is already closed
-			if (!IGNORE_EXPRESSIONS.Contains(_eyeExpressions.BaseExpression))
-			{
-				OnBlink();
-			}
+			if (IGNORE_EXPRESSIONS.Contains(_eyeExpressions.BaseExpression)) continue;
+			OnBlink();
 		}
 	}
 }

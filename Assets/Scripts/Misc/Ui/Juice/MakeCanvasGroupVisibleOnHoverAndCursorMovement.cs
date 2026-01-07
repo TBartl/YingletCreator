@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 {
-	// Let this become visible based on something else's hover state
-	[SerializeField] UiHoverable _hoverable;
 	[SerializeField] SharedEaseSettings _easeSettings;
+	private IUiHoverManager _uiHoverManager;
 	private IPhotoModeState _photoModeState;
 	private CanvasGroup _canvasGroup;
 	private Coroutine _transitionCoroutine;
@@ -19,6 +18,7 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 
 	private void Awake()
 	{
+		_uiHoverManager = Singletons.GetSingleton<IUiHoverManager>();
 		_photoModeState = this.GetComponentInParent<IPhotoModeState>();
 		_canvasGroup = this.GetComponent<CanvasGroup>();
 		_canvasGroup.alpha = 0;
@@ -26,7 +26,7 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 
 	void Start()
 	{
-		_shouldBeVisible = this.CreateComputed(CreateComputed);
+		_shouldBeVisible = this.CreateComputed(ComputeShouldBeVisible);
 		AddReflector(Reflect);
 	}
 
@@ -45,9 +45,9 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 		_cursorMovedRecently.Val = (Time.time - _lastMovementTime) <= moveTime;
 	}
 
-	private bool CreateComputed()
+	private bool ComputeShouldBeVisible()
 	{
-		return _hoverable.Hovered.Val && _cursorMovedRecently.Val;
+		return !_uiHoverManager.HoveringUi && _cursorMovedRecently.Val;
 	}
 
 	private void Reflect()

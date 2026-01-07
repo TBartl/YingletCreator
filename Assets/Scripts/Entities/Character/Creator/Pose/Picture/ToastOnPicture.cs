@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ToastOnPicture : MonoBehaviour
 {
-	private IToastDisplay _toastDisplay;
+	private IToastManager _toastDisplay;
 	private ITakePictureEvents _picEvents;
 
 	private void Awake()
 	{
-		_toastDisplay = Singletons.GetSingleton<IToastDisplay>();
+		_toastDisplay = Singletons.GetSingleton<IToastManager>();
 		_picEvents = this.GetComponent<ITakePictureEvents>();
 		_picEvents.PictureTaken += OnPictureTaken;
 	}

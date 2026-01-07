@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class CloseApplicationOnClick : MonoBehaviour
 {
 	private Button _button;
-	private IScreenTransitioner _screenTransitioner;
+	private IScreenTransitionManager _screenTransitioner;
 	bool _quitting = false;
 
 	void Awake()
 	{
 		_button = this.GetComponent<Button>();
-		_screenTransitioner = Singletons.GetSingleton<IScreenTransitioner>();
+		_screenTransitioner = Singletons.GetSingleton<IScreenTransitionManager>();
 		_button.onClick.AddListener(Button_OnClick);
 	}
 
@@ -31,7 +31,7 @@ public class CloseApplicationOnClick : MonoBehaviour
 		_quitting = true;
 
 		_screenTransitioner.TransitionToOpaque();
-		yield return new WaitForSeconds(_screenTransitioner.TransitionTime);
+		yield return new WaitForSeconds(_screenTransitioner.EaseSettings.Duration);
 
 		Application.Quit();
 

@@ -8,7 +8,5 @@ public class ApplySliderAsScale : ApplySliderAsScaleBase, IApplyableCustomizatio
 	{
 		var size = GetSize();
 		ApplyToTarget(_target, size);
-
 	}
-
 }

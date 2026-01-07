@@ -1,17 +1,20 @@
 using UnityEngine;
 
-/// <summary>
-/// This class doesn't really _do_ anything beyond forward events
-/// The expectation is that some 
-/// </summary>
-public interface IToastDisplay
-{
-	void Show(string message);
-}
-
-public class ToastDisplay : MonoBehaviour, IToastDisplay
+public class ToastDisplay : MonoBehaviour
 {
 	[SerializeField] GameObject _toastPrefab;
+	private IToastManager _toastManager;
+
+	private void Awake()
+	{
+		_toastManager = Singletons.GetSingleton<IToastManager>();
+		_toastManager.Toasted += Show;
+	}
+
+	private void OnDestroy()
+	{
+		_toastManager.Toasted -= Show;
+	}
 
 	public void Show(string message)
 	{

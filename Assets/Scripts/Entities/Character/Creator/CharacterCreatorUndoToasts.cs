@@ -4,12 +4,12 @@ namespace Character.Creator
 {
 	internal class CharacterCreatorUndoToasts : MonoBehaviour
 	{
-		private IToastDisplay _toastDisplay;
+		private IToastManager _toastDisplay;
 		private ICharacterCreatorUndoManager _undoManager;
 
 		private void Awake()
 		{
-			_toastDisplay = Singletons.GetSingleton<IToastDisplay>();
+			_toastDisplay = Singletons.GetSingleton<IToastManager>();
 			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
 
 			_undoManager.UndoApplied += UndoManager_UndoApplied;
