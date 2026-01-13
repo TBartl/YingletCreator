@@ -48,7 +48,7 @@ public class ExportToBlenderOnButtonClick : ExportOnButtonClickBase
 		var newFolder = GetSavePath();
 
 		PathUtils.EnsureDirectoryExists(newFolder);
-		System.Diagnostics.Process.Start("explorer.exe", newFolder);
+		Character.Creator.UI.OpenFolderOnButtonClick.OpenFolder(newFolder);
 
 		foreach (var kvp in _materialGeneration.GeneratedMaterialLookup)
 		{
