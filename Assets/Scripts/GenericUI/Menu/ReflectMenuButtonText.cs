@@ -25,6 +25,7 @@ public class ReflectMenuButtonText : ReactiveBehaviour
 			MenuButtonType.Settings => "Settings",
 			MenuButtonType.About => "About",
 			MenuButtonType.Discord => "Discord",
+			MenuButtonType.Screensaver => "Screensaver",
 			_ => throw new ArgumentException($"Unknown MenuButtonType: {_selection.HoveredMenuButton?.Type}")
 		};
 	}

@@ -1,4 +1,5 @@
 using Reactivity;
+using System.Linq;
 using UnityEngine;
 
 namespace Character.Creator.UI
@@ -17,6 +18,8 @@ namespace Character.Creator.UI
 		[SerializeField] Vector3 _offset;
 		[SerializeField] Vector3 _photoOffset;
 		[SerializeField] Vector3 _menuOffset;
+
+		[SerializeField] MenuType[] _hideOnMenus;
 
 		private IPhotoModeState _photoModeState;
 		private Vector3 _originalPos;
@@ -43,6 +46,11 @@ namespace Character.Creator.UI
 		{
 			if (_menuManager.OpenMenu.Val != null)
 			{
+				if (_hideOnMenus.Contains(_menuManager.OpenMenu.Val))
+				{
+					// Effectively special case logic for screensaver
+					return PhotoAndMenuState.Photo;
+				}
 				return PhotoAndMenuState.Menu;
 			}
 			if (_photoModeState.IsInPhotoMode.Val)

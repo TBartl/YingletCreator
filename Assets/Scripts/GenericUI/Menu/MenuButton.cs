@@ -5,7 +5,8 @@ public enum MenuButtonType
 	Exit,
 	Settings,
 	About,
-	Discord
+	Discord,
+	Screensaver
 
 }
 

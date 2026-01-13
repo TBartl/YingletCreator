@@ -830,6 +830,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3138750891464664004}
+    - targetCorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2745954465414246386}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 2
       addedObject: {fileID: 2001633019658231977}
@@ -911,6 +914,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2745954465414246386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138028694247323317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfac92af441682c41b93e861073cd2ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screensaverMenuType: {fileID: 11400000, guid: e4c6dd44b775ff548b4f182849ba89dc, type: 2}
 --- !u!1 &791053993093962534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}

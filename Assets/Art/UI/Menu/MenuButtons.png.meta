@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuButtons_0
+      name: MenuButtons_Cog
       rect:
         serializedVersion: 2
         x: 0
@@ -105,7 +105,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -119,7 +119,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_1
+      name: MenuButtons_Door
       rect:
         serializedVersion: 2
         x: 48
@@ -127,7 +127,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -141,7 +141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_2
+      name: MenuButtons_Info
       rect:
         serializedVersion: 2
         x: 0
@@ -149,7 +149,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_3
+      name: MenuButtons_Discord
       rect:
         serializedVersion: 2
         x: 48
@@ -171,7 +171,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,6 +180,28 @@ TextureImporter:
       bones: []
       spriteID: f26e60288f4e08b45900f0763fc9077e
       internalID: -700287695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButtons_Screen
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1340ef31a79a9b4785f3d74753d6c43
+      internalID: -398660927
       vertices: []
       indices: 
       edges: []
@@ -198,10 +220,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MenuButtons_0: 769144242
-      MenuButtons_1: -345805850
-      MenuButtons_2: -1201647457
-      MenuButtons_3: -700287695
+      MenuButtons_Cog: 769144242
+      MenuButtons_Discord: -700287695
+      MenuButtons_Door: -345805850
+      MenuButtons_Info: -1201647457
+      MenuButtons_Screen: -398660927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
