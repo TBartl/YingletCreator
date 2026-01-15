@@ -254,7 +254,7 @@ public class ModelNode : ModelItem
 		{"foot_ring.01.L", "LeftRingToeProximal"},
 		{"foot_ring.02.L", "LeftRingToeIntermediate"},
 		{"foot_ring.03.L", "LeftRingToeDistal"},
-		{"foot_thumb.01.L", "LeftHalluxMetacarpal"},
+		{"foot_thumb.01.L", "LeftHalluxMetatarsal"},
 		{"foot_thumb.02.L", "LeftHalluxProximal"},
 		{"foot_thumb.03.L", "LeftHalluxDistal"},
 		{"thigh.R", "RightUpperLeg"},
@@ -270,7 +270,7 @@ public class ModelNode : ModelItem
 		{"foot_ring.01.R", "RightRingToeProximal"},
 		{"foot_ring.02.R", "RightRingToeIntermediate"},
 		{"foot_ring.03.R", "RightRingToeDistal"},
-		{"foot_thumb.01.R", "RightHalluxMetacarpal"},
+		{"foot_thumb.01.R", "RightHalluxMetatarsal"},
 		{"foot_thumb.02.R", "RightHalluxProximal"},
 		{"foot_thumb.03.R", "RightHalluxDistal"},
 	};

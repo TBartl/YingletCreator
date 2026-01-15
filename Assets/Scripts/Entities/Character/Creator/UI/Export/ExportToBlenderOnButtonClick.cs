@@ -1,5 +1,4 @@
 using Character.Compositor;
-using Character.Creator;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ExportToBlenderOnButtonClick : ExportOnButtonClickBase
 {
@@ -24,13 +22,16 @@ public class ExportToBlenderOnButtonClick : ExportOnButtonClickBase
 		_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 	}
 
-    protected override void OnExportButtonClicked()
+	protected override void OnExportButtonClicked()
 	{
-		_confirmationManager.OpenConfirmation(new(
-			"Export model + textures to Blender?\nThis feature has limited support and\nrequires additional work.",
-			"Export",
-			"blender-export",
-			ExecuteExport));
+		ExecuteExport();
+
+		// Don't really need a confirmation now that we have a real export dialog
+		//_confirmationManager.OpenConfirmation(new(
+		//	"Export model + textures to Blender?\nThis feature has limited support and\nrequires additional work.",
+		//	"Export",
+		//	"blender-export",
+		//	ExecuteExport));
 	}
 
 	void ExecuteExport()
@@ -47,7 +48,7 @@ public class ExportToBlenderOnButtonClick : ExportOnButtonClickBase
 		var newFolder = GetSavePath();
 
 		PathUtils.EnsureDirectoryExists(newFolder);
-		System.Diagnostics.Process.Start("explorer.exe", newFolder);
+		Character.Creator.UI.OpenFolderOnButtonClick.OpenFolder(newFolder);
 
 		foreach (var kvp in _materialGeneration.GeneratedMaterialLookup)
 		{

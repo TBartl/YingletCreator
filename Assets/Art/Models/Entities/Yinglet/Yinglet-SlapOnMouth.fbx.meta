@@ -10,7 +10,7 @@ ModelImporter:
       name: SlapOnMouthMaterial
     second: {fileID: 2100000, guid: 72ff8750966837044815c564d7a7af7d, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1

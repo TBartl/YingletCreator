@@ -43,7 +43,28 @@ namespace Character.Creator.UI
 				OpenFolderOnClickType.Photos => _characterCreatorFolderProvider.PhotoRoot,
 				_ => _characterCreatorFolderProvider.CustomFolderRoot
 			};
-			Process.Start("explorer.exe", folder);
+			OpenFolder(folder);
+		}
+
+		public static void OpenFolder(string folderPath)
+		{
+			// Ensure it is quoted.
+			if (!folderPath.StartsWith("\""))
+			{
+				folderPath = "\"" + folderPath;
+			}
+			if (!folderPath.EndsWith("\""))
+			{
+				folderPath = folderPath + "\"";
+			}
+			// C# does not provide a cross-platform way to open folders, so use OS-specific commands.
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+			Process.Start("explorer.exe", folderPath);
+#elif UNITY_EDITOR_LINUX || UNITY_STANDALONE_LINUX
+			Process.Start("xdg-open", folderPath);
+#else // macOS and others.
+			Process.Start("open", folderPath);
+#endif
 		}
 	}
 }

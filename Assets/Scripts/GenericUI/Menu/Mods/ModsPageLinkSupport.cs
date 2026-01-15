@@ -32,7 +32,7 @@ public class ModsPageLinkSupport : MonoBehaviour, IPointerClickHandler
 				Application.OpenURL("https://github.com/TBartl/YingletCreator");
 				break;
 			case "folder":
-				Process.Start("explorer.exe", _folderProvider.ModsFolderPath);
+				Character.Creator.UI.OpenFolderOnButtonClick.OpenFolder(_folderProvider.ModsFolderPath);
 				break;
 			case "workshop":
 				Application.OpenURL("https://steamcommunity.com/app/3954540/workshop/");

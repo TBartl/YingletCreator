@@ -869,8 +869,6 @@ MonoBehaviour:
       Object: {fileID: 2100000, guid: 5a556f26ebc69f74fab2f3b180f6686c, type: 2}
     - Guid: 56d0daddd5e6be54b994d6b2f0a4ce69
       Object: {fileID: 11400000, guid: 56d0daddd5e6be54b994d6b2f0a4ce69, type: 2}
-    - Guid: 72ff8750966837044815c564d7a7af7d
-      Object: {fileID: 2100000, guid: 72ff8750966837044815c564d7a7af7d, type: 2}
     - Guid: b6117c8731d76144dbffa5f7b3a21250
       Object: {fileID: 11400000, guid: b6117c8731d76144dbffa5f7b3a21250, type: 2}
     - Guid: 43f22daa3141aaa48a171b23cdfd3e6a

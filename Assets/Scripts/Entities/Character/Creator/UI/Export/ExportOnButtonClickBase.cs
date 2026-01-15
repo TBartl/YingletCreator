@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class ExportOnButtonClickBase : MonoBehaviour
 {
 	private UnityEngine.UI.Button _button;
-	private ISaveFolderProvider _saveFolderProvider;
+	protected ISaveFolderProvider _saveFolderProvider;
 	protected ICustomizationSelection _selection;
 	protected SettableTooltip _tooltip;
 	public event System.Action OnExport = delegate { };

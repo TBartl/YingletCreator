@@ -5,7 +5,8 @@ using UnityEngine;
 namespace Character.Compositor
 {
 	/// <summary>
-	/// We can't easily export a good mouth for certain formats, so we add a simple mouth mesh for export purposes only
+	/// We can't easily export a good mouth for certain formats,
+	/// so we add a simple mouth mesh for export purposes only.
 	/// </summary>
 	public class MeshGatherer_AddMouthForExport : ReactiveBehaviour, IMeshGathererMutator
 	{

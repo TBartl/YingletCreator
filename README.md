@@ -10,8 +10,10 @@ It has all the information you need to set up the project and start developing.
 
 # License
 
-This project was primarily made open source to support mod development.
+Exported models are free to use anywhere, with a [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/)
 
-That said, if you want to contribute to the project itself, you're welcome to open a PR.
+The Unity project itself was primarily made open source to support mod development.
 
-If you want to make any derivative projects, I ask that you respect the [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+ - If you want to contribute to the project itself, you're welcome to open a PR.
+
+ - If you want to make any derivative projects, I ask that you respect the [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
