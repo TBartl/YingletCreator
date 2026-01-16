@@ -1,6 +1,7 @@
 using Reactivity;
 using UnityEngine;
 
+// Could merge this with the other reactive behavior at some point
 public class OffsetOnSelected : ReactiveBehaviour
 {
 	[SerializeField] Vector2 _offset;
