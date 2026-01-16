@@ -426,6 +426,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BookmarkIcons_YingletCreator
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ca8b0237e18024d8cb69d8681376af
+      internalID: 692591204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -455,6 +477,7 @@ TextureImporter:
       BookmarkIcons_Sound: 823040056
       BookmarkIcons_Star: -1508493379
       BookmarkIcons_TailPoof: -1590839313
+      BookmarkIcons_YingletCreator: 692591204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
