@@ -76,7 +76,7 @@ namespace Character.Creator.UI
 			_undoManager.RecordState("Pasted color");
 
 			var ids = _activeSelection.AllSelected.ToList();
-			using var suspender = new ReactivitySuspender();
+			using var suspender = new ReactivityNotificationSuspender();
 			foreach (var id in ids)
 			{
 				var existingColor = _dataRepository.GetColorizeValues(id);

@@ -28,7 +28,7 @@ namespace Reactivity.Implementation
 			dependents.Clear();
 			foreach (var dependent in clonedDependents)
 			{
-				if (ReactivitySuspender.ShouldSuspend(dependent)) continue;
+				if (ReactivityNotificationSuspender.ShouldSuspend(dependent)) continue;
 
 				dependent.SetDirty();
 			}

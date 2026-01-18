@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToggleMenuOnClick : MonoBehaviour
+public class ChangeMenuOnClick : MonoBehaviour
 {
 	[SerializeField] MenuType _menuType;
 
 	private Button _button;
 	private IMenuManager _menuManager;
+	private IDefaultMenuProvider _defaultMenuProvider;
 
 	void Awake()
 	{
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
+		_defaultMenuProvider = this.GetComponentInParent<IDefaultMenuProvider>();
+
 		_button = this.GetComponent<Button>();
 		_button.onClick.AddListener(Button_OnClick);
 	}
@@ -25,7 +28,7 @@ public class ToggleMenuOnClick : MonoBehaviour
 		// Close it if it's already open
 		if (_menuManager.OpenMenu.Val == _menuType)
 		{
-			_menuManager.OpenMenu.Val = null;
+			_menuManager.OpenMenu.Val = _defaultMenuProvider.DefaultMenu;
 		}
 		else
 		{

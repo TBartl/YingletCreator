@@ -5,7 +5,6 @@ namespace Character.Creator.UI
 {
 	public class TogglePhotoModeOnKeyDown : MonoBehaviour
 	{
-		private IMenuManager _menuManager;
 		private IInputRestrictor _inputRestrictor;
 		private IPhotoModeState _photoModeState;
 		private IInPoseModeChecker _inPoseMode;

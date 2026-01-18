@@ -8,7 +8,7 @@ namespace Character.Creator
 		public static void UpgradeIfNeeded(ObservableCustomizationData data, int version, ICompositeResourceLoader resourceLoader)
 		{
 			// We need to disable reactivity, since this can read from some of the observable data
-			using var disabler = new ReactivityDisabler();
+			using var disabler = new ReactivityTrackingSuspender();
 
 			// Max version number stored in <see cref="SerializableCustomizationData"/> 
 			if (version <= 0)

@@ -16,7 +16,7 @@ namespace Character.Creator
 		public static void FlipToggle(this ObservableCustomizationData data, CharacterToggleId id)
 		{
 
-			using var suspender = new ReactivitySuspender();
+			using var suspender = new ReactivityNotificationSuspender();
 			bool exists = data.GetToggle(id);
 
 			if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftControl))
