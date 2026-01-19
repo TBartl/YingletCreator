@@ -8,11 +8,11 @@ namespace Reactivity
 	/// This may be useful if you're writing to your own data within a reactive context
 	/// i.e.: the auto-upgrade logic reads from itself
 	/// </summary>
-	public sealed class ReactivityDisabler : IDisposable
+	public sealed class ReactivityTrackingSuspender : IDisposable
 	{
 		private readonly IDependent _dependentToRestore;
 
-		public ReactivityDisabler()
+		public ReactivityTrackingSuspender()
 		{
 			_dependentToRestore = Statics.CurrentDependent;
 			Statics.CurrentDependent = null;

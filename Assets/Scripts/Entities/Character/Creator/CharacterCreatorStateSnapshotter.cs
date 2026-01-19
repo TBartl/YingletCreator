@@ -42,7 +42,7 @@ namespace Character.Creator
 
 		public void RestoreStateSnapshot(CharacterCreatorStateSnapshot snapshot)
 		{
-			using var suspender = new ReactivitySuspender();
+			using var suspender = new ReactivityNotificationSuspender();
 			_selection.SetSelected(snapshot.Selected);
 			_dataRepository.ForceCustomizationData(snapshot.SerializedData);
 		}

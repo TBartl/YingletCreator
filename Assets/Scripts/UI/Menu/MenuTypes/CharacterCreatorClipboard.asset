@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f42e7ebb3b928214ca7ce48d4e08ad49, type: 3}
-  m_Name: Screensaver
+  m_Name: CharacterCreatorClipboard
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1

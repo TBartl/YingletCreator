@@ -1,4 +1,5 @@
 using Reactivity;
+using System;
 
 /// <summary>
 /// Returns if normal, keyboard input and mouse controls should be allowed
@@ -7,27 +8,38 @@ using Reactivity;
 public interface IInputRestrictor
 {
 	bool InputAllowed { get; }
+
+	/// <summary>
+	/// Returns an object. While it is alive, input is restricted.
+	/// </summary>
+	IDisposable RestrictInput();
 }
 public class InputRestrictor : ReactiveBehaviour, IInputRestrictor
 {
-	private IMenuManager _menuManager;
-	private IConfirmationManager _confirmationManager;
+	Observable<int> _restrictionCount = new Observable<int>(0);
 	private Computed<bool> _inputAllowed;
 
 	public bool InputAllowed => _inputAllowed.Val;
 
+	public IDisposable RestrictInput()
+	{
+		using var suspender = new ReactivityTrackingSuspender();
+		_restrictionCount.Val++;
+
+		return new BasicActionDisposable(() =>
+		{
+			using var suspender = new ReactivityTrackingSuspender();
+			_restrictionCount.Val--;
+		});
+	}
+
 	private void Awake()
 	{
-		_menuManager = Singletons.GetSingleton<IMenuManager>();
-		_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 		_inputAllowed = CreateComputed(ComputeInputAllowed);
 	}
 
 	private bool ComputeInputAllowed()
 	{
-		if (_menuManager.OpenMenu.Val != null) return false;
-		if (_confirmationManager.Current.Val != null) return false;
-
-		return true;
+		return _restrictionCount.Val == 0;
 	}
 }

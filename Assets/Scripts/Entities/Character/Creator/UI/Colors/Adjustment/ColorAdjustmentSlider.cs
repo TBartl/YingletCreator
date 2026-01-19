@@ -74,7 +74,7 @@ namespace Character.Creator.UI
 			var firstColor = existingColors.First();
 			var diff = value - GetTargetVal(firstColor.ColorizeValues);
 
-			using var suspender = new ReactivitySuspender();
+			using var suspender = new ReactivityNotificationSuspender();
 			foreach (var color in existingColors)
 			{
 				var writeableColor = new WriteableColorizeValues(color.ColorizeValues);

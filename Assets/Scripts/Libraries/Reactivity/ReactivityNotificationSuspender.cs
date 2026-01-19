@@ -9,17 +9,17 @@ namespace Reactivity
 	/// Disposable object that prevents notifications from being fired while this object is alive
 	/// Used to bundle numerous changes so that updates can be consolidated
 	/// </summary>
-	public sealed class ReactivitySuspender : IDisposable
+	public sealed class ReactivityNotificationSuspender : IDisposable
 	{
-		static ReactivitySuspender _current = null;
+		static ReactivityNotificationSuspender _current = null;
 
 		List<IDependent> _suspendedDependents = new();
 
-		public ReactivitySuspender()
+		public ReactivityNotificationSuspender()
 		{
 			if (_current != null)
 			{
-				throw new InvalidOperationException("Tried to suspend reacitivity when it was already suspended!");
+				throw new InvalidOperationException("Tried to suspend reactivity when it was already suspended!");
 			}
 			_current = this;
 		}
