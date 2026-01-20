@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
-  m_Name: TailPoof-Highlight
+  m_Name: Hair-VerticalStreaks
   m_EditorClassIdentifier: 
-  _uniqueAssetId: a21350f00fb7c1a41aaf4cf23e295421
-  _displayName: Highlights
+  _uniqueAssetId: d8e48220065e04f4d9532bae1aa96876
+  _displayName: Vertical Streaks
   _groupReferences: []
   _addedMeshReferences: []
   _addedTextureReferences:
-  - m_AssetGUID: 20702c476bffd2a408a0292048ab9d8f
+  - m_AssetGUID: fce396d8671f45a448a9c623decc0672
   _eyeTextures: {fileID: 0}
   _roomPrefab: {fileID: 0}
   _componentReferences:
   - m_AssetGUID: 4b972600fc41eb044b2c6df5adb291b1
   _preview:
-    _sprite: {fileID: 1784997626, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _sprite: {fileID: 0}
     _cameraPositionReference:
-      m_AssetGUID: 6644ba74460fac44c85059da15de82d6
+      m_AssetGUID: 3a4af34d07e4cfb46adabd44c51f84ab
   _order:
     _groupReference:
-      m_AssetGUID: b0f2cf9136ad521428ead4b3de2dbd8b
-    _index: 100
+      m_AssetGUID: 3aafd4490e1ecdf4bb0428a9cb87978e
+    _index: 400

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Face-Eye-UI
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 6bad4a9e8e9f8464797c0ba45adaef87
+  _displayName: UI
+  _groupReferences:
+  - m_AssetGUID: f884cbfef1452e344962a5b55f10edd9
+  _addedMeshReferences: []
+  _addedTextureReferences: []
+  _eyeTextures: {fileID: 11400000, guid: 77cc012f7c5e96d42b59a5b0478280b2, type: 2}
+  _roomPrefab: {fileID: 0}
+  _componentReferences: []
+  _preview:
+    _sprite: {fileID: 1906776177994786306, guid: b09bb929ac5ec004888b0ab617410c9f, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: 850bf0f89ca3c0c498136d3f9febe1e8
+  _order:
+    _groupReference:
+      m_AssetGUID: 5699db8d5196f504e85bf9f000e07a54
+    _index: 20000

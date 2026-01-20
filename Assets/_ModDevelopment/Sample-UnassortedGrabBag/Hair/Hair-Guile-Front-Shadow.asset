@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: Hair-Guile-Front-Shadow
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: e9621494b32dad54ea74c750b0e81b33
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: 48d8d82a82557e04db940f0877878de1
+  _grayscaleReference:
+    m_AssetGUID: 0e936cf278af1924ea57bca9b7c13f3d
+  _maskReference:
+    m_AssetGUID: 
+  _tagReferences: []
+  _order:
+    _groupReference:
+      m_AssetGUID: adfcd9a05e7b73d45be0eddd7ea6ab89
+    _index: 300

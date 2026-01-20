@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: TailPoof-VerticalStreaks (MixTexture)
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: 489aa2b9486de194daf8c8f057466040
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: 43f22daa3141aaa48a171b23cdfd3e6a
+  _grayscaleReference:
+    m_AssetGUID: e51227a030500524799471d167e95ee7
+  _maskReference:
+    m_AssetGUID: 37ec45c4b31fff34caf6aedcdd3d67fb
+  _tagReferences: []
+  _order:
+    _groupReference:
+      m_AssetGUID: 5b10963de1327ef42b16957c0f79c9cd
+    _index: 504

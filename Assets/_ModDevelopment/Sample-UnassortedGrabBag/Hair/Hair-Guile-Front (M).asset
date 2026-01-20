@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef325111c9647d499e7fe4af01b122d, type: 3}
+  m_Name: Hair-Guile-Front (M)
+  m_EditorClassIdentifier: 
+  _skinnedMeshRendererPrefab: {fileID: -4527869702588222602, guid: dfbc47165db0ac74ba7f25ec98038dca, type: 3}
+  _materialWithDescriptionReference:
+    m_AssetGUID: f044c0356f7c193469f2c093c892709e
+  _tagReferences: []
+  _boneToAttachToReference:
+    m_AssetGUID: 

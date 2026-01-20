@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120deaf7dc863c64580690e742f11134, type: 3}
+  m_Name: UnassortedGrabBag
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 73f390f241ab0ac468ea08b9732de8a3
+  _title: Unassorted Grab-Bag
+  _shortDescription: Various user requests from Discord haphazardly thrown into a
+    collection.
+  _author: Tabski
+  _icon: {fileID: 21300000, guid: c891d878f2fa8a84a9cc52191131e39b, type: 3}
+  _table:
+    Resources:
+    - Guid: bf983fe30146a2f4c8c73006130f4a3c
+      Object: {fileID: 11400000, guid: bf983fe30146a2f4c8c73006130f4a3c, type: 2}
+    - Guid: 5548539e3cb232d4a9c7888db4687394
+      Object: {fileID: 11400000, guid: 5548539e3cb232d4a9c7888db4687394, type: 2}
+    - Guid: 6bad4a9e8e9f8464797c0ba45adaef87
+      Object: {fileID: 11400000, guid: 6bad4a9e8e9f8464797c0ba45adaef87, type: 2}
+    - Guid: 9f1f11fc622f5174d8b2df12c7d24a0c
+      Object: {fileID: 11400000, guid: 9f1f11fc622f5174d8b2df12c7d24a0c, type: 2}
+    - Guid: 77cc012f7c5e96d42b59a5b0478280b2
+      Object: {fileID: 11400000, guid: 77cc012f7c5e96d42b59a5b0478280b2, type: 2}
+    - Guid: ffefd5d1f510164498a0fe1bed5d166f
+      Object: {fileID: 11400000, guid: ffefd5d1f510164498a0fe1bed5d166f, type: 2}
+    - Guid: 46da9ab322ae6a74488e2eb418cf9695
+      Object: {fileID: 11400000, guid: 46da9ab322ae6a74488e2eb418cf9695, type: 2}
+    - Guid: 0e936cf278af1924ea57bca9b7c13f3d
+      Object: {fileID: 2800000, guid: 0e936cf278af1924ea57bca9b7c13f3d, type: 3}
+    - Guid: 16f9f5582cc209242a4c0af5c06bd0ac
+      Object: {fileID: 11400000, guid: 16f9f5582cc209242a4c0af5c06bd0ac, type: 2}
+    - Guid: dafe65c1416a4024f8b3cb176942d7a1
+      Object: {fileID: 11400000, guid: dafe65c1416a4024f8b3cb176942d7a1, type: 2}
+    - Guid: 4ace56c4dd71c5841bd98fba6af8bb96
+      Object: {fileID: 2800000, guid: 4ace56c4dd71c5841bd98fba6af8bb96, type: 3}
+    - Guid: 42d853be1c3640d46ab0f43e74a22a21
+      Object: {fileID: 11400000, guid: 42d853be1c3640d46ab0f43e74a22a21, type: 2}
+    - Guid: c6691fbc51bb8ab4e82f7fce7e4eaece
+      Object: {fileID: 11400000, guid: c6691fbc51bb8ab4e82f7fce7e4eaece, type: 2}
+    - Guid: c5f7ca4f12accf242b4da7f82b0d4b96
+      Object: {fileID: 11400000, guid: c5f7ca4f12accf242b4da7f82b0d4b96, type: 2}
+    - Guid: 8dcd07e2a53c8914790d0f0cf0f7ec5f
+      Object: {fileID: 11400000, guid: 8dcd07e2a53c8914790d0f0cf0f7ec5f, type: 2}
+    - Guid: b74c24e201ad57b48b1aeae0ce9876db
+      Object: {fileID: 2800000, guid: b74c24e201ad57b48b1aeae0ce9876db, type: 3}
+    - Guid: 976f26a27d6b9164f9096daa6f968bd2
+      Object: {fileID: 11400000, guid: 976f26a27d6b9164f9096daa6f968bd2, type: 2}
+    - Guid: 281379c6b876bd0448c5eee05b0a1373
+      Object: {fileID: 11400000, guid: 281379c6b876bd0448c5eee05b0a1373, type: 2}
+    - Guid: 97a91b52dd979594fac3c4b9651222e7
+      Object: {fileID: 11400000, guid: 97a91b52dd979594fac3c4b9651222e7, type: 2}
+    - Guid: fce396d8671f45a448a9c623decc0672
+      Object: {fileID: 11400000, guid: fce396d8671f45a448a9c623decc0672, type: 2}
+    - Guid: 37ec45c4b31fff34caf6aedcdd3d67fb
+      Object: {fileID: 2800000, guid: 37ec45c4b31fff34caf6aedcdd3d67fb, type: 3}
+    - Guid: d8e48220065e04f4d9532bae1aa96876
+      Object: {fileID: 11400000, guid: d8e48220065e04f4d9532bae1aa96876, type: 2}
+    - Guid: 311a925e5965f9f479f6afdb4700dc3e
+      Object: {fileID: 11400000, guid: 311a925e5965f9f479f6afdb4700dc3e, type: 2}
+    - Guid: 8d91af2ab56eeb44b88bcd33f05a5876
+      Object: {fileID: 11400000, guid: 8d91af2ab56eeb44b88bcd33f05a5876, type: 2}
+    - Guid: 73f390f241ab0ac468ea08b9732de8a3
+      Object: {fileID: 11400000}
+  _presetYings: []
+  _steamWorkshopId: 3650212942
+  _steamWorkshopUniqueId: 73f390f241ab0ac468ea08b9732de8a3

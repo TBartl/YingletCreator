@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: Hair-Gradient (MixTexture)
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: 3baed548810d15e438f0c3ecb81b012f
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: f044c0356f7c193469f2c093c892709e
+  _grayscaleReference:
+    m_AssetGUID: e51227a030500524799471d167e95ee7
+  _maskReference:
+    m_AssetGUID: 4ace56c4dd71c5841bd98fba6af8bb96
+  _tagReferences: []
+  _order:
+    _groupReference:
+      m_AssetGUID: adfcd9a05e7b73d45be0eddd7ea6ab89
+    _index: 1499
