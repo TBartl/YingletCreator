@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 8928026553226637616}
   - component: {fileID: 8417361706282721624}
   - component: {fileID: 3270058158888812257}
+  - component: {fileID: 1892263765795284110}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 712fa061248d16847a61af8ad6e48cca, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -349,6 +350,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hoverScale: 1.07
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
+--- !u!114 &1892263765795284110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549894255331321296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1599d61512fdc2543917aad6680f34f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxVal: 1
   _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
 --- !u!1 &5700182386522923460
 GameObject:
