@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 4539986844384165450}
   - component: {fileID: 8464665141766336683}
   - component: {fileID: 7111917418299152485}
+  - component: {fileID: 3672471856138030462}
   m_Layer: 5
   m_Name: LargeBannerButton
   m_TagString: Untagged
@@ -585,6 +586,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3672471856138030462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414960827320199816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98485dbabf376224aa8d7f7ead46389c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectionType: {fileID: 11400000, guid: 51185a7433707a243863c3f3a21f63b3, type: 2}
 --- !u!1 &6868973932740189315
 GameObject:
   m_ObjectHideFlags: 0
