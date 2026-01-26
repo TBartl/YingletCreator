@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1360325678671586592}
   - component: {fileID: 101007290986921403}
   - component: {fileID: 453993003116997431}
+  - component: {fileID: 4147952377123086125}
   m_Layer: 5
   m_Name: ClipboardBase
   m_TagString: Untagged
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d32d4a193be8e4cb4b56dedd383f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialSelection: 0
+  _initialSelection: {fileID: 0}
 --- !u!114 &453993003116997431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changePage: {fileID: 11400000, guid: 1e183c5e4af28e94195743a7a6206fd3, type: 2}
+--- !u!114 &4147952377123086125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2679697375765334256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910795705d18fc44ca36fda5eb1d56ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _freeFallParent: {fileID: 4543406927243434419, guid: af69921e2072c08479b127a51fa5df51, type: 3}
 --- !u!1 &7164486007875477601
 GameObject:
   m_ObjectHideFlags: 0

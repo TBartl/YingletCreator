@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 namespace Character.Creator.UI
@@ -14,20 +12,19 @@ namespace Character.Creator.UI
 
 	public class FakeBookmark : MonoBehaviour, IFakeBookmark
 	{
-		[SerializeField] RectTransform _animMotionRoot;
-		private Animation _animation;
 		private IBookmarkImageControl _imageControl;
 		private IClipboardOrdering _clipboardOrdering;
+		private IClipboardFreeFallManager _freeFallManager;
 		private ISelectable _selectable;
 		private IClipboardElementSelection _elementSelection;
-		private Coroutine _freeFallCoroutine;
-		private IPage _page;
+		private Vector3 _originalPos;
+		private Quaternion _originalRot;
 
 		void Awake()
 		{
-			_animation = this.GetComponent<Animation>();
 			_imageControl = this.GetComponent<IBookmarkImageControl>();
 			_clipboardOrdering = this.GetComponentInParent<IClipboardOrdering>();
+			_freeFallManager = this.GetComponentInParent<IClipboardFreeFallManager>();
 			_selectable = this.GetComponent<ISelectable>();
 			_elementSelection = this.GetComponent<IClipboardElementSelection>();
 		}
@@ -47,57 +44,30 @@ namespace Character.Creator.UI
 		{
 			_imageControl.CopyValuesFrom(realBookmark.GetComponent<IBookmarkImageControl>());
 			this.transform.position = realBookmark.transform.position;
+			_originalPos = this.transform.localPosition;
+			_originalRot = this.transform.localRotation;
 
 			var selectiontype = realBookmark.GetComponent<IClipboardElementSelection>().Type;
 			_elementSelection.Type = selectiontype;
 
-			_page = GetAssociatedPage(selectiontype);
-
 			_clipboardOrdering.SendToLayer(this.transform, ClipboardLayer.Back);
-		}
-
-		IPage GetAssociatedPage(ClipboardSelectionType type)
-		{
-			var root = this.GetComponentInParent<IClipboardSelection>().transform;
-
-			// We might have multiple pages corresponding to a real bookmark
-			// Map the fakebookmark to them based on index
-			var myIndex = root
-				.GetComponentsInChildren<FakeBookmark>()
-				.Where(b => b._elementSelection.Type == type)
-				.ToList()
-				.IndexOf(this);
-			var page = root
-				.GetComponentsInChildren<IPage>(true)
-				.Where(page => page.GetComponent<IClipboardElementSelection>().Type == type)
-				.ToArray()
-				[myIndex];
-			// Debug.Log($"{this.gameObject.name} bookmark found page {((Component)page).gameObject.name}");
-			return page;
 		}
 
 		private void Selected_OnChanged(bool wasSelected, bool isSelected)
 		{
-			if (!wasSelected) return;
-
-			_animation.Stop();
-			_clipboardOrdering.SendToLayer(this.transform, ClipboardLayer.Freefall);
-			this.gameObject.SetActive(true);
-			this.StopAndStartCoroutine(ref _freeFallCoroutine, FreeFall());
+			if (wasSelected)
+			{
+				this.gameObject.SetActive(true);
+				_clipboardOrdering.SendToLayer(this.transform, ClipboardLayer.Back);
+				ResetTransform();
+				_freeFallManager.FreeFall(this.transform);
+			}
 		}
 
-		IEnumerator FreeFall()
+		void ResetTransform()
 		{
-			_animMotionRoot.localPosition = Vector3.zero;
-			_animMotionRoot.localRotation = Quaternion.identity;
-			_page?.SetParent(_animMotionRoot);
-			_animation.Play();
-			yield return new WaitForSeconds(_animation.clip.length);
-			_animation.Stop();
-
-
-			// Still our parent? Disable this
-			_page?.DisableIfStillParented(_animMotionRoot);
+			this.transform.localPosition = _originalPos;
+			this.transform.localRotation = _originalRot;
 		}
 	}
 }
