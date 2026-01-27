@@ -1,10 +1,9 @@
-using Reactivity;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Character.Creator.UI
 {
-	public class Page : ReactiveBehaviour
+	public class Page : MonoBehaviour
 	{
 		[SerializeField] Image _tintImage;
 		[SerializeField] Color _startTintColor;
@@ -30,8 +29,15 @@ namespace Character.Creator.UI
 			_tintImage.color = Color.clear;
 			_tintImage.gameObject.SetActive(false);
 			this.gameObject.SetActive(false);
-			AddReflector(ReflectSelected);
+
+			bool isSelected = _elementSelection.Selected.Val;
+			_canvasGroup.interactable = isSelected;
+			this.gameObject.SetActive(isSelected);
+
+			_elementSelection.Selected.OnChanged += Selected_OnChanged;
 		}
+
+
 		private void OnEnable()
 		{
 			// The coroutine may have stopped when the whole clipboard was disabled
@@ -39,16 +45,14 @@ namespace Character.Creator.UI
 			_tintImage.color = Color.clear;
 		}
 
-		private void ReflectSelected()
+		private void Selected_OnChanged(bool arg1, bool isSelected)
 		{
-			bool isSelected = _elementSelection.Selected.Val;
 			_canvasGroup.interactable = isSelected;
-
-			_clipboardOrdering.SendToLayer(this.transform, isSelected ? ClipboardLayer.ActivePage : ClipboardLayer.Back);
 
 			if (isSelected)
 			{
 				this.gameObject.SetActive(true);
+				_clipboardOrdering.SendToLayer(this.transform, ClipboardLayer.ActivePage);
 				ResetTransform();
 
 				_tintImage.gameObject.SetActive(true);
