@@ -11,7 +11,7 @@ namespace Character.Creator.UI
 	{
 		[SerializeField] GameObject _visualOnlyPrefab;
 
-		private void Awake()
+		private void Start()
 		{
 			var fakeBookmark = Instantiate(_visualOnlyPrefab, this.transform.parent).GetComponent<IFakeBookmark>();
 			fakeBookmark.Setup(this.gameObject);
