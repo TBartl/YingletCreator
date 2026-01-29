@@ -26,7 +26,7 @@ namespace Character.Creator.UI
 			_button.onClick.AddListener(Button_OnClick);
 
 			_rootFolderProvider = Singletons.GetSingleton<ISaveFolderProvider>();
-			_characterCreatorFolderProvider = this.GetComponentInParent<ICharacterCreatorFolderProvider>();
+			_characterCreatorFolderProvider = Singletons.GetSingleton<ICharacterCreatorFolderProvider>();
 		}
 
 		private void OnDestroy()

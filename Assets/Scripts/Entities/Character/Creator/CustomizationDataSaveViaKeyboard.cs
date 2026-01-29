@@ -7,13 +7,13 @@ namespace Character.Creator
 		[SerializeField] private SoundEffect _soundEffect;
 		private IInputRestrictor _inputRestrictor;
 		private IAudioPlayer _audioPlayer;
-		private ICustomizationDiskIO _diskIO;
+		private ISelectedYingletDiskIO _diskIO;
 
 		private void Awake()
 		{
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
 			_audioPlayer = Singletons.GetSingleton<IAudioPlayer>();
-			_diskIO = this.GetComponent<ICustomizationDiskIO>();
+			_diskIO = this.GetComponent<ISelectedYingletDiskIO>();
 		}
 
 		void Update()

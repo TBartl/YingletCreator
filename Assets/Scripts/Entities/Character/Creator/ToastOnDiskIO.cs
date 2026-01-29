@@ -4,12 +4,12 @@ using UnityEngine;
 public class ToastOnDiskIO : MonoBehaviour
 {
 	private IToastManager _toastDisplay;
-	private ICustomizationDiskIO _diskIO;
+	private IYingletDiskIO _diskIO;
 
 	void Start()
 	{
 		_toastDisplay = Singletons.GetSingleton<IToastManager>();
-		_diskIO = this.GetComponent<ICustomizationDiskIO>();
+		_diskIO = this.GetComponent<IYingletDiskIO>();
 
 		_diskIO.OnSaved += DiskIO_OnSaved;
 		_diskIO.OnDeleted += DiskIO_OnDeleted;

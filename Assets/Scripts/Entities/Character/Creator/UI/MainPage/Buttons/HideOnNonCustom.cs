@@ -28,7 +28,7 @@ namespace Character.Creator.UI
             {
                 return false;
             }
-            return _selection.Selected.Group == CustomizationYingletGroup.Custom;
+            return _selection.Selected.Group == LocalYingletGroup.Custom;
         }
     }
 }

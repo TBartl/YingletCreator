@@ -7,7 +7,7 @@ namespace Character.Creator.UI
 	public class DeleteOnButtonClick : MonoBehaviour
 	{
 		private Button _button;
-		private ICustomizationDiskIO _diskIO;
+		private ISelectedYingletDiskIO _diskIO;
 		private ICharacterCreatorUndoManager _undoManager;
 		private IConfirmationManager _confirmationManager;
 
@@ -19,7 +19,7 @@ namespace Character.Creator.UI
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);
 
-			_diskIO = this.GetComponentInParent<ICustomizationDiskIO>();
+			_diskIO = this.GetComponentInParent<ISelectedYingletDiskIO>();
 			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
 			_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 		}

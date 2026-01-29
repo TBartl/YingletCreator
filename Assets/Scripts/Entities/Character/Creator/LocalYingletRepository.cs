@@ -10,16 +10,16 @@ namespace Character.Creator
 	/// This determines where it shows up on the main screen,
 	/// and enables / disables certain behavior
 	/// </summary>
-	public enum CustomizationYingletGroup
+	public enum LocalYingletGroup
 	{
 		Preset,
 		Custom,
 		// Autosave(?)
 	}
 
-	public interface ICustomizationYingletRepository
+	public interface ILocalYingletRepository
 	{
-		IEnumerable<CachedYingletReference> GetYinglets(CustomizationYingletGroup group);
+		IEnumerable<CachedYingletReference> GetYinglets(LocalYingletGroup group);
 		void AddNewCustom(CachedYingletReference reference);
 
 		/// <summary>
@@ -28,12 +28,12 @@ namespace Character.Creator
 		int DeleteCustom(CachedYingletReference reference);
 	}
 
-	public class CustomizationYingletRepository : MonoBehaviour, ICustomizationYingletRepository
+	public class LocalYingletRepository : MonoBehaviour, ILocalYingletRepository
 	{
 
-		private Dictionary<CustomizationYingletGroup, ObservableList<CachedYingletReference>> _yinglets = new();
+		private Dictionary<LocalYingletGroup, ObservableList<CachedYingletReference>> _yinglets = new();
 
-		public IEnumerable<CachedYingletReference> GetYinglets(CustomizationYingletGroup group)
+		public IEnumerable<CachedYingletReference> GetYinglets(LocalYingletGroup group)
 		{
 			return _yinglets[group];
 		}
@@ -46,10 +46,10 @@ namespace Character.Creator
 		void LoadAllYinglets()
 		{
 			var dataLoader = this.GetComponent<IStartupYingletDataLoader>();
-			LoadGroupYinglets(CustomizationYingletGroup.Preset);
-			LoadGroupYinglets(CustomizationYingletGroup.Custom);
+			LoadGroupYinglets(LocalYingletGroup.Preset);
+			LoadGroupYinglets(LocalYingletGroup.Custom);
 
-			void LoadGroupYinglets(CustomizationYingletGroup group)
+			void LoadGroupYinglets(LocalYingletGroup group)
 			{
 				var paths = dataLoader.LoadInitialYingData(group).ToArray();
 				var list = new ObservableList<CachedYingletReference>();
@@ -63,12 +63,12 @@ namespace Character.Creator
 
 		public void AddNewCustom(CachedYingletReference reference)
 		{
-			_yinglets[CustomizationYingletGroup.Custom].Add(reference);
+			_yinglets[LocalYingletGroup.Custom].Add(reference);
 		}
 
 		public int DeleteCustom(CachedYingletReference reference)
 		{
-			var list = _yinglets[CustomizationYingletGroup.Custom];
+			var list = _yinglets[LocalYingletGroup.Custom];
 			int index = list.IndexOf(reference);
 			if (index < 0)
 			{

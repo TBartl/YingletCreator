@@ -13,7 +13,7 @@ namespace Character.Creator
 	{
 		Observable<SerializableCustomizationData> _cachedData;
 
-		public CachedYingletReference(string path, SerializableCustomizationData cachedData, CustomizationYingletGroup group)
+		public CachedYingletReference(string path, SerializableCustomizationData cachedData, LocalYingletGroup group)
 		{
 			Path = path;
 			_cachedData = new Observable<SerializableCustomizationData>(cachedData);
@@ -33,20 +33,23 @@ namespace Character.Creator
 			}
 		}
 
-		public CustomizationYingletGroup Group { get; }
+		public LocalYingletGroup Group { get; }
 	}
 
 	/// <summary>
 	/// Provides mechanisms for reading / writing character customization data from the disk
 	/// </summary>
-	public interface ICustomizationDiskIO
+	public interface IYingletDiskIO
 	{
+		YingletDiskSaveResults Save(ObservableCustomizationData observableData, string lastFilePath);
+
+		CachedYingletReference Duplicate(ObservableCustomizationData observableData);
+
 		/// <summary>
-		/// Returns true if the save went through
+		/// Returns the index of what was deleted
 		/// </summary>
-		bool SaveSelected();
-		void DuplicateSelected();
-		void DeleteSelected();
+		int Delete(CachedYingletReference reference);
+
 		IEnumerable<CachedYingletReference> LoadInitialCustomYingData();
 
 		/// <summary>
@@ -60,44 +63,45 @@ namespace Character.Creator
 		/// Text is the name of the file
 		/// </summary>
 		event Action<string> OnDeleted;
-
 	}
 
-	public class CustomizationDiskIO : MonoBehaviour, ICustomizationDiskIO
+	public sealed class YingletDiskSaveResults
+	{
+		public SerializableCustomizationData SerializedData { get; }
+		public string NewPath { get; }
+		public YingletDiskSaveResults(SerializableCustomizationData serializedData, string newPath)
+		{
+			SerializedData = serializedData;
+			NewPath = newPath;
+		}
+	}
+
+
+	public class YingletDiskIO : MonoBehaviour, IYingletDiskIO
 	{
 		const string EXTENSION = ".yingsave";
 		const string DUPLICATE_SUFFIX = " - Copy";
 
-		private ICustomizationSelection _selectionReference;
-		private ICustomizationSelectedDataRepository _selectionData;
 		private ICharacterCreatorFolderProvider _locationProvider;
-		private ICustomizationYingletRepository _yingletRepository;
+		private ILocalYingletRepository _yingletRepository;
 
 		public event Action<string> OnSaved = delegate { };
 		public event Action<string> OnDeleted = delegate { }; // Added event implementation
 
 		void Awake()
 		{
-			_selectionReference = this.GetComponent<ICustomizationSelection>();
-			_selectionData = this.GetComponent<ICustomizationSelectedDataRepository>();
 			_locationProvider = this.GetComponent<ICharacterCreatorFolderProvider>();
-			_yingletRepository = this.GetComponent<ICustomizationYingletRepository>();
+			_yingletRepository = this.GetComponent<ILocalYingletRepository>();
 		}
 
-		public bool SaveSelected()
+		public YingletDiskSaveResults Save(ObservableCustomizationData observableData, string lastFilePath)
 		{
-			if (_selectionReference.Selected == null) return false;
-			var isPreset = _selectionReference.Selected.Group == CustomizationYingletGroup.Preset;
-			if (isPreset) return false;
-
 			// Serialize the data
-			var data = _selectionData.CustomizationData;
-			var serializedData = new SerializableCustomizationData(data);
+			var serializedData = new SerializableCustomizationData(observableData);
 
 			// Write it to disk
 			string rootFolder = _locationProvider.CustomFolderRoot;
-			string newYingletName = data.Name.Val;
-			var lastFilePath = _selectionReference.Selected.Path;
+			string newYingletName = observableData.Name.Val;
 			var newFilePath = GetUniqueAlphanumericFilePath(newYingletName, lastFilePath, rootFolder);
 			WriteToDisk(newFilePath, serializedData);
 
@@ -108,80 +112,62 @@ namespace Character.Creator
 				File.Delete(lastFilePath);
 			}
 
-			// Update our own reference
-			_selectionReference.Selected.CachedData = serializedData;
-			_selectionReference.Selected.Path = newFilePath;
-
-			_selectionReference.SelectionIsDirty = false;
-
 			OnSaved(Path.GetFileName(newFilePath));
-			return true;
+
+			return new YingletDiskSaveResults(serializedData, newFilePath);
 		}
 
-		public void DuplicateSelected()
+		public CachedYingletReference Duplicate(ObservableCustomizationData observableData)
 		{
 			// Serialize the data
-			var data = _selectionData.CustomizationData;
 			bool debugButtonsHeld = Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftControl);
 			if (!debugButtonsHeld)
 			{
-				data.Name.Val += DUPLICATE_SUFFIX;
+				observableData.Name.Val += DUPLICATE_SUFFIX;
 			}
-			var serializedData = new SerializableCustomizationData(data);
-			serializedData.CreationTime = debugButtonsHeld ? data.CreationTime : DateTime.Now;
+			var serializedData = new SerializableCustomizationData(observableData);
+			serializedData.CreationTime = debugButtonsHeld ? observableData.CreationTime : DateTime.Now;
 
 			// Write it to disk
 			string rootFolder = _locationProvider.CustomFolderRoot;
-			string newYingletName = data.Name.Val;
+			string newYingletName = observableData.Name.Val;
 			var newFilePath = GetUniqueAlphanumericFilePath(newYingletName, null, rootFolder);
 			WriteToDisk(newFilePath, serializedData);
 
 			// Create a new reference and select it
-			var newReference = new CachedYingletReference(newFilePath, serializedData, CustomizationYingletGroup.Custom);
+			var newReference = new CachedYingletReference(newFilePath, serializedData, LocalYingletGroup.Custom);
 			_yingletRepository.AddNewCustom(newReference);
-			_selectionReference.SetSelected(newReference);
 
 			OnSaved(Path.GetFileName(newFilePath));
+
+			return newReference;
 		}
 
-		public void DeleteSelected()
+		public int Delete(CachedYingletReference reference)
 		{
-			var filePath = _selectionReference.Selected.Path;
+			var filePath = reference.Path;
 
 			// Delete the file off disk
 			File.Delete(filePath);
 
 			// Remove the reference
-			int index = _yingletRepository.DeleteCustom(_selectionReference.Selected);
+			int index = _yingletRepository.DeleteCustom(reference);
 
 			// Edge case: Undo of a delete action
-			if (index == -1) return;
-
-			// Select an adjacent item
-			var customYinglets = _yingletRepository.GetYinglets(CustomizationYingletGroup.Custom);
-			if (customYinglets.Any())
-			{
-				int elementId = Mathf.Max(0, (index - 1) % customYinglets.Count());
-				var newSelection = customYinglets.ElementAt(elementId);
-				_selectionReference.SetSelected(newSelection);
-			}
-			else
-			{
-				var newSelection = _yingletRepository.GetYinglets(CustomizationYingletGroup.Preset).First();
-				_selectionReference.SetSelected(newSelection);
-
-
-			}
+			if (index == -1) return index;
 
 			// Fire the OnDeleted event
 			OnDeleted(Path.GetFileName(filePath));
+
+			return index;
+
 		}
 
 		public IEnumerable<CachedYingletReference> LoadInitialCustomYingData()
 		{
 			var filePaths = GetCustomYingPaths();
 			var references = filePaths
-				.Select(path => new CachedYingletReference(path, LoadData(path), CustomizationYingletGroup.Custom))
+				.Select(path => new CachedYingletReference(path, LoadData(path), LocalYingletGroup.Custom))
 				.ToList();
 
 			return references;

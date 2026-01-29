@@ -20,7 +20,6 @@ public class RestrictInputOnConfirmationManager : ReactiveBehaviour
 	{
 		if (_confirmationManager.Current.Val != null)
 		{
-			UnityEngine.Debug.Log("A");
 			// Want to restrict
 			if (_heldRestriction != null) return; // but we're already restricting
 			_heldRestriction = _inputRestrictor.RestrictInput();
