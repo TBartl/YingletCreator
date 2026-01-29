@@ -9,16 +9,16 @@ namespace Character.Creator
 
 	internal interface IStartupYingletDataLoader
 	{
-		IEnumerable<CachedYingletReference> LoadInitialYingData(CustomizationYingletGroup group);
+		IEnumerable<CachedYingletReference> LoadInitialYingData(LocalYingletGroup group);
 	}
 	internal class StartupYingletDataLoader : MonoBehaviour, IStartupYingletDataLoader
 	{
-		public IEnumerable<CachedYingletReference> LoadInitialYingData(CustomizationYingletGroup group)
+		public IEnumerable<CachedYingletReference> LoadInitialYingData(LocalYingletGroup group)
 		{
 			var data = group switch
 			{
-				CustomizationYingletGroup.Custom => LoadCustomYingData(),
-				CustomizationYingletGroup.Preset => LoadPresetYingData(),
+				LocalYingletGroup.Custom => LoadCustomYingData(),
+				LocalYingletGroup.Preset => LoadPresetYingData(),
 				_ => throw new System.NotImplementedException()
 			};
 			var dataList = data
@@ -30,7 +30,7 @@ namespace Character.Creator
 
 		IEnumerable<CachedYingletReference> LoadCustomYingData()
 		{
-			var diskIO = this.GetComponent<ICustomizationDiskIO>();
+			var diskIO = this.GetComponent<IYingletDiskIO>();
 			return diskIO.LoadInitialCustomYingData();
 		}
 
@@ -59,7 +59,7 @@ namespace Character.Creator
 				{
 					Debug.LogError($"Failed to read editor yinglet at path {path}");
 				}
-				return new CachedYingletReference(path, data, CustomizationYingletGroup.Preset);
+				return new CachedYingletReference(path, data, LocalYingletGroup.Preset);
 			});
 #endif
 
@@ -83,7 +83,7 @@ namespace Character.Creator
 					{
 						Debug.LogError($"Failed to read preset yinglet in mod {mod.name}");
 					}
-					loaded.Add(new CachedYingletReference("", data, CustomizationYingletGroup.Preset));
+					loaded.Add(new CachedYingletReference("", data, LocalYingletGroup.Preset));
 
 				}
 			}

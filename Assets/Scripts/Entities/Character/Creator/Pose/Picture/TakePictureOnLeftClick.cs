@@ -25,7 +25,7 @@ public class TakePictureOnLeftClick : MonoBehaviour, ITakePictureEvents
 	private void Start()
 	{
 		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
-		_locationProvider = this.GetComponentInParent<ICharacterCreatorFolderProvider>();
+		_locationProvider = Singletons.GetSingleton<ICharacterCreatorFolderProvider>();
 		_photoModeState = this.GetComponentInParent<IPhotoModeState>();
 		_mainCamera = this.GetComponentInChildren<Camera>();
 	}

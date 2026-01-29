@@ -18,17 +18,17 @@ namespace Character.Creator
 
 	public class CustomizationSelection : MonoBehaviour, ICustomizationSelection
 	{
-		private ICustomizationYingletRepository _yingletRepository;
+		private ILocalYingletRepository _yingletRepository;
 
 		private Observable<CachedYingletReference> _selected = new Observable<CachedYingletReference>();
 
 		void Awake()
 		{
-			_yingletRepository = this.GetComponent<ICustomizationYingletRepository>();
+			_yingletRepository = Singletons.GetSingleton<ILocalYingletRepository>();
 
 			// Try to select first preset, or first custom as a backup
-			var initialSelection = _yingletRepository.GetYinglets(CustomizationYingletGroup.Preset).FirstOrDefault();
-			if (initialSelection == null) initialSelection = _yingletRepository.GetYinglets(CustomizationYingletGroup.Custom).First();
+			var initialSelection = _yingletRepository.GetYinglets(LocalYingletGroup.Preset).FirstOrDefault();
+			if (initialSelection == null) initialSelection = _yingletRepository.GetYinglets(LocalYingletGroup.Custom).First();
 			_selected.Val = initialSelection;
 		}
 
