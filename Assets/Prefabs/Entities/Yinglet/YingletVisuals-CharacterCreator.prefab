@@ -389,159 +389,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &4381694553895274096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8569702060848219542}
-  - component: {fileID: 8426336795460753091}
-  - component: {fileID: 4406430959769813023}
-  m_Layer: 0
-  m_Name: Jiggle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8569702060848219542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381694553895274096}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3483825424591949376}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8426336795460753091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381694553895274096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d76f24409a39604ca3986f91ce6d28a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jiggleUpdateMode: 0
-  <blend>k__BackingField: 1
-  jiggleRigs:
-  - rootTransform: {fileID: 7505593345787760248}
-    jiggleSettings: {fileID: 11400000, guid: a54c4a3f8a22e374fbbcbf67b23a1624, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 0
-  - rootTransform: {fileID: 4975227180770014694}
-    jiggleSettings: {fileID: 11400000, guid: a54c4a3f8a22e374fbbcbf67b23a1624, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 0
-  - rootTransform: {fileID: 7843999868816274458}
-    jiggleSettings: {fileID: 11400000, guid: d8786e49a8f9b9c41b6a671cf6ddd094, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 1
-  - rootTransform: {fileID: 5670890397272141754}
-    jiggleSettings: {fileID: 11400000, guid: d8786e49a8f9b9c41b6a671cf6ddd094, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 1
-  - rootTransform: {fileID: 7117104524931132624}
-    jiggleSettings: {fileID: 11400000, guid: 1bbeffe18050b4f4bb6a8aab347d3d65, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 0
-  - rootTransform: {fileID: 7732381578745101015}
-    jiggleSettings: {fileID: 11400000, guid: 1bbeffe18050b4f4bb6a8aab347d3d65, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 0
-  - rootTransform: {fileID: 2524374941560906215}
-    jiggleSettings: {fileID: 11400000, guid: 1bbeffe18050b4f4bb6a8aab347d3d65, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 0
-  - rootTransform: {fileID: 8787887075649916229}
-    jiggleSettings: {fileID: 11400000, guid: 1bbeffe18050b4f4bb6a8aab347d3d65, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 0
-  - rootTransform: {fileID: 8699799648185244023}
-    jiggleSettings: {fileID: 11400000, guid: 8453343dc1dd9ea45871b016eb291455, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 1
-  - rootTransform: {fileID: 5041500456401345269}
-    jiggleSettings: {fileID: 11400000, guid: 8453343dc1dd9ea45871b016eb291455, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 1
-  - rootTransform: {fileID: 5337755601887432652}
-    jiggleSettings: {fileID: 11400000, guid: 35b04241e99870f408c8e19ec8b91c95, type: 2}
-    ignoredTransforms: []
-    colliders: []
-    animated: 1
-  wind: {x: 0, y: 0, z: 0}
-  debugDraw: 0
---- !u!114 &4406430959769813023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381694553895274096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38654cc4a19eee4aa5ac931aa4ad32b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseJiggleSettings: {fileID: 11400000, guid: a54c4a3f8a22e374fbbcbf67b23a1624, type: 2}
-  _sliderReference:
-    m_AssetGUID: fa3977f1c956dc44d8d6d73016c02006
-  _sliderValToBlendPercent:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.05
-      value: 0
-      inSlope: 2.7370129
-      outSlope: 2.7370129
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.107185245
-    - serializedVersion: 3
-      time: 0.45
-      value: 1
-      inSlope: 1.9370378
-      outSlope: 0
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.14815913
-      outWeight: 0.20535523
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &5692930480370429938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,4 +1156,110 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8194508176625653220, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
   m_PrefabInstance: {fileID: 597964421411788961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6997664893403915516
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3483825424591949376}
+    m_Modifications:
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[0].rootTransform
+      value: 
+      objectReference: {fileID: 7505593345787760248}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[1].rootTransform
+      value: 
+      objectReference: {fileID: 4975227180770014694}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[2].rootTransform
+      value: 
+      objectReference: {fileID: 7843999868816274458}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[3].rootTransform
+      value: 
+      objectReference: {fileID: 5670890397272141754}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[4].rootTransform
+      value: 
+      objectReference: {fileID: 7117104524931132624}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[5].rootTransform
+      value: 
+      objectReference: {fileID: 7732381578745101015}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[6].rootTransform
+      value: 
+      objectReference: {fileID: 2524374941560906215}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[7].rootTransform
+      value: 
+      objectReference: {fileID: 8787887075649916229}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[8].rootTransform
+      value: 
+      objectReference: {fileID: 8699799648185244023}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[9].rootTransform
+      value: 
+      objectReference: {fileID: 5041500456401345269}
+    - target: {fileID: 1579900964875416127, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: jiggleRigs.Array.data[10].rootTransform
+      value: 
+      objectReference: {fileID: 5337755601887432652}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760559305037898380, guid: ad8f1498b8832494089709f089e43734, type: 3}
+      propertyPath: m_Name
+      value: Jiggle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad8f1498b8832494089709f089e43734, type: 3}
+--- !u!4 &8569702060848219542 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1725162037266702698, guid: ad8f1498b8832494089709f089e43734, type: 3}
+  m_PrefabInstance: {fileID: 6997664893403915516}
   m_PrefabAsset: {fileID: 0}
