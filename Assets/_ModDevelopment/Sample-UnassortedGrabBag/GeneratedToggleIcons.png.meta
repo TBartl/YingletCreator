@@ -188,7 +188,7 @@ TextureImporter:
       name: Clothes-Tail-RaptorFeather
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 128
         width: 128
         height: 128
@@ -202,6 +202,28 @@ TextureImporter:
       bones: []
       spriteID: 78b4d2d7055949ccc5c0bfd127d6b46c
       internalID: -431514683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clothes-Uppergarment-TShirt (Long)
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eb794f65f195439b255accde924f6a
+      internalID: 3523319
       vertices: []
       indices: 
       edges: []
@@ -222,6 +244,7 @@ TextureImporter:
     nameFileIdTable:
       Clothes-Hat-Lopin: 1905013603082048140
       Clothes-Tail-RaptorFeather: -431514683
+      Clothes-Uppergarment-TShirt (Long): 3523319
       Face-Eye-Dots: 4651123433423607206
       Face-Eye-UI: 1906776177994786306
       Hair-Guile-Front: 6093341668059086432

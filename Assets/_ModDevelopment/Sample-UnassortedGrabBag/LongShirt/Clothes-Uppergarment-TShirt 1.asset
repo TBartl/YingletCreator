@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: Clothes-Uppergarment-TShirt 1
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: 964e901922f6f2d498fc0d264cb46c0d
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: 0000dbc734a9450498cd8155fc145a66
+  _grayscaleReference:
+    m_AssetGUID: 3d6fb82b34a83e940ab805c746bed22c
+  _maskReference:
+    m_AssetGUID: 
+  _tagReferences:
+  - m_AssetGUID: 915638ab6271a0443aa8b09c3bf608db
+  _order:
+    _groupReference:
+      m_AssetGUID: ebac865bd8dbe844994843dfb5c2f076
+    _index: 300
