@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee45e03f2dc3e2f4a82b3713ad9c84ac, type: 3}
+  m_Name: CG-Base
+  m_EditorClassIdentifier: 
+  _defaultColors:
+    _base:
+      _hue: 0.15151516
+      _saturation: 0.09282699
+      _value: 0.9294118
+    _shade:
+      _hue: 0.9166667
+      _saturation: 0.027027024
+      _value: 0.2901961
+  _autoColorWithGroup: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: Clothes-Tail-RaptorFeather-Trim (MT)
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: f30aac79d2ddf9d4db9f6bdb721c1e74
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: 28a7bdbab7ddf184e9c186d8044a91fb
+  _grayscaleReference:
+    m_AssetGUID: d04254b46fe7df74295059e358bb7a31
+  _maskReference:
+    m_AssetGUID: 
+  _tagReferences: []
+  _order:
+    _groupReference:
+      m_AssetGUID: 443a1033365b6394681c37f65c9f9016
+    _index: 2150
