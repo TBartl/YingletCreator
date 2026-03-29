@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: ShellTooth-Mutated
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: eebdf3d18fc8b3c49a496e16dccc8912
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: 047350e2a35df3c45a26cd141168ed10
+  _grayscaleReference:
+    m_AssetGUID: 2ef7edc77dc62484294d40cd153b567a
+  _maskReference:
+    m_AssetGUID: 
+  _tagReferences: []
+  _order:
+    _groupReference:
+      m_AssetGUID: 8a3db1afd20841f43b8136ad610f9307
+    _index: 800
