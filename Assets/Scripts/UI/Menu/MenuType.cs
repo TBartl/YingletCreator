@@ -1,21 +1,25 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [System.Serializable]
-public enum MenuTypeType
+public enum MenuCoverType
 {
 	None,
 	LeftSide,
-	CenterScreen
+	Everything
 }
 
 /// <summary>
-/// Marker interface for the type of menu, used in <see cref="IMenuManager"/>
+/// Mostly a marker interface for the currently open menu
+/// Has a few additional properties that are mostly set to drive consistent behavior around things like positioning and pressing escape
+/// Set in <see cref="IMenuManager"/>
 /// </summary>
 [CreateAssetMenu(fileName = "MenuType", menuName = "Scriptable Objects/GenericUI/MenuType")]
 public class MenuType : ScriptableObject
 {
-	[SerializeField] MenuTypeType _type = MenuTypeType.CenterScreen;
+	[FormerlySerializedAs("_type")]
+	[SerializeField] MenuCoverType _coverType = MenuCoverType.Everything;
 
-	public MenuTypeType Type => _type;
+	public MenuCoverType CoverType => _coverType;
 }

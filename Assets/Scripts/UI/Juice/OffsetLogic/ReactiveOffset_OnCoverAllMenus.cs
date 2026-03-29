@@ -2,7 +2,7 @@
 using Character.Creator.UI;
 using UnityEngine;
 
-internal class ReactiveOffset_OnCenteredMenus : MonoBehaviour, IReactiveOffsetMutator
+internal class ReactiveOffset_OnCoverAllMenus : MonoBehaviour, IReactiveOffsetMutator
 {
 	[SerializeField] Vector3 _offset = Vector3.zero;
 
@@ -15,7 +15,7 @@ internal class ReactiveOffset_OnCenteredMenus : MonoBehaviour, IReactiveOffsetMu
 
 	public Vector3 MutateOffset(Vector3 currentOffset)
 	{
-		if (_menuManager.OpenMenu.Val?.Type == MenuTypeType.CenterScreen)
+		if (_menuManager.OpenMenu.Val?.CoverType == MenuCoverType.Everything)
 		{
 			return _offset;
 		}
