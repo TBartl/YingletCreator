@@ -14009,9 +14009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2075270185}
   - component: {fileID: 2075270188}
-  - component: {fileID: 2075270187}
   - component: {fileID: 2075270186}
-  - component: {fileID: 2075270189}
   - component: {fileID: 2075270190}
   m_Layer: 0
   m_Name: Sounds
@@ -14049,19 +14047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pictureTaken: {fileID: 11400000, guid: f7ff928eb159c4a45abef09b2e9cc9cd, type: 2}
---- !u!114 &2075270187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075270184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5448b86f62b2574c8fb5921ad30dd8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundEffect: {fileID: 11400000, guid: 3e4f4e8d39e21ba4a8428fdb2f987ca0, type: 2}
 --- !u!114 &2075270188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14076,20 +14061,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selected: {fileID: 11400000, guid: 36f34cfbee9739a40b875110e2331463, type: 2}
   _unselected: {fileID: 11400000, guid: 7e0a91e7eaba529439e6cbde2269bfe6, type: 2}
---- !u!114 &2075270189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075270184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa5201e06ce5fb1429f8e82cebb2d221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _titleScreenMenu: {fileID: 11400000, guid: 0329cd955c934d14baa05133d0122aa7, type: 2}
-  _soundEffect: {fileID: 11400000, guid: 4a6a079b0af0a604a807143e07adfe7c, type: 2}
 --- !u!114 &2075270190
 MonoBehaviour:
   m_ObjectHideFlags: 0
