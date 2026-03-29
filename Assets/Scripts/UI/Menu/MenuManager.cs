@@ -3,21 +3,65 @@ using UnityEngine;
 
 /// <summary>
 /// Handles which "menu" is being shown
+/// Menus are now treated as a stack that things can be pushed / popped on
+/// This allows for nesting of menus, such as opening a settings menu on top of the pause menu, and then closing it to return to the pause menu
+/// But only one menu will ever be visible at a time
 /// </summary>
 public interface IMenuManager
 {
-	Observable<MenuType> OpenMenu { get; }
+	IReadOnlyObservable<MenuType> OpenMenu { get; }
+
+	void PushMenu(MenuType menuType);
+	void PopMenu();
 }
 
-public class MenuManager : MonoBehaviour, IMenuManager
+public class MenuManager : ReactiveBehaviour, IMenuManager
 {
-	[SerializeField] MenuType _defaultMenu;
+	[SerializeField] MenuType[] _defaultMenus;
 
-	Observable<MenuType> _openMenu;
-	public Observable<MenuType> OpenMenu => _openMenu;
+	// Optimization opportunity: Could create ObservableStack
+	ObservableList<MenuType> _menuStack = new();
+	Computed<MenuType> _topMostMenu;
+
+
+	public IReadOnlyObservable<MenuType> OpenMenu => _topMostMenu;
 
 	private void Awake()
 	{
-		_openMenu = new Observable<MenuType>(_defaultMenu);
+		foreach (var menu in _defaultMenus)
+		{
+			_menuStack.Add(menu);
+		}
+		_topMostMenu = CreateComputed(ComputeTopMostMenu);
+	}
+
+	private MenuType ComputeTopMostMenu()
+	{
+		return _menuStack[_menuStack.Count - 1];
+	}
+
+	public void PopMenu()
+	{
+		_menuStack.RemoveAt(_menuStack.Count - 1);
+		if (_menuStack.Count == 0)
+		{
+			Debug.LogError("Menu stack is empty! This should never happen");
+		}
+	}
+
+	public void PushMenu(MenuType menuType)
+	{
+		_menuStack.Add(menuType);
+	}
+}
+
+
+public static class MenuManagerExtensions
+{
+	public static void SwapTopToMenu(this IMenuManager menuManager, MenuType menuType)
+	{
+		using var suspend = new ReactivityNotificationSuspender();
+		menuManager.PopMenu();
+		menuManager.PushMenu(menuType);
 	}
 }

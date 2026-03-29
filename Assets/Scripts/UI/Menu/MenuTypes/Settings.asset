@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42e7ebb3b928214ca7ce48d4e08ad49, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
+  _coverType: 2
+  _popOnEscape: 1
+  _popOnNonUIClick: 1
+  _restrictGameInput: 1
+  _settingsSwapMenu: 1

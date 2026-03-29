@@ -20,6 +20,21 @@ public class MenuType : ScriptableObject
 {
 	[FormerlySerializedAs("_type")]
 	[SerializeField] MenuCoverType _coverType = MenuCoverType.Everything;
-
 	public MenuCoverType CoverType => _coverType;
+
+	[SerializeField] bool _popOnEscape = true;
+	public bool PopOnEscape => _popOnEscape;
+
+	[SerializeField] bool _popOnBackdropClicked = true;
+	public bool PopOnBackdropClicked => _popOnBackdropClicked;
+
+	[SerializeField] bool _restrictGameInput = true;
+	public bool RestrictGameInput => _restrictGameInput;
+
+	[SerializeField] bool _settingsSwapMenu = false;
+	/// <summary>
+	/// If true, this menu will be considered adjacent to other settings-like menus
+	/// And swapped instead of pushed when swapping between them (see <see cref="SwapToMenuOnClick"/>)
+	/// </summary>
+	public bool SettingsSwapMenu => _settingsSwapMenu;
 }
