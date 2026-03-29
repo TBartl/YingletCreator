@@ -1,18 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeMenuOnClick : MonoBehaviour
+public class SwapToMenuOnClick : MonoBehaviour
 {
 	[SerializeField] MenuType _menuType;
 
 	private Button _button;
 	private IMenuManager _menuManager;
-	private IDefaultMenuProvider _defaultMenuProvider;
 
 	void Awake()
 	{
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
-		_defaultMenuProvider = this.GetComponentInParent<IDefaultMenuProvider>();
 
 		_button = this.GetComponent<Button>();
 		_button.onClick.AddListener(Button_OnClick);
@@ -25,14 +23,20 @@ public class ChangeMenuOnClick : MonoBehaviour
 
 	private void Button_OnClick()
 	{
-		// Close it if it's already open
-		if (_menuManager.OpenMenu.Val == _menuType)
+		var openMenu = _menuManager.OpenMenu.Val;
+		if (openMenu == _menuType)
 		{
-			_menuManager.OpenMenu.Val = _defaultMenuProvider.DefaultMenu;
+			// Already on this, so pop back
+			_menuManager.PopMenu();
+		}
+		else if (openMenu.SettingsSwapMenu && _menuType.SettingsSwapMenu)
+		{
+			// Both are settings, so swap instead of pushing
+			_menuManager.SwapTopToMenu(_menuType);
 		}
 		else
 		{
-			_menuManager.OpenMenu.Val = _menuType;
+			_menuManager.PushMenu(_menuType);
 		}
 	}
 }

@@ -5,14 +5,16 @@ namespace Character.Creator.UI
 {
 	public class TogglePhotoModeOnKeyDown : MonoBehaviour
 	{
+		private IMenuManager _menuManager;
 		private IInputRestrictor _inputRestrictor;
-		private IPhotoModeState _photoModeState;
+		private IPhotoModeChecker _photoModeState;
 		private IInPoseModeChecker _inPoseMode;
 
 		private void Awake()
 		{
+			_menuManager = Singletons.GetSingleton<IMenuManager>();
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
-			_photoModeState = this.GetComponent<IPhotoModeState>();
+			_photoModeState = this.GetComponent<IPhotoModeChecker>();
 			_inPoseMode = this.GetComponentInChildren<IInPoseModeChecker>();
 		}
 
@@ -20,15 +22,19 @@ namespace Character.Creator.UI
 		{
 			if (!_inputRestrictor.InputAllowed) return; // Input not allowed
 
-			// Only allow switching in pose mode, or if we somehow got to this state outside of it
+			if (!Input.GetKeyDown(KeyCode.LeftControl)) return;// Key not pressed
+
 			bool isPoseMode = _inPoseMode.InPoseMode.Val;
-			bool inPhotoMode = _photoModeState.IsInPhotoMode.Val;
-			if (isPoseMode || inPhotoMode)
+			if (!isPoseMode) return; // Not on pose mode
+
+			var photoModeMenu = _photoModeState.PhotoModeMenu;
+			if (_menuManager.OpenMenu.Val == photoModeMenu)
 			{
-				if (Input.GetKeyDown(KeyCode.LeftControl))
-				{
-					_photoModeState.Toggle();
-				}
+				_menuManager.PopMenu();
+			}
+			else
+			{
+				_menuManager.PushMenu(photoModeMenu);
 			}
 		}
 	}

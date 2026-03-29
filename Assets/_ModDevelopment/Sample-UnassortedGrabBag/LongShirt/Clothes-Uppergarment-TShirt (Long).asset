@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Clothes-Uppergarment-TShirt (Long)
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 4bd445d313dccb242bf552416f9e06ba
+  _displayName: T-Shirt (Long)
+  _groupReferences:
+  - m_AssetGUID: 6dd32ec1f69e7f1408c7bfb987a0baba
+  _addedMeshReferences: []
+  _addedTextureReferences:
+  - m_AssetGUID: ddf39eb6ce740b148a670d008572fb75
+  _eyeTextures: {fileID: 0}
+  _roomPrefab: {fileID: 0}
+  _componentReferences:
+  - m_AssetGUID: 3960d8e88668e0540a7f990b457ce591
+  - m_AssetGUID: 173a28df5604e8a438d22f3f821fa8cc
+  _preview:
+    _sprite: {fileID: 3523319, guid: b09bb929ac5ec004888b0ab617410c9f, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: b90935c439f664d4ab38d0ae144eb3a6
+  _order:
+    _groupReference:
+      m_AssetGUID: d82494d7798c5ef40a1cc0bd98d1b45a
+    _index: 1001

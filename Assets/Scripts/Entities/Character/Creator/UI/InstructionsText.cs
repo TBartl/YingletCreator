@@ -19,7 +19,7 @@ namespace Character.Creator.UI
 		[SerializeField][TextArea] string _poseNoEditing;
 		[SerializeField][TextArea] string _poseEditingYing;
 		[SerializeField][TextArea] string _poseCameraMode;
-		private IPhotoModeState _photoModeState;
+		private IPhotoModeChecker _photoModeState;
 		private IInPoseModeChecker _inPoseMode;
 		private IPoseData _poseData;
 		private TMP_Text _text;
@@ -27,7 +27,7 @@ namespace Character.Creator.UI
 
 		void Start()
 		{
-			_photoModeState = this.GetComponentInParent<IPhotoModeState>();
+			_photoModeState = this.GetComponentInParent<IPhotoModeChecker>();
 			_inPoseMode = this.GetCharacterCreatorComponent<IInPoseModeChecker>();
 			_poseData = this.GetComponentInParent<IPoseData>();
 			_text = this.GetComponent<TMPro.TMP_Text>();
