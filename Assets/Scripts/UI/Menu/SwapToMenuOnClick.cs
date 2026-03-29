@@ -24,8 +24,14 @@ public class SwapToMenuOnClick : MonoBehaviour
 	private void Button_OnClick()
 	{
 		var openMenu = _menuManager.OpenMenu.Val;
-		if (openMenu.SettingsSwapMenu && _menuType.SettingsSwapMenu)
+		if (openMenu == _menuType)
 		{
+			// Already on this, so pop back
+			_menuManager.PopMenu();
+		}
+		else if (openMenu.SettingsSwapMenu && _menuType.SettingsSwapMenu)
+		{
+			// Both are settings, so swap instead of pushing
 			_menuManager.SwapTopToMenu(_menuType);
 		}
 		else
