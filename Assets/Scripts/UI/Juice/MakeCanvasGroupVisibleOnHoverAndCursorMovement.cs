@@ -6,7 +6,7 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 {
 	[SerializeField] SharedEaseSettings _easeSettings;
 	private IUiHoverManager _uiHoverManager;
-	private IPhotoModeState _photoModeState;
+	private IPhotoModeChecker _photoModeState;
 	private CanvasGroup _canvasGroup;
 	private Coroutine _transitionCoroutine;
 	private Observable<bool> _cursorMovedRecently = new(false);
@@ -19,7 +19,7 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 	private void Awake()
 	{
 		_uiHoverManager = Singletons.GetSingleton<IUiHoverManager>();
-		_photoModeState = this.GetComponentInParent<IPhotoModeState>();
+		_photoModeState = this.GetComponentInParent<IPhotoModeChecker>();
 		_canvasGroup = this.GetComponent<CanvasGroup>();
 		_canvasGroup.alpha = 0;
 	}

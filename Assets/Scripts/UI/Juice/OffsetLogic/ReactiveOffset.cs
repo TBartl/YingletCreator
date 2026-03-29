@@ -3,20 +3,38 @@ using UnityEngine;
 
 namespace Character.Creator.UI
 {
-	public interface IReactiveOffsetMutator
+	/// <summary>
+	/// We want more than just a Vector3: we want to know if this item is considered on-screen or not so we can optimize
+	/// </summary>
+	[System.Serializable]
+	public sealed class ReactiveOffsetValues
 	{
-		Vector3 MutateOffset(Vector3 currentOffset);
+		[SerializeField] bool _onScreen;
+		[SerializeField] Vector3 _offset;
+
+		/// <summary>
+		/// True if the this item is considered "onscreen" with this offset
+		/// If false, we will disable it for optimization when we've reached it
+		/// </summary>
+		public bool OnScreen => _onScreen;
+		public Vector3 Offset => _offset;
 	}
 
+	public interface IReactiveOffsetMutator
+	{
+		ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset);
+	}
 
 	public class ReactiveOffset : ReactiveBehaviour
 	{
 		[SerializeField] SharedEaseSettings _easeSettings;
+		[SerializeField] ReactiveOffsetValues _baseOffset;
+
 		private IReactiveOffsetMutator[] _mutators;
 		private Vector3 _originalPos;
 		private Coroutine _transitionCoroutine;
 
-		Computed<Vector3> _offsetTarget;
+		Computed<ReactiveOffsetValues> _offsetTarget;
 
 
 		// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,15 +44,15 @@ namespace Character.Creator.UI
 
 			_originalPos = this.transform.localPosition;
 
-			_offsetTarget = CreateComputed(ComputePhotoAndMenuState);
+			_offsetTarget = CreateComputed(ComputeOffset);
 
 			_offsetTarget.OnChanged += OnOffsetTargetChanged;
-			this.transform.localPosition = _originalPos + _offsetTarget.Val;
+			this.transform.localPosition = _originalPos + _offsetTarget.Val.Offset;
 		}
 
-		private Vector3 ComputePhotoAndMenuState()
+		private ReactiveOffsetValues ComputeOffset()
 		{
-			var offset = Vector3.zero;
+			var offset = _baseOffset;
 			foreach (var mutator in _mutators)
 			{
 				offset = mutator.MutateOffset(offset);
@@ -42,10 +60,10 @@ namespace Character.Creator.UI
 			return offset;
 		}
 
-		private void OnOffsetTargetChanged(Vector3 fromOffset, Vector3 toOffset)
+		private void OnOffsetTargetChanged(ReactiveOffsetValues fromOffset, ReactiveOffsetValues toOffset)
 		{
 			var fromPos = this.transform.localPosition;
-			var toPos = _originalPos + toOffset;
+			var toPos = _originalPos + toOffset.Offset;
 			this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, p => this.transform.localPosition = Vector3.LerpUnclamped(fromPos, toPos, p));
 		}
 	}

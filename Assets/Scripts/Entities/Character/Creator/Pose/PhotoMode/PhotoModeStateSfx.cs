@@ -7,12 +7,12 @@ namespace Character.Creator.UI
         [SerializeField] SoundEffect _soundEffect;
 
         private IAudioPlayer _audioPlayer;
-        private IPhotoModeState _photoModeState;
+        private IPhotoModeChecker _photoModeState;
 
         private void Awake()
         {
             _audioPlayer = Singletons.GetSingleton<IAudioPlayer>();
-            _photoModeState = this.GetComponentInParent<IPhotoModeState>();
+            _photoModeState = this.GetComponentInParent<IPhotoModeChecker>();
             _photoModeState.IsInPhotoMode.OnChanged += VisibilityControl_OnChanged;
         }
 

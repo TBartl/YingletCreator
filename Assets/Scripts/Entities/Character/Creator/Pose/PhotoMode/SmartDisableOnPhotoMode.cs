@@ -3,12 +3,12 @@ using Reactivity;
 
 public class SmartDisableOnNoUi : ReactiveBehaviour
 {
-	private IPhotoModeState _photoModeState;
+	private IPhotoModeChecker _photoModeState;
 	private ISmartDisabler _smartDisabler;
 
 	private void Start()
 	{
-		_photoModeState = this.GetComponentInParent<IPhotoModeState>();
+		_photoModeState = this.GetComponentInParent<IPhotoModeChecker>();
 		_smartDisabler = this.GetComponent<ISmartDisabler>();
 		AddReflector(Reflect);
 	}

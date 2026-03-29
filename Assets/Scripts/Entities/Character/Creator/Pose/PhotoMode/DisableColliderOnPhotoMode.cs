@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class DisableColliderOnPhotoMode : ReactiveBehaviour
 {
-	private IPhotoModeState _photoModeState;
+	private IPhotoModeChecker _photoModeState;
 	private Collider _collider;
 
 	private void Start()
 	{
-		_photoModeState = this.GetComponentInParent<IPhotoModeState>();
+		_photoModeState = this.GetComponentInParent<IPhotoModeChecker>();
 		_collider = this.GetComponent<Collider>();
 		AddReflector(Reflect);
 	}

@@ -1,14 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-
-
-[System.Serializable]
-public enum MenuCoverType
-{
-	None,
-	LeftSide,
-	Everything
-}
 
 /// <summary>
 /// Mostly a marker interface for the currently open menu
@@ -18,10 +8,6 @@ public enum MenuCoverType
 [CreateAssetMenu(fileName = "MenuType", menuName = "Scriptable Objects/GenericUI/MenuType")]
 public class MenuType : ScriptableObject
 {
-	[FormerlySerializedAs("_type")]
-	[SerializeField] MenuCoverType _coverType = MenuCoverType.Everything;
-	public MenuCoverType CoverType => _coverType;
-
 	[SerializeField] bool _popOnEscape = true;
 	public bool PopOnEscape => _popOnEscape;
 
