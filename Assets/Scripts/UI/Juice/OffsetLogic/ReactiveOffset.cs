@@ -30,6 +30,10 @@ namespace Character.Creator.UI
 		[SerializeField] SharedEaseSettings _easeSettings;
 		[SerializeField] ReactiveOffsetValues _baseOffset;
 
+		// Some things, like the Yinglet Creator clipboard, have some work to do right away while we're idling on the title screen
+		// Get that going immediately
+		[SerializeField] bool _forceEnabledOnStart = false;
+
 		private IReactiveOffsetMutator[] _mutators;
 		private Vector3 _originalPos;
 		private Coroutine _transitionCoroutine;
@@ -48,6 +52,10 @@ namespace Character.Creator.UI
 
 			_offsetTarget.OnChanged += OnOffsetTargetChanged;
 			this.transform.localPosition = _originalPos + _offsetTarget.Val.Offset;
+			if (!_forceEnabledOnStart && _offsetTarget.Val.OnScreen == false)
+			{
+				this.gameObject.SetActive(false);
+			}
 		}
 
 		private ReactiveOffsetValues ComputeOffset()
@@ -62,9 +70,22 @@ namespace Character.Creator.UI
 
 		private void OnOffsetTargetChanged(ReactiveOffsetValues fromOffset, ReactiveOffsetValues toOffset)
 		{
+			if (toOffset.OnScreen)
+			{
+				this.gameObject.SetActive(true);
+			}
+
 			var fromPos = this.transform.localPosition;
 			var toPos = _originalPos + toOffset.Offset;
-			this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, p => this.transform.localPosition = Vector3.LerpUnclamped(fromPos, toPos, p));
+			this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, p => this.transform.localPosition = Vector3.LerpUnclamped(fromPos, toPos, p), OnComplete);
+
+			void OnComplete()
+			{
+				if (toOffset.OnScreen == false)
+				{
+					this.gameObject.SetActive(false);
+				}
+			}
 		}
 	}
 }

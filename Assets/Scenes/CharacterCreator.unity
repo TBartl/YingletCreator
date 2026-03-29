@@ -1249,6 +1249,7 @@ MonoBehaviour:
   _baseOffset:
     _onScreen: 0
     _offset: {x: -916, y: 0, z: 0}
+  _forceEnabledOnStart: 1
 --- !u!114 &646700033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14135,6 +14136,7 @@ MonoBehaviour:
   _baseOffset:
     _onScreen: 0
     _offset: {x: 0, y: -150, z: 0}
+  _forceEnabledOnStart: 0
 --- !u!114 &2075589157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18263,7 +18265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623481570392247861, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366
+      value: 366.00003
       objectReference: {fileID: 0}
     - target: {fileID: 8976897511949000575, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchorMax.y

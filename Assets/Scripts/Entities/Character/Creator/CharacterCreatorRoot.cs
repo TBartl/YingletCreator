@@ -23,7 +23,7 @@ public static class CharacterCreatorRootExtensionMethods
 			return default(T);
 		}
 
-		var component = root.GetComponentInChildren<T>();
+		var component = root.GetComponentInChildren<T>(true);
 		if (component == null)
 		{
 			Debug.LogWarning($"Failed to get singleton component of type {type}; could not find a component");
