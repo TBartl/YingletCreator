@@ -55,4 +55,11 @@ public static class VectorExtensionMethods
 	{
 		return new Vector3(vector.x, 0, vector.z);
 	}
+
+	public static Quaternion SmoothTo(this Quaternion from, Quaternion to, float sharpness, float dt)
+	{
+		// exponential smoothing (frame-rate independent)
+		float t = 1f - Mathf.Exp(-sharpness * dt);
+		return Quaternion.Slerp(from, to, t);
+	}
 }

@@ -1,33 +1,58 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RotateToVelocity : MonoBehaviour
 {
-	[SerializeField] float _speedThreshold = 0.1f;
-	[SerializeField] float _rotationSpeed = 10f;
+	[Header("Y-Axis Rotation (Yaw)")]
+	[SerializeField] private float MIN_SPEED = 0.1f;
+	[SerializeField] private float YAW_SMOOTH = 10f;
+
+	[Header("XZ-Axis Tilt (Pitch/Roll)")]
+	[SerializeField] private float TILT_STRENGTH = 0.02f;
+	[SerializeField] private float TILT_SMOOTH = 10f;
 
 	private Rigidbody _rb;
+	private Vector3 _lastVelocity;
+	private Quaternion _yaw;
+	private Quaternion _tilt;
 
-	void Start()
+	void Awake()
 	{
-		_rb = GetComponentInParent<Rigidbody>();
+		_rb = this.GetComponentInParent<Rigidbody>();
+		_yaw = transform.rotation;
+		_tilt = Quaternion.identity;
+		_lastVelocity = _rb.linearVelocity;
 	}
 
-	void LateUpdate()
+	void Update()
 	{
-		Vector3 horizontalVelocity = _rb.linearVelocity.WithoutY();
-		float speed = horizontalVelocity.magnitude;
+		UpdateYaw();
+		UpdateTilt();
+		transform.rotation = _yaw * _tilt;
+	}
 
-		if (speed < _speedThreshold) return;
+	void UpdateYaw()
+	{
+		Vector3 flatVel = _rb.linearVelocity.WithoutY();
+		if (flatVel.sqrMagnitude > MIN_SPEED * MIN_SPEED)
+		{
+			Quaternion targetYaw = Quaternion.LookRotation(flatVel.normalized, Vector3.up);
+			_yaw = _yaw.SmoothTo(targetYaw, YAW_SMOOTH, Time.deltaTime);
+		}
+	}
 
-		Vector3 moveDirection = horizontalVelocity.normalized;
+	void UpdateTilt()
+	{
+		Vector3 accel = (_rb.linearVelocity - _lastVelocity) / Time.deltaTime;
+		_lastVelocity = _rb.linearVelocity;
 
-		Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up) * Quaternion.Euler(0, 180, 0);
+		// Convert acceleration into local space of the yaw (so tilt is relative to facing)
+		Vector3 localAccel = Quaternion.Inverse(_yaw) * accel;
 
-		// Smoothly rotate to face the movement direction
-		transform.rotation = Quaternion.Lerp(
-			transform.rotation,
-			targetRotation,
-			_rotationSpeed * Time.deltaTime
-		);
+		// Pitch (X) from forward accel (Z), Roll (Z) from sideways accel (X)
+		float pitch = -localAccel.z * TILT_STRENGTH;
+		float roll = localAccel.x * TILT_STRENGTH;
+
+		Quaternion targetTilt = Quaternion.Euler(pitch, 0f, roll);
+		_tilt = _tilt.SmoothTo(targetTilt, TILT_SMOOTH, Time.deltaTime);
 	}
 }
