@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae5b2e5748cc52243a2b3ece64edfce2, type: 3}
-  m_Name: Ease750msSmooth
+  m_Name: Ease400msDecelerate
   m_EditorClassIdentifier: 
   _curve:
     serializedVersion: 2
@@ -36,4 +36,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _duration: 0.75
+  _duration: 0.4

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae5b2e5748cc52243a2b3ece64edfce2, type: 3}
-  m_Name: Ease400msSmooth
+  m_Name: Ease1000msSuperDecelerate
   m_EditorClassIdentifier: 
   _curve:
     serializedVersion: 2
@@ -18,12 +18,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 4.930698
+      outSlope: 4.930698
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.11042003
+    - serializedVersion: 3
+      time: 0.2581376
+      value: 0.70218074
+      inSlope: 1.2176915
+      outSlope: 1.2176915
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
@@ -36,4 +45,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _duration: 0.4
+  _duration: 1

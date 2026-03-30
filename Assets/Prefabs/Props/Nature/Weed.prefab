@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2346732589264243466}
   - component: {fileID: 7771905041625831151}
   - component: {fileID: 4768968112571594971}
+  - component: {fileID: 7593020835169147214}
   m_Layer: 0
   m_Name: Weed
   m_TagString: Untagged
@@ -86,3 +87,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7593020835169147214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025521581378324418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39594e6f95707354299ac0424bf178f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obfuscate: 0
