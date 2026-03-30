@@ -50,4 +50,9 @@ public static class VectorExtensionMethods
 		result.Normalize();
 		return new Quaternion(result.x, result.y, result.z, result.w);
 	}
+
+	public static Vector3 WithoutY(this Vector3 vector)
+	{
+		return new Vector3(vector.x, 0, vector.z);
+	}
 }
