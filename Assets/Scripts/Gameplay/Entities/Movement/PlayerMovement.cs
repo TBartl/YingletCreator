@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		UpdateHorizontal();
+		UpdateVertical();
 	}
 
 
