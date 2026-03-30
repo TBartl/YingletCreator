@@ -8,6 +8,7 @@ public class YingletMovementAnimation : MonoBehaviour
 {
 	[SerializeField] float SPEED_THRESHOLD = 0.1f;
 	[SerializeField] float WALKING_ANIM_SPEED = 1f;
+	[SerializeField] float IDLE_TO_MOVE_BLEND_TIME = 0.25f;
 
 	static string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
 	static string WALKING_LAYER_NAME = "Walking";
@@ -20,7 +21,8 @@ public class YingletMovementAnimation : MonoBehaviour
 	private YingLayer _walkingLayer;
 	private int _moveCycleSpeedParam;
 
-
+	float _timeMoving = 0;
+	float _timeIdle = 0;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -35,20 +37,41 @@ public class YingletMovementAnimation : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate()
 	{
+
 		float speed = _rigidBody.linearVelocity.magnitude;
 		bool moving = speed > SPEED_THRESHOLD;
 
+		var idleWeight = UpdateAndGetIdleWeight(moving);
+
 		foreach (var layer in _idleLayers)
 		{
-			_animator.SetLayerWeight(layer.LayerIndex, moving ? 0 : layer.OriginalWeight);
+			_animator.SetLayerWeight(layer.LayerIndex, idleWeight * layer.OriginalWeight);
 		}
-		_animator.SetLayerWeight(_walkingLayer.LayerIndex, moving ? _walkingLayer.OriginalWeight : 0);
+		_animator.SetLayerWeight(_walkingLayer.LayerIndex, (1 - idleWeight) * _walkingLayer.OriginalWeight);
 		if (moving)
 		{
 			_animator.SetFloat(_moveCycleSpeedParam, speed * WALKING_ANIM_SPEED);
 		}
 	}
 
+	float UpdateAndGetIdleWeight(bool moving)
+	{
+		// Update these right away so we have some value immediately in a state change
+		_timeMoving += Time.deltaTime;
+		_timeIdle += Time.deltaTime;
+		var timeToUse = moving ? _timeMoving : _timeIdle;
+
+		if (moving)
+		{
+			_timeIdle = 0;
+			return 1 - timeToUse / IDLE_TO_MOVE_BLEND_TIME;
+		}
+		else
+		{
+			_timeMoving = 0;
+			return timeToUse / IDLE_TO_MOVE_BLEND_TIME;
+		}
+	}
 
 	class YingLayer
 	{

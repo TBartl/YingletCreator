@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] float _maxTargetSpeed;
+	[SerializeField] float _maxSpeed = 3;
+	[SerializeField] float _maxWalkSpeed = 1.5f;
 	[SerializeField] float _acceleration;
 	private Rigidbody _rb;
 
@@ -24,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
 		// Figure out the ideal speed
 		var targetDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		targetDirection = ClampMagnitude1(targetDirection); // Don't exceed 1
-		var targetVelocity = targetDirection * _maxTargetSpeed;
+
+		float maxSpeed = Input.GetKey(KeyCode.LeftShift) ? _maxWalkSpeed : _maxSpeed;
+
+		var targetVelocity = targetDirection * maxSpeed;
 
 		var currentHorizontalVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
 
