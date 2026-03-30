@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1436946774094094631, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593102246312170643, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593102246312170643, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593102246312170643, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.z
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 3340176986173614414, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48,9 +64,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3714467207208800925, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220637739984288358, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220637739984288358, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220637739984288358, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.z
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398803038478364722, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398803038478364722, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398803038478364722, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_Size.z
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 8273853820042922268, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
       propertyPath: m_Name
       value: Pot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620437576999414549, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.424
       objectReference: {fileID: 0}
     - target: {fileID: 8968051215194374059, guid: 1f9fc5be5a2e13e438d9d3ca19278fd0, type: 3}
       propertyPath: m_Mesh
