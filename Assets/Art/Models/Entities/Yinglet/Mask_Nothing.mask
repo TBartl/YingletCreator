@@ -1,0 +1,219 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mask_Nothing
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Antenna
+    m_Weight: 0
+  - m_Path: FluffChest
+    m_Weight: 0
+  - m_Path: FluffChest_Boobs
+    m_Weight: 0
+  - m_Path: FluffCrotch
+    m_Weight: 0
+  - m_Path: FluffElbow
+    m_Weight: 0
+  - m_Path: FluffKnee
+    m_Weight: 0
+  - m_Path: FluffShoulder
+    m_Weight: 0
+  - m_Path: Hair_Kass
+    m_Weight: 0
+  - m_Path: TailFluff
+    m_Weight: 0
+  - m_Path: YingletBody
+    m_Weight: 0
+  - m_Path: YingletBoobs
+    m_Weight: 0
+  - m_Path: YingletEars
+    m_Weight: 0
+  - m_Path: YingletEye_Left
+    m_Weight: 0
+  - m_Path: YingletEye_Right
+    m_Weight: 0
+  - m_Path: YingletHead
+    m_Weight: 0
+  - m_Path: YingletMouth
+    m_Weight: 0
+  - m_Path: YingletRig
+    m_Weight: 0
+  - m_Path: YingletRig/chest_pole
+    m_Weight: 0
+  - m_Path: YingletRig/face_ik
+    m_Weight: 0
+  - m_Path: YingletRig/root
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/breast.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/breast.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_index.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_index.01.L/f_index.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_index.01.L/f_index.02.L/f_index.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_middle.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_middle.01.L/f_middle.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_middle.01.L/f_middle.02.L/f_middle.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_ring.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_ring.01.L/f_ring.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/f_ring.01.L/f_ring.02.L/f_ring.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/thumb.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/thumb.01.L/thumb.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/thumb.01.L/thumb.02.L/thumb.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_index.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_index.01.R/f_index.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_index.01.R/f_index.02.R/f_index.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_middle.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_middle.01.R/f_middle.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_middle.01.R/f_middle.02.R/f_middle.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_ring.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_ring.01.R/f_ring.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/f_ring.01.R/f_ring.02.R/f_ring.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/thumb.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/thumb.01.R/thumb.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/thumb.01.R/thumb.02.R/thumb.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/spine.004
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/spine.004/spine.005
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/spine.004/spine.005/face
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/spine.004/spine.005/face/ear_L
+    m_Weight: 0
+  - m_Path: YingletRig/root/spine/spine.001/spine.002/spine.003/spine.004/spine.005/face/ear_R
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002/tail.003
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002/tail.003/tail.004
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002/tail.003/tail.004/tail.005
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002/tail.003/tail.004/tail.005/tail.006
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002/tail.003/tail.004/tail.005/tail.006/tail.007
+    m_Weight: 0
+  - m_Path: YingletRig/root/tail.001/tail.002/tail.003/tail.004/tail.005/tail.006/tail.007/tail.008
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_index.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_index.01.L/foot_index.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_index.01.L/foot_index.02.L/foot_index.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_middle.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_middle.01.L/foot_middle.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_middle.01.L/foot_middle.02.L/foot_middle.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_ring.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_ring.01.L/foot_ring.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_ring.01.L/foot_ring.02.L/foot_ring.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_thumb.01.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_thumb.01.L/foot_thumb.02.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.L/shin.L/foot.L/toe.L/foot_thumb.01.L/foot_thumb.02.L/foot_thumb.03.L
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_index.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_index.01.R/foot_index.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_index.01.R/foot_index.02.R/foot_index.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_middle.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_middle.01.R/foot_middle.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_middle.01.R/foot_middle.02.R/foot_middle.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_ring.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_ring.01.R/foot_ring.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_ring.01.R/foot_ring.02.R/foot_ring.03.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_thumb.01.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_thumb.01.R/foot_thumb.02.R
+    m_Weight: 0
+  - m_Path: YingletRig/root/thigh.R/shin.R/foot.R/toe.R/foot_thumb.01.R/foot_thumb.02.R/foot_thumb.03.R
+    m_Weight: 0
