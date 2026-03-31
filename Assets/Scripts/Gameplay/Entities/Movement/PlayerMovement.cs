@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float _maxSpeed = 3;
 	[SerializeField] float _maxWalkSpeed = 1.5f;
 	[SerializeField] float _acceleration;
+	[SerializeField] AnimationCurve _accelMultiplierByNormalizedVelocityDist;
 	private Rigidbody _rb;
 
 	private void Awake()
@@ -31,13 +32,18 @@ public class PlayerMovement : MonoBehaviour
 
 		var targetVelocity = targetDirection * maxSpeed;
 
-		var currentHorizontalVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+		var currentVelocity = _rb.linearVelocity.WithoutY();
 
 		// Get the difference between the current velocity and the ideal velocity
-		var velocityDifference = targetVelocity - currentHorizontalVelocity;
+		var velocityDifference = targetVelocity - currentVelocity;
+
+		// Get the difference between the current velocity and the ideal velocity
+		var normalizedVelocityDist = Mathf.Abs(Vector3.Distance(targetVelocity, currentVelocity)) / _maxSpeed;
+		var accelMultiplier = _accelMultiplierByNormalizedVelocityDist.Evaluate(normalizedVelocityDist);
+		var acceleration = _acceleration * accelMultiplier;
 
 		// Apply acceleration in the best way to get us from the current velocity to the ideal velocity
-		var accToApply = Mathf.Min(velocityDifference.magnitude / Time.fixedDeltaTime, _acceleration);
+		var accToApply = Mathf.Min(velocityDifference.magnitude / Time.fixedDeltaTime, acceleration);
 		_rb.AddForce(velocityDifference.normalized * accToApply, ForceMode.Acceleration);
 	}
 
