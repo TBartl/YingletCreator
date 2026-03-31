@@ -8,18 +8,22 @@ public class YingletMovementAnimation : MonoBehaviour
 {
 	[SerializeField] float SPEED_THRESHOLD = 0.1f;
 	[SerializeField] float WALKING_ANIM_SPEED = 1f;
+	[SerializeField] float RUNNING_ANIM_SPEED = 1.35f;
 	[SerializeField] float IDLE_TO_MOVE_BLEND_TIME = 0.25f;
+	[SerializeField] Vector2 WALK_TO_RUN_RANGE;
 
 	static string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
-	static string WALKING_LAYER_NAME = "Walking";
+	static string MOVING_LAYER_NAME = "Moving";
 	static string MOVE_CYCLE_SPEED_PARAM_NAME = "MoveCycleSpeed";
+	static string MOVE_TYPE_PARAM_NAME = "MoveType";
 
 	private Rigidbody _rigidBody;
 	private Animator _animator;
 
 	private IEnumerable<YingLayer> _idleLayers;
-	private YingLayer _walkingLayer;
+	private YingLayer _movingLayer;
 	private int _moveCycleSpeedParam;
+	private int _moveTypeParam;
 
 	float _timeMoving = 0;
 	float _timeIdle = 0;
@@ -30,8 +34,9 @@ public class YingletMovementAnimation : MonoBehaviour
 		_rigidBody = this.GetComponentInParent<Rigidbody>();
 		_animator = this.GetComponent<Animator>();
 		_idleLayers = IDLE_LAYER_NAMES.Select(layerName => new YingLayer(layerName, _animator)).ToArray();
-		_walkingLayer = new YingLayer(WALKING_LAYER_NAME, _animator);
+		_movingLayer = new YingLayer(MOVING_LAYER_NAME, _animator);
 		_moveCycleSpeedParam = Animator.StringToHash(MOVE_CYCLE_SPEED_PARAM_NAME);
+		_moveTypeParam = Animator.StringToHash(MOVE_TYPE_PARAM_NAME);
 	}
 
 	// Update is called once per frame
@@ -47,11 +52,15 @@ public class YingletMovementAnimation : MonoBehaviour
 		{
 			_animator.SetLayerWeight(layer.LayerIndex, idleWeight * layer.OriginalWeight);
 		}
-		_animator.SetLayerWeight(_walkingLayer.LayerIndex, (1 - idleWeight) * _walkingLayer.OriginalWeight);
+		_animator.SetLayerWeight(_movingLayer.LayerIndex, (1 - idleWeight) * _movingLayer.OriginalWeight);
 		if (moving)
 		{
-			_animator.SetFloat(_moveCycleSpeedParam, speed * WALKING_ANIM_SPEED);
+			float moveType = Mathf.Lerp(0, 1, (speed - WALK_TO_RUN_RANGE.x) / (WALK_TO_RUN_RANGE.y - WALK_TO_RUN_RANGE.x));
+			float animSpeed = Mathf.Lerp(WALKING_ANIM_SPEED, RUNNING_ANIM_SPEED, moveType);
+			_animator.SetFloat(_moveCycleSpeedParam, speed * animSpeed);
+			_animator.SetFloat(_moveTypeParam, moveType);
 		}
+
 	}
 
 	float UpdateAndGetIdleWeight(bool moving)

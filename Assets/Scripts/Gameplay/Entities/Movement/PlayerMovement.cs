@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 
 		// Figure out the ideal speed
-		var targetDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		var targetDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
 		targetDirection = ClampMagnitude1(targetDirection); // Don't exceed 1
 
 		float maxSpeed = Input.GetKey(KeyCode.LeftShift) ? _maxWalkSpeed : _maxSpeed;
