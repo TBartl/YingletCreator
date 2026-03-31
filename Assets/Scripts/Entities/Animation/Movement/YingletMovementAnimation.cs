@@ -64,12 +64,12 @@ public class YingletMovementAnimation : MonoBehaviour
 		if (moving)
 		{
 			_timeIdle = 0;
-			return 1 - timeToUse / IDLE_TO_MOVE_BLEND_TIME;
+			return Mathf.Clamp01(1 - timeToUse / IDLE_TO_MOVE_BLEND_TIME);
 		}
 		else
 		{
 			_timeMoving = 0;
-			return timeToUse / IDLE_TO_MOVE_BLEND_TIME;
+			return Mathf.Clamp01(timeToUse / IDLE_TO_MOVE_BLEND_TIME);
 		}
 	}
 
