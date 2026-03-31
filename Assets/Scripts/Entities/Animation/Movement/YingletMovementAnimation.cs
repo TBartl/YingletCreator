@@ -43,8 +43,8 @@ public class YingletMovementAnimation : MonoBehaviour
 	void LateUpdate()
 	{
 
-		float speed = _rigidBody.linearVelocity.magnitude;
-		bool moving = speed > SPEED_THRESHOLD;
+		float horizontalSpeed = _rigidBody.linearVelocity.WithoutY().magnitude;
+		bool moving = horizontalSpeed > SPEED_THRESHOLD;
 
 		var idleWeight = UpdateAndGetIdleWeight(moving);
 
@@ -55,9 +55,9 @@ public class YingletMovementAnimation : MonoBehaviour
 		_animator.SetLayerWeight(_movingLayer.LayerIndex, (1 - idleWeight) * _movingLayer.OriginalWeight);
 		if (moving)
 		{
-			float moveType = Mathf.Lerp(0, 1, (speed - WALK_TO_RUN_RANGE.x) / (WALK_TO_RUN_RANGE.y - WALK_TO_RUN_RANGE.x));
+			float moveType = Mathf.Lerp(0, 1, (horizontalSpeed - WALK_TO_RUN_RANGE.x) / (WALK_TO_RUN_RANGE.y - WALK_TO_RUN_RANGE.x));
 			float animSpeed = Mathf.Lerp(WALKING_ANIM_SPEED, RUNNING_ANIM_SPEED, moveType);
-			_animator.SetFloat(_moveCycleSpeedParam, speed * animSpeed);
+			_animator.SetFloat(_moveCycleSpeedParam, horizontalSpeed * animSpeed);
 			_animator.SetFloat(_moveTypeParam, moveType);
 		}
 
