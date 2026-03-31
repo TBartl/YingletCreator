@@ -11,16 +11,16 @@ public class RotateToVelocity : MonoBehaviour
 	[SerializeField] private float TILT_SMOOTH = 10f;
 
 	private Rigidbody _rb;
-	private Vector3 _lastVelocity;
+	private IAccelerationTracker _accelTracker;
 	private Quaternion _yaw;
 	private Quaternion _tilt;
 
 	void Awake()
 	{
 		_rb = this.GetComponentInParent<Rigidbody>();
+		_accelTracker = this.GetComponentInParent<IAccelerationTracker>();
 		_yaw = transform.rotation;
 		_tilt = Quaternion.identity;
-		_lastVelocity = _rb.linearVelocity;
 	}
 
 	void Update()
@@ -42,11 +42,8 @@ public class RotateToVelocity : MonoBehaviour
 
 	void UpdateTilt()
 	{
-		Vector3 accel = (_rb.linearVelocity - _lastVelocity) / Time.deltaTime;
-		_lastVelocity = _rb.linearVelocity;
-
 		// Convert acceleration into local space of the yaw (so tilt is relative to facing)
-		Vector3 localAccel = Quaternion.Inverse(_yaw) * accel;
+		Vector3 localAccel = Quaternion.Inverse(_yaw) * _accelTracker.AccelerationXZ;
 
 		// Pitch (X) from forward accel (Z), Roll (Z) from sideways accel (X)
 		float pitch = -localAccel.z * TILT_STRENGTH;
