@@ -2885,7 +2885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623481570392247861, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366
+      value: 366.00003
       objectReference: {fileID: 0}
     - target: {fileID: 8976897511949000575, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3567,15 +3567,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.9745504
-      outSlope: 0.9745504
+      inSlope: 0.91486186
+      outSlope: 0.91486186
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 58.53577
-      value: 57.04606
+      time: 84.582825
+      value: 77.3816
       inSlope: 0.9097923
       outSlope: 0.9097923
       tangentMode: 0
@@ -3583,8 +3583,8 @@ MonoBehaviour:
       inWeight: 0.11249953
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 104.67318
-      value: 77.81233
+      time: 130.72025
+      value: 98.14787
       inSlope: 0.018444804
       outSlope: 0.018444804
       tangentMode: 0
@@ -3595,11 +3595,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _chainWeights:
-  - {x: 0.65, y: 0.2}
-  - {x: 0.05, y: 0.15}
-  - {x: 0, y: 0.15}
-  - {x: 0, y: 0.15}
-  - {x: 0, y: 0.1}
+  - {x: 0.65, y: 0.24}
+  - {x: 0.05, y: 0.17}
+  - {x: 0, y: 0.17}
+  - {x: 0, y: 0.17}
+  - {x: 0, y: 0.12}
   SpringStrength: 40
   Damping: 7
 --- !u!4 &265563184 stripped
