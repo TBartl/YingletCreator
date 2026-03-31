@@ -5,7 +5,6 @@ public interface IPointTrackingLocationProvider
 {
 	IReadOnlyObservable<bool> Active { get; }
 	Vector3 Position { get; }
-	Vector3 ForwardDir { get; }
 }
 
 public class PointTrackingLocationProvider : MonoBehaviour, IPointTrackingLocationProvider
@@ -24,7 +23,7 @@ public class PointTrackingLocationProvider : MonoBehaviour, IPointTrackingLocati
 	public IReadOnlyObservable<bool> Active => _active;
 	public Vector3 Position { get; private set; }
 
-	public Vector3 ForwardDir => -_forwardProvider.forward;
+	Vector3 ForwardDir => -_forwardProvider.forward;
 
 	private void Awake()
 	{
