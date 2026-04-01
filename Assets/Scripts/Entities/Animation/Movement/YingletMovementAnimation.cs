@@ -11,6 +11,7 @@ public class YingletMovementAnimation : MonoBehaviour
 	[SerializeField] Vector2 WALK_TO_RUN_RANGE;
 
 	[Header("Vertical")]
+	[SerializeField] AnimationCurve VERTICAL_VELOCITY_TO_RISING_WEIGHT;
 
 
 	private Rigidbody _rigidBody;
@@ -45,6 +46,7 @@ public class YingletMovementAnimation : MonoBehaviour
 		if (!_collisionHandling.Grounded)
 		{
 			state = YingletAnimState.Airborne;
+			_animation.SetRising(VERTICAL_VELOCITY_TO_RISING_WEIGHT.Evaluate(_rigidBody.linearVelocity.y));
 		}
 		_animation.SetAnimState(state);
 	}

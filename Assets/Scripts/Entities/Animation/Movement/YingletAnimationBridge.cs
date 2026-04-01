@@ -19,6 +19,11 @@ public interface IYingletAnimationBridge
 	/// Which move cycle animation to play (0 = walk, 1 = run)
 	/// </summary>
 	public void SetMoveType(float moveType);
+
+	/// <summary>
+	/// If the user is rising (1) or falling (0). Only relevant in the air
+	/// </summary>
+	public void SetRising(float rising);
 }
 
 public enum YingletAnimState
@@ -35,6 +40,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
 	static readonly int MOVE_CYCLE_SPEED_PARAM = Animator.StringToHash("MoveCycleSpeed");
 	static readonly int MOVE_TYPE_PARAM = Animator.StringToHash("MoveType");
+	static readonly int RISING_PARAM = Animator.StringToHash("Rising");
 
 	static readonly int STATE_IDLE_ANIM = Animator.StringToHash("Idle");
 	static readonly int STATE_MOVING_ANIM = Animator.StringToHash("Moving");
@@ -99,6 +105,11 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	public void SetMoveType(float moveType)
 	{
 		_animator.SetFloat(MOVE_TYPE_PARAM, moveType);
+	}
+
+	public void SetRising(float rising)
+	{
+		_animator.SetFloat(RISING_PARAM, rising);
 	}
 
 	IEnumerator CrossFadeIdleLayers(bool toIdle)
