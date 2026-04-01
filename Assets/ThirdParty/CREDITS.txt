@@ -47,3 +47,5 @@ woosh.wav by freakinbehemoth -- https://freesound.org/s/243400/ -- License: Crea
 cameraflash.mp3 by seedlife -- https://freesound.org/s/371090/ -- License: Creative Commons 0
 Cute Bounce Jump.wav by Hemplock -- https://freesound.org/s/618961/ -- License: Creative Commons 0
 Hover 1 by plasterbrain -- https://freesound.org/s/237422/ -- License: Creative Commons 0
+
+footstep-grass.wav by swuing -- https://freesound.org/s/38874/ -- License: Attribution 3.0

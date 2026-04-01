@@ -29,6 +29,13 @@ public interface IYingletAnimationBridge
 	/// How activated the fall impact layer should be
 	/// </summary>
 	public void SetFallImpactWeight(float weight);
+
+	/// <summary>
+	/// Returns a value of how far along the move cycle animation is
+	/// This is a number where each whole number represents a full loop of the animation
+	/// Returns null if we're not playing the move cycle
+	/// </summary>
+	public float? GetMovingAnimTime();
 }
 
 public enum YingletAnimState
@@ -145,6 +152,17 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	public void SetFallImpactWeight(float weight)
 	{
 		_animator.SetLayerWeight(_fallImpactLayer.LayerIndex, Mathf.Lerp(0, _fallImpactLayer.OriginalWeight, weight));
+	}
+
+	public float? GetMovingAnimTime()
+	{
+		var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+
+		if (stateInfo.shortNameHash != STATE_MOVING_ANIM)
+		{
+			return null;
+		}
+		return stateInfo.normalizedTime;
 	}
 
 	class YingLayer
