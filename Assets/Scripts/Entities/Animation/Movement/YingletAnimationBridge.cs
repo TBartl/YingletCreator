@@ -24,6 +24,11 @@ public interface IYingletAnimationBridge
 	/// If the user is rising (1) or falling (0). Only relevant in the air
 	/// </summary>
 	public void SetRising(float rising);
+
+	/// <summary>
+	/// How activated the fall impact layer should be
+	/// </summary>
+	public void SetFallImpactWeight(float weight);
 }
 
 public enum YingletAnimState
@@ -38,6 +43,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	[SerializeField] float STATE_CHANGE_BLEND_TIME = 0.3f;
 
 	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
+	static readonly string FALL_IMPACT_LAYER_NAME = "FallImpact";
 	static readonly int MOVE_CYCLE_SPEED_PARAM = Animator.StringToHash("MoveCycleSpeed");
 	static readonly int MOVE_TYPE_PARAM = Animator.StringToHash("MoveType");
 	static readonly int RISING_PARAM = Animator.StringToHash("Rising");
@@ -51,6 +57,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	// The idle state is a bit special in that it has a few layers on top of it that we need to disable in addition to moving off the animation
 	// Keep track of those layers so we can transition them in and out
 	private YingLayer[] _idleLayers;
+	private YingLayer _fallImpactLayer;
 
 	YingletAnimState _currentState = YingletAnimState.Idle;
 	private Coroutine _idleBlendCoroutine;
@@ -59,6 +66,9 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	{
 		_animator = this.GetComponent<Animator>();
 		_idleLayers = IDLE_LAYER_NAMES.Select(layerName => new YingLayer(layerName, _animator)).ToArray();
+		_fallImpactLayer = new YingLayer(FALL_IMPACT_LAYER_NAME, _animator);
+
+		_animator.SetLayerWeight(_fallImpactLayer.LayerIndex, 0); // Default to 0
 	}
 
 	public void SetAnimState(YingletAnimState state)
@@ -130,6 +140,11 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		{
 			_animator.SetLayerWeight(layer.LayerIndex, Mathf.Lerp(0, layer.OriginalWeight, weight));
 		}
+	}
+
+	public void SetFallImpactWeight(float weight)
+	{
+		_animator.SetLayerWeight(_fallImpactLayer.LayerIndex, Mathf.Lerp(0, _fallImpactLayer.OriginalWeight, weight));
 	}
 
 	class YingLayer

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -12,18 +13,29 @@ public class YingletMovementAnimation : MonoBehaviour
 
 	[Header("Vertical")]
 	[SerializeField] AnimationCurve VERTICAL_VELOCITY_TO_RISING_WEIGHT;
-
+	[SerializeField] float MAX_IMPACT_TIME = .5f;
+	[SerializeField] AnimationCurve IMPACT_CURVE;
+	[SerializeField] float MIN_IMPACT_SPEED = 5.5f;
+	[SerializeField] float MAX_IMPACT_SPEED = 7f;
 
 	private Rigidbody _rigidBody;
 	private IPlayerCollisionHandling _collisionHandling;
 	private IYingletAnimationBridge _animation;
+	private Coroutine _impactGroundCoroutine;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		_rigidBody = this.GetComponentInParent<Rigidbody>();
 		_collisionHandling = this.GetComponentInParent<IPlayerCollisionHandling>();
+
+		_collisionHandling.OnImpactedGround += OnImpactedGround;
 		_animation = this.GetComponent<IYingletAnimationBridge>();
+	}
+
+	private void OnDestroy()
+	{
+		_collisionHandling.OnImpactedGround -= OnImpactedGround;
 	}
 
 	// Update is called once per frame
@@ -48,6 +60,25 @@ public class YingletMovementAnimation : MonoBehaviour
 			state = YingletAnimState.Airborne;
 			_animation.SetRising(VERTICAL_VELOCITY_TO_RISING_WEIGHT.Evaluate(_rigidBody.linearVelocity.y));
 		}
+
 		_animation.SetAnimState(state);
+	}
+
+	private void OnImpactedGround(float speed)
+	{
+		if (speed < MIN_IMPACT_SPEED) return;
+
+		this.StopAndStartCoroutine(ref _impactGroundCoroutine, ImpactGround(speed));
+	}
+	IEnumerator ImpactGround(float speed)
+	{
+		float fallIntensity = Mathf.Clamp01((speed - MIN_IMPACT_SPEED) / (MAX_IMPACT_SPEED - MIN_IMPACT_SPEED));
+		for (float t = 0; t < MAX_IMPACT_TIME; t += Time.deltaTime)
+		{
+			float p = t / MAX_IMPACT_TIME;
+			_animation.SetFallImpactWeight(fallIntensity * IMPACT_CURVE.Evaluate(p));
+			yield return null;
+		}
+		_animation.SetFallImpactWeight(0);
 	}
 }
