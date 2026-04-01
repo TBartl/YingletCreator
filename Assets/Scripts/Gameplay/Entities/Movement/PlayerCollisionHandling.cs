@@ -39,8 +39,6 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 
 	private void FixedUpdate()
 	{
-		Debug.Log($"Reset grounded");
-
 		Grounded = false;
 	}
 
@@ -73,7 +71,6 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 
 			return validCollision;
 		});
-		Debug.Log($"Touching solid: {touchingSolid}");
 		if (touchingSolid && Time.time > _lastJumpClearTime + .01f)
 		{
 			Grounded = true;

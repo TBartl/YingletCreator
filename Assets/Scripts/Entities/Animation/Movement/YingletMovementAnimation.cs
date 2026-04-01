@@ -42,7 +42,6 @@ public class YingletMovementAnimation : MonoBehaviour
 			_animation.SetMoveType(moveType);
 		}
 
-		Debug.Log(_collisionHandling.Grounded);
 		if (!_collisionHandling.Grounded)
 		{
 			state = YingletAnimState.Airborne;
