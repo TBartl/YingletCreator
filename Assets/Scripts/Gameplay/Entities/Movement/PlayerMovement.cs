@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
 	void UpdateVertical()
 	{
-		Debug.Log("Vertical Speed: " + _rb.linearVelocity.y);
 		float gravity = GRAVITY;
 		if (UseLowGravity())
 		{

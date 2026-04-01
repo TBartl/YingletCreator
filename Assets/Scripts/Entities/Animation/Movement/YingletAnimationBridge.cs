@@ -1,0 +1,131 @@
+using System.Collections;
+using System.Linq;
+using UnityEngine;
+
+/// <summary>
+/// Bridges the gap between the Animator and any logic that wants to drive it
+/// Designed to handle things like getting layer / clip IDs
+/// </summary>
+public interface IYingletAnimationBridge
+{
+	public void SetAnimState(YingletAnimState state);
+
+	/// <summary>
+	/// How fast the move cycle animation should be playing
+	/// </summary>
+	public void SetMoveCycleSpeed(float horizontalSpeed);
+
+	/// <summary>
+	/// Which move cycle animation to play (0 = walk, 1 = run)
+	/// </summary>
+	public void SetMoveType(float moveType);
+}
+
+public enum YingletAnimState
+{
+	Idle,
+	Moving
+}
+
+public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
+{
+	[SerializeField] float STATE_CHANGE_BLEND_TIME = 0.3f;
+
+	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
+	static readonly int MOVE_CYCLE_SPEED_PARAM = Animator.StringToHash("MoveCycleSpeed");
+	static readonly int MOVE_TYPE_PARAM = Animator.StringToHash("MoveType");
+
+	static readonly int STATE_IDLE_ANIM = Animator.StringToHash("Idle");
+	static readonly int STATE_MOVING_ANIM = Animator.StringToHash("Moving");
+
+	private Animator _animator;
+
+	// The idle state is a bit special in that it has a few layers on top of it that we need to disable in addition to moving off the animation
+	// Keep track of those layers so we can transition them in and out
+	private YingLayer[] _idleLayers;
+
+	YingletAnimState _currentState = YingletAnimState.Idle;
+	private Coroutine _idleBlendCoroutine;
+
+	private void Awake()
+	{
+		_animator = this.GetComponent<Animator>();
+		_idleLayers = IDLE_LAYER_NAMES.Select(layerName => new YingLayer(layerName, _animator)).ToArray();
+	}
+
+	public void SetAnimState(YingletAnimState state)
+	{
+		if (_currentState == state) return;
+		var lastState = _currentState;
+		_currentState = state;
+
+		_animator.CrossFade(GetAnimForState(state), STATE_CHANGE_BLEND_TIME);
+
+		// Idle state has some extra layers that need to be blended in and out, so handle that with a coroutine
+		if (state == YingletAnimState.Idle)
+		{
+			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(true));
+		}
+		else if (lastState == YingletAnimState.Idle)
+		{
+			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(false));
+		}
+	}
+
+	private int GetAnimForState(YingletAnimState state)
+	{
+		return state switch
+		{
+			YingletAnimState.Idle => STATE_IDLE_ANIM,
+			YingletAnimState.Moving => STATE_MOVING_ANIM,
+			_ => throw new System.Exception($"Unsupported state {state}")
+		};
+	}
+
+	private void OnDisable()
+	{
+		// Incase disabling stopped the coroutines
+		SetIdleLayerWeights(_currentState == YingletAnimState.Idle ? 1 : 0);
+	}
+
+	public void SetMoveCycleSpeed(float horizontalSpeed)
+	{
+		_animator.SetFloat(MOVE_CYCLE_SPEED_PARAM, horizontalSpeed);
+	}
+
+	public void SetMoveType(float moveType)
+	{
+		_animator.SetFloat(MOVE_TYPE_PARAM, moveType);
+	}
+
+	IEnumerator CrossFadeIdleLayers(bool toIdle)
+	{
+		for (float t = Time.deltaTime; t < STATE_CHANGE_BLEND_TIME; t += Time.deltaTime)
+		{
+			float p = t / STATE_CHANGE_BLEND_TIME;
+			if (!toIdle) p = 1 - p;
+			SetIdleLayerWeights(p);
+			yield return null;
+		}
+		SetIdleLayerWeights(toIdle ? 1 : 0);
+	}
+
+	void SetIdleLayerWeights(float weight)
+	{
+		foreach (var layer in _idleLayers)
+		{
+			_animator.SetLayerWeight(layer.LayerIndex, Mathf.Lerp(0, layer.OriginalWeight, weight));
+		}
+	}
+
+	class YingLayer
+	{
+		public YingLayer(string name, Animator animator)
+		{
+			LayerIndex = animator.GetLayerIndex(name);
+			OriginalWeight = animator.GetLayerWeight(LayerIndex);
+		}
+		public int LayerIndex { get; }
+		public float OriginalWeight { get; }
+	}
+}
