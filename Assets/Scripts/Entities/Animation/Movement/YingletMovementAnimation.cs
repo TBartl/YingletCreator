@@ -14,12 +14,14 @@ public class YingletMovementAnimation : MonoBehaviour
 
 
 	private Rigidbody _rigidBody;
+	private IPlayerCollisionHandling _collisionHandling;
 	private IYingletAnimationBridge _animation;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		_rigidBody = this.GetComponentInParent<Rigidbody>();
+		_collisionHandling = this.GetComponentInParent<IPlayerCollisionHandling>();
 		_animation = this.GetComponent<IYingletAnimationBridge>();
 	}
 
@@ -40,6 +42,11 @@ public class YingletMovementAnimation : MonoBehaviour
 			_animation.SetMoveType(moveType);
 		}
 
+		Debug.Log(_collisionHandling.Grounded);
+		if (!_collisionHandling.Grounded)
+		{
+			state = YingletAnimState.Airborne;
+		}
 		_animation.SetAnimState(state);
 	}
 }
