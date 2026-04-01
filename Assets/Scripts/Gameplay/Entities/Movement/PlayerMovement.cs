@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float LOW_GRAVITY_VELOCITY_PEAK = 7.73f;
 
 	private Rigidbody _rb;
+	private IPlayerCollisionHandling _collisionHandling;
 	private float _jumpInputTime = -100;
 
 	private void Awake()
 	{
 		_rb = this.GetComponent<Rigidbody>();
+		_collisionHandling = this.GetComponent<IPlayerCollisionHandling>();
 	}
 	void Update()
 	{
@@ -72,17 +74,16 @@ public class PlayerMovement : MonoBehaviour
 		}
 		_rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
+		if (!_collisionHandling.CanJump) return;
+
 		bool jumpRecentlyPressed = Time.time < _jumpInputTime + JUMP_BUFFER_TIME;
-
 		if (!jumpRecentlyPressed) return;
-
-		//if (!_collisionHandling.CanJump) return;
 
 		Vector3 vel = _rb.linearVelocity;
 		vel.y = JUMP_SPEED;
 		_rb.linearVelocity = vel;
 
-		//_collisionHandling.ClearCanJump();
+		_collisionHandling.ClearCanJump();
 		_jumpInputTime = 0;
 	}
 
