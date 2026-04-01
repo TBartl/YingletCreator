@@ -58,9 +58,7 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 		{
 			//var material = contact.collider.sharedMaterial ?? contact.rigidbody?.sharedMaterial;
 
-			// Gotta add Vector3.up because the rb as a point at our feet
-			Vector3 dir = (contact.point - (_rb.position + Vector3.up)).normalized;
-			float verticalDot = Vector3.Dot(Vector3.down, dir);
+			float verticalDot = Vector3.Dot(Vector3.up, contact.normal);
 
 			if (verticalDot > GROUND_DOT && other.relativeVelocity.y > VEL_IMPACT_THRESHOLD)
 			{
