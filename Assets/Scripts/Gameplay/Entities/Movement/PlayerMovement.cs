@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
 		{
 			_jumpInputTime = Time.time;
 		}
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 	bool UseLowGravity()
 	{
 		// User not holding jump any more? Full gravity
-		if (!Input.GetKey(KeyCode.Space)) return false;
+		if (!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.JoystickButton0)) return false;
 
 		// Passed peak of jump? Full gravity
 		if (_rb.linearVelocity.y < LOW_GRAVITY_VELOCITY_PEAK) return false;
