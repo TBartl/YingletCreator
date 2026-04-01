@@ -1,6 +1,12 @@
+using System;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public interface IPlayerMovement
+{
+	event Action<Vector3> OnJump;
+}
+
+public class PlayerMovement : MonoBehaviour, IPlayerMovement
 {
 	[Header("Horizontal")]
 	[SerializeField] float MAX_RUN_SPEED = 3.8f;
@@ -18,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody _rb;
 	private IPlayerCollisionHandling _collisionHandling;
 	private float _jumpInputTime = -100;
+
+	public event Action<Vector3> OnJump = delegate { };
 
 	private void Awake()
 	{
@@ -83,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
 		vel.y = JUMP_SPEED;
 		_rb.linearVelocity = vel;
 
+		OnJump(vel);
 		_collisionHandling.ClearCanJump();
 		_jumpInputTime = 0;
 	}

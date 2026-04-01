@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AudioFootsteps : MonoBehaviour
+public class PlaySoundOnFootsteps : MonoBehaviour
 {
 	[SerializeField] private SoundEffect _soundEffect;
 	[SerializeField] float OFFSET = .25f;
@@ -29,8 +29,6 @@ public class AudioFootsteps : MonoBehaviour
 		// We want to play a step sound at .25 and .75, so we add .25 to the time and then multiply by 2 to get a number where each whole number is a step
 		// Slightly adjust down from .25f to better line up with audio
 		int stepIndex = Mathf.FloorToInt((animTime.Value + OFFSET) * 2);
-		Debug.Log($"Anim time: {animTime}, step index: {stepIndex}");
-
 
 		if (stepIndex != _lastStepIndex)
 		{
