@@ -9,34 +9,28 @@ public class CharacterParticles : MonoBehaviour
 	[SerializeField] GameObject _landParticles;
 	[SerializeField] GameObject _runParticles;
 
+	IFootstepTracker _footstepTracker;
 	ICharacterMovement _movement;
 	ICharacterCollisionHandling _collisionHandling;
 	Rigidbody rb;
 
-	float distanceUntilRunParticle;
-
 	void Awake()
 	{
+		_footstepTracker = this.GetComponentInParent<IFootstepTracker>();
 		_movement = this.GetComponentInParent<ICharacterMovement>();
 		_collisionHandling = this.GetComponentInParent<ICharacterCollisionHandling>();
 		rb = this.GetComponentInParent<Rigidbody>();
 
+		_footstepTracker.OnFootstep += OnFootstep;
 		_movement.OnJump += OnJump;
 		_collisionHandling.OnImpactedGround += OnImpactedGround;
 	}
 
-
-	void LateUpdate()
+	private void OnFootstep(Vector3 vector)
 	{
-		distanceUntilRunParticle -= Mathf.Abs(rb.linearVelocity.x) * Time.deltaTime;
-		if (_collisionHandling.Grounded && distanceUntilRunParticle < 0)
-		{
-			//Vector3 point = _collisionHandling.LastGroundedCollisionPoint;
-			Vector3 point = this.transform.position;
-			Instantiate(_runParticles, point, Quaternion.identity);
-			distanceUntilRunParticle = DISTANCE_BETWEEN_RUN_PARTICLES;
-		}
+		Instantiate(_runParticles, this.transform.position, Quaternion.identity);
 	}
+
 	void OnJump(Vector3 velocity)
 	{
 		Instantiate(_jumpParticles, this.transform.position, Quaternion.FromToRotation(Vector3.up, rb.linearVelocity));
