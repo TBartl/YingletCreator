@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Land-Grass
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: fb6f85228d319c94fbd874c32787fee6, type: 3}
-  _volume: 0.6
+  _volume: 0.7
   _randomPitchRange: {x: 0.7, y: 0.8}

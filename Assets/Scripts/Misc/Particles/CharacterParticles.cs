@@ -4,6 +4,7 @@ public class CharacterParticles : MonoBehaviour
 {
 	[SerializeField] float DISTANCE_BETWEEN_RUN_PARTICLES = .3f;
 	[SerializeField] float MAX_LAND_SPEED = 6;
+	[SerializeField] float MIN_LAND_SPEED = 4;
 
 	[SerializeField] GameObject _jumpParticles;
 	[SerializeField] GameObject _landParticles;
@@ -38,6 +39,10 @@ public class CharacterParticles : MonoBehaviour
 
 	private void OnImpactedGround(PhysicsMaterial material, float speed)
 	{
+		if (speed < MIN_LAND_SPEED)
+		{
+			return;
+		}
 		Vector3 point = this.transform.position;
 		//Quaternion rotation = Quaternion.FromToRotation(Vector3.up, (_collisionHandling.transform.position - point).normalized);
 		Quaternion rotation = Quaternion.identity;
