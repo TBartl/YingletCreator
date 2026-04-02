@@ -5,12 +5,12 @@ public class PlaySoundOnJump : MonoBehaviour
 	[SerializeField] private SoundEffect _soundEffect;
 
 	private AudioPlayer _audioPlayer;
-	private IPlayerMovement _playerMovement;
+	private ICharacterMovement _playerMovement;
 
 	void Start()
 	{
 		_audioPlayer = Singletons.GetSingleton<AudioPlayer>();
-		_playerMovement = this.GetCharacterRootComponent<IPlayerMovement>();
+		_playerMovement = this.GetCharacterRootComponent<ICharacterMovement>();
 		_playerMovement.OnJump += OnJump;
 	}
 

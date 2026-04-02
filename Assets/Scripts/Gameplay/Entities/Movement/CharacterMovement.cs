@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-public interface IPlayerMovement
+public interface ICharacterMovement
 {
 	event Action<Vector3> OnJump;
 }
 
-public class PlayerMovement : MonoBehaviour, IPlayerMovement
+public class CharacterMovement : MonoBehaviour, ICharacterMovement
 {
 	[Header("Horizontal")]
 	[SerializeField] float MAX_RUN_SPEED = 3.8f;
