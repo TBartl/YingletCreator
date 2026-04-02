@@ -7,7 +7,7 @@ public interface IPlayerCollisionHandling
 	bool CanJump { get; }
 	bool Grounded { get; }
 	void ClearCanJump();
-	UnityAction<float> OnImpactedGround { get; set; }
+	UnityAction<PhysicsMaterial, float> OnImpactedGround { get; set; }
 }
 public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 {
@@ -20,7 +20,7 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 
 	public bool CanJump { get; private set; } = true;
 	public bool Grounded { get; private set; }
-	public UnityAction<float> OnImpactedGround { get; set; } = delegate { };
+	public UnityAction<PhysicsMaterial, float> OnImpactedGround { get; set; } = delegate { };
 
 	float _lastJumpClearTime = 0; // The player stays on the ground the frame they jump, this prevents that from giving them another jump
 
@@ -56,13 +56,13 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 	{
 		bool touchingSolid = other.contacts.Any(contact =>
 		{
-			//var material = contact.collider.sharedMaterial ?? contact.rigidbody?.sharedMaterial;
+			var material = contact.otherCollider.sharedMaterial;
 
 			float verticalDot = Vector3.Dot(Vector3.up, contact.normal);
 
 			if (verticalDot > GROUND_DOT && other.relativeVelocity.y > VEL_IMPACT_THRESHOLD)
 			{
-				OnImpactedGround(other.relativeVelocity.y);
+				OnImpactedGround(material, other.relativeVelocity.y);
 			}
 
 			bool validCollision = verticalDot > GROUND_DOT;

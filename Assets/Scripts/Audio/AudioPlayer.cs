@@ -25,7 +25,7 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
 		var source = go.AddComponent<AudioSource>();
 		source.clip = soundEffect.Clip;
 		source.loop = false;
-		source.volume = Mathf.Min(1, soundEffect.Volume); // Might eventually need to multiply this by some input for dynamic sound effects
+		source.volume = Mathf.Min(1, soundEffect.Volume * options.Volume);
 		source.pitch = Random.Range(soundEffect.RandomPitchRange.x, soundEffect.RandomPitchRange.y);
 		source.outputAudioMixerGroup = _mixerProvider.SoundEffectsGroup;
 		source.Play();
@@ -44,4 +44,6 @@ public class AudioPlayOptions
 	/// Default true
 	/// </summary>
 	public bool AutoDestroy { get; set; } = true;
+
+	public float Volume { get; set; } = 1f;
 }
