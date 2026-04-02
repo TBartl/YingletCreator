@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CharacterParticles : MonoBehaviour
 {
-	[SerializeField] float DISTANCE_BETWEEN_RUN_PARTICLES = .3f;
 	[SerializeField] float MAX_LAND_SPEED = 6;
 	[SerializeField] float MIN_LAND_SPEED = 4;
 

@@ -11,7 +11,7 @@ public interface IFootstepTracker
 
 public class FootstepTracker : MonoBehaviour, IFootstepTracker
 {
-
+	private ICharacterCollisionHandling _collisionHandling;
 	private IYingletAnimationBridge _animation;
 
 	// Track which step we last played (0 or 1 for .25 and .75)
@@ -23,6 +23,7 @@ public class FootstepTracker : MonoBehaviour, IFootstepTracker
 	void Start()
 	{
 		_animation = this.GetCharacterRootComponent<IYingletAnimationBridge>();
+		_collisionHandling = this.GetComponentInParent<ICharacterCollisionHandling>();
 	}
 
 	void Update()
@@ -40,8 +41,12 @@ public class FootstepTracker : MonoBehaviour, IFootstepTracker
 
 		if (stepIndex != _lastStepIndex)
 		{
-			OnFootstep(this.transform.position);
 			_lastStepIndex = stepIndex;
+
+			if (_collisionHandling.Grounded)
+			{
+				OnFootstep(this.transform.position);
+			}
 		}
 	}
 }
