@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class PlaySoundOnFootsteps : MonoBehaviour
 {
-	[SerializeField] private SoundEffect _soundEffect;
 	[SerializeField] float OFFSET = .25f;
 
 	private AudioPlayer _audioPlayer;
+	private ISurfaceSoundProvider _surfaceSoundProvider;
+	private ICharacterCollisionHandling _collisionHandling;
 	private IYingletAnimationBridge _animation;
 
 	// Track which step we last played (0 or 1 for .25 and .75)
@@ -14,6 +15,8 @@ public class PlaySoundOnFootsteps : MonoBehaviour
 	void Start()
 	{
 		_audioPlayer = Singletons.GetSingleton<AudioPlayer>();
+		_surfaceSoundProvider = Singletons.GetSingleton<ISurfaceSoundProvider>();
+		_collisionHandling = this.GetCharacterRootComponent<ICharacterCollisionHandling>();
 		_animation = this.GetCharacterRootComponent<IYingletAnimationBridge>();
 	}
 
@@ -32,7 +35,8 @@ public class PlaySoundOnFootsteps : MonoBehaviour
 
 		if (stepIndex != _lastStepIndex)
 		{
-			_audioPlayer.Play(_soundEffect);
+			var sound = _surfaceSoundProvider.GetSound(_collisionHandling.LastGroundMaterial, SurfaceSoundType.Footstep);
+			_audioPlayer.Play(sound);
 			_lastStepIndex = stepIndex;
 		}
 	}

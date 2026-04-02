@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 	[SerializeField] float LOW_GRAVITY_VELOCITY_PEAK = 7.73f;
 
 	private Rigidbody _rb;
-	private IPlayerCollisionHandling _collisionHandling;
+	private ICharacterCollisionHandling _collisionHandling;
 	private float _jumpInputTime = -100;
 
 	public event Action<Vector3> OnJump = delegate { };
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 	private void Awake()
 	{
 		_rb = this.GetComponent<Rigidbody>();
-		_collisionHandling = this.GetComponent<IPlayerCollisionHandling>();
+		_collisionHandling = this.GetComponent<ICharacterCollisionHandling>();
 	}
 	void Update()
 	{

@@ -19,7 +19,7 @@ public class YingletMovementAnimation : MonoBehaviour
 	[SerializeField] float MAX_IMPACT_SPEED = 7f;
 
 	private Rigidbody _rigidBody;
-	private IPlayerCollisionHandling _collisionHandling;
+	private ICharacterCollisionHandling _collisionHandling;
 	private IYingletAnimationBridge _animation;
 	private Coroutine _impactGroundCoroutine;
 
@@ -27,7 +27,7 @@ public class YingletMovementAnimation : MonoBehaviour
 	void Start()
 	{
 		_rigidBody = this.GetComponentInParent<Rigidbody>();
-		_collisionHandling = this.GetComponentInParent<IPlayerCollisionHandling>();
+		_collisionHandling = this.GetComponentInParent<ICharacterCollisionHandling>();
 
 		_collisionHandling.OnImpactedGround += OnImpactedGround;
 		_animation = this.GetComponent<IYingletAnimationBridge>();

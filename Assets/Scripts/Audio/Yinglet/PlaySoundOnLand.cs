@@ -5,14 +5,14 @@ public class PlaySoundOnLand : MonoBehaviour
 
 	private AudioPlayer _audioPlayer;
 	private ISurfaceSoundProvider _surfaceSoundProvider;
-	private IPlayerCollisionHandling _collisionHandling;
+	private ICharacterCollisionHandling _collisionHandling;
 	[SerializeField] float MAX_IMPACT_SPEED = 10f;
 
 	void Start()
 	{
 		_audioPlayer = Singletons.GetSingleton<AudioPlayer>();
 		_surfaceSoundProvider = Singletons.GetSingleton<ISurfaceSoundProvider>();
-		_collisionHandling = this.GetCharacterRootComponent<IPlayerCollisionHandling>();
+		_collisionHandling = this.GetCharacterRootComponent<ICharacterCollisionHandling>();
 		_collisionHandling.OnImpactedGround += OnImpactedGround;
 	}
 

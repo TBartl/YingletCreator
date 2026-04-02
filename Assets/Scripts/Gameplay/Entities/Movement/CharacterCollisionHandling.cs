@@ -2,14 +2,15 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-public interface IPlayerCollisionHandling
+public interface ICharacterCollisionHandling
 {
 	bool CanJump { get; }
 	bool Grounded { get; }
+	PhysicsMaterial LastGroundMaterial { get; }
 	void ClearCanJump();
 	UnityAction<PhysicsMaterial, float> OnImpactedGround { get; set; }
 }
-public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
+public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHandling
 {
 
 	private Rigidbody _rb;
@@ -20,7 +21,9 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 
 	public bool CanJump { get; private set; } = true;
 	public bool Grounded { get; private set; }
+	public PhysicsMaterial LastGroundMaterial { get; private set; }
 	public UnityAction<PhysicsMaterial, float> OnImpactedGround { get; set; } = delegate { };
+
 
 	float _lastJumpClearTime = 0; // The player stays on the ground the frame they jump, this prevents that from giving them another jump
 
@@ -66,6 +69,11 @@ public class PlayerCollisionHandling : MonoBehaviour, IPlayerCollisionHandling
 			}
 
 			bool validCollision = verticalDot > GROUND_DOT;
+
+			if (validCollision)
+			{
+				LastGroundMaterial = material;
+			}
 
 			return validCollision;
 		});
