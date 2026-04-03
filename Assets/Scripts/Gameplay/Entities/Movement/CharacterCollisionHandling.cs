@@ -57,6 +57,13 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 
 	void HandleCollision(Collision other)
 	{
+		if (Grounded)
+		{
+			// Something already grounded us this update - don't check for more since we don't want multiple triggers
+			return;
+		}
+
+
 		bool touchingSolid = other.contacts.Any(contact =>
 		{
 			var material = contact.otherCollider.sharedMaterial;
