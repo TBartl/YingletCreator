@@ -29,7 +29,7 @@ internal class NetMessageTest : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			Debug.Log("Sending message");
+			Debug.Log("Sending test message");
 			var message = new TestMessage() { Text = "Space pressed" };
 			_netBus.SendToAll(message);
 		}
