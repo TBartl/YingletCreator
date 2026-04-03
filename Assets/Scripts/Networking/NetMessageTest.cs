@@ -37,6 +37,6 @@ internal class NetMessageTest : MonoBehaviour
 
 	private void OnTestMessage(TestMessage message)
 	{
-		Debug.Log("Recieved message: " + message.Text);
+		Debug.Log("Recieved test message: " + message.Text);
 	}
 }

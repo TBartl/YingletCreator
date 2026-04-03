@@ -1,28 +1,120 @@
-﻿using System.Collections.Generic;
+﻿using Reactivity;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Rendering;
+
+public delegate void LocalClientIdChangedHandler(ulong oldClientId, ulong newClientId);
+
+public struct ClientData
+{
+	public ClientData(ulong localClientId, IEnumerable<ulong> clientIds)
+	{
+		LocalClientID = localClientId;
+		ClientIDs = clientIds;
+	}
+
+	public ulong LocalClientID { get; }
+	public IEnumerable<ulong> ClientIDs { get; }
+}
 
 public interface INetClientTracker
 {
-	ulong LocalClientID { get; }
-	IEnumerable<ulong> ClientIDs { get; }
+	/// <summary>
+	/// Our own client's ID
+	/// Will be 0 until we connect to a host
+	/// </summary>
+	public ulong LocalClientID { get; }
+
+	/// <summary>
+	/// All of the data associated with clients
+	/// Kept as a single property for better observability compatibility (the client ID and the clientIDs can change in unison)
+	/// </summary>
+	ClientData Data { get; }
 }
 
-internal sealed class NetClientTracker : MonoBehaviour, INetClientTracker
+internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 {
+	private INetEventBus _eventBus;
 	private NetworkManager _netManager;
 
-	// Start with ID 0
-	Observable<ulong> _localClientId = new Observable<ulong>(0);
-	ObservableList<ulong> _clientIds = new ObservableList<ulong>(new ulong[] { 0 });
+	Observable<ClientData> _data = new Observable<ClientData>(new ClientData(0, new ulong[] { 0 }));
+	Computed<ulong> _computedLocalClientId; // Compute for less refires in the average case when a client is just connecting / disconnecting
 
-	public ulong LocalClientID => _localClientId.value;
+	public ulong LocalClientID => _computedLocalClientId.Val;
 
-	public IEnumerable<ulong> ClientIDs => _clientIds;
+	public ClientData Data => _data.Val;
+
+
+	private void Awake()
+	{
+		_eventBus = this.GetComponent<INetEventBus>();
+		_computedLocalClientId = CreateComputed(() => _data.Val.LocalClientID);
+	}
 
 	private void Start()
 	{
 		_netManager = NetworkManager.Singleton;
+
+		_netManager.OnClientConnectedCallback += OnClientConnected;
+		_netManager.OnClientDisconnectCallback += OnClientDisconnected;
+		_eventBus.Subscribe<UpdateClientManifest>(OnClientManifestUpdated);
+	}
+
+	private new void OnDestroy()
+	{
+		base.OnDestroy();
+		_netManager.OnClientConnectedCallback -= OnClientConnected;
+		_netManager.OnClientDisconnectCallback -= OnClientDisconnected;
+		_eventBus.Unsubscribe<UpdateClientManifest>(OnClientManifestUpdated);
+	}
+
+	private void OnClientManifestUpdated(UpdateClientManifest manifest)
+	{
+		_data.Val = new ClientData(_data.Val.LocalClientID, manifest.ClientIds);
+	}
+
+	private void OnClientConnected(ulong clientId)
+	{
+		Debug.Log($"Client connected: {clientId}");
+
+		if (_netManager.IsPureClient())
+		{
+			// Called when we connect for the first time
+			// Use it to update our client ID
+			_data.Val = new ClientData(clientId, new[] { clientId });
+			return;
+		}
+		else if (_netManager.IsServer)
+		{
+			ServerSendUpdatedManifest();
+		}
+		else
+		{
+			Debug.LogWarning("Received client connected callback, but we're neither a client nor a server. This shouldn't happen");
+		}
+	}
+
+	private void OnClientDisconnected(ulong clientId)
+	{
+		Debug.Log($"Client disconnected: {clientId}");
+		if (_netManager.IsServer && clientId != 0)
+		{
+			ServerSendUpdatedManifest();
+		}
+		else
+		{
+			// We disconnected; reset to default state
+			_data.Val = new ClientData(0, new ulong[] { 0 });
+		}
+	}
+
+	void ServerSendUpdatedManifest()
+	{
+		var message = new UpdateClientManifest()
+		{
+			ClientIds = _netManager.ConnectedClientsIds.ToArray()
+		};
+		_eventBus.SendToAll(message);
 	}
 }

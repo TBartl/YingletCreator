@@ -19,13 +19,14 @@ public interface INetEventBus
 
 public class NetEventBus : MonoBehaviour, INetEventBus
 {
-	// Subscribers per message type
+	private NetworkManager _networkManager;
+	private NetMessageRegistry _messageRegistry;
 	private readonly Dictionary<Type, Delegate> _subscribers = new();
 
-	// Type registry for deserialization
-	private readonly Dictionary<string, Type> _typeRegistry = new();
-
-	private NetworkManager _networkManager;
+	private void Awake()
+	{
+		_messageRegistry = new NetMessageRegistry();
+	}
 
 	void Start()
 	{
@@ -82,12 +83,12 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 
 		using var writer = new FastBufferWriter(128, Unity.Collections.Allocator.Temp);
 
-		writer.WriteNetworkSerializable(message);
+		// 1. Write the message type ID
+		var messageId = _messageRegistry.GetMessageId(message);
+		writer.WriteValueSafe(messageId);
 
-		if (messagingManager == null)
-		{
-			return;
-		}
+		// 2. Write the message data
+		writer.WriteNetworkSerializable(message);
 
 		if (_networkManager.IsServer)
 		{
@@ -106,8 +107,11 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 	// Custom message format
 	private void CustomMessagingManager_OnUnnamedMessage(ulong senderClientId, FastBufferReader reader)
 	{
-		// TODO, read for actual type
-		reader.ReadNetworkSerializable<TestMessage>(out TestMessage message);
+		// Read the type name
+		reader.ReadValueSafe(out uint messageId);
+
+		var message = _messageRegistry.ReadMessage(messageId, ref reader);
+		//Debug.Log($"Received message of type {message.GetType()} from client {senderClientId}");
 
 		if (senderClientId == 0)
 		{
@@ -151,7 +155,6 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 	public void Subscribe<T>(Action<T> callback) where T : INetMessage
 	{
 		var type = typeof(T);
-		_typeRegistry[type.FullName] = type;
 
 		if (_subscribers.TryGetValue(type, out var existing))
 		{

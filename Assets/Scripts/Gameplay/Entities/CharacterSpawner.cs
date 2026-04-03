@@ -16,6 +16,7 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 
 	Dictionary<ulong, GameObject> _characters = new Dictionary<ulong, GameObject>();
 	private INetClientTracker _netClientTracker;
+	private ulong _lastLocalClientId = 0;
 
 	public GameObject MyCharacter => _myCharacter.Val;
 
@@ -27,35 +28,63 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 
 	private void ReflectYingletPerClient()
 	{
-		var clientIds = new HashSet<ulong>(_netClientTracker.ClientIDs);
-		var myClientId = _netClientTracker.LocalClientID;
+		var clientData = _netClientTracker.Data;
+		var myClientId = clientData.LocalClientID;
+		var clientIds = clientData.ClientIDs.ToList();
 
 		using var disabler = new ReactivityTrackingSuspender();
 
-		foreach (var clientId in clientIds)
+		Debug.Log($"Reflecting characters for clients: {string.Join(", ", clientIds)}. Old client ID: {_lastLocalClientId}. New client ID: {myClientId}");
+
+		// Handle local client ID change
+		if (myClientId != _lastLocalClientId)
 		{
-			if (!_characters.ContainsKey(clientId))
+			// If the new client ID already has a character, delete it
+			if (_characters.TryGetValue(myClientId, out var conflictingCharacter))
 			{
-				var yinglet = Instantiate(_characterPrefab);
-				_characters[clientId] = yinglet;
+				Destroy(conflictingCharacter);
+				_characters.Remove(myClientId);
 			}
+
+			_characters[myClientId] = _characters[_lastLocalClientId];
+			_characters.Remove(_lastLocalClientId);
+
+			_lastLocalClientId = myClientId;
 		}
 
-		var yingletsToRemove = _characters.Keys.Where(clientId => !clientIds.Contains(clientId)).ToList();
-		foreach (var clientId in yingletsToRemove)
+		// Ensure the current player has a character
+		if (!_characters.ContainsKey(myClientId))
 		{
-			Destroy(_characters[clientId]);
-			_characters.Remove(clientId);
+			var character = Instantiate(_characterPrefab);
+			_characters[myClientId] = character;
 		}
 
-		if (_characters.TryGetValue(myClientId, out var myYinglet))
+		// Update the player's character reference
+		if (_characters.TryGetValue(myClientId, out var myCharacter))
 		{
-			_myCharacter.Val = myYinglet;
+			_myCharacter.Val = myCharacter;
 		}
 		else
 		{
 			_myCharacter.Val = null;
-			Debug.LogWarning("My client ID does not have a character assigned.");
+		}
+
+		// Create or update characters for other clients
+		foreach (var clientId in clientIds.Where(id => id != myClientId))
+		{
+			if (!_characters.ContainsKey(clientId))
+			{
+				var character = Instantiate(_characterPrefab);
+				_characters[clientId] = character;
+			}
+		}
+
+		// Destroy characters for clients that are no longer connected
+		var charactersToRemove = _characters.Keys.Where(clientId => !clientIds.Contains(clientId)).ToList();
+		foreach (var clientId in charactersToRemove)
+		{
+			Destroy(_characters[clientId]);
+			_characters.Remove(clientId);
 		}
 	}
 }
