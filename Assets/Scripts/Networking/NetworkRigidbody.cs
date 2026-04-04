@@ -56,7 +56,7 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 		{
 			Position = _rb.position,
 			Velocity = _rb.linearVelocity,
-			RemoteTime = _eventBus.NetworkTime
+			RemoteTime = (float)_eventBus.NetworkTime
 		});
 
 		_lastSnapshotSendTime = Time.time;
@@ -123,9 +123,9 @@ struct Message_SendRigidbodySnapshot : INetMessage
 {
 	public Vector3 Position;
 	public Vector3 Velocity;
-	public double RemoteTime;
+	public float RemoteTime;
 
-	public Message_SendRigidbodySnapshot(Vector3 position, Vector3 velocity, double remoteTime)
+	public Message_SendRigidbodySnapshot(Vector3 position, Vector3 velocity, float remoteTime)
 	{
 		Position = position;
 		Velocity = velocity;
