@@ -58,7 +58,7 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 
 		_netManager.OnClientConnectedCallback += OnClientConnected;
 		_netManager.OnClientDisconnectCallback += OnClientDisconnected;
-		_eventBus.Subscribe<UpdateClientManifest>(OnClientManifestUpdated);
+		_eventBus.Subscribe<Message_UpdateClientManifest>(OnClientManifestUpdated);
 	}
 
 	private new void OnDestroy()
@@ -66,10 +66,10 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 		base.OnDestroy();
 		_netManager.OnClientConnectedCallback -= OnClientConnected;
 		_netManager.OnClientDisconnectCallback -= OnClientDisconnected;
-		_eventBus.Unsubscribe<UpdateClientManifest>(OnClientManifestUpdated);
+		_eventBus.Unsubscribe<Message_UpdateClientManifest>(OnClientManifestUpdated);
 	}
 
-	private void OnClientManifestUpdated(UpdateClientManifest manifest)
+	private void OnClientManifestUpdated(Message_UpdateClientManifest manifest, ulong senderClientId)
 	{
 		_data.Val = new ClientData(_data.Val.LocalClientID, manifest.ClientIds);
 	}
@@ -111,7 +111,7 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 
 	void ServerSendUpdatedManifest()
 	{
-		var message = new UpdateClientManifest()
+		var message = new Message_UpdateClientManifest()
 		{
 			ClientIds = _netManager.ConnectedClientsIds.ToArray()
 		};

@@ -4,7 +4,7 @@ using Unity.Netcode;
 /// <summary>
 /// Sent to all clients by the server when the connected clients change
 /// </summary>
-public struct UpdateClientManifest : INetMessage
+public struct Message_UpdateClientManifest : INetMessage
 {
 	public ulong[] ClientIds;
 

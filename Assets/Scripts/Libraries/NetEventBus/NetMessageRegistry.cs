@@ -21,8 +21,9 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 	{
 		// Annoyingly, I couldn't find a clean way to do a Reader.ReadNetworkSerializable with System.Type
 		// As a result, I'm registering each message type manually here
-		Register<UpdateClientManifest>();
-		Register<TestMessage>();
+		Register<Message_UpdateClientManifest>();
+		Register<Message_TestMessage>();
+		Register<Message_SendRigidbodySnapshot>();
 
 		// Do a little bit of reflection to see if there's any message types we missed out on and log a warning about them
 		var reflectedMessageTypes = AppDomain.CurrentDomain.GetAssemblies()

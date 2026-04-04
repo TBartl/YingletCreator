@@ -1,7 +1,7 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
 
-public struct TestMessage : INetMessage
+public struct Message_TestMessage : INetMessage
 {
 	public string Text;
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
@@ -17,12 +17,12 @@ internal class NetMessageTest : MonoBehaviour
 	private void Start()
 	{
 		_netBus = Singletons.GetSingleton<INetEventBus>();
-		_netBus.Subscribe<TestMessage>(OnTestMessage);
+		_netBus.Subscribe<Message_TestMessage>(OnTestMessage);
 	}
 
 	private void OnDestroy()
 	{
-		_netBus.Unsubscribe<TestMessage>(OnTestMessage);
+		_netBus.Unsubscribe<Message_TestMessage>(OnTestMessage);
 	}
 
 	private void Update()
@@ -30,12 +30,12 @@ internal class NetMessageTest : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Debug.Log("Sending test message");
-			var message = new TestMessage() { Text = "Space pressed" };
+			var message = new Message_TestMessage() { Text = "Space pressed" };
 			_netBus.SendToAll(message);
 		}
 	}
 
-	private void OnTestMessage(TestMessage message)
+	private void OnTestMessage(Message_TestMessage message, ulong senderClientId)
 	{
 		Debug.Log("Recieved test message: " + message.Text);
 	}

@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 8858976776609465762}
   - component: {fileID: 4231487301027111999}
   - component: {fileID: 1733722613084024369}
+  - component: {fileID: 5389703483872628197}
   m_Layer: 7
   m_Name: Yinglet
   m_TagString: Untagged
@@ -266,6 +267,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ba2bd585b4f204db8902227d0d5743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5389703483872628197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624857999274262973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c661c4a52270b7b428e064b71be71ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snapshotSendRate: 0.15
+  _bufferTime: 0.45
+  _snapshotBufferLimit: 40
 --- !u!1 &2659544821333867346
 GameObject:
   m_ObjectHideFlags: 0

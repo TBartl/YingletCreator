@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
+public delegate void NetMessageCallback<T>(T message, ulong senderClientId) where T : INetMessage;
 
 /// <summary>
 /// This tries to mimic the FishNet broadcast system.
@@ -11,20 +12,25 @@ using UnityEngine;
 /// </summary>
 public interface INetEventBus
 {
-	public void Subscribe<T>(Action<T> callback) where T : INetMessage;
-	public void Unsubscribe<T>(Action<T> callback) where T : INetMessage;
+	public void Subscribe<T>(NetMessageCallback<T> callback) where T : INetMessage;
+	public void Unsubscribe<T>(NetMessageCallback<T> callback) where T : INetMessage;
 
 	public void SendToAll<T>(T message) where T : INetMessage;
+
+	// Provided for convenience even though it's out of this class's scope
+	public double NetworkTime { get; }
 }
 
 public class NetEventBus : MonoBehaviour, INetEventBus
 {
 	private NetworkManager _networkManager;
+	private INetClientTracker _clientTracker;
 	private NetMessageRegistry _messageRegistry;
 	private readonly Dictionary<Type, Delegate> _subscribers = new();
 
 	private void Awake()
 	{
+		_clientTracker = this.GetComponent<INetClientTracker>();
 		_messageRegistry = new NetMessageRegistry();
 	}
 
@@ -61,13 +67,20 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 		_networkManager.CustomMessagingManager.OnUnnamedMessage += CustomMessagingManager_OnUnnamedMessage;
 	}
 
+	public double NetworkTime => _networkManager.NetworkTimeSystem?.ServerTime ?? Time.timeAsDouble;
+
 	public void SendToAll<T>(T message) where T : INetMessage
+	{
+		SendToAll(message, _clientTracker.LocalClientID);
+	}
+
+	private void SendToAll<T>(T message, ulong sender) where T : INetMessage
 	{
 		var messagingManager = _networkManager.CustomMessagingManager;
 		if (_networkManager.IsServer || messagingManager == null)
 		{
 			// Send to ourselves if we're the server or if we're not running
-			FireMessageToListeners(message);
+			FireMessageToListeners(message, sender);
 		}
 		if (messagingManager == null)
 		{
@@ -87,7 +100,10 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 		var messageId = _messageRegistry.GetMessageId(message);
 		writer.WriteValueSafe(messageId);
 
-		// 2. Write the message data
+		// 2. Write the sender
+		writer.WriteValueSafe((uint)sender);
+
+		// 3. Write the message data
 		writer.WriteNetworkSerializable(message);
 
 		if (_networkManager.IsServer)
@@ -105,20 +121,24 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 	}
 
 	// Custom message format
-	private void CustomMessagingManager_OnUnnamedMessage(ulong senderClientId, FastBufferReader reader)
+	private void CustomMessagingManager_OnUnnamedMessage(ulong actualSenderClientId, FastBufferReader reader)
 	{
-		// Read the type name
+		// 1. Read the type 
 		reader.ReadValueSafe(out uint messageId);
 
+		// 2. Read the sender
+		reader.ReadValueSafe(out uint attachedSenderId);
+
+		// 3. Read the message data
 		var message = _messageRegistry.ReadMessage(messageId, ref reader);
 		//Debug.Log($"Received message of type {message.GetType()} from client {senderClientId}");
 
-		if (senderClientId == 0)
+		if (actualSenderClientId == 0)
 		{
 			if (_networkManager.IsPureClient())
 			{
 				// Got a message from the server, fire events
-				FireMessageToListeners(message);
+				FireMessageToListeners(message, attachedSenderId);
 			}
 			else
 			{
@@ -130,7 +150,7 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 			if (_networkManager.IsServer)
 			{
 				// We got this from a client, relay it to everyone
-				SendToAll(message);
+				SendToAll(message, attachedSenderId);
 			}
 			else
 			{
@@ -139,20 +159,20 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 		}
 	}
 
-	private void FireMessageToListeners<T>(T message) where T : INetMessage
+	private void FireMessageToListeners<T>(T message, ulong senderId) where T : INetMessage
 	{
 		var type = message.GetType();
 		if (_subscribers.TryGetValue(type, out var del))
 		{
 			foreach (Delegate d in del.GetInvocationList())
 			{
-				d.DynamicInvoke(message);
+				d.DynamicInvoke(message, senderId);
 			}
 		}
 	}
 
 
-	public void Subscribe<T>(Action<T> callback) where T : INetMessage
+	public void Subscribe<T>(NetMessageCallback<T> callback) where T : INetMessage
 	{
 		var type = typeof(T);
 
@@ -166,7 +186,7 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 		}
 	}
 
-	public void Unsubscribe<T>(Action<T> callback) where T : INetMessage
+	public void Unsubscribe<T>(NetMessageCallback<T> callback) where T : INetMessage
 	{
 		var type = typeof(T);
 		if (_subscribers.TryGetValue(type, out var existing))
