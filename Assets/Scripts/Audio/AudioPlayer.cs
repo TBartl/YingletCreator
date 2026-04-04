@@ -28,6 +28,16 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
 		source.volume = Mathf.Min(1, soundEffect.Volume * options.Volume);
 		source.pitch = Random.Range(soundEffect.RandomPitchRange.x, soundEffect.RandomPitchRange.y);
 		source.outputAudioMixerGroup = _mixerProvider.SoundEffectsGroup;
+
+		if (options.Position.HasValue)
+		{
+			go.transform.position = options.Position.Value;
+			source.spatialBlend = 1;
+			source.rolloffMode = AudioRolloffMode.Linear;
+			source.maxDistance = 12;
+			source.dopplerLevel = 0; // Doppler effect sounds cringe
+		}
+
 		source.Play();
 
 		if (options.AutoDestroy)
@@ -46,4 +56,6 @@ public class AudioPlayOptions
 	public bool AutoDestroy { get; set; } = true;
 
 	public float Volume { get; set; } = 1f;
+
+	public Vector3? Position { get; set; } = null;
 }

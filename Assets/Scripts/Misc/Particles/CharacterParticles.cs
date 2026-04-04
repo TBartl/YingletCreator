@@ -41,7 +41,7 @@ public class CharacterParticles : MonoBehaviour
 			return;
 		}
 		Vector3 point = this.transform.position;
-		Debug.Log("Landed with speed " + speed + " at point " + point);
+		//Debug.Log("Landed with speed " + speed + " at point " + point);
 		//Quaternion rotation = Quaternion.FromToRotation(Vector3.up, (_collisionHandling.transform.position - point).normalized);
 		Quaternion rotation = Quaternion.identity;
 		GameObject go = Instantiate(_landParticles, point, rotation);

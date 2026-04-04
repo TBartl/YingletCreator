@@ -26,7 +26,8 @@ public class PlaySoundOnLand : MonoBehaviour
 		var sound = _surfaceSoundProvider.GetSound(material, SurfaceSoundType.Landing);
 		var options = new AudioPlayOptions()
 		{
-			Volume = Mathf.Clamp01(speed / MAX_IMPACT_SPEED)
+			Volume = Mathf.Clamp01(speed / MAX_IMPACT_SPEED),
+			Position = this.transform.position
 		};
 		_audioPlayer.Play(sound, options);
 	}

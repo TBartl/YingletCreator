@@ -25,6 +25,6 @@ public class PlaySoundOnFootsteps : MonoBehaviour
 	private void PlayFootstepSound(Vector3 pos)
 	{
 		var sound = _surfaceSoundProvider.GetSound(_collisionHandling.LastGroundMaterial, SurfaceSoundType.Footstep);
-		_audioPlayer.Play(sound);
+		_audioPlayer.Play(sound, new() { Position = pos });
 	}
 }
