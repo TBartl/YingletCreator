@@ -1,9 +1,12 @@
-using System;
+using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
+
+public delegate void JumpEvent(Vector3 position, Vector3 velocity);
 
 public interface ICharacterMovement
 {
-	event Action<Vector3> OnJump;
+	event JumpEvent OnJump;
 }
 
 public class CharacterMovement : MonoBehaviour, ICharacterMovement
@@ -21,21 +24,28 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	[SerializeField] float LOW_GRAVITY_MULTIPLIER = 0.5f;
 	[SerializeField] float LOW_GRAVITY_VELOCITY_PEAK = 7.73f;
 
-	private IInputRestrictor _inputRestrictor;
+	private INetEventBus _eventBus;
 	private IPlayerIdentity _identity;
+	private INetworkRigidbody _networkRB;
+	private IInputRestrictor _inputRestrictor;
 	private Rigidbody _rb;
 	private ICharacterCollisionHandling _collisionHandling;
 	private float _jumpInputTime = -100;
 
-	public event Action<Vector3> OnJump = delegate { };
+	public event JumpEvent OnJump = delegate { };
 
 	private void Awake()
 	{
-		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
+		_eventBus = Singletons.GetSingleton<INetEventBus>();
 		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_networkRB = this.GetComponent<INetworkRigidbody>();
+		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
 		_rb = this.GetComponent<Rigidbody>();
 		_collisionHandling = this.GetComponent<ICharacterCollisionHandling>();
+
+		_eventBus.Subscribe<Message_Jump>(OnMessageJump);
 	}
+
 	void Update()
 	{
 		if (!InputAllowed) return;
@@ -98,7 +108,8 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 		vel.y = JUMP_SPEED;
 		_rb.linearVelocity = vel;
 
-		OnJump(vel);
+		OnJump(this.transform.position, vel);
+		SendJumpMessage(this.transform.position);
 		_collisionHandling.ClearCanJump();
 		_jumpInputTime = 0;
 	}
@@ -129,5 +140,37 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 			if (!_inputRestrictor.InputAllowed) return false;
 			return true;
 		}
+	}
+
+	void SendJumpMessage(Vector3 position)
+	{
+		_eventBus.SendToAll(new Message_Jump
+		{
+			Position = position,
+			Velocity = _rb.linearVelocity
+		});
+	}
+
+	private void OnMessageJump(Message_Jump message, ulong senderClientId)
+	{
+		if (_identity.IsMine) return;
+		if (senderClientId != _identity.ConnectionId) return;
+		StartCoroutine(DelayJump(message.Position, message.Velocity));
+	}
+	IEnumerator DelayJump(Vector3 position, Vector3 velocity)
+	{
+		yield return new WaitForSeconds((float)_networkRB.BufferTime);
+		OnJump(position, velocity);
+	}
+}
+
+public struct Message_Jump : INetMessage
+{
+	public Vector3 Position;
+	public Vector3 Velocity;
+	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+	{
+		serializer.SerializeValue(ref Position);
+		serializer.SerializeValue(ref Velocity);
 	}
 }

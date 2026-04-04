@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
+public interface INetworkRigidbody
+{
+	/// <summary>
+	/// Some other components will want to delay by this amount to better line up with the transform
+	/// </summary>
+	public double BufferTime { get; }
+}
+
 [RequireComponent(typeof(Rigidbody))]
-public class NetworkRigidbody : MonoBehaviour
+public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 {
 	[SerializeField] float _snapshotSendRate = 0.2f;
 	[SerializeField] double _bufferTime = 0.1f;
 	[SerializeField] int _snapshotBufferLimit = 20;
 
 	private INetEventBus _eventBus;
-	private Rigidbody _rb;
 	private IPlayerIdentity _identity;
+	private Rigidbody _rb;
 	readonly SortedList<double, RigidbodySnapshot> _snapshots = new();
 
 	float _lastSnapshotSendTime = 0;
 
+	public double BufferTime => _bufferTime;
+
 	void Start()
 	{
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
-		_rb = this.GetComponent<Rigidbody>();
 		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_rb = this.GetComponent<Rigidbody>();
 		_eventBus.Subscribe<Message_SendRigidbodySnapshot>(OnReceiveSnapshot);
 
 	}
@@ -36,7 +46,6 @@ public class NetworkRigidbody : MonoBehaviour
 		UpdateSendSnapshots();
 		UpdateApplySnapshots();
 	}
-
 
 	void UpdateSendSnapshots()
 	{
@@ -74,8 +83,6 @@ public class NetworkRigidbody : MonoBehaviour
 	{
 		if (_identity.IsMine) return; // Optimization opportunity: The server probably shouldn't even be sending this to us
 		if (senderClientId != _identity.ConnectionId) return;
-
-		Debug.Log($"Received snapshot from {senderClientId} with remote time {message.RemoteTime}");
 
 		SnapshotInterpolation.InsertIfNotExists(
 			_snapshots,

@@ -31,9 +31,9 @@ public class CharacterParticles : MonoBehaviour
 		Instantiate(_runParticles, this.transform.position, Quaternion.identity);
 	}
 
-	void OnJump(Vector3 velocity)
+	void OnJump(Vector3 position, Vector3 velocity)
 	{
-		Instantiate(_jumpParticles, this.transform.position, Quaternion.FromToRotation(Vector3.up, rb.linearVelocity));
+		Instantiate(_jumpParticles, position, Quaternion.FromToRotation(Vector3.up, velocity));
 	}
 
 	private void OnImpactedGround(PhysicsMaterial material, float speed)

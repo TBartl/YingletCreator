@@ -4,8 +4,6 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
-public delegate void LocalClientIdChangedHandler(ulong oldClientId, ulong newClientId);
-
 public struct ClientData
 {
 	public ClientData(ulong localClientId, IEnumerable<ulong> clientIds)

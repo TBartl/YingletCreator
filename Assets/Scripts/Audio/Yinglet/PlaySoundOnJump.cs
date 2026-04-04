@@ -19,7 +19,7 @@ public class PlaySoundOnJump : MonoBehaviour
 		_playerMovement.OnJump -= OnJump;
 	}
 
-	private void OnJump(Vector3 vector)
+	private void OnJump(Vector3 position, Vector3 velocity)
 	{
 		_audioPlayer.Play(_soundEffect);
 	}

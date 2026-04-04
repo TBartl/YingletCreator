@@ -25,7 +25,7 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 {
 	private NetworkManager _networkManager;
 	private INetClientTracker _clientTracker;
-	private NetMessageRegistry _messageRegistry;
+	private INetMessageRegistry _messageRegistry;
 	private readonly Dictionary<Type, Delegate> _subscribers = new();
 
 	private void Awake()
