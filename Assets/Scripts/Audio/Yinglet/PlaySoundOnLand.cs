@@ -21,13 +21,13 @@ public class PlaySoundOnLand : MonoBehaviour
 		_collisionHandling.OnImpactedGround -= OnImpactedGround;
 	}
 
-	private void OnImpactedGround(PhysicsMaterial material, float speed)
+	private void OnImpactedGround(PhysicsMaterial material, float speed, Vector3 position)
 	{
 		var sound = _surfaceSoundProvider.GetSound(material, SurfaceSoundType.Landing);
 		var options = new AudioPlayOptions()
 		{
 			Volume = Mathf.Clamp01(speed / MAX_IMPACT_SPEED),
-			Position = this.transform.position
+			Position = position
 		};
 		_audioPlayer.Play(sound, options);
 	}

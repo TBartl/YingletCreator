@@ -64,7 +64,7 @@ public class YingletMovementAnimation : MonoBehaviour
 		_animation.SetAnimState(state);
 	}
 
-	private void OnImpactedGround(PhysicsMaterial material, float speed)
+	private void OnImpactedGround(PhysicsMaterial material, float speed, Vector3 position)
 	{
 		if (speed < MIN_IMPACT_SPEED) return;
 

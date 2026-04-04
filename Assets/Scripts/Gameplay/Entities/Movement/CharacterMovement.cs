@@ -45,6 +45,11 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 		_eventBus.Subscribe<Message_Jump>(OnMessageJump);
 	}
+	private void OnDestroy()
+	{
+		_eventBus.Unsubscribe<Message_Jump>(OnMessageJump);
+	}
+
 
 	void Update()
 	{
@@ -153,8 +158,8 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 	private void OnMessageJump(Message_Jump message, ulong senderClientId)
 	{
-		if (_identity.IsMine) return;
 		if (senderClientId != _identity.ConnectionId) return;
+		if (_identity.IsMine) return;
 		StartCoroutine(DelayJump(message.Position, message.Velocity));
 	}
 	IEnumerator DelayJump(Vector3 position, Vector3 velocity)

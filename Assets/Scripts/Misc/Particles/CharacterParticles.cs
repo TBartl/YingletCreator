@@ -24,6 +24,11 @@ public class CharacterParticles : MonoBehaviour
 		_collisionHandling.OnImpactedGround += OnImpactedGround;
 	}
 
+	private void OnDestroy()
+	{
+		_collisionHandling.OnImpactedGround -= OnImpactedGround;
+	}
+
 	private void OnFootstep(Vector3 vector)
 	{
 		Instantiate(_runParticles, this.transform.position, Quaternion.identity);
@@ -34,17 +39,16 @@ public class CharacterParticles : MonoBehaviour
 		Instantiate(_jumpParticles, position, Quaternion.FromToRotation(Vector3.up, velocity));
 	}
 
-	private void OnImpactedGround(PhysicsMaterial material, float speed)
+	private void OnImpactedGround(PhysicsMaterial material, float speed, Vector3 position)
 	{
 		if (speed < MIN_LAND_SPEED)
 		{
 			return;
 		}
-		Vector3 point = this.transform.position;
 		//Debug.Log("Landed with speed " + speed + " at point " + point);
 		//Quaternion rotation = Quaternion.FromToRotation(Vector3.up, (_collisionHandling.transform.position - point).normalized);
 		Quaternion rotation = Quaternion.identity;
-		GameObject go = Instantiate(_landParticles, point, rotation);
+		GameObject go = Instantiate(_landParticles, position, rotation);
 		go.transform.localScale = go.transform.localScale * Mathf.Min(1, speed / MAX_LAND_SPEED);
 	}
 }
