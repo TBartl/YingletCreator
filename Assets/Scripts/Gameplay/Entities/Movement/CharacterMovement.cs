@@ -21,6 +21,8 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	[SerializeField] float LOW_GRAVITY_MULTIPLIER = 0.5f;
 	[SerializeField] float LOW_GRAVITY_VELOCITY_PEAK = 7.73f;
 
+	private IInputRestrictor _inputRestrictor;
+	private IPlayerIdentity _identity;
 	private Rigidbody _rb;
 	private ICharacterCollisionHandling _collisionHandling;
 	private float _jumpInputTime = -100;
@@ -29,11 +31,14 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 	private void Awake()
 	{
+		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
+		_identity = this.GetComponentInParent<IPlayerIdentity>();
 		_rb = this.GetComponent<Rigidbody>();
 		_collisionHandling = this.GetComponent<ICharacterCollisionHandling>();
 	}
 	void Update()
 	{
+		if (!InputAllowed) return;
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
 		{
 			_jumpInputTime = Time.time;
@@ -48,6 +53,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 	void UpdateHorizontal()
 	{
+		if (!_identity.IsMine) return; // Don't use InputAllowed since we still want this to apply to ourselves as friction just in case
 
 		// Figure out the ideal speed
 		var targetDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
@@ -82,6 +88,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 		}
 		_rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
+		if (!InputAllowed) return;
 		if (!_collisionHandling.CanJump) return;
 
 		bool jumpRecentlyPressed = Time.time < _jumpInputTime + JUMP_BUFFER_TIME;
@@ -98,16 +105,29 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 	bool UseLowGravity()
 	{
-		// User not holding jump any more? Full gravity
-		if (!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.JoystickButton0)) return false;
+		// User not alowed to input anything? Full gravity
+		if (!InputAllowed) return false;
 
 		// Passed peak of jump? Full gravity
 		if (_rb.linearVelocity.y < LOW_GRAVITY_VELOCITY_PEAK) return false;
+
+		// User not holding jump any more? Full gravity
+		if (!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.JoystickButton0)) return false;
 
 		return true;
 	}
 	Vector3 ClampMagnitude1(Vector3 v)
 	{
 		return v.sqrMagnitude > 1f ? v.normalized : v;
+	}
+
+	bool InputAllowed
+	{
+		get
+		{
+			if (!_identity.IsMine) return false;
+			if (!_inputRestrictor.InputAllowed) return false;
+			return true;
+		}
 	}
 }

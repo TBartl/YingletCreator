@@ -55,14 +55,14 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 		// Ensure the current player has a character
 		if (!_characters.ContainsKey(myClientId))
 		{
-			var character = Instantiate(_characterPrefab);
-			_characters[myClientId] = character;
+			_characters[myClientId] = CreateNewCharacterObject(myClientId);
 		}
 
 		// Update the player's character reference
 		if (_characters.TryGetValue(myClientId, out var myCharacter))
 		{
 			_myCharacter.Val = myCharacter;
+			myCharacter.GetComponent<IPlayerIdentity>().ConnectionId = myClientId;
 		}
 		else
 		{
@@ -74,8 +74,7 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 		{
 			if (!_characters.ContainsKey(clientId))
 			{
-				var character = Instantiate(_characterPrefab);
-				_characters[clientId] = character;
+				_characters[clientId] = CreateNewCharacterObject(clientId);
 			}
 		}
 
@@ -86,5 +85,14 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 			Destroy(_characters[clientId]);
 			_characters.Remove(clientId);
 		}
+	}
+
+	GameObject CreateNewCharacterObject(ulong connectionId)
+	{
+		using var disabler = _characterPrefab.TemporarilyDisable();
+		var character = Instantiate(_characterPrefab);
+		character.GetComponent<IPlayerIdentity>().ConnectionId = connectionId;
+		character.SetActive(true);
+		return character;
 	}
 }
