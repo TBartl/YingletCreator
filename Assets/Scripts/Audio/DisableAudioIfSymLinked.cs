@@ -31,8 +31,6 @@ public class DisableAudioIfSymLinked : MonoBehaviour
 		// Get the folder name containing the project
 		string parentFolderName = System.IO.Path.GetFileName(projectRoot);
 
-		Debug.Log($"Project root folder: {projectRoot}, Parent folder name: {parentFolderName}");
-
 		// Check if folder name contains "-Symlinked"
 		return parentFolderName.Contains("-Symlinked");
 	}

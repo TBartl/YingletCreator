@@ -13,8 +13,6 @@ public interface ICharacterCollisionHandling
 public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHandling
 {
 
-	private Rigidbody _rb;
-
 	public const float GROUND_DOT = .7f;
 	const float VEL_IMPACT_THRESHOLD = 2f;
 	const float COYOTE_TIME = .2f;
@@ -26,12 +24,7 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 
 
 	float _lastJumpClearTime = 0; // The player stays on the ground the frame they jump, this prevents that from giving them another jump
-
-
-	private void Awake()
-	{
-		_rb = this.GetComponent<Rigidbody>();
-	}
+	bool _wasGrounded;
 
 	public void ClearCanJump()
 	{
@@ -42,6 +35,7 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 
 	private void FixedUpdate()
 	{
+		_wasGrounded = Grounded;
 		Grounded = false;
 	}
 
@@ -70,7 +64,7 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 
 			float verticalDot = Vector3.Dot(Vector3.up, contact.normal);
 
-			if (verticalDot > GROUND_DOT && other.relativeVelocity.y > VEL_IMPACT_THRESHOLD)
+			if (!_wasGrounded && verticalDot > GROUND_DOT && other.relativeVelocity.y > VEL_IMPACT_THRESHOLD)
 			{
 				OnImpactedGround(material, other.relativeVelocity.y);
 			}
