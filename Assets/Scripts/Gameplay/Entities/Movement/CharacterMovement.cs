@@ -72,6 +72,10 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 		// Figure out the ideal speed
 		var targetDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+		if (!_inputRestrictor.InputAllowed)
+		{
+			targetDirection = Vector3.zero;
+		}
 
 		targetDirection = ClampMagnitude1(targetDirection); // Don't exceed 1
 
