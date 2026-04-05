@@ -18,7 +18,7 @@ public class ScaleInOnSelected : MonoBehaviour
 
 		if (!_selectable.Selected.Val)
 		{
-			Reset();
+			ResetToDefaultState();
 		}
 	}
 	private void OnDestroy()
@@ -39,12 +39,12 @@ public class ScaleInOnSelected : MonoBehaviour
 		{
 			if (to == false)
 			{
-				Reset();
+				ResetToDefaultState();
 			}
 		}
 	}
 
-	private void Reset()
+	private void ResetToDefaultState()
 	{
 		this.gameObject.SetActive(false);
 	}

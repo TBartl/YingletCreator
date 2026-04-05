@@ -22,7 +22,7 @@ public class OffsetInAndOutOnSelected : MonoBehaviour
 
 		if (!_selectable.Selected.Val)
 		{
-			Reset();
+			ResetToDefaultState();
 		}
 	}
 	private void OnDestroy()
@@ -42,12 +42,12 @@ public class OffsetInAndOutOnSelected : MonoBehaviour
 		{
 			if (to == false)
 			{
-				Reset();
+				ResetToDefaultState();
 			}
 		}
 	}
 
-	private void Reset()
+	private void ResetToDefaultState()
 	{
 		// Move back up to the top and disable
 		_rectTransform.anchoredPosition = _originalAnchoredPosition + _entranceOffset;
