@@ -34,7 +34,7 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
 			go.transform.position = options.Position.Value;
 			source.spatialBlend = 1;
 			source.rolloffMode = AudioRolloffMode.Linear;
-			source.maxDistance = 12;
+			source.maxDistance = 10;
 			source.dopplerLevel = 0; // Doppler effect sounds cringe
 		}
 

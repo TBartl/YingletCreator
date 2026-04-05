@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.community.netcode.transport.facepunch": {
+      "version": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.facepunch",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.netcode.gameobjects": "1.0.0-pre.4"
+      },
+      "hash": "5cea8f048cc16f3575fabcf03af3ebafbc390499"
+    },
     "com.naelstrof.jigglephysics": {
       "version": "https://github.com/naelstrof/UnityJigglePhysics.git#upm",
       "depth": 0,
