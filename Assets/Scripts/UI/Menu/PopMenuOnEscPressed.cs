@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PopMenuOnEscPressed : MonoBehaviour
 {
+	[SerializeField] MenuType _escapeMenu;
 	private IMenuManager _menuManager;
 
 	void Awake()
@@ -12,7 +13,13 @@ public class PopMenuOnEscPressed : MonoBehaviour
 	void Update()
 	{
 		if (!Input.GetKeyDown(KeyCode.Escape)) return;
-		if (!_menuManager.OpenMenu.Val.PopOnEscape) return;
-		_menuManager.PopMenu();
+		if (_menuManager.OpenMenu.Val.PopOnEscape)
+		{
+			_menuManager.PopMenu();
+		}
+		else
+		{
+			_menuManager.PushMenu(_escapeMenu);
+		}
 	}
 }
