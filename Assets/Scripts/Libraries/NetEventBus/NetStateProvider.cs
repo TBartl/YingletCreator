@@ -1,4 +1,5 @@
 using Reactivity;
+using System;
 using Unity.Netcode;
 
 /// <summary>
@@ -6,10 +7,15 @@ using Unity.Netcode;
 /// </summary>
 public interface INetStateProvider
 {
-	public bool IsHost { get; }
-	public bool IsAttemptingClient { get; }
-	public bool IsConnectedClient { get; }
-	public bool IsRunning { get; }
+	bool IsHost { get; }
+	bool IsAttemptingClient { get; }
+	bool IsConnectedClient { get; }
+	bool IsRunning { get; }
+
+	/// <summary>
+	/// Called when either a host stops hosting, or a client DCs
+	/// </summary>
+	event Action OnDisconnect;
 }
 
 public class NetStateProvider : ReactiveBehaviour, INetStateProvider
@@ -19,6 +25,8 @@ public class NetStateProvider : ReactiveBehaviour, INetStateProvider
 	Observable<bool> _isConnectingClient = new(false);
 	Computed<bool> _isRunning;
 	private NetworkManager _netManager;
+
+	public event Action OnDisconnect = delegate { };
 
 	public bool IsHost => _isHost.Val;
 	public bool IsAttemptingClient => _isAttemptingClient.Val;
@@ -84,6 +92,7 @@ public class NetStateProvider : ReactiveBehaviour, INetStateProvider
 			{
 				// We see ourselves disconnected
 				_isHost.Val = false;
+				OnDisconnect();
 			}
 		}
 		else
@@ -91,6 +100,7 @@ public class NetStateProvider : ReactiveBehaviour, INetStateProvider
 			// Otherwise, this must have been us as the client disconnecting
 			_isConnectingClient.Val = false;
 			_isAttemptingClient.Val = false;
+			OnDisconnect();
 		}
 	}
 
