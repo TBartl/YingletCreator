@@ -659,7 +659,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 295193141807768341, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9023077760224499881}
+      addedObject: {fileID: 5976130983748513665}
     - targetCorrespondingSourceObject: {fileID: 295193141807768341, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5266820397159121128}
@@ -722,7 +722,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 295193141807768341, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
   m_PrefabInstance: {fileID: 3856366408189533421}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9023077760224499881
+--- !u!114 &5976130983748513665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -731,10 +731,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3574780899733520376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0465da7db73fa794382fab96fdddc197, type: 3}
+  m_Script: {fileID: 11500000, guid: cf1803b644b1eb44fa78835cdc7ef64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathToYing: Assets/ScriptableObjects/CharacterCompositor/PresetYings/KassenAkoll.yingsave
 --- !u!114 &5266820397159121128
 MonoBehaviour:
   m_ObjectHideFlags: 0
