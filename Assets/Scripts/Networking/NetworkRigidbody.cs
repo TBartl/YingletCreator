@@ -75,7 +75,7 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 			out double t);
 
 		RigidbodySnapshot computed = RigidbodySnapshot.Interpolate(from, to, t);
-		_rb.transform.position = computed.Position;
+		_rb.MovePosition(computed.Position);
 		_rb.linearVelocity = computed.Velocity;
 	}
 
