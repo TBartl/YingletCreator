@@ -1369,7 +1369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7774924143912164486, guid: 1b4f467cee8df504cad9fe33493087e9, type: 3}
       propertyPath: m_Name
-      value: Page - Credits
+      value: Page-Credits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

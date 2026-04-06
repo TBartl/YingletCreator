@@ -102,6 +102,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2679697375765334256, guid: 94cb3715cb86e0c45bc9e0d9b48beaac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4133013910913450828}
+    - targetCorrespondingSourceObject: {fileID: 2679697375765334256, guid: 94cb3715cb86e0c45bc9e0d9b48beaac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5212565807164008623}
+    - targetCorrespondingSourceObject: {fileID: 2679697375765334256, guid: 94cb3715cb86e0c45bc9e0d9b48beaac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2420314587191399923}
   m_SourcePrefab: {fileID: 100100000, guid: 94cb3715cb86e0c45bc9e0d9b48beaac, type: 3}
 --- !u!1 &8380427232555356992 stripped
 GameObject:
@@ -136,3 +142,27 @@ MonoBehaviour:
   _entranceOffset: {x: 0, y: 900}
   _exitOffset: {x: 0, y: -900}
   _easeSettings: {fileID: 11400000, guid: 8fc803fea4e88b24a9b131c40344e8a4, type: 2}
+--- !u!225 &5212565807164008623
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380427232555356992}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2420314587191399923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380427232555356992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f4294fe6c6584b8495468fd87b48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

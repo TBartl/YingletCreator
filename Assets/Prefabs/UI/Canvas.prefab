@@ -1177,6 +1177,7 @@ MonoBehaviour:
   _baseOffset:
     _onScreen: 1
     _offset: {x: 0, y: 0, z: 0}
+  _forceEnabledOnStart: 0
 --- !u!114 &654388436500481096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,6 +1316,7 @@ MonoBehaviour:
   _baseOffset:
     _onScreen: 0
     _offset: {x: 0, y: 0, z: 0}
+  _forceEnabledOnStart: 0
 --- !u!114 &4757012077995415745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,6 +1600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5a5e3efa0bb6a4fa602219f03d0743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _escapeMenu: {fileID: 0}
 --- !u!114 &6144937123141426172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4445,7 +4448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: 540bff77abe3c014c8dcf8cf36a96862, type: 3}
       propertyPath: m_Size
-      value: 0.7540984
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: 540bff77abe3c014c8dcf8cf36a96862, type: 3}
       propertyPath: m_Value
@@ -4779,7 +4782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Value
-      value: 1.0000004
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchorMax.y
