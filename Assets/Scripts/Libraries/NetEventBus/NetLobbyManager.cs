@@ -126,6 +126,9 @@ public class NetLobbyManager : MonoBehaviour, INetLobbyManager
 		newLobby?.SetData("game", SteamManager.SteamAppId.ToString());
 		newLobby?.SetData("isRunning", $"{false}");
 		_currentLobby.Val = newLobby.Value;
+
+		// Shouldn't be needed by friends list since we did SetVisibility (?)
+		//SteamFriends.SetRichPresence("connect", newLobby.Value.Id.ToString());
 	}
 
 	public void StartHostWithLobby()
@@ -144,7 +147,7 @@ public class NetLobbyManager : MonoBehaviour, INetLobbyManager
 			{
 				name = $"{SteamClient.Name}'s Lobby",
 				joinable = true,
-				visibility = LobbyVisibility.Invisible,
+				visibility = LobbyVisibility.FriendsOnly, // Friends can see, but anyone can join with the code still
 				maxMembers = MaxSteamLobbyPlayers,
 			};
 			CreateLobbyAsync(lobbyConfig).FireAndForgetWithLogging();
