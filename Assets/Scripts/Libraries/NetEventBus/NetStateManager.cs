@@ -3,6 +3,7 @@ using Reactivity;
 using Steamworks;
 using Steamworks.Data;
 using System;
+using System.Threading.Tasks;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -174,7 +175,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 		if (newLobby == null)
 		{
-			Debug.LogError("Failed to create lobby", this);
+			Debug.LogWarning("Failed to create lobby", this);
 			Disconnect();
 			return;
 		}
@@ -185,12 +186,6 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		newLobby?.SetData("game", SteamManager.SteamAppId.ToString());
 		newLobby?.SetData("isRunning", $"{false}");
 		_currentLobby.Val = newLobby.Value;
-	}
-
-	public void StartConnectToLobby(ulong lobbyId)
-	{
-		// TODO
-		throw new NotImplementedException();
 	}
 
 	public void Disconnect()
@@ -249,18 +244,48 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	private async void OnGameLobbyJoinRequested(Lobby lobby, SteamId id)
 	{
+
+		if (IsInAnyState)
+		{
+			Debug.LogError("Received lobby join request, but we're already doing something", this);
+			return;
+		}
+
 		if (!_steam)
 		{
 			Debug.LogError("Received lobby join request but we're not using steam transport, ignoring", this);
 			return;
 		}
 
+		await AttemptJoinLobby(lobby);
+	}
+
+	public async void StartConnectToLobby(ulong lobbyId)
+	{
+		if (IsInAnyState)
+		{
+			Debug.LogError("Already in a network state, we shouldn't be trying to connect to a lobby", this);
+			return;
+		}
+
+		if (!_steam)
+		{
+			Debug.LogError("Trying to connect to lobby but we're not using steam transport, ignoring", this);
+			return;
+		}
+
+		var lobby = new Lobby(lobbyId);
+		await AttemptJoinLobby(lobby);
+	}
+
+	private async Task AttemptJoinLobby(Lobby lobby)
+	{
 		var lobbyIndex = _validLobbyIndex;
 		_isClientAttemptingToJoinLobby.Val = true;
 		var result = await lobby.Join();
 		_isClientAttemptingToJoinLobby.Val = false;
 
-		// Scrap lobby if we disconnected while creating it
+		// Scrap lobby if we disconnected while joining
 		if (lobbyIndex != _validLobbyIndex)
 		{
 			Debug.LogWarning("Received lobby join result but it was for an old lobby, ignoring", this);
