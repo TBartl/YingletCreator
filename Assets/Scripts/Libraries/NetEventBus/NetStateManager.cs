@@ -79,6 +79,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	// Host
 	Observable<bool> _isNetManagerHosted = new(false);
+	private IToastManager _toastManager;
 	Computed<bool> _isAttemptingHost;
 	Computed<bool> _isConnectedHost;
 
@@ -100,6 +101,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	private void Awake()
 	{
+		_toastManager = Singletons.GetSingleton<IToastManager>();
+
 		_isAttemptingHost = CreateComputed(() => _isNetManagerHosted.Val && _currentLobby.Val == null);
 		_isConnectedHost = CreateComputed(() => _isNetManagerHosted.Val && _currentLobby.Val != null);
 		_isAttemptingClient = CreateComputed(() => _isNetManagerClientAttempting.Val || _isClientAttemptingToJoinLobby.Val); // Either netmanager isn't ready or lobby isn't
@@ -154,6 +157,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		if (!_netManager.StartHost())
 		{
 			Debug.LogError("Failed to start host server", this);
+			_toastManager.Show("Failed to start hosting");
 			return;
 		}
 
@@ -176,6 +180,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		if (newLobby == null)
 		{
 			Debug.LogWarning("Failed to create lobby", this);
+			_toastManager.Show("Failed to create lobby");
 			Disconnect();
 			return;
 		}
@@ -248,6 +253,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		if (IsInAnyState)
 		{
 			Debug.LogError("Received lobby join request, but we're already doing something", this);
+			_toastManager.Show("Can't join lobby - already in a lobby.");
 			return;
 		}
 
@@ -295,6 +301,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 		if (result != RoomEnter.Success)
 		{
+			_toastManager.Show($"Failed to connect to lobby: {result}");
 			Debug.LogWarning($"Couldn't enter the lobby, {result}", this);
 			Disconnect();
 			return;
