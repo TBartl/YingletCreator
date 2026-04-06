@@ -4,13 +4,13 @@ using TMPro;
 
 public class ReflectLobbyIDText : ReactiveBehaviour
 {
-	private INetLobbyManager _lobbyManager;
+	private INetStateReader _netState;
 	private TMP_Text _text;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		_lobbyManager = Singletons.GetSingleton<INetLobbyManager>();
+		_netState = Singletons.GetSingleton<INetStateReader>();
 		_text = this.GetComponent<TMP_Text>();
 
 		AddReflector(Reflect);
@@ -20,7 +20,7 @@ public class ReflectLobbyIDText : ReactiveBehaviour
 	{
 		var sb = new StringBuilder();
 		sb.Append("Lobby ID: ");
-		var lobby = _lobbyManager.CurrentLobby;
+		var lobby = _netState.CurrentLobby;
 		if (lobby == null)
 		{
 			sb.Append("None");

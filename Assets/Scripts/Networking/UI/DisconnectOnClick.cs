@@ -1,15 +1,14 @@
-﻿using Unity.Netcode;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DisconnectOnClick : MonoBehaviour
 {
-	private NetworkManager _netManager;
+	private INetStateWriter _netStateWriter;
 	private Button _button;
 
 	void Start()
 	{
-		_netManager = NetworkManager.Singleton;
+		_netStateWriter = Singletons.GetSingleton<INetStateWriter>();
 		_button = this.GetComponent<Button>();
 		_button.onClick.AddListener(Button_OnClick);
 	}
@@ -21,6 +20,6 @@ public class DisconnectOnClick : MonoBehaviour
 
 	private void Button_OnClick()
 	{
-		_netManager.Shutdown();
+		_netStateWriter.Disconnect();
 	}
 }

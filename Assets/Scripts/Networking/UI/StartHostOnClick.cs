@@ -1,17 +1,14 @@
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StartHostOnClick : MonoBehaviour
 {
-	private INetLobbyManager _lobbyManager;
-	private NetworkManager _netManager;
+	private INetStateWriter _netState;
 	private Button _button;
 
 	void Start()
 	{
-		_lobbyManager = Singletons.GetSingleton<INetLobbyManager>();
-		_netManager = NetworkManager.Singleton;
+		_netState = Singletons.GetSingleton<INetStateWriter>();
 		_button = this.GetComponent<Button>();
 		_button.onClick.AddListener(Button_OnClick);
 	}
@@ -23,11 +20,11 @@ public class StartHostOnClick : MonoBehaviour
 
 	private void Button_OnClick()
 	{
-		if (_netManager.IsRunning())
+		if (_netState.IsInAnyState)
 		{
 			Debug.LogWarning("NetworkManager is already running. Ignoring StartHost request.");
 			return;
 		}
-		_lobbyManager.StartHostWithLobby();
+		_netState.StartHost();
 	}
 }
