@@ -94,6 +94,9 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	public event Action OnVoluntaryClientDisconnection = delegate { };
 
+	// If a user Disconnects while attempting to start a lobby, we should get rid of the lobby we created
+	private uint _validLobbyIndex = 0;
+
 	private void Awake()
 	{
 		_isAttemptingHost = CreateComputed(() => _isNetManagerHosted.Val && _currentLobby.Val == null);
@@ -158,9 +161,17 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		if (!_steam) return;
 
 		// Start to create a steam lobby
+		var lobbyIndex = _validLobbyIndex;
 		var newLobby = await SteamMatchmaking.CreateLobbyAsync(MAX_PLAYERS);
 
-		// TODO: scrap this lobby if we've disconnected
+		// Scrap lobby if we disconnected while creating it
+		if (lobbyIndex != _validLobbyIndex)
+		{
+			Debug.LogWarning("Received lobby join result but it was for an old lobby, ignoring", this);
+			newLobby?.Leave();
+			return;
+		}
+
 		if (newLobby == null)
 		{
 			Debug.LogError("Failed to create lobby", this);
@@ -194,6 +205,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		_isNetManagerClientAttempting.Val = false;
 		_isNetManagerClientConnected.Val = false;
 		_isClientAttemptingToJoinLobby.Val = false;
+
+		_validLobbyIndex += 1; // Increment this to invalidate any lobbies we are currently getting
 
 		// Otherwise, no events are called for this
 		if (wasClient)
@@ -242,12 +255,19 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 			return;
 		}
 
+		var lobbyIndex = _validLobbyIndex;
 		_isClientAttemptingToJoinLobby.Val = true;
 		var result = await lobby.Join();
 		_isClientAttemptingToJoinLobby.Val = false;
 
-		// TODO: Discard lobby if we disconnected
-		_currentLobby.Val = lobby;
+		// Scrap lobby if we disconnected while creating it
+		if (lobbyIndex != _validLobbyIndex)
+		{
+			Debug.LogWarning("Received lobby join result but it was for an old lobby, ignoring", this);
+			lobby.Leave();
+			return;
+		}
+
 		if (result != RoomEnter.Success)
 		{
 			Debug.LogWarning($"Couldn't enter the lobby, {result}", this);
@@ -255,6 +275,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 			return;
 		}
 
+		_currentLobby.Val = lobby;
 		_steamTransport.targetSteamId = lobby.Owner.Id;
 		_netManager.StartClient();
 	}
