@@ -28,7 +28,7 @@ public class ConnectViaClipboardOnClick : MonoBehaviour
 
 		var clipboardString = GUIUtility.systemCopyBuffer;
 
-		if (!ulong.TryParse(clipboardString, out ulong lobbyId))
+		if (!ulong.TryParse(clipboardString.Trim(), out ulong lobbyId))
 		{
 			Debug.LogWarning($"Clipboard string '{clipboardString}' is not a valid lobby ID.");
 			return;
