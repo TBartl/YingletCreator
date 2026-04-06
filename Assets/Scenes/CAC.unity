@@ -3277,7 +3277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623481570392247861, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366
+      value: 365.99994
       objectReference: {fileID: 0}
     - target: {fileID: 8976897511949000575, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13359,6 +13359,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Exit Game
       objectReference: {fileID: 0}
+    - target: {fileID: 7464495551033064043, guid: 798ddda2a8479104a87890711225fdc6, type: 3}
+      propertyPath: _soundEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: d0306b7aa2f30274ba1d4b40ec993004, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
