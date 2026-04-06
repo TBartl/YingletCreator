@@ -43,6 +43,8 @@ public interface INetStateReader
 	/// The currently connected lobby for either hosts or clients
 	/// </summary>
 	Lobby? CurrentLobby { get; }
+
+	event Action OnVoluntaryClientDisconnection;
 }
 
 public interface INetStateWriter : INetStateReader
@@ -90,6 +92,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	Observable<Lobby?> _currentLobby = new();
 
+	public event Action OnVoluntaryClientDisconnection = delegate { };
 
 	private void Awake()
 	{
@@ -181,6 +184,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	public void Disconnect()
 	{
+		bool wasClient = _isNetManagerClientConnected.Val;
+
 		_currentLobby.Val?.Leave();
 		_currentLobby.Val = null;
 		_netManager.Shutdown();
@@ -189,6 +194,12 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		_isNetManagerClientAttempting.Val = false;
 		_isNetManagerClientConnected.Val = false;
 		_isClientAttemptingToJoinLobby.Val = false;
+
+		// Otherwise, no events are called for this
+		if (wasClient)
+		{
+			OnVoluntaryClientDisconnection.Invoke();
+		}
 	}
 
 	private void OnClientConnected(ulong clientId)
@@ -217,7 +228,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		}
 		else
 		{
-			// Otherwise, this must have been us as the client disconnecting
+			// Otherwise, the server must have disconnected us
+			// Note, this doesn't handle the case of voluntary disconnection
 			Disconnect();
 		}
 	}
@@ -238,7 +250,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		_currentLobby.Val = lobby;
 		if (result != RoomEnter.Success)
 		{
-			Debug.LogError($"Couldn't enter the lobby, {result}", this);
+			Debug.LogWarning($"Couldn't enter the lobby, {result}", this);
 			Disconnect();
 			return;
 		}

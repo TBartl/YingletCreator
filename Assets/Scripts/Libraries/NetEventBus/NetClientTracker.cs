@@ -33,6 +33,7 @@ public interface INetClientTracker
 
 internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 {
+	private INetStateReader _netState;
 	private INetEventBus _eventBus;
 	private NetworkManager _netManager;
 
@@ -46,8 +47,11 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 
 	private void Awake()
 	{
+		_netState = this.GetComponent<INetStateReader>();
 		_eventBus = this.GetComponent<INetEventBus>();
 		_computedLocalClientId = CreateComputed(() => _data.Val.LocalClientID);
+
+		_netState.OnVoluntaryClientDisconnection += OnVoluntaryClientDisconnection;
 	}
 
 	private void Start()
@@ -65,6 +69,7 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 		_netManager.OnClientConnectedCallback -= OnClientConnected;
 		_netManager.OnClientDisconnectCallback -= OnClientDisconnected;
 		_eventBus.Unsubscribe<Message_UpdateClientManifest>(OnClientManifestUpdated);
+		_netState.OnVoluntaryClientDisconnection -= OnVoluntaryClientDisconnection;
 	}
 
 	private void OnClientManifestUpdated(Message_UpdateClientManifest manifest, ulong senderClientId)
@@ -105,6 +110,12 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 			// We disconnected; reset to default state
 			_data.Val = new ClientData(0, new ulong[] { 0 });
 		}
+	}
+
+	private void OnVoluntaryClientDisconnection()
+	{
+		// We disconnected; reset to default state
+		_data.Val = new ClientData(0, new ulong[] { 0 });
 	}
 
 	void ServerSendUpdatedManifest()

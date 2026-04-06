@@ -34,7 +34,7 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 
 		using var disabler = new ReactivityTrackingSuspender();
 
-		//Debug.Log($"Reflecting characters for clients: {string.Join(", ", clientIds)}. Old client ID: {_lastLocalClientId}. New client ID: {myClientId}");
+		// Debug.Log($"Reflecting characters for clients: {string.Join(", ", clientIds)}. Old client ID: {_lastLocalClientId}. New client ID: {myClientId}");
 
 		// Handle local client ID change
 		if (myClientId != _lastLocalClientId)
