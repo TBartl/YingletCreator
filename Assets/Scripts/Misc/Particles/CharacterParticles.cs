@@ -29,9 +29,9 @@ public class CharacterParticles : MonoBehaviour
 		_collisionHandling.OnImpactedGround -= OnImpactedGround;
 	}
 
-	private void OnFootstep(Vector3 vector)
+	private void OnFootstep(Vector3 position)
 	{
-		Instantiate(_runParticles, this.transform.position, Quaternion.identity);
+		Instantiate(_runParticles, position, Quaternion.identity);
 	}
 
 	void OnJump(Vector3 position, Vector3 velocity)
