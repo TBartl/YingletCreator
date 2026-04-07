@@ -38,8 +38,8 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	{
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
 		_identity = this.GetComponentInParent<IPlayerIdentity>();
-		_networkRB = this.GetComponent<INetworkRigidbody>();
 		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
+		_networkRB = this.GetComponent<INetworkRigidbody>();
 		_rb = this.GetComponent<Rigidbody>();
 		_collisionHandling = this.GetComponent<ICharacterCollisionHandling>();
 
@@ -64,6 +64,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	{
 		UpdateHorizontal();
 		UpdateVertical();
+		UpdateOutOfBoundsHandling();
 	}
 
 	void UpdateHorizontal()
@@ -136,6 +137,18 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 		return true;
 	}
+
+	private void UpdateOutOfBoundsHandling()
+	{
+		if (!_identity.IsMine) return;
+
+		// Just something simple for now
+		if (this.transform.position.y < -50)
+		{
+			_rb.MovePosition(Vector3.up * 3);
+		}
+	}
+
 	Vector3 ClampMagnitude1(Vector3 v)
 	{
 		return v.sqrMagnitude > 1f ? v.normalized : v;
