@@ -252,7 +252,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 		if (IsInAnyState)
 		{
-			Debug.LogError("Received lobby join request, but we're already doing something", this);
+			Debug.LogWarning("Received lobby join request, but we're already doing something", this);
 			_toastManager.Show("Can't join lobby - already in a lobby.");
 			return;
 		}
