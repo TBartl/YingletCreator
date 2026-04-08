@@ -21,6 +21,10 @@ public class TooltipPresenter : ReactiveBehaviour, ISelectable
 		AddReflector(Reflect);
 		_childRT = GetComponentInChildren<Image>().rectTransform;
 	}
+	private void LateUpdate()
+	{
+		UpdateToTooltipPosition(_tooltipManager.CurrentTooltip.Val);
+	}
 
 	private bool ComputeSelected()
 	{
@@ -33,13 +37,25 @@ public class TooltipPresenter : ReactiveBehaviour, ISelectable
 		if (currentTooltip == null) return;
 		_text.text = currentTooltip.Text;
 		LayoutRebuilder.ForceRebuildLayoutImmediate(_childRT); // Ensure the size is updated with the new text
-		this.transform.position = PositionTooltip(_childRT.sizeDelta, currentTooltip);
+		UpdateToTooltipPosition(currentTooltip);
+	}
+
+	Vector2 _lastPos = Vector2.zero;
+	void UpdateToTooltipPosition(ITooltip tooltip)
+	{
+		if (tooltip == null) return;
+
+		var newPos = tooltip.Position;
+		if (Vector2.Distance(newPos, _lastPos) < 0.1f) return; // Avoid unnecessary updates if the position hasn't changed significantly
+		_lastPos = newPos;
+
+		this.transform.position = PositionTooltip(_childRT.sizeDelta, tooltip);
+
 	}
 
 	static Vector2 PositionTooltip(Vector2 tooltipSize, ITooltip target)
 	{
-		var targetCenter = target.RectTransform;
-		var centerToCenter = (tooltipSize + targetCenter.sizeDelta) / 2f;
+		var centerToCenter = (tooltipSize + target.SizeDelta) / 2f;
 		Vector2[] candidateOffsets = new Vector2[]
 		{
 			new Vector2(0, centerToCenter.y),    // Above
@@ -49,7 +65,7 @@ public class TooltipPresenter : ReactiveBehaviour, ISelectable
 		};
 		foreach (var offset in candidateOffsets)
 		{
-			var candidatePosition = (Vector2)targetCenter.position + offset;
+			var candidatePosition = (Vector2)target.Position + offset;
 			var tooltipRect = new Rect(candidatePosition, tooltipSize);
 			if (FitsOnScreen(tooltipRect))
 			{

@@ -4,22 +4,25 @@ using UnityEngine.EventSystems;
 public interface ITooltip
 {
 	string Text { get; }
-	RectTransform RectTransform { get; }
+	Vector2 Position { get; }
+	Vector2 SizeDelta { get; }
 }
 
 
 public abstract class Tooltip : MonoBehaviour, ITooltip, IPointerEnterHandler, IPointerExitHandler
 {
-	private ITooltipManager _tooltipManager;
+	private ITooltipProvider_UI _tooltipManager;
+	private RectTransform _rectTransform;
 
 	public abstract string Text { get; }
 
-	public RectTransform RectTransform { get; private set; }
+	public Vector2 Position => _rectTransform.position;
+	public Vector2 SizeDelta => _rectTransform.sizeDelta;
 
 	protected virtual void Awake()
 	{
-		RectTransform = GetComponent<RectTransform>();
-		_tooltipManager = Singletons.GetSingleton<ITooltipManager>();
+		_tooltipManager = Singletons.GetSingleton<ITooltipProvider_UI>();
+		_rectTransform = GetComponent<RectTransform>();
 	}
 
 	private void OnDestroy()
