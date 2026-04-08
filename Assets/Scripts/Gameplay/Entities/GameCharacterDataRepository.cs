@@ -1,11 +1,13 @@
 using Reactivity;
 using System.Linq;
-using UnityEngine;
 
 namespace Character.Creator
 {
-
-	public class GameCharacterDataRepository : ReactiveBehaviour, ICustomizationSelectedDataRepository
+	public interface IGameCharacterDataRepository
+	{
+		void Increment();
+	}
+	public class GameCharacterDataRepository : ReactiveBehaviour, ICustomizationSelectedDataRepository, IGameCharacterDataRepository
 	{
 		private ICompositeResourceLoader _resourceLoader;
 		private ILocalYingletRepository _yingletRepository;
@@ -17,6 +19,17 @@ namespace Character.Creator
 		private IInputRestrictor _inputRestrictor;
 
 		public ObservableCustomizationData CustomizationData => _data.Val;
+
+		public void Increment()
+		{
+			OffsetIndex(1);
+		}
+
+		void OffsetIndex(int offset)
+		{
+			_index = (_index + offset + _yinglets.Length) % _yinglets.Length;
+			_data.Val = new ObservableCustomizationData(_yinglets[_index].CachedData, _resourceLoader);
+		}
 
 		void Awake()
 		{
@@ -35,17 +48,17 @@ namespace Character.Creator
 			if (!_identity.IsMine) return;
 			if (!_inputRestrictor.InputAllowed) return;
 
-			if (Input.GetKeyDown(KeyCode.Q))
-			{
-				_index = (_index - 1 + _yinglets.Length) % _yinglets.Length;
-				_data.Val = new ObservableCustomizationData(_yinglets[_index].CachedData, _resourceLoader);
-			}
+			//if (Input.GetKeyDown(KeyCode.Q))
+			//{
+			//	OffsetIndex(-1);
+			//}
 
-			if (Input.GetKeyDown(KeyCode.E))
-			{
-				_index = (_index + 1) % _yinglets.Length;
-				_data.Val = new ObservableCustomizationData(_yinglets[_index].CachedData, _resourceLoader);
-			}
+			//if (Input.GetKeyDown(KeyCode.E))
+			//{
+			//	OffsetIndex(1);
+			//}
 		}
+
+
 	}
 }
