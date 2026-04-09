@@ -10,9 +10,9 @@ public sealed class InteractableTooltip : ITooltip
 		_interactable = interactable;
 	}
 
-	public string Text => "[E] Customize Character";
+	public string Text => _interactable.TooltipText;
 
-	public Vector2 Position => Camera.main.WorldToScreenPoint(_interactable.transform.position + Vector3.up * .5f);
+	public Vector2 Position => Camera.main.WorldToScreenPoint(_interactable.transform.position + _interactable.TooltipOffset);
 
 	public Vector2 SizeDelta => Vector2.zero;
 }
