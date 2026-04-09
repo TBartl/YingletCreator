@@ -16,9 +16,9 @@ namespace Character.Creator.UI
 
 		private void Awake()
 		{
-			_selection = this.GetComponentInParent<ICustomizationSelection>();
+			_selection = Singletons.GetSingleton<ICustomizationSelection>();
 			_reference = this.GetComponent<IYingPortraitReference>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);

@@ -15,7 +15,7 @@ namespace Character.Creator
 		private void Awake()
 		{
 			_audioPlayer = Singletons.GetSingleton<IAudioPlayer>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 
 			_undoManager.UndoApplied += UndoManager_UndoApplied;
 			_undoManager.NothingToUndo += UndoManager_NothingToUndo;

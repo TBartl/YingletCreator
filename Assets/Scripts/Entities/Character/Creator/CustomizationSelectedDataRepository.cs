@@ -1,98 +1,85 @@
-using Character.Compositor;
-using Character.Data;
 using Reactivity;
+using UnityEngine;
 
 namespace Character.Creator
 {
 	/// <summary>
-	/// Returns observable data associated to the selected yinglet
-	/// </summary>
-	public interface ICustomizationSelectedDataRepository
-	{
-		ObservableCustomizationData CustomizationData { get; }
-	}
-
-
-	/// <summary>
 	/// This is made available only for undo purposes; most consumers should not need to set this
 	/// </summary>
-	public interface IForceableCustomizationSelectedDataRepository : ICustomizationSelectedDataRepository
+	public interface IForceableCustomizationDataRepository
 	{
 		void ForceCustomizationData(SerializableCustomizationData cachedData);
 	}
 
-	public class CustomizationSelectedDataRepository : ReactiveBehaviour, IForceableCustomizationSelectedDataRepository
+	/// <summary>
+	/// Returns observable data associated to the character currently selected for customization
+	/// This is a singleton
+	/// </summary>
+	public interface ICustomizationSelectedDataRepository : ICustomizationDataRepository, IForceableCustomizationDataRepository { }
+
+
+	public class CustomizationSelectedDataRepository : ReactiveBehaviour, ICustomizationSelectedDataRepository
 	{
 		private ICompositeResourceLoader _resourceLoader;
+		private ICharacterSpawner _characterSpawner;
 		private ICustomizationSelection _selection;
-		private Observable<ObservableCustomizationData> _data = new();
 
-		public ObservableCustomizationData CustomizationData => _data.Val;
+		Computed<IGameCharacterDataRepository> _characterDataRepository;
+		Computed<ObservableCustomizationData> _customizationData;
+
+		public ObservableCustomizationData CustomizationData => _customizationData.Val;
 
 		void Awake()
 		{
 			_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
-			_selection = this.GetComponent<ICustomizationSelection>();
-			AddReflector(ReflectCustomizationData);
+			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+
+			// TODO: use this
+			_selection = Singletons.GetSingleton<ICustomizationSelection>();
+
+			_characterDataRepository = CreateComputed(ComputeCharacterDataRepository);
+			_customizationData = CreateComputed(ComputeCustomizationData);
 		}
 
-		void ReflectCustomizationData()
+		// Optimization Opportunity: Instead of using CharacterSpawner, we should consider only using whatever initiated this
+		// That way we wouldn't be changing it so much when jumping between different characters eventually
+		private IGameCharacterDataRepository ComputeCharacterDataRepository()
 		{
-			// This used to be a computed, but with undo we want to be able to force the customization data to a specific state
-			var cachedData = _selection.Selected.CachedData;
-			_data.Val = new ObservableCustomizationData(cachedData, _resourceLoader);
+			var myCharacter = _characterSpawner.MyCharacter;
+			if (myCharacter == null)
+			{
+				return null;
+			}
+
+			return myCharacter.GetComponentInChildren<IGameCharacterDataRepository>();
 		}
+
+		private ObservableCustomizationData ComputeCustomizationData()
+		{
+			var dataRepo = _characterDataRepository.Val;
+			if (dataRepo == null)
+			{
+				return null;
+			}
+
+			return dataRepo.CustomizationData;
+		}
+
+		//void ReflectCustomizationData()
+		//{
+		//	// This used to be a computed, but with undo we want to be able to force the customization data to a specific state
+		//	var cachedData = _selection.Selected.CachedData;
+		//	_data.Val = new ObservableCustomizationData(cachedData, _resourceLoader);
+		//}
 
 		public void ForceCustomizationData(SerializableCustomizationData cachedData)
 		{
-			_data.Val = new ObservableCustomizationData(cachedData, _resourceLoader);
-		}
-	}
-
-	public static class CharacterCreatorDataRepositoryExtensionMethods
-	{
-		public static float GetSliderValue(this ICustomizationSelectedDataRepository dataRepo, CharacterSliderId id)
-		{
-
-			if (dataRepo.CustomizationData.SliderData.SliderValues.TryGetValue(id, out Observable<float> value))
+			if (_characterDataRepository.Val == null)
 			{
-				return value.Val;
+				Debug.LogError("No character data repository found to force data to");
+				return;
 			}
-			return 0.5f;
-		}
-		public static void SetSliderValue(this ICustomizationSelectedDataRepository dataRepo, CharacterSliderId id, float value)
-		{
-			ObservableDictUtils<CharacterSliderId, float>.SetOrUpdate(dataRepo.CustomizationData.SliderData.SliderValues, id, value);
-		}
-		public static IColorizeValues GetColorizeValues(this ICustomizationSelectedDataRepository dataRepository, ReColorId id)
-		{
-			if (dataRepository.CustomizationData.ColorData.ColorizeValues.TryGetValue(id, out Observable<IColorizeValues> values))
-			{
-				return values.Val;
-			}
-			return id.ColorGroup.DefaultColors;
-		}
-		public static void SetColorizeValues(this ICustomizationSelectedDataRepository dataRepo, ReColorId id, IColorizeValues values)
-		{
-			ObservableDictUtils<ReColorId, IColorizeValues>.SetOrUpdate(dataRepo.CustomizationData.ColorData.ColorizeValues, id, values);
-		}
-
-		public static bool GetToggle(this ICustomizationSelectedDataRepository dataRepo, CharacterToggleId id)
-		{
-			return dataRepo.CustomizationData.GetToggle(id);
-		}
-		public static void FlipToggle(this ICustomizationSelectedDataRepository dataRepo, CharacterToggleId id)
-		{
-			dataRepo.CustomizationData.FlipToggle(id);
-		}
-
-		public static int GetInt(this ICustomizationSelectedDataRepository dataRepo, CharacterIntId id)
-		{
-			return dataRepo.CustomizationData.NumberData.GetInt(id);
-		}
-		public static void SetInt(this ICustomizationSelectedDataRepository dataRepo, CharacterIntId id, int value)
-		{
-			ObservableDictUtils<CharacterIntId, int>.SetOrUpdate(dataRepo.CustomizationData.NumberData.IntValues, id, value);
+			_characterDataRepository.Val.ForceCustomizationData(cachedData);
 		}
 	}
 }

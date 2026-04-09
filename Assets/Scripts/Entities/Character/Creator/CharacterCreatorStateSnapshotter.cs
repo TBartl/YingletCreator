@@ -26,12 +26,12 @@ namespace Character.Creator
 	internal class CharacterCreatorStateSnapshotter : MonoBehaviour, ICharacterCreatorStateSnapshotter
 	{
 		private ICustomizationSelection _selection;
-		private IForceableCustomizationSelectedDataRepository _dataRepository;
+		private ICustomizationSelectedDataRepository _dataRepository;
 
 		private void Awake()
 		{
-			_selection = this.GetComponent<ICustomizationSelection>();
-			_dataRepository = this.GetComponent<IForceableCustomizationSelectedDataRepository>();
+			_selection = Singletons.GetSingleton<ICustomizationSelection>();
+			_dataRepository = this.GetComponent<ICustomizationSelectedDataRepository>();
 		}
 
 		public CharacterCreatorStateSnapshot GetStateSnapshot(string action)

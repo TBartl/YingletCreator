@@ -8,13 +8,13 @@ namespace Character.Compositor
 {
 	public class MeshGatherer_ReplacePerToggles : ReactiveBehaviour, IMeshGathererMutator
 	{
-		ICustomizationSelectedDataRepository _dataRepository;
+		ICustomizationDataRepository _dataRepository;
 		EnumerableSetReflector<IToggleReplacesMesh> _computedSet;
 
 
 		private void Awake()
 		{
-			_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
 			_computedSet = new EnumerableSetReflector<IToggleReplacesMesh>();
 			AddReflector(ReflectSet);
 		}

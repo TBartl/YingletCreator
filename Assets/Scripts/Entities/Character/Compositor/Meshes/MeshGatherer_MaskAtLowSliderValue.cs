@@ -15,12 +15,12 @@ namespace Character.Compositor
 		[SerializeField] AssetReferenceT<CharacterSliderId> _sliderReference;
 		[SerializeField] float _minimumValue;
 
-		ICustomizationSelectedDataRepository _dataRepository;
+		ICustomizationDataRepository _dataRepository;
 		private Computed<bool> _constrain;
 
 		private void Awake()
 		{
-			_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
 			_constrain = CreateComputed(ComputeConstrain);
 		}
 

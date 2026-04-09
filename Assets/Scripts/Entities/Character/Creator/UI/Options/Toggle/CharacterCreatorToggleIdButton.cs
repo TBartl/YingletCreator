@@ -15,8 +15,8 @@ namespace Character.Creator.UI
 
 		void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_reference = this.GetComponent<ICharacterCreatorToggleIdReference>();
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);

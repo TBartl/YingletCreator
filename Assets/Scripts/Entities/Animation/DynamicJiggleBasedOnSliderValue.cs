@@ -11,14 +11,14 @@ public class DynamicJiggleBasedOnSliderValue : ReactiveBehaviour
 	[SerializeField] AssetReferenceT<CharacterSliderId> _sliderReference;
 	[SerializeField] AnimationCurve _sliderValToBlendPercent;
 
-	private ICustomizationSelectedDataRepository _dataRepo;
+	private ICustomizationDataRepository _dataRepo;
 	private JiggleSettingsData _newSettingsData;
 	private float _originalBlend;
 	private JiggleSettings _newSettingsObject;
 
 	private void Awake()
 	{
-		_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
 
 		// Create the settings data and cache the original blend
 		_newSettingsData = _baseJiggleSettings.GetData();

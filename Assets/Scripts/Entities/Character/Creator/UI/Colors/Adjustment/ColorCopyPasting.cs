@@ -28,8 +28,8 @@ namespace Character.Creator.UI
 		void Awake()
 		{
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
-			_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_activeSelection = this.GetComponent<IColorActiveSelection>();
 		}
 		void Update()

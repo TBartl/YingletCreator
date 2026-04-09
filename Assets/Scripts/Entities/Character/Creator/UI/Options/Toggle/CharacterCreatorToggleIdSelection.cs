@@ -12,7 +12,7 @@ namespace Character.Creator.UI
 
 		void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 			_reference = this.GetComponent<ICharacterCreatorToggleIdReference>();
 		}
 

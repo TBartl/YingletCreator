@@ -14,7 +14,7 @@ namespace Character.Creator
 		private void Awake()
 		{
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
-			_undoManager = GetComponentInParent<ICharacterCreatorUndoManager>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_inPoseMode = this.GetCharacterCreatorComponent<IInPoseModeChecker>();
 		}
 

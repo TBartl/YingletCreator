@@ -1,12 +1,20 @@
-using Character.Creator;
 using UnityEngine;
 
 public class Interactable_OpenCharacterCreator : MonoBehaviour, IInteractable
 {
+	[SerializeField] MenuType _menuToOpen;
+	private IMenuManager _menuManager;
+
 	public string TooltipText => "[E] Customize Character";
 
 	[field: SerializeField]
 	public Vector3 TooltipOffset { get; private set; }
+
+
+	private void Awake()
+	{
+		_menuManager = Singletons.GetSingleton<IMenuManager>();
+	}
 
 	public bool CanInteract(ICharacterInteraction character)
 	{
@@ -17,6 +25,7 @@ public class Interactable_OpenCharacterCreator : MonoBehaviour, IInteractable
 
 	public void Interact(ICharacterInteraction character)
 	{
-		character.gameObject.GetComponentInChildren<IGameCharacterDataRepository>().Increment();
+		_menuManager.PushMenu(_menuToOpen);
+		//character.gameObject.GetComponentInChildren<IGameCharacterDataRepository>().Increment();
 	}
 }

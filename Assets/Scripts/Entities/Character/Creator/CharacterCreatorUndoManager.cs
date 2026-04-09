@@ -46,8 +46,8 @@ namespace Character.Creator
 
 		private void Awake()
 		{
-			_stateSnapshotter = this.GetComponent<ICharacterCreatorStateSnapshotter>();
-			_customizationSelection = this.GetComponent<ICustomizationSelection>();
+			_stateSnapshotter = Singletons.GetSingleton<ICharacterCreatorStateSnapshotter>();
+			_customizationSelection = Singletons.GetSingleton<ICustomizationSelection>();
 		}
 
 		public void RecordState(string action)

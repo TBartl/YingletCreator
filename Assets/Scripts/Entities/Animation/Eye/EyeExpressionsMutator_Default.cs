@@ -9,14 +9,14 @@ public class EyeExpressionsMutator_Default : ReactiveBehaviour, IBaseEyeExpressi
 {
 	[SerializeField] AssetReferenceT<CharacterIntId> _intIdReference;
 
-	private ICustomizationSelectedDataRepository _dataRepo;
+	private ICustomizationDataRepository _dataRepo;
 	private Computed<EyeExpression> _defaultExpressionComputed;
 
 	public EyeExpression DefaultExpression => _defaultExpressionComputed.Val;
 
 	void Awake()
 	{
-		_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
 		_defaultExpressionComputed = CreateComputed(ComputeDefaultExpression);
 	}
 

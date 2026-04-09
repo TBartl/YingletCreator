@@ -7,11 +7,11 @@ namespace Character.Compositor
 {
 	public class TextureGatherer_FromToggles : MonoBehaviour, ITextureGathererMutator
 	{
-		private ICustomizationSelectedDataRepository _dataRepo;
+		private ICustomizationDataRepository _dataRepo;
 
 		void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
 		}
 		public void Mutate(ref ISet<IMixTexture> set)
 		{

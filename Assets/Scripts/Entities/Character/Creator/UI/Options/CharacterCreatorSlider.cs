@@ -19,8 +19,8 @@ namespace Character.Creator.UI
 
 		private void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_slider = this.GetComponentInChildren<Slider>();
 			_slider.onValueChanged.AddListener(Slider_OnValueChanged);
 		}

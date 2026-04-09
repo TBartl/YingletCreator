@@ -16,7 +16,7 @@ namespace Character.Compositor
 			_mixTextureOrderer = Singletons.GetSingleton<IMixTextureOrderer>();
 			_materialGeneration = this.GetCompositedYingletComponent<IMaterialGeneration>();
 			_individualReferences = new IndividualMaterialTexturerReferences(
-				this.GetComponentInParent<ICustomizationSelectedDataRepository>(),
+				this.GetComponentInParent<ICustomizationDataRepository>(),
 				this.GetComponent<ITextureGatherer>(),
 				_mixTextureOrderer);
 			_enumerableReflector = new(Create, Delete);

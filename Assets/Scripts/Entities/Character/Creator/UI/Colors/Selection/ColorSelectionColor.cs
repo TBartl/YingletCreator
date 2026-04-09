@@ -18,7 +18,7 @@ namespace Character.Creator.UI
 
 		private void Awake()
 		{
-			_dataRepository = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 			_reference = this.GetComponentInParent<IColorSelectionReference>();
 			_image = this.GetComponent<Image>();
 		}

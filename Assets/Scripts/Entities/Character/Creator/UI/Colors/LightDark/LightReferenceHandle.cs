@@ -16,7 +16,7 @@ namespace Character.Creator.UI
 		private void Awake()
 		{
 			_activeSelection = this.GetComponentInParent<IColorActiveSelection>();
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 			_target = this.GetComponentInParent<IColorAdjustmentSlider>().Target;
 			_lightDarkSelection = this.GetComponentInParent<ILightDarkSelection>();
 			_rectTransform = this.GetComponent<RectTransform>();

@@ -28,8 +28,8 @@ namespace Character.Creator
 		{
 			_yingletDiskIO = Singletons.GetSingleton<IYingletDiskIO>();
 			_yingletRepository = Singletons.GetSingleton<ILocalYingletRepository>();
-			_selectionReference = this.GetComponent<ICustomizationSelection>();
-			_selectionData = this.GetComponent<ICustomizationSelectedDataRepository>();
+			_selectionReference = Singletons.GetSingleton<ICustomizationSelection>();
+			_selectionData = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		}
 		public bool SaveSelected()
 		{

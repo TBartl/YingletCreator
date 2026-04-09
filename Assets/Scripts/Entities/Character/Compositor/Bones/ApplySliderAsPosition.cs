@@ -11,11 +11,11 @@ public class ApplySliderAsPosition : MonoBehaviour, IApplyableCustomization
 	[SerializeField] Vector3 _minOffset = Vector3.zero;
 	[SerializeField] Vector3 _maxOffset = Vector3.zero;
 
-	ICustomizationSelectedDataRepository _dataRepository;
+	ICustomizationDataRepository _dataRepository;
 
 	private void Awake()
 	{
-		_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
 	}
 
 	public void Apply()

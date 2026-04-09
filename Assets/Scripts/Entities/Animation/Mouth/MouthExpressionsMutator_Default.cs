@@ -8,14 +8,14 @@ public class MouthExpressionsMutator_Default : ReactiveBehaviour, IMouthExpressi
 {
 	[SerializeField] AssetReferenceT<CharacterIntId> _intIdReference;
 
-	private ICustomizationSelectedDataRepository _dataRepo;
+	private ICustomizationDataRepository _dataRepo;
 	Computed<int> _intValueComputed;
 	Computed<MouthExpression> _defaultExpressionComputed;
 	Computed<MouthOpenAmount> _defaultOpenAmountComputed;
 
 	void Awake()
 	{
-		_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
 		_intValueComputed = CreateComputed(ComputeDefaultIntValue);
 		_defaultExpressionComputed = CreateComputed(ComputeDefaultExpression);
 		_defaultOpenAmountComputed = CreateComputed(ComputeDefaultOpenAmount);

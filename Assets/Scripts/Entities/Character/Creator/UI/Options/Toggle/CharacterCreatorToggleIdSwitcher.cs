@@ -13,8 +13,8 @@ namespace Character.Creator.UI
 		private void Awake()
 		{
 			_reference = this.GetComponent<ICharacterCreatorToggleIdReference>();
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_toggle = this.GetComponentInChildren<Toggle>();
 			_toggle.onValueChanged.AddListener(Toggle_OnValueChanged);
 		}

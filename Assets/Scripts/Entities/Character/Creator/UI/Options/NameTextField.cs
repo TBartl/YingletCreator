@@ -11,8 +11,8 @@ namespace Character.Creator.UI
 
 		private void Awake()
 		{
-			_dataRepository = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
-			_selection = this.GetComponentInParent<ICustomizationSelection>();
+			_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_selection = Singletons.GetSingleton<ICustomizationSelection>();
 			_inputField = this.GetComponent<TMP_InputField>();
 			_inputField.onValueChanged.AddListener(InputField_OnValueChanged);
 		}
@@ -26,7 +26,7 @@ namespace Character.Creator.UI
 
 		void ReflectText()
 		{
-			_inputField.text = _dataRepository.CustomizationData.Name.Val;
+			_inputField.SetTextWithoutNotify(_dataRepository.CustomizationData?.Name?.Val);
 		}
 
 		private void ReflectInteractable()

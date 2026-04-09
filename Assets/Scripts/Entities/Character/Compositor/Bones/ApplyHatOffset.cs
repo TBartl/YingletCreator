@@ -9,12 +9,12 @@ public class ApplyHatOffset : ReactiveBehaviour, IApplyableCustomization
 {
 	[SerializeField] Transform _target;
 
-	ICustomizationSelectedDataRepository _dataRepository;
+	ICustomizationDataRepository _dataRepository;
 	private Computed<float> _computeOffset;
 
 	private void Awake()
 	{
-		_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
 		_computeOffset = CreateComputed(ComputeOffset);
 	}
 

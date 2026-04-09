@@ -15,7 +15,7 @@ namespace Character.Creator.UI
 			_button.onClick.AddListener(Button_OnClick);
 
 			_diskIO = this.GetComponentInParent<ISelectedYingletDiskIO>();
-			_undoManager = this.GetComponentInParent<ICharacterCreatorUndoManager>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 		}
 
 		private void OnDestroy()

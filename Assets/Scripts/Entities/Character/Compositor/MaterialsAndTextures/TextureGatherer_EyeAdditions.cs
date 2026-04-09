@@ -9,7 +9,7 @@ namespace Character.Compositor
 	public class TextureGatherer_EyeAdditions : ReactiveBehaviour, ITextureGathererMutator
 	{
 		[SerializeField] EyeMixTextureReferences _eyeMixTextureReferences;
-		private ICustomizationSelectedDataRepository _dataRepo;
+		private ICustomizationDataRepository _dataRepo;
 
 		// If the reference ever changes (which it will) we'll need to make this observable
 		private Computed<EyeMixTextures> _computedEye;
@@ -17,7 +17,7 @@ namespace Character.Compositor
 
 		void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
 			_computedEye = CreateComputed(ComputeEye);
 			_computedTextures = CreateComputed(ComputeTextures);
 		}

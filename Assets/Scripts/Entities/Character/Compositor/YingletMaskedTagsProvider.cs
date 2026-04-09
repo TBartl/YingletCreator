@@ -16,13 +16,13 @@ namespace Character.Compositor
 	public class YingletMaskedTagsProvider : ReactiveBehaviour, IYingletMaskedTagsProvider
 	{
 		EnumerableSetReflector<CharacterElementTag> _maskedTags = new();
-		private ICustomizationSelectedDataRepository _dataRepository;
+		private ICustomizationDataRepository _dataRepository;
 
 		public IEnumerable<CharacterElementTag> MaskedTags => _maskedTags.Items;
 
 		void Awake()
 		{
-			_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
 			AddReflector(ComputeMaskedTags);
 		}
 

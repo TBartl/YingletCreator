@@ -19,7 +19,7 @@ namespace Character.Creator.UI
 
 		void Start()
 		{
-			_selection = this.GetComponentInParent<ICustomizationSelection>();
+			_selection = Singletons.GetSingleton<ICustomizationSelection>();
 			_selected = CreateComputed(ComputeSelected);
 		}
 

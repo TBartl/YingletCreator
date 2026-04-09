@@ -17,7 +17,7 @@ public class ReflectSliderMaterialProperties : ReactiveBehaviour
 
 	private void Awake()
 	{
-		_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		_activeSelection = this.GetComponentInParent<IColorActiveSelection>();
 		_lightDarkSelection = this.GetComponentInParent<ILightDarkSelection>();
 		_image = this.GetComponent<Image>();

@@ -177,7 +177,7 @@ namespace Character.Compositor
 
 	internal sealed class IndividualMaterialTexturerReferences : IDisposable
 	{
-		public IndividualMaterialTexturerReferences(ICustomizationSelectedDataRepository dataRepository, ITextureGatherer textureGatherer, IMixTextureOrderer mixTextureOrdererer)
+		public IndividualMaterialTexturerReferences(ICustomizationDataRepository dataRepository, ITextureGatherer textureGatherer, IMixTextureOrderer mixTextureOrdererer)
 		{
 			DataRepository = dataRepository;
 			TextureGatherer = textureGatherer;
@@ -186,7 +186,7 @@ namespace Character.Compositor
 			BlitMaterial = new Material(IndividualMaterialTexturer.COLORIZE_SHADER);
 		}
 
-		public ICustomizationSelectedDataRepository DataRepository { get; }
+		public ICustomizationDataRepository DataRepository { get; }
 		public ITextureGatherer TextureGatherer { get; }
 		public IMixTextureOrderer MixTexturerOrderer { get; }
 		public Material BlitMaterial { get; }

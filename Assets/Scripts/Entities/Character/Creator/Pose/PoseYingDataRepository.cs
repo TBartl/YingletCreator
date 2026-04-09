@@ -8,7 +8,7 @@ public interface IPoseYingDataRepository
 	IYingPoseData YingPoseData { get; }
 }
 
-public class PoseYingDataRepository : MonoBehaviour, IPoseYingDataRepository, ICustomizationSelectedDataRepository
+public class PoseYingDataRepository : MonoBehaviour, IPoseYingDataRepository, ICustomizationDataRepository
 {
 	public CachedYingletReference Reference { get; private set; }
 	public ObservableCustomizationData CustomizationData { get; private set; }

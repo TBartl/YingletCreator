@@ -32,7 +32,7 @@ public abstract class ExportOnButtonClickBase : MonoBehaviour
 		_button.onClick.AddListener(OnExportButtonClicked);
 		_saveFolderProvider = Singletons.GetSingleton<ISaveFolderProvider>();
 		_selection = this.GetCharacterCreatorComponent<ICustomizationSelection>();
-		_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		_tooltip = GetComponent<SettableTooltip>();
 		// These GameObjects have multiple of the same component on them, so we need this ugly code to find the right ones.
 		ApplySliderAsScaleBase[] applySliders = _headSizeApplyGameObject.GetComponents<ApplySliderAsScaleBase>();

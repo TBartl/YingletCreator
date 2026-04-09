@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace Character.Creator
 {
-	public interface IGameCharacterDataRepository
+	public interface IGameCharacterDataRepository : ICustomizationDataRepository, IForceableCustomizationDataRepository
 	{
 		void Increment();
 	}
-	public class GameCharacterDataRepository : ReactiveBehaviour, ICustomizationSelectedDataRepository, IGameCharacterDataRepository
+	public class GameCharacterDataRepository : ReactiveBehaviour, IGameCharacterDataRepository
 	{
 		private ICompositeResourceLoader _resourceLoader;
 		private ILocalYingletRepository _yingletRepository;
@@ -59,6 +59,9 @@ namespace Character.Creator
 			//}
 		}
 
-
+		public void ForceCustomizationData(SerializableCustomizationData cachedData)
+		{
+			_data.Val = new ObservableCustomizationData(cachedData, _resourceLoader);
+		}
 	}
 }

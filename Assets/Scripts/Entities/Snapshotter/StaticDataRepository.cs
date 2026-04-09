@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 
 
-public class StaticDataRepository : MonoBehaviour, ICustomizationSelectedDataRepository
+public class StaticDataRepository : MonoBehaviour, ICustomizationDataRepository
 {
 	[SerializeField] string _pathToYing;
 	public ObservableCustomizationData CustomizationData { get; private set; }

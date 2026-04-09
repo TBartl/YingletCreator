@@ -15,7 +15,7 @@ public class EnvironmentLoader : ReactiveBehaviour
 
 	void Start()
 	{
-		_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		_roomPrefab = this.CreateComputed(ComputeRoomPrefab);
 		AddReflector(ReflectRoom);
 	}

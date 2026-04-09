@@ -18,11 +18,11 @@ public abstract class ApplySliderAsScaleBase : MonoBehaviour
 	[SerializeField] Vector3 _maxSize = Vector3.one;
 	[SerializeField] ApplySliderMode _applyMode;
 
-	ICustomizationSelectedDataRepository _dataRepository;
+	ICustomizationDataRepository _dataRepository;
 
 	private void Awake()
 	{
-		_dataRepository = GetComponentInParent<ICustomizationSelectedDataRepository>();
+		_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
 	}
 
 	public Vector3 GetSize()

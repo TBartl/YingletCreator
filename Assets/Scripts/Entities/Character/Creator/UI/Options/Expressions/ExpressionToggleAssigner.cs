@@ -18,7 +18,7 @@ namespace Character.Creator.UI
 
 		void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationSelectedDataRepository>();
+			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		}
 
 		public int Value
