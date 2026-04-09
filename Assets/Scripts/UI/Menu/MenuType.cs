@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 /// <summary>
 /// Mostly a marker interface for the currently open menu
 /// Has a few additional properties that are mostly set to drive consistent behavior around things like positioning and pressing escape
@@ -8,8 +9,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MenuType", menuName = "Scriptable Objects/GenericUI/MenuType")]
 public class MenuType : ScriptableObject
 {
-	[SerializeField] bool _popOnEscape = true;
-	public bool PopOnEscape => _popOnEscape;
+	[SerializeField] MenuEscInteraction _escapeInteraction = MenuEscInteraction.PopOnEscape;
+	public MenuEscInteraction EscapeInteraction => _escapeInteraction;
 
 	[SerializeField] bool _popOnBackdropClicked = true;
 	public bool PopOnBackdropClicked => _popOnBackdropClicked;
@@ -23,4 +24,12 @@ public class MenuType : ScriptableObject
 	/// And swapped instead of pushed when swapping between them (see <see cref="SwapToMenuOnClick"/>)
 	/// </summary>
 	public bool SettingsSwapMenu => _settingsSwapMenu;
+}
+
+
+public enum MenuEscInteraction
+{
+	PopOnEscape,
+	OpenEscMenuOnEscape,
+	DoNothingOnEscape
 }

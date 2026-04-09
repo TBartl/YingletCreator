@@ -13,11 +13,13 @@ public class PopMenuOnEscPressed : MonoBehaviour
 	void Update()
 	{
 		if (!Input.GetKeyDown(KeyCode.Escape)) return;
-		if (_menuManager.OpenMenu.Val.PopOnEscape)
+		var interaction = _menuManager.OpenMenu.Val.EscapeInteraction;
+
+		if (interaction == MenuEscInteraction.PopOnEscape)
 		{
 			_menuManager.PopMenu();
 		}
-		else
+		else if (interaction == MenuEscInteraction.OpenEscMenuOnEscape)
 		{
 			_menuManager.PushMenu(_escapeMenu);
 		}

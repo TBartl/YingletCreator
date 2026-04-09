@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42e7ebb3b928214ca7ce48d4e08ad49, type: 3}
   m_Name: CaC-Game
   m_EditorClassIdentifier: 
-  _popOnEscape: 0
+  _escapeInteraction: 1
   _popOnBackdropClicked: 0
   _restrictGameInput: 0
   _settingsSwapMenu: 0
