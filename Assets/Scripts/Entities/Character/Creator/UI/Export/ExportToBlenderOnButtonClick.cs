@@ -43,7 +43,7 @@ public class ExportToBlenderOnButtonClick : ExportOnButtonClickBase
 			return;
 		}
 
-		var alphaNumericName = Regex.Replace(selected.CachedData.Name, "[^a-zA-Z0-9_-]", "");
+		var alphaNumericName = Regex.Replace(selected.Val.CachedData.Name, "[^a-zA-Z0-9_-]", "");
 		var folderName = alphaNumericName + "-" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 		var newFolder = GetSavePath();
 

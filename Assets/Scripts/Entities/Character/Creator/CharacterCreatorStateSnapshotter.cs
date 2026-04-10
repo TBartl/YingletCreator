@@ -37,7 +37,7 @@ namespace Character.Creator
 		public CharacterCreatorStateSnapshot GetStateSnapshot(string action)
 		{
 			var cachedData = new SerializableCustomizationData(_dataRepository.CustomizationData);
-			return new CharacterCreatorStateSnapshot(action, _selection.Selected, cachedData);
+			return new CharacterCreatorStateSnapshot(action, _selection.Selected.Val, cachedData);
 		}
 
 		public void RestoreStateSnapshot(CharacterCreatorStateSnapshot snapshot)

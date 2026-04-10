@@ -33,19 +33,19 @@ namespace Character.Creator
 		}
 		public bool SaveSelected()
 		{
-			if (_selectionReference.Selected == null) return false;
-			var isPreset = _selectionReference.Selected.Group == LocalYingletGroup.Preset;
+			if (_selectionReference.Selected.Val == null) return false;
+			var isPreset = _selectionReference.Selected.Val.Group == LocalYingletGroup.Preset;
 			if (isPreset) return false;
 
 			var data = _selectionData.CustomizationData;
 
-			var lastFilePath = _selectionReference.Selected.Path;
+			var lastFilePath = _selectionReference.Selected.Val.Path;
 			var saveResults = _yingletDiskIO.Save(data, lastFilePath);
 
 
 			// Update our own reference
-			_selectionReference.Selected.CachedData = saveResults.SerializedData;
-			_selectionReference.Selected.Path = saveResults.NewPath;
+			_selectionReference.Selected.Val.CachedData = saveResults.SerializedData;
+			_selectionReference.Selected.Val.Path = saveResults.NewPath;
 
 			_selectionReference.SelectionIsDirty = false;
 			return true;
@@ -63,7 +63,7 @@ namespace Character.Creator
 
 		public void DeleteSelected()
 		{
-			var index = _yingletDiskIO.Delete(_selectionReference.Selected);
+			var index = _yingletDiskIO.Delete(_selectionReference.Selected.Val);
 
 			// Edge case: Undo of a delete action
 			if (index == -1) return;

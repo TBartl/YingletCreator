@@ -85,7 +85,7 @@ public abstract class ExportOnButtonClickBase : MonoBehaviour
 	protected string GetCharacterNodeName()
 	{
 		var selected = _selection.Selected;
-		var name = (selected != null) ? selected.CachedData.Name : "UnnamedYinglet";
+		var name = (selected != null) ? selected.Val.CachedData.Name : "UnnamedYinglet";
 		var sanitizedName = System.Text.RegularExpressions.Regex.Replace(name, "[^a-zA-Z0-9]", "");
 		return sanitizedName;
 	}
@@ -109,7 +109,7 @@ public abstract class ExportOnButtonClickBase : MonoBehaviour
 
 	protected string GetSavePath()
 	{
-		CachedYingletReference yingRef = _selection.Selected;
+		CachedYingletReference yingRef = _selection.Selected.Val;
 		string name = (yingRef != null) ? yingRef.CachedData.Name : "UnnamedYinglet";
 		string sanitizedName = System.Text.RegularExpressions.Regex.Replace(name, "[^a-zA-Z0-9_-]", "");
 		string folderName = sanitizedName + "-" + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
@@ -118,7 +118,7 @@ public abstract class ExportOnButtonClickBase : MonoBehaviour
 
 	protected Texture2D GetThumbnailTexture()
 	{
-		CachedYingletReference yingRef = _selection.Selected;
+		CachedYingletReference yingRef = _selection.Selected.Val;
 		IYingSnapshotManager snapshotManager = Singletons.GetSingleton<IYingSnapshotManager>();
 		using (IYingSnapshotRenderTexture snapshot = snapshotManager.GetRenderTexture(yingRef))
 		{

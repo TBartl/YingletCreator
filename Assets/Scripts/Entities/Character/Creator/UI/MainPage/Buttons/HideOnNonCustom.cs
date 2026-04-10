@@ -24,11 +24,11 @@ namespace Character.Creator.UI
 		bool IsCustomSelected()
 		{
 
-			if (_selection.Selected == null)
+			if (_selection.Selected.Val == null)
 			{
 				return false;
 			}
-			return _selection.Selected.Group == LocalYingletGroup.Custom;
+			return _selection.Selected.Val.Group == LocalYingletGroup.Custom;
 		}
 	}
 }

@@ -30,7 +30,7 @@ namespace Character.Creator.UI
 
 		bool ComputeSelected()
 		{
-			return _reference == _selection.Selected;
+			return _reference == _selection.Selected.Val;
 		}
 	}
 }

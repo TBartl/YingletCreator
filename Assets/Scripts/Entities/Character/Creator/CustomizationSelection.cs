@@ -9,7 +9,7 @@ namespace Character.Creator
 	/// </summary>
 	public interface ICustomizationSelection
 	{
-		public CachedYingletReference Selected { get; }
+		public IReadOnlyObservable<CachedYingletReference> Selected { get; }
 
 		public void SetSelected(CachedYingletReference reference);
 
@@ -32,13 +32,7 @@ namespace Character.Creator
 			_selected.Val = initialSelection;
 		}
 
-		public CachedYingletReference Selected
-		{
-			get
-			{
-				return _selected.Val;
-			}
-		}
+		public IReadOnlyObservable<CachedYingletReference> Selected => _selected;
 
 		public bool SelectionIsDirty { get; set; }
 

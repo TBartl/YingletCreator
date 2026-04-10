@@ -36,9 +36,28 @@ namespace Character.Creator
 
 			// TODO: use this
 			_selection = Singletons.GetSingleton<ICustomizationSelection>();
+			_selection.Selected.OnChanged += Selected_OnChanged;
 
 			_characterDataRepository = CreateComputed(ComputeCharacterDataRepository);
 			_customizationData = CreateComputed(ComputeCustomizationData);
+		}
+
+		private new void OnDestroy()
+		{
+			base.OnDestroy();
+			_selection.Selected.OnChanged -= Selected_OnChanged;
+		}
+
+		private void Selected_OnChanged(CachedYingletReference from, CachedYingletReference to)
+		{
+			var characterRepository = _characterDataRepository.Val;
+			if (characterRepository == null)
+			{
+				Debug.LogError("No character repository found when trying to change selected yinglet");
+				return;
+			}
+			// TODO: Track undo? I don't remember how this works
+			characterRepository.ForceCustomizationData(to.CachedData);
 		}
 
 		// Optimization Opportunity: Instead of using CharacterSpawner, we should consider only using whatever initiated this
