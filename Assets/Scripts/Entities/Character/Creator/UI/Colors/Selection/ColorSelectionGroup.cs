@@ -8,22 +8,32 @@ namespace Character.Creator.UI
 {
 	public class ColorSelectionGroup : ReactiveBehaviour
 	{
+		private ICharacterSpawner _characterSpawner;
 		private IColorSelectionSorter _sorter;
-		private ITextureGatherer _gatherer;
+		private Computed<ITextureGatherer> _currentGatherer;
 		[SerializeField] GameObject _colorSelectionPrefab;
 
 		EnumerableDictReflector<ReColorId, GameObject> _enumerableReflector;
 
 		private void Awake()
 		{
+			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
 			_sorter = this.GetComponentInParent<IColorSelectionSorter>();
-			_gatherer = this.GetCharacterCreatorComponent<ITextureGatherer>();
+			_currentGatherer = CreateComputed(ComputeGatherer);
+
 			_enumerableReflector = new(Create, Delete);
 			// Clean up any dummy objects under this
 			foreach (Transform child in transform)
 			{
 				Destroy(child.gameObject);
 			}
+		}
+
+		private ITextureGatherer ComputeGatherer()
+		{
+			var myCharacter = _characterSpawner.MyCharacter;
+			if (myCharacter == null) return null;
+			return myCharacter.GetComponentInChildren<ITextureGatherer>();
 		}
 
 		private GameObject Create(ReColorId id)
@@ -46,7 +56,13 @@ namespace Character.Creator.UI
 
 		void ReflectColors()
 		{
-			var recolorIds = _gatherer.AllRelevantTextures
+			var gatherer = _currentGatherer.Val;
+			if (gatherer == null)
+			{
+				return;
+			}
+
+			var recolorIds = gatherer.AllRelevantTextures
 				.ToArray()
 				.Select(t => t.ReColorId)
 				.Where(i => i != null)
