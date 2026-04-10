@@ -746,6 +746,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7768275107933138602, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6149469641784306152}
+    - targetCorrespondingSourceObject: {fileID: 7768275107933138602, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7756670639880762495}
     - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5421570273635966256}
@@ -1122,6 +1125,20 @@ MonoBehaviour:
   YAW_SMOOTH: 8
   TILT_STRENGTH: -2
   TILT_SMOOTH: 2.5
+--- !u!114 &7756670639880762495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794495727578903111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858cc3de89a8c504ca3d8ec181deaae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spinSensitivity: -6
+  _startRotation: -140
 --- !u!4 &6849409276929697948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7676787584047658097, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}

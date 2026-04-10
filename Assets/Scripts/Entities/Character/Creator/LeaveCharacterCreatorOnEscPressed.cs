@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
 {
-	[SerializeField] MenuType _characterCreatorMenu;
-
+	private ICharacterCreatorTracker _characterCreatorTracker;
 	private IMenuManager _menuManager;
 
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
+	private void Awake()
 	{
+		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
 	}
 
 	void Update()
 	{
-		if (_menuManager.OpenMenu.Val != _characterCreatorMenu) return;
+		if (!_characterCreatorTracker.IsInCharacterCreator.Val) return;
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			// TODO: Intercept if anything is changed and push menu

@@ -10,21 +10,47 @@ public class RotateToVelocity : MonoBehaviour
 	[SerializeField] private float TILT_STRENGTH = 0.02f;
 	[SerializeField] private float TILT_SMOOTH = 10f;
 
+	private ICharacterCreatorTracker _characterCreatorTracker;
 	private Rigidbody _rb;
+	private IPlayerIdentity _identity;
 	private IAccelerationTracker _accelTracker;
 	private Quaternion _yaw;
 	private Quaternion _tilt;
 
 	void Awake()
 	{
+		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_rb = this.GetComponentInParent<Rigidbody>();
+		_identity = this.GetComponentInParent<IPlayerIdentity>();
 		_accelTracker = this.GetComponentInParent<IAccelerationTracker>();
 		_yaw = transform.rotation;
 		_tilt = Quaternion.identity;
+
+		_characterCreatorTracker.IsInCharacterCreator.OnChanged += IsInCharacterCreator_OnChanged;
+	}
+
+	private void OnDestroy()
+	{
+		_characterCreatorTracker.IsInCharacterCreator.OnChanged -= IsInCharacterCreator_OnChanged;
+	}
+
+	private void IsInCharacterCreator_OnChanged(bool arg1, bool to)
+	{
+		// Leaving character creator with this; reset the yaw
+		if (!to && _identity.IsMine)
+		{
+			_yaw = this.transform.rotation;
+		}
 	}
 
 	void Update()
 	{
+		if (_characterCreatorTracker.IsInCharacterCreator.Val && _identity.IsMine)
+		{
+			// We're editing this, don't rotate
+			return;
+		}
+
 		UpdateYaw();
 		UpdateTilt();
 		transform.rotation = _yaw * _tilt;
@@ -32,6 +58,7 @@ public class RotateToVelocity : MonoBehaviour
 
 	void UpdateYaw()
 	{
+
 		Vector3 flatVel = _rb.linearVelocity.WithoutY();
 		if (flatVel.sqrMagnitude > MIN_SPEED * MIN_SPEED)
 		{

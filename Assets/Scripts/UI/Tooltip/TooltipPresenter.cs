@@ -73,7 +73,8 @@ public class TooltipPresenter : ReactiveBehaviour, ISelectable
 			}
 		}
 
-		Debug.LogWarning("No position available for tooltip, defaulting to above."); // Should never happen unless the tooltip is massive
+		// While this can't happen for UI tooltips, it can for world tooltips
+		//Debug.LogWarning("No position available for tooltip, defaulting to above."); 
 		return candidateOffsets[0];
 	}
 

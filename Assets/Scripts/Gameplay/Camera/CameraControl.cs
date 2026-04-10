@@ -1,6 +1,5 @@
 using Reactivity;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -29,7 +28,7 @@ public class CameraControl : ReactiveBehaviour
 
 	private void Start()
 	{
-		_providers = this.GetComponentsInChildren<ICameraControlProvider>().Reverse(); // Reverse so last has priority when we enumerate
+		_providers = this.GetComponentsInChildren<ICameraControlProvider>();
 		_bestProvider = CreateComputed(ComputeBestProvider);
 		_bestProvider.OnChanged += OnBestProviderChanged;
 	}

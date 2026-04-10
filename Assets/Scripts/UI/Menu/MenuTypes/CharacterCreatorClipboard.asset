@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42e7ebb3b928214ca7ce48d4e08ad49, type: 3}
   m_Name: CharacterCreatorClipboard
   m_EditorClassIdentifier: 
-  _coverType: 1
-  _popOnEscape: 0
+  _escapeInteraction: 2
   _popOnBackdropClicked: 0
-  _restrictGameInput: 0
+  _restrictGameInput: 1
   _settingsSwapMenu: 0

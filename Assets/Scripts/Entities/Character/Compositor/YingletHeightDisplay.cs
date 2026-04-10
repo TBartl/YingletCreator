@@ -14,7 +14,7 @@ public class YingletHeightDisplay : ReactiveBehaviour
 	void Start()
 	{
 		_settingsManager = Singletons.GetSingleton<ISettingsManager>();
-		_heightProvider = this.GetCharacterCreatorComponent<IYingletHeightProvider>();
+		_heightProvider = Singletons.GetSingleton<IYingletHeightProvider>();
 		_text = this.GetComponent<TMP_Text>();
 		AddReflector(ReflectText);
 	}
