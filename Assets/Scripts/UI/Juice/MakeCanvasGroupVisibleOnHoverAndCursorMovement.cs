@@ -1,4 +1,3 @@
-using Character.Creator.UI;
 using Reactivity;
 using UnityEngine;
 
@@ -6,7 +5,6 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 {
 	[SerializeField] SharedEaseSettings _easeSettings;
 	private IUiHoverManager _uiHoverManager;
-	private IPhotoModeChecker _photoModeState;
 	private CanvasGroup _canvasGroup;
 	private Coroutine _transitionCoroutine;
 	private Observable<bool> _cursorMovedRecently = new(false);
@@ -14,12 +12,10 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 	private Vector3 _lastMousePosition;
 	private float _lastMovementTime;
 	const float CURSOR_MOVE_TIME = 1.8f;
-	const float CURSOR_MOVE_TIME_NO_UI = 0.5f;
 
 	private void Awake()
 	{
 		_uiHoverManager = Singletons.GetSingleton<IUiHoverManager>();
-		_photoModeState = this.GetComponentInParent<IPhotoModeChecker>();
 		_canvasGroup = this.GetComponent<CanvasGroup>();
 		_canvasGroup.alpha = 0;
 	}
@@ -41,7 +37,7 @@ public class MakeCanvasGroupVisibleOnHoverAndCursorMovement : ReactiveBehaviour
 		}
 
 		// Hide instructions slightly faster if we're in photo mode
-		float moveTime = (_photoModeState.IsInPhotoMode.Val) ? CURSOR_MOVE_TIME_NO_UI : CURSOR_MOVE_TIME;
+		float moveTime = CURSOR_MOVE_TIME;
 		_cursorMovedRecently.Val = (Time.time - _lastMovementTime) <= moveTime;
 	}
 
