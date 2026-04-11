@@ -60,7 +60,6 @@ namespace Character.Creator
 			_selectionReference.SetSelected(newReference);
 		}
 
-
 		public void DeleteSelected()
 		{
 			var index = _yingletDiskIO.Delete(_selectionReference.Selected.Val);
@@ -82,6 +81,5 @@ namespace Character.Creator
 				_selectionReference.SetSelected(newSelection);
 			}
 		}
-
 	}
 }

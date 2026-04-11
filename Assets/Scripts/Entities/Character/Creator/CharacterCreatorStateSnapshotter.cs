@@ -31,7 +31,7 @@ namespace Character.Creator
 		private void Awake()
 		{
 			_selection = Singletons.GetSingleton<ICustomizationSelection>();
-			_dataRepository = this.GetComponent<ICustomizationSelectedDataRepository>();
+			_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		}
 
 		public CharacterCreatorStateSnapshot GetStateSnapshot(string action)

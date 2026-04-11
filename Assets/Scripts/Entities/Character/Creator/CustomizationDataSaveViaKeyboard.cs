@@ -5,21 +5,21 @@ namespace Character.Creator
 	public class CustomizationDataSaveViaKeyboard : MonoBehaviour
 	{
 		[SerializeField] private SoundEffect _soundEffect;
-		private IInputRestrictor _inputRestrictor;
+		private ICharacterCreatorTracker _characterCreatorTracker;
 		private IAudioPlayer _audioPlayer;
 		private ISelectedYingletDiskIO _diskIO;
 
 		private void Awake()
 		{
-			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
+			_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 			_audioPlayer = Singletons.GetSingleton<IAudioPlayer>();
-			_diskIO = this.GetComponent<ISelectedYingletDiskIO>();
+			_diskIO = Singletons.GetSingleton<ISelectedYingletDiskIO>();
 		}
 
 		void Update()
 		{
-			if (!_inputRestrictor.InputAllowed) return; // Input not allowed
-														// Manual saving too
+			if (_characterCreatorTracker.IsInCharacterCreator.Val == false) return;
+
 			if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.S))
 			{
 				bool succes = _diskIO.SaveSelected();
