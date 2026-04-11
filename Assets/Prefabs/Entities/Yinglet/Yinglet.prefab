@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 8879587830582287524}
   - component: {fileID: 5834778213433439319}
   - component: {fileID: 5851311224677900477}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractionRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
