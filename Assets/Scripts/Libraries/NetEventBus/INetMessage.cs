@@ -1,3 +1,6 @@
 ﻿using Unity.Netcode;
 
-public interface INetMessage : INetworkSerializable { }
+public interface INetMessage : INetworkSerializable
+{
+	NetworkDelivery DeliveryMethod { get; }
+}

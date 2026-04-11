@@ -94,7 +94,7 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 			return;
 		}
 
-		using var writer = new FastBufferWriter(128, Unity.Collections.Allocator.Temp);
+		using var writer = new FastBufferWriter(128, Unity.Collections.Allocator.Temp, int.MaxValue);
 
 		// 1. Write the message type ID
 		var messageId = _messageRegistry.GetMessageId(message);
@@ -108,15 +108,21 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 
 		if (_networkManager.IsServer)
 		{
-			// Send it to everyone excluding ourselves
-			var clients = _networkManager.ConnectedClientsIds.Where(c => c != NetworkManager.ServerClientId).ToList();
+			// Send it to everyone excluding ourselves and the client that sent it
+			var clients = _networkManager.ConnectedClientsIds.Where(c => c != NetworkManager.ServerClientId && c != sender).ToList();
 
-			messagingManager.SendUnnamedMessage(clients, writer);
+			if (clients.Count == 0)
+			{
+				// No one to send to, no point sending
+				return;
+			}
+
+			messagingManager.SendUnnamedMessage(clients, writer, message.DeliveryMethod);
 		}
 		else
 		{
 			// Send it to the server so it can relay it
-			messagingManager.SendUnnamedMessage(NetworkManager.ServerClientId, writer);
+			messagingManager.SendUnnamedMessage(NetworkManager.ServerClientId, writer, message.DeliveryMethod);
 		}
 	}
 

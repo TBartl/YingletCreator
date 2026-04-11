@@ -103,10 +103,10 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 	{
 		_toastManager = Singletons.GetSingleton<IToastManager>();
 
-		_isAttemptingHost = CreateComputed(() => _isNetManagerHosted.Val && _currentLobby.Val == null);
-		_isConnectedHost = CreateComputed(() => _isNetManagerHosted.Val && _currentLobby.Val != null);
+		_isAttemptingHost = CreateComputed(() => _isNetManagerHosted.Val && (_currentLobby.Val == null || !_steam));
+		_isConnectedHost = CreateComputed(() => _isNetManagerHosted.Val && (_currentLobby.Val != null || !_steam));
 		_isAttemptingClient = CreateComputed(() => _isNetManagerClientAttempting.Val || _isClientAttemptingToJoinLobby.Val); // Either netmanager isn't ready or lobby isn't
-		_isConnectedClient = CreateComputed(() => _isNetManagerClientConnected.Val && _currentLobby.Val != null);
+		_isConnectedClient = CreateComputed(() => _isNetManagerClientConnected.Val && (_currentLobby.Val != null || !_steam));
 		_isInAnyState = CreateComputed(() => IsAttemptingHost || IsConnectedHost || IsAttemptingClient || IsConnectedClient);
 	}
 

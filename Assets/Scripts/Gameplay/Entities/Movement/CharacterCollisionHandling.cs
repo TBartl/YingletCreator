@@ -167,6 +167,9 @@ public struct Message_ImpactedGround : INetMessage
 {
 	public float ImpactVelocity;
 	public Vector3 ImpactPosition;
+
+	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
+
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref ImpactVelocity);

@@ -132,6 +132,8 @@ struct Message_SendRigidbodySnapshot : INetMessage
 		RemoteTime = remoteTime;
 	}
 
+	public NetworkDelivery DeliveryMethod => NetworkDelivery.Unreliable;
+
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref Position);

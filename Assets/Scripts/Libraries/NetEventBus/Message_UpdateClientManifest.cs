@@ -8,6 +8,7 @@ public struct Message_UpdateClientManifest : INetMessage
 {
 	public ulong[] ClientIds;
 
+	public NetworkDelivery DeliveryMethod => NetworkDelivery.ReliableSequenced;
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref ClientIds);

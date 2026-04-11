@@ -4,6 +4,9 @@ using UnityEngine;
 public struct Message_TestMessage : INetMessage
 {
 	public string Text;
+
+	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
+
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref Text);
@@ -39,4 +42,6 @@ internal class NetMessageTest : MonoBehaviour
 	{
 		Debug.Log("Recieved test message: " + message.Text);
 	}
+
+
 }
