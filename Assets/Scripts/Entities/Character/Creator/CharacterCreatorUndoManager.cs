@@ -38,6 +38,7 @@ namespace Character.Creator
 
 		List<CharacterCreatorStateSnapshot> _undoStack = new(); // Not actually a stack because we need to remove things from the front
 		List<CharacterCreatorStateSnapshot> _redoStack = new(); // Redo stack to store undone states
+		private ICharacterCreatorTracker _characterCreatorTracker;
 
 		public event Action<string> UndoApplied;
 		public event Action NothingToUndo;
@@ -48,6 +49,23 @@ namespace Character.Creator
 		{
 			_stateSnapshotter = Singletons.GetSingleton<ICharacterCreatorStateSnapshotter>();
 			_customizationSelection = Singletons.GetSingleton<ICustomizationSelection>();
+		}
+
+		private void Start()
+		{
+			_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
+			_characterCreatorTracker.IsInCharacterCreator.OnChanged += Tracker_OnIsInCharacterCreatorChanged;
+		}
+
+		private void OnDestroy()
+		{
+			_characterCreatorTracker.IsInCharacterCreator.OnChanged -= Tracker_OnIsInCharacterCreatorChanged;
+		}
+
+		private void Tracker_OnIsInCharacterCreatorChanged(bool from, bool to)
+		{
+			_undoStack.Clear();
+			_redoStack.Clear();
 		}
 
 		public void RecordState(string action)
