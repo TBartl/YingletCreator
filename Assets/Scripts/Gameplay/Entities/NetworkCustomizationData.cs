@@ -10,6 +10,7 @@ public interface INetworkCustomizationData
 public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 {
 	private INetStateReader _netStateTracker;
+	private INetClientTracker _netClientTracker;
 	private ICharacterCreatorTracker _characterCreatorTracker;
 	private INetEventBus _eventBus;
 	private IGameCharacterDataRepository _dataRepo;
@@ -18,18 +19,30 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 	void Awake()
 	{
 		_netStateTracker = Singletons.GetSingleton<INetStateReader>();
+		_netClientTracker = Singletons.GetSingleton<INetClientTracker>();
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
 		_dataRepo = this.GetComponent<IGameCharacterDataRepository>();
 		_identity = this.GetComponentInParent<IPlayerIdentity>();
 
+		_netClientTracker.OnConnectedToServer += NetClientTracker_OnConnectedToServer;
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged += InCharacterCreator_OnChanged;
 		_eventBus.Subscribe<Message_UpdateCustomizationData>(OnCustomizationDataUpdated);
 	}
 
 	private void OnDestroy()
 	{
+		_netClientTracker.OnConnectedToServer -= NetClientTracker_OnConnectedToServer;
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged -= InCharacterCreator_OnChanged;
+		_eventBus.Unsubscribe<Message_UpdateCustomizationData>(OnCustomizationDataUpdated);
+	}
+
+	private void NetClientTracker_OnConnectedToServer(ulong connectionId)
+	{
+		if (!_identity.IsMine) return;
+
+		var message = CreateMessage();
+		_eventBus.SendToAll(message);
 	}
 
 	private void InCharacterCreator_OnChanged(bool from, bool to)
