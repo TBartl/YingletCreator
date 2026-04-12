@@ -2,6 +2,7 @@
 
 using Character.Creator;
 using Reactivity;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -19,15 +20,33 @@ internal class GameCharacterCustomizationSelection : MonoBehaviour, ICustomizati
 	{
 		_yingletRepository = Singletons.GetSingleton<ILocalYingletRepository>();
 
-		var playerIdentity = this.GetComponentInParent<IPlayerIdentity>();
-		if (!playerIdentity.IsMine) return; // Don't set a selection for something that isn't ours
+		var allCharacters = _yingletRepository.GetAllYinglets();
 
-		// TODO: Would be nice to remember the last one
+		var playerIdentity = this.GetComponentInParent<IPlayerIdentity>();
+		if (!playerIdentity.IsMine)
+		{
+			// Just set it to anything; the server should overwrite this shortly
+			_selected.Val = allCharacters.FirstOrDefault();
+			return;
+		}
+
+
+		var settingsManager = Singletons.GetSingleton<ISettingsManager>();
+		var lastSelectedCharacterPath = settingsManager.Settings.LastSelectedCharacterPath;
+		if (!string.IsNullOrWhiteSpace(lastSelectedCharacterPath))
+		{
+			// Try to find the last selected character
+			var lastSelected = allCharacters.FirstOrDefault(character => Path.GetFileNameWithoutExtension(character.Path) == lastSelectedCharacterPath);
+
+			if (lastSelected != null)
+			{
+				_selected.Val = lastSelected;
+				return;
+			}
+		}
 
 		// Try to select first preset, or first custom as a backup
-		var initialSelection = _yingletRepository.GetYinglets(LocalYingletGroup.Preset).FirstOrDefault();
-		if (initialSelection == null) initialSelection = _yingletRepository.GetYinglets(LocalYingletGroup.Custom).First();
-		_selected.Val = initialSelection;
+		_selected.Val = allCharacters.FirstOrDefault();
 	}
 
 	public IReadOnlyObservable<CachedYingletReference> Selected => _selected;

@@ -31,6 +31,9 @@ public sealed class SerializableSettings : ISettings
 	[SerializeField] List<string> _dontShowConfirmationIdsAgain = new();
 	public List<string> DontShowConfirmationIdsAgain => _dontShowConfirmationIdsAgain;
 
+	[SerializeField] string _lastSelectedCharacterPath = "";
+	public string LastSelectedCharacterPath => _lastSelectedCharacterPath;
+
 	public SerializableSettings()
 	{
 		if (_displayResolution == Vector2Int.zero)
@@ -50,5 +53,6 @@ public sealed class SerializableSettings : ISettings
 		_effectVolume = settings.EffectVolume;
 		_musicVolume = settings.MusicVolume;
 		_dontShowConfirmationIdsAgain = settings.DontShowConfirmationIdsAgain;
+		_lastSelectedCharacterPath = settings.LastSelectedCharacterPath;
 	}
 }

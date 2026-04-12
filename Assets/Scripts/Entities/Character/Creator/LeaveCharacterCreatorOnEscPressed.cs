@@ -1,4 +1,5 @@
 using Character.Creator;
+using System.IO;
 using UnityEngine;
 
 public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
@@ -7,6 +8,7 @@ public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
 	private ICharacterCreatorTracker _characterCreatorTracker;
 	private IMenuManager _menuManager;
 	private IConfirmationManager _confirmationManager;
+	private ISettingsManager _settingsManager;
 
 	private void Awake()
 	{
@@ -14,6 +16,7 @@ public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
 		_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
+		_settingsManager = Singletons.GetSingleton<ISettingsManager>();
 	}
 
 	void Update()
@@ -27,16 +30,20 @@ public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
 				"You have unsaved changes\n\nAre you sure you want to exit the character creator?",
 				"Exit Anyway",
 				"change-yinglet-selection",
-				PopMenu));
+				ExitCharacterCreator));
 		}
 		else
 		{
-			PopMenu();
+			ExitCharacterCreator();
 		}
 
-		void PopMenu()
+		void ExitCharacterCreator()
 		{
 			_menuManager.PopMenu();
+
+			// This probably shouldn't live here but w/e
+			_settingsManager.Settings.LastSelectedCharacterPath = Path.GetFileNameWithoutExtension(_selection.Selected.Val.Path);
+			_settingsManager.SaveChangesToDisk();
 		}
 	}
 }

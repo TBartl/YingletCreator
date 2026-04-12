@@ -20,6 +20,7 @@ namespace Character.Creator
 	public interface ILocalYingletRepository
 	{
 		IEnumerable<CachedYingletReference> GetYinglets(LocalYingletGroup group);
+		IEnumerable<CachedYingletReference> GetAllYinglets();
 		void AddNewCustom(CachedYingletReference reference);
 
 		/// <summary>
@@ -30,12 +31,16 @@ namespace Character.Creator
 
 	public class LocalYingletRepository : MonoBehaviour, ILocalYingletRepository
 	{
-
 		private Dictionary<LocalYingletGroup, ObservableList<CachedYingletReference>> _yinglets = new();
 
 		public IEnumerable<CachedYingletReference> GetYinglets(LocalYingletGroup group)
 		{
 			return _yinglets[group];
+		}
+
+		public IEnumerable<CachedYingletReference> GetAllYinglets()
+		{
+			return _yinglets.Values.SelectMany(list => list);
 		}
 
 		private void Awake()

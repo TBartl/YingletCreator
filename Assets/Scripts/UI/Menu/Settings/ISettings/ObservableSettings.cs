@@ -32,6 +32,9 @@ public sealed class ObservableSettings : IWriteableSettings
 	List<string> _dontShowConfirmationIdsAgain = new(); // Doesn't actually need to be observable, keep it simple
 	public List<string> DontShowConfirmationIdsAgain { get => _dontShowConfirmationIdsAgain; set => _dontShowConfirmationIdsAgain = value; }
 
+	string _lastSelectedCharacterPath = ""; // Doesn't actually need to be observable, keep it simple
+	public string LastSelectedCharacterPath { get => _lastSelectedCharacterPath; set => _lastSelectedCharacterPath = value; }
+
 	public ObservableSettings(ISettings loadedSettings)
 	{
 		_fpsCap = new Observable<FpsCap>(loadedSettings.FpsCap);
@@ -43,5 +46,6 @@ public sealed class ObservableSettings : IWriteableSettings
 		_effectVolume = new Observable<float>(loadedSettings.EffectVolume);
 		_musicVolume = new Observable<float>(loadedSettings.MusicVolume);
 		_dontShowConfirmationIdsAgain = loadedSettings.DontShowConfirmationIdsAgain;
+		_lastSelectedCharacterPath = loadedSettings.LastSelectedCharacterPath;
 	}
 }

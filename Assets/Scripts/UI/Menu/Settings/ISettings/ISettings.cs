@@ -43,6 +43,7 @@ public interface ISettings
 	float EffectVolume { get; }
 	float MusicVolume { get; }
 	List<string> DontShowConfirmationIdsAgain { get; } // Can't be a HashSet since that can't be serialized
+	string LastSelectedCharacterPath { get; }
 }
 
 public interface IWriteableSettings : ISettings
@@ -56,4 +57,5 @@ public interface IWriteableSettings : ISettings
 	new float EffectVolume { get; set; }
 	new float MusicVolume { get; set; }
 	new List<string> DontShowConfirmationIdsAgain { get; set; }
+	new string LastSelectedCharacterPath { get; set; }
 }

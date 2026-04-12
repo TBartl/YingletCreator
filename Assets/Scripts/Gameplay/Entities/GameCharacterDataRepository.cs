@@ -1,5 +1,5 @@
 using Reactivity;
-using System.Linq;
+using UnityEngine;
 
 namespace Character.Creator
 {
@@ -10,7 +10,6 @@ namespace Character.Creator
 	public class GameCharacterDataRepository : ReactiveBehaviour, IGameCharacterDataRepository
 	{
 		private ICompositeResourceLoader _resourceLoader;
-		private ILocalYingletRepository _yingletRepository;
 		private CachedYingletReference[] _yinglets;
 		private Observable<ObservableCustomizationData> _data = new();
 
@@ -34,10 +33,13 @@ namespace Character.Creator
 		void Awake()
 		{
 			_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
-			_yingletRepository = Singletons.GetSingleton<ILocalYingletRepository>();
-			_yinglets = _yingletRepository.GetYinglets(LocalYingletGroup.Preset).ToArray();
-			var firstCharacterData = _yinglets.First().CachedData;
-			_data.Val = new ObservableCustomizationData(firstCharacterData, _resourceLoader);
+			var initialSelection = this.GetComponent<ICustomizationSelection>();
+			var data = initialSelection.Selected.Val?.CachedData;
+			if (data == null)
+			{
+				Debug.LogError("No initial selection found for GameCharacterDataRepository");
+			}
+			_data.Val = new ObservableCustomizationData(data, _resourceLoader);
 
 			_identity = this.GetComponentInParent<IPlayerIdentity>();
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
