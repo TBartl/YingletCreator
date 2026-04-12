@@ -19,7 +19,7 @@ namespace Character.Creator.UI
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);
 
-			_diskIO = this.GetComponentInParent<ISelectedYingletDiskIO>();
+			_diskIO = Singletons.GetSingleton<ISelectedYingletDiskIO>();
 			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 		}

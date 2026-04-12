@@ -13,7 +13,7 @@ namespace Character.Creator.UI
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);
 
-			_diskIO = this.GetComponentInParent<ISelectedYingletDiskIO>();
+			_diskIO = Singletons.GetSingleton<ISelectedYingletDiskIO>();
 		}
 
 		private void OnDestroy()
