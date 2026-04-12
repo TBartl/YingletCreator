@@ -1,4 +1,5 @@
 ﻿using Reactivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -29,6 +30,11 @@ public interface INetClientTracker
 	/// Kept as a single property for better observability compatibility (the client ID and the clientIDs can change in unison)
 	/// </summary>
 	ClientData Data { get; }
+
+	/// <summary>
+	/// Called only for servers when a client connects;
+	/// </summary>
+	event Action<ulong> OnClientConnectedToUs;
 }
 
 internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
@@ -39,6 +45,8 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 
 	Observable<ClientData> _data = new Observable<ClientData>(new ClientData(0, new ulong[] { 0 }));
 	Computed<ulong> _computedLocalClientId; // Compute for less refires in the average case when a client is just connecting / disconnecting
+
+	public event Action<ulong> OnClientConnectedToUs = delegate { };
 
 	public ulong LocalClientID => _computedLocalClientId.Val;
 
@@ -90,7 +98,9 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 		}
 		else if (_netManager.IsServer)
 		{
+			if (clientId == 0) return; // Ignore ourselves connecting as a host
 			ServerSendUpdatedManifest();
+			OnClientConnectedToUs.Invoke(clientId);
 		}
 		else
 		{

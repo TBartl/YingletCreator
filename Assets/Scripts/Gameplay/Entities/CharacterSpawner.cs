@@ -6,6 +6,8 @@ using UnityEngine;
 public interface ICharacterSpawner
 {
 	GameObject MyCharacter { get; }
+
+	IReadOnlyDictionary<ulong, GameObject> Characters { get; }
 }
 
 public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
@@ -19,6 +21,8 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 	private ulong _lastLocalClientId = 0;
 
 	public GameObject MyCharacter => _myCharacter.Val;
+
+	public IReadOnlyDictionary<ulong, GameObject> Characters => _characters;
 
 	private void Start()
 	{

@@ -16,6 +16,7 @@ public interface INetEventBus
 	public void Unsubscribe<T>(NetMessageCallback<T> callback) where T : INetMessage;
 
 	public void SendToAll<T>(T message) where T : INetMessage;
+	public void SendToOne<T>(T message, ulong targetConnectionId) where T : INetMessage;
 
 	// Provided for convenience even though it's out of this class's scope
 	public double NetworkTime { get; }
@@ -76,12 +77,33 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 
 	private void SendToAll<T>(T message, ulong sender) where T : INetMessage
 	{
+		// For servers, send to everyone except ourselves and the sender
+		// For clients, send to the server only so we can relay it
+		var clients = _networkManager.IsServer
+			? _networkManager.ConnectedClientsIds.Where(c => c != NetworkManager.ServerClientId && c != sender).ToList()
+			: new List<ulong> { NetworkManager.ServerClientId };
+		Send(message, sender, clients);
+	}
+
+	private void Send<T>(T message, ulong sender, IReadOnlyList<ulong> clients) where T : INetMessage
+	{
 		var messagingManager = _networkManager.CustomMessagingManager;
 		if (_networkManager.IsServer || messagingManager == null)
 		{
 			// Send to ourselves if we're the server or if we're not running
 			FireMessageToListeners(message, sender);
 		}
+
+		if (clients.Count == 0)
+		{
+			// If we don't have anyone more to send to, we can skip the rest
+			// At some point I should re-evaluate how this logic all works
+			// Seemingly all the logic I've written for solo players to fire events gets ignored in the consumer logic
+			// So do I even need the FireMessageToListeners above?
+			// Or should I just leave it on the message recieved callback only?
+			return;
+		}
+
 		if (messagingManager == null)
 		{
 			// No network connection, no point sending
@@ -106,24 +128,27 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 		// 3. Write the message data
 		writer.WriteNetworkSerializable(message);
 
-		if (_networkManager.IsServer)
+
+		if (clients.Count == 1)
 		{
-			// Send it to everyone excluding ourselves and the client that sent it
-			var clients = _networkManager.ConnectedClientsIds.Where(c => c != NetworkManager.ServerClientId && c != sender).ToList();
-
-			if (clients.Count == 0)
-			{
-				// No one to send to, no point sending
-				return;
-			}
-
-			messagingManager.SendUnnamedMessage(clients, writer, message.DeliveryMethod);
+			// We need to do this because clients seemingly can't use the List version of SendUnnamedMessage, even with a list of 1
+			messagingManager.SendUnnamedMessage(clients[0], writer, message.DeliveryMethod);
 		}
 		else
 		{
-			// Send it to the server so it can relay it
-			messagingManager.SendUnnamedMessage(NetworkManager.ServerClientId, writer, message.DeliveryMethod);
+			messagingManager.SendUnnamedMessage(clients, writer, message.DeliveryMethod);
+
 		}
+	}
+
+	public void SendToOne<T>(T message, ulong targetConnectionId) where T : INetMessage
+	{
+		if (!_networkManager.IsServer)
+		{
+			Debug.LogWarning("SendToOne is only supported on the server");
+			return;
+		}
+		Send(message, _clientTracker.LocalClientID, new List<ulong> { targetConnectionId });
 	}
 
 	// Custom message format
