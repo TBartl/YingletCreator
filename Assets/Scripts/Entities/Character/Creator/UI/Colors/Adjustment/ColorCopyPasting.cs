@@ -16,6 +16,7 @@ namespace Character.Creator.UI
 	}
 	public class ColorCopyPasting : MonoBehaviour, IColorCopyPasting
 	{
+		private ICharacterCreatorTracker _characterCreatorTracker;
 		private IInputRestrictor _inputRestrictor;
 		private ICustomizationSelectedDataRepository _dataRepository;
 		private ICharacterCreatorUndoManager _undoManager;
@@ -27,6 +28,7 @@ namespace Character.Creator.UI
 
 		void Awake()
 		{
+			_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
 			_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
@@ -34,7 +36,7 @@ namespace Character.Creator.UI
 		}
 		void Update()
 		{
-			if (!_inputRestrictor.InputAllowed) return; // Input not allowed
+			if (!_characterCreatorTracker.IsInCharacterCreator.Val) return;
 
 			if (!Input.GetKey(KeyCode.LeftControl)) return;
 			if (Input.GetKeyDown(KeyCode.C))
