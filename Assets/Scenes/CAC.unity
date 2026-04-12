@@ -3547,6 +3547,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1c8e35d4d44b6459430f6b5f730cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &267471058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267471036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df98e3750156bc4fbad32c907384796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &280596371
 GameObject:
   m_ObjectHideFlags: 0
@@ -22970,6 +22982,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3081407472517886505, guid: b04cce45e3f7b8041af312e0a1858f41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 267471051}
+    - targetCorrespondingSourceObject: {fileID: 3081407472517886505, guid: b04cce45e3f7b8041af312e0a1858f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267471058}
   m_SourcePrefab: {fileID: 100100000, guid: b04cce45e3f7b8041af312e0a1858f41, type: 3}
 --- !u!23 &1711828445397774420
 MeshRenderer:
