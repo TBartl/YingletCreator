@@ -5,12 +5,18 @@ public class LockCursorOnRightClick : MonoBehaviour
 {
 	private Vector2 _lastCursorPosition;
 	private bool _wasLocked = false;
+	private ICharacterCreatorTracker _characterCreatorTracker;
+
+	private void Start()
+	{
+		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
+	}
 
 	private void Update()
 	{
 		if (Mouse.current == null) return;
 
-		bool shouldLock = Input.GetMouseButton(1);
+		bool shouldLock = ShouldLock();
 
 		Cursor.lockState = shouldLock ? CursorLockMode.Locked : CursorLockMode.None;
 		Cursor.visible = !shouldLock;
@@ -27,6 +33,12 @@ public class LockCursorOnRightClick : MonoBehaviour
 			Mouse.current.WarpCursorPosition(_lastCursorPosition);
 		}
 		_wasLocked = shouldLock;
+	}
+
+	bool ShouldLock()
+	{
+		if (!_characterCreatorTracker.IsInCharacterCreator.Val) return false;
+		return Input.GetMouseButton(1);
 	}
 
 	private void OnDestroy()
