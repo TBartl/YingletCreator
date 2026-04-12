@@ -89,6 +89,7 @@ public class CharacterSpawner : ReactiveBehaviour, ICharacterSpawner
 
 	GameObject CreateNewCharacterObject(ulong connectionId)
 	{
+		using var _ = new ReactivityTrackingSuspender(); // When we spawn an object, we don't want to listen on anything it's doing
 		using var disabler = _characterPrefab.TemporarilyDisable();
 		var character = Instantiate(_characterPrefab);
 		character.GetComponent<IPlayerIdentity>().ConnectionId = connectionId;

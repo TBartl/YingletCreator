@@ -1,5 +1,4 @@
 using Reactivity;
-using System.Linq;
 using UnityEngine;
 
 namespace Character.Creator
@@ -16,30 +15,62 @@ namespace Character.Creator
 		public bool SelectionIsDirty { get; set; }
 	}
 
-	public class CustomizationSelection : MonoBehaviour, ICustomizationSelection
+	/// <summary>
+	/// Singleton implementation that just reflects the current yinglet as a convenient wrapper
+	/// </summary>
+	public class CustomizationSelection : ReactiveBehaviour, ICustomizationSelection
 	{
-		private ILocalYingletRepository _yingletRepository;
+		private ICharacterSpawner _characterSpawner;
+		Computed<ICustomizationSelection> _currentGameCharacterSelection;
+		Computed<CachedYingletReference> _selected;
 
-		private Observable<CachedYingletReference> _selected = new Observable<CachedYingletReference>();
-
-		void Awake()
+		private void Awake()
 		{
-			_yingletRepository = Singletons.GetSingleton<ILocalYingletRepository>();
+			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
 
-			// Try to select first preset, or first custom as a backup
-			var initialSelection = _yingletRepository.GetYinglets(LocalYingletGroup.Preset).FirstOrDefault();
-			if (initialSelection == null) initialSelection = _yingletRepository.GetYinglets(LocalYingletGroup.Custom).First();
-			_selected.Val = initialSelection;
+			_currentGameCharacterSelection = CreateComputed(() =>
+			{
+				var currentCharacter = _characterSpawner.MyCharacter;
+				if (currentCharacter == null) return null;
+				return currentCharacter.GetComponentInChildren<ICustomizationSelection>();
+			});
+			_selected = CreateComputed(() =>
+			{
+				var currentSelection = _currentGameCharacterSelection.Val;
+				if (currentSelection == null) return null;
+				var selected = currentSelection.Selected.Val;
+				if (selected == null) return null;
+				return selected;
+			});
 		}
 
 		public IReadOnlyObservable<CachedYingletReference> Selected => _selected;
 
-		public bool SelectionIsDirty { get; set; }
+		public bool SelectionIsDirty
+		{
+			get
+			{
+				var currentSelection = _currentGameCharacterSelection.Val;
+				if (currentSelection == null) return false;
+				return currentSelection.SelectionIsDirty;
+			}
+			set
+			{
+				var currentSelection = _currentGameCharacterSelection.Val;
+				if (currentSelection == null) return;
+				currentSelection.SelectionIsDirty = value;
+			}
+		}
 
 		public void SetSelected(CachedYingletReference reference)
 		{
-			_selected.Val = reference;
-			SelectionIsDirty = false;
+			var currentSelection = _currentGameCharacterSelection.Val;
+			if (currentSelection == null)
+			{
+				Debug.LogWarning("No current character selection found, cannot set selected yinglet");
+				return;
+			}
+			currentSelection.SetSelected(reference);
 		}
 	}
 }

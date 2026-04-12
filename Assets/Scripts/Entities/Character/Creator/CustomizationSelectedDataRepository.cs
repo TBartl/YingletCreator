@@ -20,7 +20,6 @@ namespace Character.Creator
 
 	public class CustomizationSelectedDataRepository : ReactiveBehaviour, ICustomizationSelectedDataRepository
 	{
-		private ICompositeResourceLoader _resourceLoader;
 		private ICharacterSpawner _characterSpawner;
 		private ICustomizationSelection _selection;
 
@@ -31,7 +30,6 @@ namespace Character.Creator
 
 		void Awake()
 		{
-			_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
 			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
 
 			// TODO: use this
@@ -53,10 +51,9 @@ namespace Character.Creator
 			var characterRepository = _characterDataRepository.Val;
 			if (characterRepository == null)
 			{
-				Debug.LogError("No character repository found when trying to change selected yinglet");
+				// This can happen on startup
 				return;
 			}
-			// TODO: Track undo? I don't remember how this works
 			characterRepository.ForceCustomizationData(to.CachedData);
 		}
 

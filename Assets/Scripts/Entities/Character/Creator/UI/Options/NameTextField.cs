@@ -36,7 +36,12 @@ namespace Character.Creator.UI
 			{
 				_inputField.interactable = false;
 			}
-			_inputField.interactable = _selection.Selected.Val.Group == LocalYingletGroup.Custom;
+			var group = _selection.Selected.Val?.Group;
+			if (group == null)
+			{
+				_inputField.interactable = false;
+			}
+			_inputField.interactable = group == LocalYingletGroup.Custom;
 		}
 
 
