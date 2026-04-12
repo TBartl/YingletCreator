@@ -18016,7 +18016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7b1d44db0604146918ab5e572db533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _steam: 0
+  _steam: 1
   _steamTransport: {fileID: 1570610944}
   _debugTransport: {fileID: 1149769939}
 --- !u!1001 &1796693752
