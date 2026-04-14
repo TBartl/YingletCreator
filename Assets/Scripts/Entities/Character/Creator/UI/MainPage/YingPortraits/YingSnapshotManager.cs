@@ -109,9 +109,18 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 		void Snapshot()
 		{
 			var observableData = new ObservableCustomizationData(_yingReference.CachedData, _snapshotReferences.ResourceLoader);
+			var parameters = new SnapshotterParams(_snapshotReferences.CameraPosition, observableData);
+
+			// Apply portrait if it exists
+			var portrait = observableData.PortraitData.PortraitId.Val;
+			if (portrait != null)
+			{
+				parameters.Portrait = portrait;
+			}
+
 			RenderTexture = SnapshotterUtils.Snapshot(
 				_snapshotReferences.References,
-				new SnapshotterParams(_snapshotReferences.CameraPosition, observableData),
+				parameters,
 				RenderTexture);
 		}
 

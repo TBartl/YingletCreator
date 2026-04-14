@@ -88,6 +88,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4243224795258339615, guid: b8963805b665de84aad29598f96f1470, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243224795258339615, guid: b8963805b665de84aad29598f96f1470, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4834466209950376475, guid: b8963805b665de84aad29598f96f1470, type: 3}
       propertyPath: m_Name
       value: CharacterPortraitToggle
