@@ -4,7 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(PoseId)), CanEditMultipleObjects]
 public class PoseIdEditor : Editor
 {
-	OrderableScriptableObjectGuiDisplayer<PoseId, PoseOrderGroup> _orderDisplayer = new();
+	OrderableGroupedScriptableObjectGuiDisplayer<PoseId, PoseOrderGroup> _orderDisplayer = new();
 
 	private void OnEnable()
 	{

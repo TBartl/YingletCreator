@@ -21,8 +21,7 @@ namespace Character.Creator.UI
 		private void Start()
 		{
 			var allPortraits = _resourceLoader.LoadAllPortraitIds()
-				// TODO: Should probably be some order data or something
-				//.OrderBy(pose => pose.Order.Index)
+				.OrderBy(pose => pose.OrderIndex)
 				.ToArray();
 			foreach (var portraitId in allPortraits)
 			{

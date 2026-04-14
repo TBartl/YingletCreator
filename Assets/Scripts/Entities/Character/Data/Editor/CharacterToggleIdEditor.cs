@@ -4,7 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(CharacterToggleId)), CanEditMultipleObjects]
 public class CharacterToggleIdEditor : Editor
 {
-    OrderableScriptableObjectGuiDisplayer<CharacterToggleId, CharacterToggleOrderGroup> _orderDisplayer = new();
+    OrderableGroupedScriptableObjectGuiDisplayer<CharacterToggleId, CharacterToggleOrderGroup> _orderDisplayer = new();
 
     private void OnEnable()
     {

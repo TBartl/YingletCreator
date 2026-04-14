@@ -39,7 +39,7 @@ namespace Character.Compositor
 	}
 
 	[CreateAssetMenu(fileName = "MixTexture", menuName = "Scriptable Objects/Character Compositor/MixTexture")]
-	public class MixTexture : ScriptableObject, IMixTexture, IOrderableScriptableObject<MixTextureOrderGroup>
+	public class MixTexture : ScriptableObject, IMixTexture, IGroupedOrderableScriptableObject<MixTextureOrderGroup>
 	{
 		[SerializeField] AssetReferenceT<ReColorId> _reColorIdReference;
 		[SerializeField] AssetReferenceT<MaterialDescription> _targetMaterialDescriptionReference;
@@ -63,7 +63,7 @@ namespace Character.Compositor
 		public IEnumerable<CharacterElementTag> Tags => _tagReferences.Select(r => r.LoadSync());
 
 		public MixTextureOrderData Order => _order;
-		IOrderData<MixTextureOrderGroup> IOrderableScriptableObject<MixTextureOrderGroup>.Order => Order;
+		IGroupedOrderData<MixTextureOrderGroup> IGroupedOrderableScriptableObject<MixTextureOrderGroup>.Order => Order;
 	}
 
 	public enum TargetMaterialTexture
@@ -76,7 +76,7 @@ namespace Character.Compositor
 	}
 
 	[System.Serializable]
-	public class MixTextureOrderData : IOrderData<MixTextureOrderGroup>
+	public class MixTextureOrderData : IGroupedOrderData<MixTextureOrderGroup>
 	{
 		[SerializeField] AssetReferenceT<MixTextureOrderGroup> _groupReference;
 		public MixTextureOrderGroup Group => _groupReference.LoadSync();

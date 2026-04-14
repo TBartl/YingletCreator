@@ -19,3 +19,4 @@ MonoBehaviour:
     _sprite: {fileID: -7414383827266533784, guid: 0e36601c62f166a45b8c0d3a95f92d11, type: 3}
     _cameraPositionReference:
       m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+  _orderIndex: 0

@@ -7,7 +7,7 @@ namespace Character.Data
 	/// Controls the preview portrait generated for characters
 	/// </summary>
 	[CreateAssetMenu(fileName = "Portrait", menuName = "Scriptable Objects/Character Data/PortraitId")]
-	public class PortraitId : ScriptableObject, IHasUniqueAssetId, ISnapshottableScriptableObject
+	public class PortraitId : ScriptableObject, IHasUniqueAssetId, ISnapshottableScriptableObject, IOrderableScriptableObject
 	{
 		[SerializeField, HideInInspector] string _uniqueAssetId;
 		public string UniqueAssetID { get => _uniqueAssetId; set => _uniqueAssetId = value; }
@@ -20,5 +20,8 @@ namespace Character.Data
 
 		[SerializeField] CharacterTogglePreviewData _preview;
 		public CharacterTogglePreviewData Preview => _preview;
+
+		[SerializeField] int _orderIndex;
+		public int OrderIndex => _orderIndex;
 	}
 }

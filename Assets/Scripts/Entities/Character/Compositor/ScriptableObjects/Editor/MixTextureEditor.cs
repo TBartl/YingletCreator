@@ -4,7 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(MixTexture)), CanEditMultipleObjects]
 public class MixTextureEditor : Editor
 {
-	OrderableScriptableObjectGuiDisplayer<MixTexture, MixTextureOrderGroup> _orderDisplayer = new();
+	OrderableGroupedScriptableObjectGuiDisplayer<MixTexture, MixTextureOrderGroup> _orderDisplayer = new();
 
 	private void OnEnable()
 	{

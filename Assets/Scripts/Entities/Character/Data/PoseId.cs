@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Character.Data
 {
 	[CreateAssetMenu(fileName = "Pose", menuName = "Scriptable Objects/Character Data/PoseId")]
-	public class PoseId : ScriptableObject, IHasUniqueAssetId, ISnapshottableScriptableObject, IOrderableScriptableObject<PoseOrderGroup>
+	public class PoseId : ScriptableObject, IHasUniqueAssetId, ISnapshottableScriptableObject, IGroupedOrderableScriptableObject<PoseOrderGroup>
 	{
 		[SerializeField, HideInInspector] string _uniqueAssetId;
 		public string UniqueAssetID { get => _uniqueAssetId; set => _uniqueAssetId = value; }
@@ -31,11 +31,11 @@ namespace Character.Data
 
 		[SerializeField] PoseOrderData _order;
 		public PoseOrderData Order => _order;
-		IOrderData<PoseOrderGroup> IOrderableScriptableObject<PoseOrderGroup>.Order => Order;
+		IGroupedOrderData<PoseOrderGroup> IGroupedOrderableScriptableObject<PoseOrderGroup>.Order => Order;
 	}
 
 	[System.Serializable]
-	public class PoseOrderData : IOrderData<PoseOrderGroup>
+	public class PoseOrderData : IGroupedOrderData<PoseOrderGroup>
 	{
 		[SerializeField] AssetReferenceT<PoseOrderGroup> _groupReference;
 		public PoseOrderGroup Group => _groupReference.LoadSync();

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Character.Data
 {
 	[CreateAssetMenu(fileName = "Toggle", menuName = "Scriptable Objects/Character Data/CharacterToggleId")]
-	public class CharacterToggleId : ScriptableObject, IHasUniqueAssetId, ISnapshottableScriptableObject, IOrderableScriptableObject<CharacterToggleOrderGroup>
+	public class CharacterToggleId : ScriptableObject, IHasUniqueAssetId, ISnapshottableScriptableObject, IGroupedOrderableScriptableObject<CharacterToggleOrderGroup>
 	{
 		[SerializeField, HideInInspector] string _uniqueAssetId;
 		public string UniqueAssetID { get => _uniqueAssetId; set => _uniqueAssetId = value; }
@@ -39,7 +39,7 @@ namespace Character.Data
 
 		[SerializeField] CharacterToggleOrderData _order;
 		public CharacterToggleOrderData Order => _order;
-		IOrderData<CharacterToggleOrderGroup> IOrderableScriptableObject<CharacterToggleOrderGroup>.Order => Order;
+		IGroupedOrderData<CharacterToggleOrderGroup> IGroupedOrderableScriptableObject<CharacterToggleOrderGroup>.Order => Order;
 	}
 
 	[System.Serializable]
@@ -61,7 +61,7 @@ namespace Character.Data
 	}
 
 	[System.Serializable]
-	public class CharacterToggleOrderData : IOrderData<CharacterToggleOrderGroup>
+	public class CharacterToggleOrderData : IGroupedOrderData<CharacterToggleOrderGroup>
 	{
 		public CharacterToggleOrderGroup Group => _groupReference.LoadSync();
 
