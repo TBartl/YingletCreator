@@ -15,6 +15,7 @@ namespace Character.Creator
 		public ObservableCustomizationColorData ColorData { get; }
 		public ObservableCustomizationToggleData ToggleData { get; }
 		public ObservableCustomizationNumberData NumberData { get; }
+		public ObservableCustomizationPortraitData PortraitData { get; }
 		public DateTime CreationTime { get; }
 
 		public ObservableCustomizationData(SerializableCustomizationData serializableData, ICompositeResourceLoader resourceLoader)
@@ -25,6 +26,7 @@ namespace Character.Creator
 			ColorData = new(serializableData.ColorData, resourceLoader);
 			ToggleData = new(serializableData.ToggleData, resourceLoader);
 			NumberData = new(serializableData.NumberData, resourceLoader);
+			PortraitData = new(serializableData.PortraitData, resourceLoader);
 			CustomizationDataUpgradeUtils.UpgradeIfNeeded(this, serializableData.Version, resourceLoader);
 		}
 	}
@@ -109,5 +111,25 @@ namespace Character.Creator
 		}
 
 		public ObservableDict<CharacterIntId, Observable<int>> IntValues { get; } = new();
+	}
+
+	public sealed class ObservableCustomizationPortraitData
+	{
+		public ObservableCustomizationPortraitData(SerializableCustomizationPortraitData portraitData, ICompositeResourceLoader resourceLoader)
+		{
+			if (portraitData == null || string.IsNullOrWhiteSpace(portraitData.PortraitId))
+			{
+				return;
+			}
+			var portraitId = resourceLoader.Load<PortraitId>(portraitData.PortraitId);
+			if (portraitId == null)
+			{
+				Debug.LogWarning($"Skipping unknown portrait {portraitData.PortraitId}");
+				return;
+			}
+			PortraitId.Val = portraitId;
+		}
+
+		public Observable<PortraitId> PortraitId { get; } = new();
 	}
 }

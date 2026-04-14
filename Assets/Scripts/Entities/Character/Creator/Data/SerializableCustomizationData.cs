@@ -14,7 +14,7 @@ namespace Character.Creator
 	public sealed class SerializableCustomizationData
 	{
 		// Used in <see cref="CustomizationDataUpgradeUtils"/>
-		const int CURRENT_VERSION = 3;
+		const int CURRENT_VERSION = 4;
 
 		public string Name;
 
@@ -40,6 +40,7 @@ namespace Character.Creator
 		public SerializableCustomizationColorData ColorData;
 		public SerializableCustomizationToggleData ToggleData;
 		public SerializableCustomizationNumberData NumberData;
+		public SerializableCustomizationPortraitData PortraitData;
 		// Note: If adding anything else, make sure you implement it in SerializableCustomizationDataComparison
 
 		public static SerializableCustomizationData FromJSON(string dataBlob)
@@ -63,6 +64,7 @@ namespace Character.Creator
 			ColorData = new SerializableCustomizationColorData(data.ColorData, data.ToggleData);
 			ToggleData = new SerializableCustomizationToggleData(data.ToggleData);
 			NumberData = new SerializableCustomizationNumberData(data.NumberData);
+			PortraitData = new SerializableCustomizationPortraitData(data.PortraitData);
 		}
 	}
 
@@ -168,5 +170,16 @@ namespace Character.Creator
 			public string Id;
 			public int Value;
 		}
+	}
+
+	[System.Serializable]
+	public sealed class SerializableCustomizationPortraitData
+	{
+		public SerializableCustomizationPortraitData(ObservableCustomizationPortraitData data)
+		{
+			PortraitId = data.PortraitId.Val?.UniqueAssetID;
+		}
+
+		public string PortraitId;
 	}
 }

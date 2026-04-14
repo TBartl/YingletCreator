@@ -37,12 +37,13 @@ public class ModDefinitionEditor : Editor
 		EditorGUILayout.LabelField("Click the following button to generate toggle and pose icons");
 		EditorGUILayout.LabelField("Note: This can only be done while the game is running in-editor");
 
-		if (GUILayout.Button("Generate Toggle + Pose Icons"))
+		if (GUILayout.Button("Generate Icons"))
 		{
 			if (EditorApplication.isPlaying)
 			{
 				SnapshotToSpriteSheetUtils.GenerateToggleIcons(modDefinition);
 				SnapshotToSpriteSheetUtils.GeneratePoseIcons(modDefinition);
+				SnapshotToSpriteSheetUtils.GeneratePortraitIcons(modDefinition);
 				SnapshotToSpriteSheetUtils.UpdateIconsInScene();
 				EditorUtility.DisplayDialog("Generate Icons", $"Icons generated!", "OK");
 			}

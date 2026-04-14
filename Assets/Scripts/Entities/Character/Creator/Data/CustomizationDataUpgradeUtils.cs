@@ -37,6 +37,13 @@ namespace Character.Creator
 					data.ColorData.ColorizeValues[lemurHeadRecolorId] = existingValues;
 				}
 			}
+
+			if (version <= 3)
+			{
+				// Adding portrait ID
+				var defaultPortraitId = resourceLoader.Load<PortraitId>("62d51c0df9a0552419f8040e8bb0c347");
+				data.PortraitData.PortraitId.Val = defaultPortraitId;
+			}
 		}
 	}
 }

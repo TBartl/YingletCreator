@@ -1,4 +1,3 @@
-
 using Character.Compositor;
 using Character.Data;
 using System;
@@ -20,6 +19,7 @@ public interface ICompositeResourceLoader
 
 	IEnumerable<CharacterToggleId> LoadAllToggleIds();
 	IEnumerable<PoseId> LoadAllPoseIds();
+	IEnumerable<PortraitId> LoadAllPortraitIds();
 	IEnumerable<MixTexture> LoadMixTextures();
 }
 
@@ -32,6 +32,7 @@ public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
 	private IResourceProvider _provider;
 	private IEnumerable<PoseId> _cachedPoses;
 	private IEnumerable<CharacterToggleId> _cachedToggles;
+	private IEnumerable<PortraitId> _cachedPortraits;
 	private IEnumerable<MixTexture> _cachedTextures;
 
 	private void Awake()
@@ -43,6 +44,7 @@ public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
 
 		_cachedPoses = _provider.LoadAll<PoseId>();
 		_cachedToggles = _provider.LoadAll<CharacterToggleId>();
+		_cachedPortraits = _provider.LoadAll<PortraitId>();
 		_cachedTextures = _provider.LoadAll<MixTexture>();
 	}
 
@@ -77,6 +79,10 @@ public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
 	public IEnumerable<CharacterToggleId> LoadAllToggleIds()
 	{
 		return _cachedToggles;
+	}
+	public IEnumerable<PortraitId> LoadAllPortraitIds()
+	{
+		return _cachedPortraits;
 	}
 
 	public IEnumerable<MixTexture> LoadMixTextures()
