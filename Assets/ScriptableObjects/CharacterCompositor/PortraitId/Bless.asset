@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uniqueAssetId: 5ef5652883483b74da390b1675c81004
   _overrideName: 
-  _pose: {fileID: 8673213554639781926, guid: b26dda2ac815ffe4ca1592935f6f262f, type: 3}
+  _pose: {fileID: 492962498881583515, guid: 7163d24312dcc3c4fa7340948a73c75a, type: 3}
   _preview:
     _sprite: {fileID: -956847406788982419, guid: 0e36601c62f166a45b8c0d3a95f92d11, type: 3}
     _cameraPositionReference:

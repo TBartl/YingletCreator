@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0de9a4e003db6245825aea1c71b08d2, type: 3}
-  m_Name: Default
+  m_Name: Fierce
   m_EditorClassIdentifier: 
-  _uniqueAssetId: 62d51c0df9a0552419f8040e8bb0c347
+  _uniqueAssetId: 8b0571b168bfdc34391eb182ea0b8028
   _overrideName: 
-  _pose: {fileID: 3560392622089254418, guid: 7163d24312dcc3c4fa7340948a73c75a, type: 3}
+  _pose: {fileID: 8972410977719847344, guid: 7163d24312dcc3c4fa7340948a73c75a, type: 3}
   _preview:
-    _sprite: {fileID: -7414383827266533784, guid: 0e36601c62f166a45b8c0d3a95f92d11, type: 3}
+    _sprite: {fileID: -33008406, guid: 0e36601c62f166a45b8c0d3a95f92d11, type: 3}
     _cameraPositionReference:
       m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
-  _orderIndex: 0
+  _orderIndex: 100
