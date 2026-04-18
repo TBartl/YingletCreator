@@ -1,8 +1,9 @@
 using Reactivity;
+using Snapshotter;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReflectMandibleOpen : ReactiveBehaviour
+public class ReflectMandibleOpen : ReactiveBehaviour, ISnapshottableComponent
 {
 	[SerializeField] Transform _mandibleBone;
 
@@ -27,6 +28,7 @@ public class ReflectMandibleOpen : ReactiveBehaviour
 		{ MouthOpenAmount.Open, 10.6f },
 		{ MouthOpenAmount.WideOpen, 19.3f }
 	};
+
 
 	private void Awake()
 	{
@@ -56,4 +58,11 @@ public class ReflectMandibleOpen : ReactiveBehaviour
 		return angle;
 	}
 
+	public SnapshotOrder SnapshotOrder => SnapshotOrder.AfterAnimate;
+	public void PrepareForSnapshot()
+	{
+		// I tried to mask the mandible of the snapshot animator controller, but it didn't seem to work
+		// Doing it here seems like the only place to reliably set it
+		LateUpdate();
+	}
 }

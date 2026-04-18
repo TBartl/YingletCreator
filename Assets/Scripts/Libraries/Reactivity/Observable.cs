@@ -65,6 +65,7 @@ namespace Reactivity
 
 		void ClearVal()
 		{
+			if (ShutdownState.IsQuitting) return; // If we're quitting the application, clearing the val will only slow us down
 			Val = default(T);
 		}
 	}

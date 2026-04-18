@@ -42,7 +42,7 @@ public class MouthExpressionsMutator_Default : ReactiveBehaviour, IMouthExpressi
 		openAmount = _defaultOpenAmountComputed.Val;
 	}
 
-	const int Columns = 4;
+	public const int Columns = 4;
 	public static MouthExpression GetExpressionFromInt(int i) => (MouthExpression)(i / Columns);
 	public static MouthOpenAmount GetOpenAmountFromInt(int i) => (MouthOpenAmount)(i % Columns);
 }

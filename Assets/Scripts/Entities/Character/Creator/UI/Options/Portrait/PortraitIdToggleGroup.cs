@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Character.Creator.UI
 {
-	public class CharacterCreatorTogglePortraitIdGroup : MonoBehaviour
+	public class PortraitIdToggleGroup : MonoBehaviour
 	{
 		private ICompositeResourceLoader _resourceLoader;
 		[SerializeField] GameObject _togglePrefab;

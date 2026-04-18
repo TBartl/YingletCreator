@@ -1,6 +1,7 @@
 ﻿using Character.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Snapshotter
@@ -23,7 +24,11 @@ namespace Snapshotter
 
 				_yingletInstance.SetActive(true);
 			}
-			foreach (var snapshottable in _yingletInstance.GetComponentsInChildren<ISnapshottableComponent>())
+			var snapshottables = _yingletInstance
+				.GetComponentsInChildren<ISnapshottableComponent>()
+				.OrderBy(s => s.SnapshotOrder)
+				.ToArray();
+			foreach (var snapshottable in snapshottables)
 			{
 				snapshottable.PrepareForSnapshot();
 			}

@@ -128,8 +128,14 @@ namespace Character.Creator
 				return;
 			}
 			PortraitId.Val = portraitId;
+			UseOverrideExpressions.Val = portraitData.UseOverrideExpressions;
+			OverrideEyeExpression.Val = portraitData.OverrideEyeExpression;
+			OverrideMouthExpression.Val = portraitData.OverrideMouthExpression;
 		}
 
 		public Observable<PortraitId> PortraitId { get; } = new();
+		public Observable<bool> UseOverrideExpressions { get; } = new();
+		public Observable<int> OverrideEyeExpression { get; } = new();
+		public Observable<int> OverrideMouthExpression { get; } = new();
 	}
 }

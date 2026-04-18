@@ -2,7 +2,7 @@ using Reactivity;
 
 namespace Character.Creator.UI
 {
-	public class CharacterCreatorTogglePortraitIdSelection : ReactiveBehaviour, ISelectable
+	public class PortraitIdToggleSelection : ReactiveBehaviour, ISelectable
 	{
 		Computed<bool> _selected;
 		private ICustomizationSelectedDataRepository _dataRepo;

@@ -15,6 +15,7 @@ public class ApplyCustomizationsAfterAnimate : MonoBehaviour, ISnapshottableComp
 {
 	private IEnumerable<IApplyableCustomization> _applyable;
 
+
 	private void Awake()
 	{
 		_applyable = this.GetComponentsInChildren<IApplyableCustomization>();
@@ -30,6 +31,7 @@ public class ApplyCustomizationsAfterAnimate : MonoBehaviour, ISnapshottableComp
 		}
 	}
 
+	public SnapshotOrder SnapshotOrder => SnapshotOrder.ApplyBones;
 	public void PrepareForSnapshot()
 	{
 		LateUpdate();

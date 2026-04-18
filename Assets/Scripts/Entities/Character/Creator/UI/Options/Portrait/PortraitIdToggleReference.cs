@@ -7,7 +7,7 @@ namespace Character.Creator.UI
 	{
 		PortraitId PortraitId { get; set; }
 	}
-	public class CharacterCreatorTogglePortraitIdReference : MonoBehaviour, ICharacterCreatorTogglePortraitIdReference
+	public class PortraitIdToggleReference : MonoBehaviour, ICharacterCreatorTogglePortraitIdReference
 	{
 		public PortraitId PortraitId { get; set; }
 

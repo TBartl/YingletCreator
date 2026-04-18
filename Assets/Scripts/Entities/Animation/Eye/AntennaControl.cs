@@ -1,4 +1,5 @@
 using Reactivity;
+using Snapshotter;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,7 +22,7 @@ sealed class Antenna
 	}
 }
 
-public class AntennaControl : ReactiveBehaviour
+public class AntennaControl : ReactiveBehaviour, ISnapshottableComponent
 {
 	[SerializeField] Transform _rigRoot;
 	[SerializeField] EaseSettings _blinkEaseSettings;
@@ -42,6 +43,7 @@ public class AntennaControl : ReactiveBehaviour
 		{ EyeExpression.Sad,            new Vector2Int(30,  10) },
 		{ EyeExpression.ClosedEnergy,   new Vector2Int(-13,  -13) }
 	};
+
 
 	void Awake()
 	{
@@ -114,4 +116,9 @@ public class AntennaControl : ReactiveBehaviour
 		}
 	}
 
+	public SnapshotOrder SnapshotOrder => SnapshotOrder.AfterAnimate;
+	public void PrepareForSnapshot()
+	{
+		ApplyAngleToAntenna();
+	}
 }

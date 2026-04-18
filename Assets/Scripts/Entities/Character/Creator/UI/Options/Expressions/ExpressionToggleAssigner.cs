@@ -13,12 +13,14 @@ namespace Character.Creator.UI
 	{
 		[SerializeField] AssetReferenceT<CharacterIntId> _intIdReference;
 		private ICustomizationSelectedDataRepository _dataRepo;
+		private ICharacterCreatorUndoManager _undoManager;
 
 		CharacterIntId IntId => _intIdReference.LoadSync();
 
 		void Awake()
 		{
 			_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 		}
 
 		public int Value
@@ -30,6 +32,7 @@ namespace Character.Creator.UI
 			}
 			set
 			{
+				_undoManager.RecordState($"Changed override expression");
 				_dataRepo.SetInt(IntId, value);
 			}
 		}

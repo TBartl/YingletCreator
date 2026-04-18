@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Character.Creator.UI
 {
-	public class CharacterCreatorTogglePortraitIdButton : MonoBehaviour, IUserToggleEvents
+	public class PortraitIdToggleButton : MonoBehaviour, IUserToggleEvents
 	{
 		private ICharacterCreatorUndoManager _undoManager;
 		private ICustomizationSelectedDataRepository _dataRepo;
