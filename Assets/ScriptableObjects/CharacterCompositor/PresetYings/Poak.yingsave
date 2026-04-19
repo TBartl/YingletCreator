@@ -1,7 +1,7 @@
 {
     "Name": "Poak",
     "CreationTimeString": "2025-05-13T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -406,5 +406,11 @@
                 "Value": 0
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "3be03107d441d6548b05ef76eee39e5f",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 2,
+        "OverrideMouthExpression": 0
     }
 }

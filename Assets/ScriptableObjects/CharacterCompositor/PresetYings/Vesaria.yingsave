@@ -1,7 +1,7 @@
 {
     "Name": "Vesaria",
     "CreationTimeString": "2025-05-08T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -419,5 +419,11 @@
                 "Value": 0
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "d7f5f1eeb6e8ac44590f0a514f06644f",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 3,
+        "OverrideMouthExpression": 2
     }
 }

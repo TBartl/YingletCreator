@@ -1,7 +1,7 @@
 {
     "Name": "Narklet",
     "CreationTimeString": "2025-05-04T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -327,5 +327,11 @@
                 "Value": 0
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "5ef5652883483b74da390b1675c81004",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 3,
+        "OverrideMouthExpression": 0
     }
 }

@@ -1,7 +1,7 @@
 {
     "Name": "Chakki",
     "CreationTimeString": "2025-05-12T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -399,5 +399,11 @@
                 "Value": 0
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "3ec0875a0b5a693438794f48645ae6db",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 1
     }
 }

@@ -1,7 +1,7 @@
 {
     "Name": "Beizel",
     "CreationTimeString": "2025-05-06T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -324,5 +324,11 @@
     },
     "NumberData": {
         "IntValues": []
+    },
+    "PortraitData": {
+        "PortraitId": "8b0571b168bfdc34391eb182ea0b8028",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 0
     }
 }

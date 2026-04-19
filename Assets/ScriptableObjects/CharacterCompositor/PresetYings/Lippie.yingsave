@@ -1,7 +1,7 @@
 {
     "Name": "Lippie",
     "CreationTimeString": "2025-05-14T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -365,5 +365,11 @@
                 "Value": 4
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "8876ebd501be83d40b33051bbf8f0f9b",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 6,
+        "OverrideMouthExpression": 6
     }
 }

@@ -1,7 +1,7 @@
 {
     "Name": "Lopin",
     "CreationTimeString": "2025-05-02T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -318,5 +318,11 @@
     },
     "NumberData": {
         "IntValues": []
+    },
+    "PortraitData": {
+        "PortraitId": "fa70d331e98d40b44bee685f75327a29",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 1
     }
 }

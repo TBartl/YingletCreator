@@ -1,7 +1,7 @@
 {
     "Name": "Figgins",
     "CreationTimeString": "2025-05-05T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -326,5 +326,11 @@
                 "Value": 0
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "00728114037911a41b8a2f0d6564ede1",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 2,
+        "OverrideMouthExpression": 9
     }
 }

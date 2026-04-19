@@ -1,0 +1,23 @@
+﻿using Character.Creator.UI;
+using UnityEngine;
+
+internal class ReactiveOffset_OnPortraitPage : MonoBehaviour, IReactiveOffsetMutator
+{
+	[SerializeField] ReactiveOffsetValues _offset;
+
+	private IViewingPortraitPageTracker _viewingPortraitTracker;
+
+	private void Awake()
+	{
+		_viewingPortraitTracker = this.GetComponentInParent<IViewingPortraitPageTracker>();
+	}
+
+	public ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset)
+	{
+		if (_viewingPortraitTracker.IsViewingPortraitPage)
+		{
+			return _offset;
+		}
+		return currentOffset;
+	}
+}

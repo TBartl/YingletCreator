@@ -1,7 +1,7 @@
 {
     "Name": "Vizlet",
     "CreationTimeString": "2025-05-03T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -343,5 +343,11 @@
     },
     "NumberData": {
         "IntValues": []
+    },
+    "PortraitData": {
+        "PortraitId": "6c0f5db190a7e8645ae03e358cf92ddc",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 4
     }
 }

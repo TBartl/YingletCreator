@@ -5223,32 +5223,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailPoof-Highlight
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 1792
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a39be4901a1ee966e9715c59871ce98
-      internalID: 1784997626
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TailPoof-None
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1152
         y: 1792
         width: 128
         height: 128
@@ -5270,7 +5248,7 @@ TextureImporter:
       name: TailPoof-Regular
       rect:
         serializedVersion: 2
-        x: 1408
+        x: 1280
         y: 1792
         width: 128
         height: 128
@@ -5292,7 +5270,7 @@ TextureImporter:
       name: TailPoof-Ripped
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1408
         y: 1792
         width: 128
         height: 128
@@ -5314,7 +5292,7 @@ TextureImporter:
       name: TailPoof-Small
       rect:
         serializedVersion: 2
-        x: 1664
+        x: 1536
         y: 1792
         width: 128
         height: 128
@@ -5336,7 +5314,7 @@ TextureImporter:
       name: TailPoof-Spiky
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1664
         y: 1792
         width: 128
         height: 128
@@ -5358,7 +5336,7 @@ TextureImporter:
       name: TailPoof-Vizlet
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 1792
         y: 1792
         width: 128
         height: 128
@@ -5380,8 +5358,8 @@ TextureImporter:
       name: Whiskers-Clumped
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1920
+        x: 1920
+        y: 1792
         width: 128
         height: 128
       alignment: 0
@@ -5402,7 +5380,7 @@ TextureImporter:
       name: Whiskers-Droopy
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 1920
         width: 128
         height: 128
@@ -5424,7 +5402,7 @@ TextureImporter:
       name: Whiskers-Fuzzy
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 1920
         width: 128
         height: 128
@@ -5446,7 +5424,7 @@ TextureImporter:
       name: Whiskers-None
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 1920
         width: 128
         height: 128
@@ -5468,7 +5446,7 @@ TextureImporter:
       name: Whiskers-Normal
       rect:
         serializedVersion: 2
-        x: 512
+        x: 384
         y: 1920
         width: 128
         height: 128
@@ -5490,7 +5468,7 @@ TextureImporter:
       name: Whiskers-Sharp
       rect:
         serializedVersion: 2
-        x: 640
+        x: 512
         y: 1920
         width: 128
         height: 128

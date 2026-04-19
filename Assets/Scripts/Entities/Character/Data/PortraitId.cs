@@ -18,6 +18,9 @@ namespace Character.Data
 		[SerializeField] AnimationClip _pose;
 		public AnimationClip Pose => _pose;
 
+		[field: SerializeField]
+		public PupilOffsets PupilOffsets { get; private set; }
+
 		[SerializeField] CharacterTogglePreviewData _preview;
 		public CharacterTogglePreviewData Preview => _preview;
 

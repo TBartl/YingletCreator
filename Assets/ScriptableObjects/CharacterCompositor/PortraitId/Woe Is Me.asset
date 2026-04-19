@@ -15,6 +15,10 @@ MonoBehaviour:
   _uniqueAssetId: 8876ebd501be83d40b33051bbf8f0f9b
   _overrideName: 
   _pose: {fileID: 1608070175001684749, guid: 7163d24312dcc3c4fa7340948a73c75a, type: 3}
+  <PupilOffsets>k__BackingField:
+    <YOffset>k__BackingField: 0.1
+    <XLeftOffset>k__BackingField: 0
+    <XRightOffset>k__BackingField: 0
   _preview:
     _sprite: {fileID: -1182694698, guid: 0e36601c62f166a45b8c0d3a95f92d11, type: 3}
     _cameraPositionReference:

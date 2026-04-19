@@ -18,6 +18,9 @@ public interface IYingSnapshotManager
 	/// This should be disposed to ensure the render texture is cleaned up when no longer needed
 	/// </summary>
 	IYingSnapshotRenderTexture GetRenderTexture(CachedYingletReference yingletData);
+
+	ISnapshotterReferences References { get; }
+	SnapshotterCameraPosition CameraPosition { get; }
 }
 
 interface IYingSnapshotManagerReferences

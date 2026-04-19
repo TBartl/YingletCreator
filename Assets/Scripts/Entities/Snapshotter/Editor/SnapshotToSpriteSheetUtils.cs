@@ -115,6 +115,7 @@ namespace Snapshotter
 				if (snapshottable is PortraitId portrait)
 				{
 					sParams.Portrait = portrait;
+					observableData.PortraitData.PortraitId.Val = portrait;
 				}
 
 				var rt = SnapshotterUtils.Snapshot(references, sParams);

@@ -1,7 +1,7 @@
 {
     "Name": "Pekkit",
     "CreationTimeString": "2025-05-11T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -365,5 +365,11 @@
     },
     "NumberData": {
         "IntValues": []
+    },
+    "PortraitData": {
+        "PortraitId": "f3b558d414574db41852833eb25fb808",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 1
     }
 }

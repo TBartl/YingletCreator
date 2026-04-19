@@ -1,7 +1,7 @@
 {
     "Name": "Kattajak",
     "CreationTimeString": "2025-05-09T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -402,5 +402,8 @@
                 "Value": 0
             }
         ]
+    },
+    "PortraitData": {
+        "PortraitId": "4c78112893771b540b31defc48339616"
     }
 }

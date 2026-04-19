@@ -1,7 +1,7 @@
 {
     "Name": "Zally",
     "CreationTimeString": "2025-05-10T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 4,
     "SliderData": {
         "SliderValues": [
             {
@@ -383,5 +383,11 @@
     },
     "NumberData": {
         "IntValues": []
+    },
+    "PortraitData": {
+        "PortraitId": "269968fb03d30e148a7d7a51e6d3614b",
+        "UseOverrideExpressions": true,
+        "OverrideEyeExpression": 5,
+        "OverrideMouthExpression": 2
     }
 }
