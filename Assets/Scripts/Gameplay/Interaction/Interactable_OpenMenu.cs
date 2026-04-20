@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class Interactable_OpenCharacterCreator : MonoBehaviour, IInteractable
+public class Interactable_OpenMenu : MonoBehaviour, IInteractable
 {
 	[SerializeField] MenuType _menuToOpen;
+	[SerializeField] string _tooltipText = "Customize Character";
+
 	private IMenuManager _menuManager;
 
-	public string TooltipText => "[E] Customize Character";
+	public string TooltipText => $"[E] {_tooltipText}";
 
 	[field: SerializeField]
 	public Vector3 TooltipOffset { get; private set; }
