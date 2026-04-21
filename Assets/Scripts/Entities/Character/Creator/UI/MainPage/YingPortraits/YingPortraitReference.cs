@@ -2,13 +2,17 @@ using Reactivity;
 
 namespace Character.Creator.UI
 {
-	public interface IYingPortraitReference : ISelectable
+	public interface IPortraitReference
 	{
-		void Setup(CachedYingletReference reference);
 		public CachedYingletReference Reference { get; }
 	}
 
-	public class YingPortraitReference : ReactiveBehaviour, IYingPortraitReference
+	public interface IWriteablePortraitReference : IPortraitReference
+	{
+		void Setup(CachedYingletReference reference);
+	}
+
+	public class YingPortraitReference : ReactiveBehaviour, IWriteablePortraitReference, ISelectable
 	{
 		private ICustomizationSelection _selection;
 		private Computed<bool> _selected;

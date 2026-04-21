@@ -2551,6 +2551,40 @@ MonoBehaviour:
       Object: {fileID: 11400000, guid: 443a1033365b6394681c37f65c9f9016, type: 2}
     - Guid: 44936e31832806b4db68212a32ee6c3f
       Object: {fileID: 11400000, guid: 44936e31832806b4db68212a32ee6c3f, type: 2}
+    - Guid: 5ef5652883483b74da390b1675c81004
+      Object: {fileID: 11400000, guid: 5ef5652883483b74da390b1675c81004, type: 2}
+    - Guid: 62d51c0df9a0552419f8040e8bb0c347
+      Object: {fileID: 11400000, guid: 62d51c0df9a0552419f8040e8bb0c347, type: 2}
+    - Guid: 3917b6c6e8e8d8e459040aa3c75582f6
+      Object: {fileID: 11400000, guid: 3917b6c6e8e8d8e459040aa3c75582f6, type: 2}
+    - Guid: 4c78112893771b540b31defc48339616
+      Object: {fileID: 11400000, guid: 4c78112893771b540b31defc48339616, type: 2}
+    - Guid: 5440cb48febc62b4ba0055cb1d857a83
+      Object: {fileID: 11400000, guid: 5440cb48febc62b4ba0055cb1d857a83, type: 2}
+    - Guid: 8b0571b168bfdc34391eb182ea0b8028
+      Object: {fileID: 11400000, guid: 8b0571b168bfdc34391eb182ea0b8028, type: 2}
+    - Guid: 1529940fb3b54304e89092bf1bfebbc2
+      Object: {fileID: 11400000, guid: 1529940fb3b54304e89092bf1bfebbc2, type: 2}
+    - Guid: 3ec0875a0b5a693438794f48645ae6db
+      Object: {fileID: 11400000, guid: 3ec0875a0b5a693438794f48645ae6db, type: 2}
+    - Guid: d7f5f1eeb6e8ac44590f0a514f06644f
+      Object: {fileID: 11400000, guid: d7f5f1eeb6e8ac44590f0a514f06644f, type: 2}
+    - Guid: 3be03107d441d6548b05ef76eee39e5f
+      Object: {fileID: 11400000, guid: 3be03107d441d6548b05ef76eee39e5f, type: 2}
+    - Guid: f3b558d414574db41852833eb25fb808
+      Object: {fileID: 11400000, guid: f3b558d414574db41852833eb25fb808, type: 2}
+    - Guid: 269968fb03d30e148a7d7a51e6d3614b
+      Object: {fileID: 11400000, guid: 269968fb03d30e148a7d7a51e6d3614b, type: 2}
+    - Guid: 49d250cb17bafd04ca18ab1ae37f7ac2
+      Object: {fileID: 11400000, guid: 49d250cb17bafd04ca18ab1ae37f7ac2, type: 2}
+    - Guid: 6c0f5db190a7e8645ae03e358cf92ddc
+      Object: {fileID: 11400000, guid: 6c0f5db190a7e8645ae03e358cf92ddc, type: 2}
+    - Guid: fa70d331e98d40b44bee685f75327a29
+      Object: {fileID: 11400000, guid: fa70d331e98d40b44bee685f75327a29, type: 2}
+    - Guid: 8876ebd501be83d40b33051bbf8f0f9b
+      Object: {fileID: 11400000, guid: 8876ebd501be83d40b33051bbf8f0f9b, type: 2}
+    - Guid: 00728114037911a41b8a2f0d6564ede1
+      Object: {fileID: 11400000, guid: 00728114037911a41b8a2f0d6564ede1, type: 2}
     - Guid: 41f8997a2d560b141b035dec3a0e215c
       Object: {fileID: 11400000, guid: 41f8997a2d560b141b035dec3a0e215c, type: 2}
     - Guid: 7542ce02c0ac7a44ea3e20b640211a9c
@@ -2919,7 +2953,7 @@ MonoBehaviour:
       Object: {fileID: 11400000, guid: 50728303e837d4b4d970bedba0fe91a1, type: 2}
   _presetYings:
   - "{\n    \"Name\": \"Beizel\",\n    \"CreationTimeString\": \"2025-05-06T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"9f55e1d77d8671a47a81d5a028770d46\",\n               
     \"Value\": 0.7428439855575562\n            },\n            {\n               
     \"Id\": \"7f2e7741beb1d904e8de304147a3b7a1\",\n                \"Value\": 0.8953194618225098\n           
@@ -3046,7 +3080,10 @@ MonoBehaviour:
     \"5d5c23362dd122c4280a9b2e43a2d947\",\n            \"4a7005d7cccf2794ea1d2bc5fb5db2ac\",\n           
     \"c74d0633be51f3c428d8d3dece43c8b6\",\n            \"0849ef392d340e948870ef11651cb026\",\n           
     \"05d365683989f5c45aef176e975de08c\",\n            \"16132a48fcb6cd74e9b61b5ec363ecc9\"\n       
-    ]\n    },\n    \"NumberData\": {\n        \"IntValues\": []\n    }\n}"
+    ]\n    },\n    \"NumberData\": {\n        \"IntValues\": []\n    },\n    \"PortraitData\":
+    {\n        \"PortraitId\": \"8b0571b168bfdc34391eb182ea0b8028\",\n        \"UseOverrideExpressions\":
+    true,\n        \"OverrideEyeExpression\": 0,\n        \"OverrideMouthExpression\":
+    0\n    }\n}"
   - "{\n    \"Name\": \"Blank\",\n    \"CreationTimeString\": \"2025-10-18T11:05:32.7277202-04:00\",\n   
     \"Version\": 3,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n               
@@ -3062,7 +3099,7 @@ MonoBehaviour:
     \"94399ab38cf008045be3fe1c566dc65d\",\n            \"019fdcb885eee534aa9e1efe1b526d88\"\n       
     ]\n    },\n    \"NumberData\": {\n        \"IntValues\": []\n    }\n}"
   - "{\n    \"Name\": \"Chakki\",\n    \"CreationTimeString\": \"2025-05-12T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n               
     \"Value\": 0.0\n            },\n            {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
     \"Value\": 0.5126463174819946\n            },\n            {\n               
@@ -3219,9 +3256,11 @@ MonoBehaviour:
     \"77c42603fc042474988630e91215625a\",\n            \"fe3269453c3ba5341b9994c677dbd1ad\"\n       
     ]\n    },\n    \"NumberData\": {\n        \"IntValues\": [\n            {\n               
     \"Id\": \"1490a3cd97e05b34bb4efe5ed5513346\",\n                \"Value\": 0\n           
-    }\n        ]\n    }\n}"
+    }\n        ]\n    },\n    \"PortraitData\": {\n        \"PortraitId\": \"3ec0875a0b5a693438794f48645ae6db\",\n       
+    \"UseOverrideExpressions\": true,\n        \"OverrideEyeExpression\": 0,\n       
+    \"OverrideMouthExpression\": 1\n    }\n}"
   - "{\n    \"Name\": \"Feeeena\",\n    \"CreationTimeString\": \"2025-05-07T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"9f55e1d77d8671a47a81d5a028770d46\",\n               
     \"Value\": 0.7141308188438416\n            },\n            {\n               
     \"Id\": \"7f2e7741beb1d904e8de304147a3b7a1\",\n                \"Value\": 0.6468300819396973\n           
@@ -3415,9 +3454,10 @@ MonoBehaviour:
     \"a5dd6b23af79cc749bb0280c13ee5452\"\n        ]\n    },\n    \"NumberData\":
     {\n        \"IntValues\": [\n            {\n                \"Id\": \"1490a3cd97e05b34bb4efe5ed5513346\",\n               
     \"Value\": 0\n            },\n            {\n                \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n               
-    \"Value\": 0\n            }\n        ]\n    }\n}"
+    \"Value\": 0\n            }\n        ]\n    },\n    \"PortraitData\": {\n       
+    \"PortraitId\": \"5440cb48febc62b4ba0055cb1d857a83\"\n    }\n}"
   - "{\n    \"Name\": \"Figgins\",\n    \"CreationTimeString\": \"2025-05-05T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
     \"Value\": 0.4950198829174042\n            },\n            {\n               
     \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n                \"Value\": 0.0\n           
@@ -3544,7 +3584,10 @@ MonoBehaviour:
     \"0a984f5d5cda39243ad2c737072f6b88\",\n            \"93222d17d4cf0bc46b73fc42d52e8e38\",\n           
     \"87a9072ff131f4f499240c0d84e94de1\"\n        ]\n    },\n    \"NumberData\":
     {\n        \"IntValues\": [\n            {\n                \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n               
-    \"Value\": 0\n            }\n        ]\n    }\n}"
+    \"Value\": 0\n            }\n        ]\n    },\n    \"PortraitData\": {\n       
+    \"PortraitId\": \"00728114037911a41b8a2f0d6564ede1\",\n        \"UseOverrideExpressions\":
+    true,\n        \"OverrideEyeExpression\": 2,\n        \"OverrideMouthExpression\":
+    9\n    }\n}"
   - "{\n    \"Name\": \"Kassen Akoll\",\n    \"CreationTimeString\": \"2025-05-01T22:48:52.1143718-04:00\",\n   
     \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
@@ -3649,7 +3692,7 @@ MonoBehaviour:
     {\n        \"IntValues\": [\n            {\n                \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n               
     \"Value\": 4\n            }\n        ]\n    }\n}"
   - "{\n    \"Name\": \"Kattajak\",\n    \"CreationTimeString\": \"2025-05-09T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"cd3d81f6ab74b7f41a91a8cc130d515b\",\n               
     \"Value\": 0.588744580745697\n            },\n            {\n               
     \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n                \"Value\": 0.0\n           
@@ -3806,9 +3849,10 @@ MonoBehaviour:
     \"fe3269453c3ba5341b9994c677dbd1ad\"\n        ]\n    },\n    \"NumberData\":
     {\n        \"IntValues\": [\n            {\n                \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n               
     \"Value\": 4\n            },\n            {\n                \"Id\": \"1490a3cd97e05b34bb4efe5ed5513346\",\n               
-    \"Value\": 0\n            }\n        ]\n    }\n}"
+    \"Value\": 0\n            }\n        ]\n    },\n    \"PortraitData\": {\n       
+    \"PortraitId\": \"4c78112893771b540b31defc48339616\"\n    }\n}"
   - "{\n    \"Name\": \"Lippie\",\n    \"CreationTimeString\": \"2025-05-14T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n               
     \"Value\": 0.20070157945156098\n            },\n            {\n               
     \"Id\": \"361b59cc953d5b848ab615052a8cc677\",\n                \"Value\": 0.3878767192363739\n           
@@ -3951,9 +3995,11 @@ MonoBehaviour:
     \"e7c925e7a23086c45937ba87bb8d1c64\",\n            \"8cba46f50096a834fb85f242c51bb822\"\n       
     ]\n    },\n    \"NumberData\": {\n        \"IntValues\": [\n            {\n               
     \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n                \"Value\": 4\n           
-    }\n        ]\n    }\n}"
+    }\n        ]\n    },\n    \"PortraitData\": {\n        \"PortraitId\": \"8876ebd501be83d40b33051bbf8f0f9b\",\n       
+    \"UseOverrideExpressions\": true,\n        \"OverrideEyeExpression\": 6,\n       
+    \"OverrideMouthExpression\": 6\n    }\n}"
   - "{\n    \"Name\": \"Lopin\",\n    \"CreationTimeString\": \"2025-05-02T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n               
     \"Value\": 0.0\n            },\n            {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
     \"Value\": 0.5085903406143189\n            },\n            {\n               
@@ -4078,9 +4124,11 @@ MonoBehaviour:
     \"78696f86dd5208843bca71e24d076507\",\n            \"8cba46f50096a834fb85f242c51bb822\",\n           
     \"f42a63a344d7aff44bc6d7fb261e7cab\",\n            \"8194a1a397904a5439b31fe493eec2ce\",\n           
     \"0849ef392d340e948870ef11651cb026\"\n        ]\n    },\n    \"NumberData\":
-    {\n        \"IntValues\": []\n    }\n}"
+    {\n        \"IntValues\": []\n    },\n    \"PortraitData\": {\n        \"PortraitId\":
+    \"fa70d331e98d40b44bee685f75327a29\",\n        \"UseOverrideExpressions\": true,\n       
+    \"OverrideEyeExpression\": 0,\n        \"OverrideMouthExpression\": 1\n    }\n}"
   - "{\n    \"Name\": \"Narklet\",\n    \"CreationTimeString\": \"2025-05-04T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
     \"Value\": 0.5400916337966919\n            },\n            {\n               
     \"Id\": \"79e9f884db5f7484c8401b8aece399ad\",\n                \"Value\": 0.45479652285575869\n           
@@ -4207,9 +4255,12 @@ MonoBehaviour:
     \"87a9072ff131f4f499240c0d84e94de1\"\n        ]\n    },\n    \"NumberData\":
     {\n        \"IntValues\": [\n            {\n                \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n               
     \"Value\": 0\n            },\n            {\n                \"Id\": \"1490a3cd97e05b34bb4efe5ed5513346\",\n               
-    \"Value\": 0\n            }\n        ]\n    }\n}"
+    \"Value\": 0\n            }\n        ]\n    },\n    \"PortraitData\": {\n       
+    \"PortraitId\": \"5ef5652883483b74da390b1675c81004\",\n        \"UseOverrideExpressions\":
+    true,\n        \"OverrideEyeExpression\": 3,\n        \"OverrideMouthExpression\":
+    0\n    }\n}"
   - "{\n    \"Name\": \"Pekkit\",\n    \"CreationTimeString\": \"2025-05-11T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"9f55e1d77d8671a47a81d5a028770d46\",\n               
     \"Value\": 1.0\n            },\n            {\n                \"Id\": \"7f2e7741beb1d904e8de304147a3b7a1\",\n               
     \"Value\": 0.5372114181518555\n            },\n            {\n               
@@ -4352,9 +4403,12 @@ MonoBehaviour:
     \"61928de0a73fdb243b4264ef8d285fd2\",\n            \"ba34ff2f204a7044d927022c326264b0\",\n           
     \"67335fedf8c1d5b45b5e5d7f6781a70f\",\n            \"8cba46f50096a834fb85f242c51bb822\",\n           
     \"f42a63a344d7aff44bc6d7fb261e7cab\",\n            \"ba444d2e9c5df2c419e2cc9651c3fe2b\"\n       
-    ]\n    },\n    \"NumberData\": {\n        \"IntValues\": []\n    }\n}"
+    ]\n    },\n    \"NumberData\": {\n        \"IntValues\": []\n    },\n    \"PortraitData\":
+    {\n        \"PortraitId\": \"f3b558d414574db41852833eb25fb808\",\n        \"UseOverrideExpressions\":
+    true,\n        \"OverrideEyeExpression\": 0,\n        \"OverrideMouthExpression\":
+    1\n    }\n}"
   - "{\n    \"Name\": \"Poak\",\n    \"CreationTimeString\": \"2025-05-13T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
     \"Value\": 1.0\n            },\n            {\n                \"Id\": \"0453af362a8ce58478c6f1bbaeac7fa1\",\n               
     \"Value\": 0.46265581250190737\n            },\n            {\n               
@@ -4513,9 +4567,12 @@ MonoBehaviour:
     \"935c5cfa74ed2fb42851b760ccb970ee\",\n            \"a5a914c283c212f4e92796cd17dbf4aa\",\n           
     \"87a9072ff131f4f499240c0d84e94de1\"\n        ]\n    },\n    \"NumberData\":
     {\n        \"IntValues\": [\n            {\n                \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n               
-    \"Value\": 0\n            }\n        ]\n    }\n}"
+    \"Value\": 0\n            }\n        ]\n    },\n    \"PortraitData\": {\n       
+    \"PortraitId\": \"3be03107d441d6548b05ef76eee39e5f\",\n        \"UseOverrideExpressions\":
+    true,\n        \"OverrideEyeExpression\": 2,\n        \"OverrideMouthExpression\":
+    0\n    }\n}"
   - "{\n    \"Name\": \"Vesaria\",\n    \"CreationTimeString\": \"2025-05-08T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"a0128ac2edc512848bbce2569020ba09\",\n               
     \"Value\": 0.3910681903362274\n            },\n            {\n               
     \"Id\": \"361b59cc953d5b848ab615052a8cc677\",\n                \"Value\": 0.4575614035129547\n           
@@ -4681,9 +4738,11 @@ MonoBehaviour:
     \"04e3fd220c4208e468fa9d9704ba5b44\",\n            \"6f8466203aee36a47922858ec5f8d6e5\"\n       
     ]\n    },\n    \"NumberData\": {\n        \"IntValues\": [\n            {\n               
     \"Id\": \"6ccdbae82063b23438cc6d12818d35a0\",\n                \"Value\": 0\n           
-    }\n        ]\n    }\n}"
+    }\n        ]\n    },\n    \"PortraitData\": {\n        \"PortraitId\": \"d7f5f1eeb6e8ac44590f0a514f06644f\",\n       
+    \"UseOverrideExpressions\": true,\n        \"OverrideEyeExpression\": 3,\n       
+    \"OverrideMouthExpression\": 2\n    }\n}"
   - "{\n    \"Name\": \"Vizlet\",\n    \"CreationTimeString\": \"2025-05-03T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n               
     \"Value\": 0.34555783867836\n            },\n            {\n                \"Id\":
     \"361b59cc953d5b848ab615052a8cc677\",\n                \"Value\": 0.45972052216529848\n           
@@ -4819,9 +4878,11 @@ MonoBehaviour:
     \"2f3e5332575fc65488b78dde01209659\",\n            \"ba34ff2f204a7044d927022c326264b0\",\n           
     \"67335fedf8c1d5b45b5e5d7f6781a70f\",\n            \"61a00b47e229a854c8915d27befb3778\",\n           
     \"8cba46f50096a834fb85f242c51bb822\"\n        ]\n    },\n    \"NumberData\":
-    {\n        \"IntValues\": []\n    }\n}"
+    {\n        \"IntValues\": []\n    },\n    \"PortraitData\": {\n        \"PortraitId\":
+    \"6c0f5db190a7e8645ae03e358cf92ddc\",\n        \"UseOverrideExpressions\": true,\n       
+    \"OverrideEyeExpression\": 0,\n        \"OverrideMouthExpression\": 4\n    }\n}"
   - "{\n    \"Name\": \"Zally\",\n    \"CreationTimeString\": \"2025-05-10T22:48:52.1143718-04:00\",\n   
-    \"Version\": 2,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
+    \"Version\": 4,\n    \"SliderData\": {\n        \"SliderValues\": [\n           
     {\n                \"Id\": \"cd3d81f6ab74b7f41a91a8cc130d515b\",\n               
     \"Value\": 0.588744580745697\n            },\n            {\n               
     \"Id\": \"fa3977f1c956dc44d8d6d73016c02006\",\n                \"Value\": 0.551729142665863\n           
@@ -4973,6 +5034,8 @@ MonoBehaviour:
     \"e7c925e7a23086c45937ba87bb8d1c64\",\n            \"a8c69ab0a8649e542834d6b2b989669f\",\n           
     \"bdaf8ccd6c16ad54282cfe2812386a0f\",\n            \"8cba46f50096a834fb85f242c51bb822\",\n           
     \"2f3e5332575fc65488b78dde01209659\"\n        ]\n    },\n    \"NumberData\":
-    {\n        \"IntValues\": []\n    }\n}"
+    {\n        \"IntValues\": []\n    },\n    \"PortraitData\": {\n        \"PortraitId\":
+    \"269968fb03d30e148a7d7a51e6d3614b\",\n        \"UseOverrideExpressions\": true,\n       
+    \"OverrideEyeExpression\": 5,\n        \"OverrideMouthExpression\": 2\n    }\n}"
   _steamWorkshopId: 0
   _steamWorkshopUniqueId: 

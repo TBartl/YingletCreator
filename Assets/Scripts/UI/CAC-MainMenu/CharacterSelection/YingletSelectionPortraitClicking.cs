@@ -6,13 +6,13 @@ namespace Character.Creator.UI
 	public class YingletSelectionPortraitClicking : ReactiveBehaviour
 	{
 		private IMainMenuYingletSelection _yingletSelection;
-		private IYingPortraitReference _reference;
+		private IPortraitReference _reference;
 		private Button _button;
 
 		private void Awake()
 		{
 			_yingletSelection = Singletons.GetSingleton<IMainMenuYingletSelection>();
-			_reference = this.GetComponent<IYingPortraitReference>();
+			_reference = this.GetComponent<IPortraitReference>();
 			_button = this.GetComponent<Button>();
 			_button.onClick.AddListener(Button_OnClick);
 

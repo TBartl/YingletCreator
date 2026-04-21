@@ -2,7 +2,7 @@ using Reactivity;
 
 namespace Character.Creator.UI
 {
-	public class YingletSelectionPortraitReference : ReactiveBehaviour, IYingPortraitReference
+	public class YingletSelectionPortraitReference : ReactiveBehaviour, IPortraitReference
 	{
 		private IMainMenuYingletSelection _yingletSelection;
 		private Computed<bool> _selected;

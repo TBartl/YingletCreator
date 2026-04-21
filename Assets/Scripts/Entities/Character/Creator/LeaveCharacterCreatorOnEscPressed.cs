@@ -2,8 +2,9 @@ using Character.Creator;
 using System.IO;
 using UnityEngine;
 
-public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
+public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour, IEscapeInputConsumer
 {
+	private IEscapeInputManager _escapeInputManager;
 	private ICustomizationSelection _selection;
 	private ICharacterCreatorTracker _characterCreatorTracker;
 	private IMenuManager _menuManager;
@@ -12,17 +13,26 @@ public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
 
 	private void Awake()
 	{
+		_escapeInputManager = Singletons.GetSingleton<IEscapeInputManager>();
 		_selection = Singletons.GetSingleton<ICustomizationSelection>();
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
 		_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 		_settingsManager = Singletons.GetSingleton<ISettingsManager>();
+
+		_escapeInputManager.Register(this);
 	}
 
-	void Update()
+	private void OnDestroy()
 	{
-		if (!_characterCreatorTracker.IsInCharacterCreator.Val) return;
-		if (!Input.GetKeyDown(KeyCode.Escape)) return;
+		_escapeInputManager.Unregister(this);
+	}
+
+	public EscapeInputPriority EscapeInputPriority => EscapeInputPriority.CloseMenu;
+
+	public bool OnEscape()
+	{
+		if (!_characterCreatorTracker.IsInCharacterCreator.Val) return false;
 
 		if (_selection.SelectionIsDirty)
 		{
@@ -45,5 +55,7 @@ public class LeaveCharacterCreatorOnEscPressed : MonoBehaviour
 			_settingsManager.Settings.LastSelectedCharacterPath = Path.GetFileNameWithoutExtension(_selection.Selected.Val.Path);
 			_settingsManager.SaveChangesToDisk();
 		}
+
+		return true;
 	}
 }

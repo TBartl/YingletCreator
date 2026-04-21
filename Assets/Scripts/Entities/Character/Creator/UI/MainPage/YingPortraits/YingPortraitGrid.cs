@@ -33,7 +33,7 @@ namespace Character.Creator.UI
 				int targetIndex = Mathf.Max(0, siblingCount - 1 - _initialChildren);
 				go.transform.SetSiblingIndex(targetIndex);
 			}
-			go.GetComponentInChildren<IYingPortraitReference>().Setup(yingReference);
+			go.GetComponentInChildren<IWriteablePortraitReference>().Setup(yingReference);
 
 			return go;
 		}

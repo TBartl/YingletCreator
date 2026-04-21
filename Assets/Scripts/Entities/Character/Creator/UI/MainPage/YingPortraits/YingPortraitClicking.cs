@@ -7,7 +7,8 @@ namespace Character.Creator.UI
 	public class YingPortraitClicking : ReactiveBehaviour
 	{
 		private ICustomizationSelection _selection;
-		private IYingPortraitReference _reference;
+		private IPortraitReference _reference;
+		private ISelectable _selectable;
 		private ICharacterCreatorUndoManager _undoManager;
 		private IConfirmationManager _confirmationManager;
 		private Button _button;
@@ -17,7 +18,8 @@ namespace Character.Creator.UI
 		private void Awake()
 		{
 			_selection = Singletons.GetSingleton<ICustomizationSelection>();
-			_reference = this.GetComponent<IYingPortraitReference>();
+			_reference = this.GetComponent<IPortraitReference>();
+			_selectable = this.GetComponent<ISelectable>();
 			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 			_button = this.GetComponent<Button>();
@@ -60,7 +62,7 @@ namespace Character.Creator.UI
 		}
 		void ReflectInteractable()
 		{
-			_button.interactable = !_reference.Selected.Val;
+			_button.interactable = !_selectable.Selected.Val;
 		}
 	}
 }

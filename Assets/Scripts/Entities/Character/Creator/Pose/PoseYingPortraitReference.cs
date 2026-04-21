@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Character.Creator.UI
 {
-	public class PoseYingPortraitReference : ReactiveBehaviour, IYingPortraitReference
+	public class PoseYingPortraitReference : ReactiveBehaviour, IPortraitReference
 	{
 		private IPoseData _poseData;
 		private Computed<bool> _selected;

@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class YingPortraitSnapshotting : MonoBehaviour
 {
 	private RawImage _image;
-	private IYingPortraitReference _reference;
+	private IPortraitReference _reference;
 	private IYingSnapshotManager _snapshotManager;
 	private IYingSnapshotRenderTexture _rt;
 
 	private void Awake()
 	{
 		_image = this.GetComponent<RawImage>();
-		_reference = GetComponentInParent<IYingPortraitReference>();
+		_reference = GetComponentInParent<IPortraitReference>();
 		_snapshotManager = Singletons.GetSingleton<IYingSnapshotManager>();
 	}
 
@@ -25,6 +25,9 @@ public class YingPortraitSnapshotting : MonoBehaviour
 	private void OnDestroy()
 	{
 		_image.texture = null;
-		_rt.Dispose();
+		if (_rt != null)
+		{
+			_rt.Dispose();
+		}
 	}
 }
