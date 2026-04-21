@@ -6,6 +6,7 @@ using System.Linq;
 public interface IExpeditionPlanningMemberReference : IPortraitReference
 {
 	bool IsNextForAdd { get; }
+	ulong ClientId { get; }
 }
 
 public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionPlanningMemberReference
@@ -17,6 +18,8 @@ public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionP
 
 	public bool IsNextForAdd => _isNext.Val;
 	public CachedYingletReference Reference => _reference.Val;
+
+	public ulong ClientId => 0;
 
 	void Awake()
 	{

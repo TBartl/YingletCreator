@@ -1,8 +1,10 @@
+using Reactivity;
 using Steamworks;
 using Steamworks.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Netcode;
 using UnityEngine;
@@ -11,14 +13,19 @@ namespace Netcode.Transports.Facepunch
 {
 	using SocketConnection = Connection;
 
+
+	public interface ICustomFacepunchTransport
+	{
+		public Dictionary<ulong, SteamId> ConnectedClients { get; }
+	}
 	/// <summary>
 	/// The default FacepunchTransport is designed to initialize Steamworks itself, but we want it initialized and in-use regardless of this by the SteamManager class
 	/// </summary>
-	public class CustomFacepunchTransport : NetworkTransport, IConnectionManager, ISocketManager
+	public class CustomFacepunchTransport : NetworkTransport, IConnectionManager, ISocketManager, ICustomFacepunchTransport
 	{
 		private ConnectionManager connectionManager;
 		private SocketManager socketManager;
-		private Dictionary<ulong, Client> connectedClients;
+		private ObservableDict<ulong, Client> connectedClients = new();
 
 		[Tooltip("The Steam ID of the user targeted when joining as a client.")]
 		[SerializeField] public ulong targetSteamId;
@@ -54,6 +61,21 @@ namespace Netcode.Transports.Facepunch
 
 		public override ulong ServerClientId => 0;
 
+		public Dictionary<ulong, SteamId> ConnectedClients
+		{
+			get
+			{
+				var kvps = connectedClients.ToList();
+				var dict = new Dictionary<ulong, SteamId>();
+				foreach (var kvp in kvps)
+				{
+					dict.Add(kvp.Key, kvp.Value.steamId);
+				}
+				return dict;
+			}
+			private set { }
+		}
+
 		public override void DisconnectLocalClient()
 		{
 			connectionManager?.Connection.Close();
@@ -85,7 +107,7 @@ namespace Netcode.Transports.Facepunch
 
 		public override void Initialize(NetworkManager networkManager = null)
 		{
-			connectedClients = new Dictionary<ulong, Client>();
+			connectedClients.Clear();
 		}
 
 		private SendType NetworkDeliveryToSendType(NetworkDelivery delivery)

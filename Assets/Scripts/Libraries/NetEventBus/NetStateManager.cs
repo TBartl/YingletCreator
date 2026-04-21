@@ -45,6 +45,12 @@ public interface INetStateReader
 	/// </summary>
 	Lobby? CurrentLobby { get; }
 
+	/// <summary>
+	/// The steam transport
+	/// Will have a value even when not in use
+	/// </summary>
+	ICustomFacepunchTransport SteamTransport { get; }
+
 	event Action OnVoluntaryClientDisconnection;
 }
 
@@ -146,6 +152,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 	public bool IsConnectedClient => _isConnectedClient.Val;
 	public bool IsInAnyState => _isInAnyState.Val;
 	public Lobby? CurrentLobby => _currentLobby.Val;
+
+	public ICustomFacepunchTransport SteamTransport => _steamTransport;
 
 	public async void StartHost()
 	{
