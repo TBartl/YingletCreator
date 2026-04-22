@@ -11,7 +11,7 @@ public interface IClientNameLookup
 public class ClientNameLookup : MonoBehaviour, IClientNameLookup
 {
 	const string Unknown = "Unknown";
-
+	private IToastManager _toastManager;
 	private INetStateReader _netState;
 	private INetEventBus _netEventBus;
 
@@ -21,6 +21,7 @@ public class ClientNameLookup : MonoBehaviour, IClientNameLookup
 
 	void Awake()
 	{
+		_toastManager = Singletons.GetSingleton<IToastManager>();
 		_netState = Singletons.GetSingleton<INetStateReader>();
 		_netEventBus = Singletons.GetSingleton<INetEventBus>();
 
@@ -42,9 +43,17 @@ public class ClientNameLookup : MonoBehaviour, IClientNameLookup
 		_netEventBus.Unsubscribe<Message_SendClientName>(NetEventBus_OnSendClientName);
 	}
 
+	float _lastShowTime = 0;
 	private void NetEventBus_OnSendClientName(Message_SendClientName message, ulong senderClientId)
 	{
 		_clientIdToNameCache[message.ClientId] = message.Name;
+
+		// This is out of responsibility for this class but w/e
+		if (senderClientId != _netState.LocalClientID && Time.time > _lastShowTime + .05f)
+		{
+			_toastManager.Show($"'{message.Name}' connected.");
+			_lastShowTime = Time.time;
+		}
 	}
 
 	private void NetState_OnConnectedToServer(ulong id)

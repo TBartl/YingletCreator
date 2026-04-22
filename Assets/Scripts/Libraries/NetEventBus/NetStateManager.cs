@@ -55,6 +55,7 @@ public interface INetStateReader
 	event Action OnVoluntaryClientDisconnection;
 
 	// These actually end up implemented by INetClientTracker, but are provided here for convenience
+	public ulong LocalClientID { get; }
 
 	/// <summary>
 	/// Called only for servers when a client connects;
@@ -190,6 +191,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 	public Lobby? CurrentLobby => _currentLobby.Val;
 
 	public ICustomFacepunchTransport SteamTransport => _steamTransport;
+
+	public ulong LocalClientID => _netManager.LocalClientId;
 
 	public async void StartHost()
 	{
