@@ -1,8 +1,8 @@
 using Character.Creator;
-using UnityEngine;
+using Reactivity;
 using UnityEngine.UI;
 
-public class YingPortraitSnapshotting : MonoBehaviour
+public class YingPortraitSnapshotting : ReactiveBehaviour
 {
 	private RawImage _image;
 	private ICachedYingletReference _reference;
@@ -18,16 +18,23 @@ public class YingPortraitSnapshotting : MonoBehaviour
 
 	private void Start()
 	{
-		_rt = _snapshotManager.GetRenderTexture(_reference);
+		AddReflector(Reflect);
+	}
+
+	void Reflect()
+	{
+		_rt?.Dispose(); // Dispose any previously obtained render textures
+
+		var cachedData = _reference.CachedData; // Get the cached data. This will likely be Observable
+		_rt = _snapshotManager.GetRenderTexture(cachedData);
+		if (_rt == null) return; // The cached data we provided may have been null
 		_image.texture = _rt.RenderTexture;
 	}
 
-	private void OnDestroy()
+	private new void OnDestroy()
 	{
+		base.OnDestroy();
 		_image.texture = null;
-		if (_rt != null)
-		{
-			_rt.Dispose();
-		}
+		_rt?.Dispose();
 	}
 }

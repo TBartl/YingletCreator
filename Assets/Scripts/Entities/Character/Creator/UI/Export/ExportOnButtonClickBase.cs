@@ -120,7 +120,7 @@ public abstract class ExportOnButtonClickBase : MonoBehaviour
 	{
 		CachedYingletReference yingRef = _selection.Selected.Val;
 		IYingSnapshotManager snapshotManager = Singletons.GetSingleton<IYingSnapshotManager>();
-		using (IYingSnapshotRenderTexture snapshot = snapshotManager.GetRenderTexture(yingRef))
+		using (IYingSnapshotRenderTexture snapshot = snapshotManager.GetRenderTexture(yingRef.CachedData))
 		{
 			RenderTexture renderTex = snapshot.RenderTexture;
 			if (renderTex == null)

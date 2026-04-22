@@ -1,5 +1,4 @@
 using Character.Creator;
-using Reactivity;
 using Snapshotter;
 using System;
 using System.Collections;
@@ -8,16 +7,19 @@ using UnityEngine;
 
 
 /// <summary>
-/// Responsible for
+/// Provides a mechanism to get RenderTexture snapshots of characters based (currently) on their cached data
+/// This has two benefits over doing it manually:
+/// - It throttles requests, to not slow things down if there's a bunch of requests needed
+/// - It shares render textures if multiple things are using the same cached data
 /// </summary>
 public interface IYingSnapshotManager
 {
 	/// <summary>
-	/// Gets a render texture that will be updated when possible
-	/// This will be shared by other sources trying to get the same texture
+	/// Gets a render texture
+	/// This will be shared by other sources trying to get a snapshot for the same cached data
 	/// This should be disposed to ensure the render texture is cleaned up when no longer needed
 	/// </summary>
-	IYingSnapshotRenderTexture GetRenderTexture(ICachedYingletReference yingletData);
+	IYingSnapshotRenderTexture GetRenderTexture(SerializableCustomizationData yingletData);
 
 	ISnapshotterReferences References { get; }
 	SnapshotterCameraPosition CameraPosition { get; }
@@ -42,7 +44,7 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 	[SerializeField] SnapshotterReferences _references;
 	[SerializeField] AssetReferenceT<SnapshotterCameraPosition> _cameraPositionReference;
 
-	Dictionary<ICachedYingletReference, DictValue> _snapshots = new();
+	Dictionary<SerializableCustomizationData, DictValue> _snapshots = new();
 	private ICompositeResourceLoader _resourceLoader;
 
 	public ISnapshotterReferences References => _references;
@@ -54,17 +56,22 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 		_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
 	}
 
-	public IYingSnapshotRenderTexture GetRenderTexture(ICachedYingletReference yingletData)
+	public IYingSnapshotRenderTexture GetRenderTexture(SerializableCustomizationData customizationData)
 	{
+		if (customizationData == null)
+		{
+			return null;
+		}
+
 		DictValue dictValue = null;
-		if (_snapshots.TryGetValue(yingletData, out var cachedDictValue))
+		if (_snapshots.TryGetValue(customizationData, out var cachedDictValue))
 		{
 			dictValue = cachedDictValue;
 		}
 		if (dictValue == null)
 		{
-			dictValue = new DictValue(this, yingletData);
-			_snapshots.Add(yingletData, dictValue);
+			dictValue = new DictValue(this, customizationData);
+			_snapshots.Add(customizationData, dictValue);
 		}
 
 		dictValue.Watchers++;
@@ -75,7 +82,7 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 			if (dictValue.Watchers <= 0)
 			{
 				dictValue.Dispose();
-				_snapshots.Remove(yingletData);
+				_snapshots.Remove(customizationData);
 			}
 		});
 	}
@@ -90,47 +97,31 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 		// - Ingame portraits
 		// - Ingame emotes(?)
 		// Currently, this suffices for the first two
+
+
 		IYingSnapshotManagerReferences _snapshotReferences;
 
 		public int Watchers { get; set; } = 0;
-		ICachedYingletReference _yingReference;
+		SerializableCustomizationData _customizationData;
 		public RenderTexture RenderTexture { get; private set; }
-		Reflector _reflector;
 
-		public DictValue(IYingSnapshotManagerReferences snapshotReferences, ICachedYingletReference yingReference)
+		public DictValue(IYingSnapshotManagerReferences snapshotReferences, SerializableCustomizationData customizationData)
 		{
 			_snapshotReferences = snapshotReferences;
-			_yingReference = yingReference;
+			_customizationData = customizationData;
 			RenderTexture = SnapshotterUtils.CreateRenderTexture(snapshotReferences.References);
-			_reflector = new Reflector(Reflect);
+			RunThrottled(Snapshot);
 		}
 
 		public void Dispose()
 		{
+			RenderTexture.Release();
 			RenderTexture = null;
-			_reflector.Destroy();
-		}
-
-		private void Reflect()
-		{
-			var cachedData = _yingReference.CachedData; // Not actually used; just for reflection
-			RunThrottled(Snapshot);
 		}
 
 		void Snapshot()
 		{
-			var cachedData = _yingReference.CachedData;
-			if (cachedData == null)
-			{
-				// Make the render texture transparent
-				var previous = RenderTexture.active;
-				RenderTexture.active = RenderTexture;
-				GL.Clear(true, true, Color.clear);
-				RenderTexture.active = previous;
-				return;
-
-			}
-			var observableData = new ObservableCustomizationData(cachedData, _snapshotReferences.ResourceLoader);
+			var observableData = new ObservableCustomizationData(_customizationData, _snapshotReferences.ResourceLoader);
 			var parameters = new SnapshotterParams(_snapshotReferences.CameraPosition, observableData);
 
 			// Apply portrait if it exists
