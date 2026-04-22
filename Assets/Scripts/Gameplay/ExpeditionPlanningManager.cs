@@ -8,20 +8,23 @@ using UnityEngine;
 
 public sealed class ExpeditionPartyMember : INetworkSerializable
 {
-	public ExpeditionPartyMember(uint id, SerializableCustomizationData customizationData, ulong clientId)
+	public ExpeditionPartyMember(uint id, ulong clientId, SerializableCustomizationData customizationData)
 	{
 		Id = id;
 		CustomizationData = customizationData;
 		ClientId = clientId;
 	}
 
-	public SerializableCustomizationData CustomizationData;
 	public uint Id;
 	public ulong ClientId;
+	public SerializableCustomizationData CustomizationData;
+
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref Id);
+		serializer.SerializeValue(ref ClientId);
+		serializer.SerializeCustomizationData(ref CustomizationData);
 	}
 }
 
@@ -42,6 +45,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 	private ObservableList<ExpeditionPartyMember> _currentParty = new ObservableList<ExpeditionPartyMember>();
 	private INetStateReader _netState;
 	private INetEventBus _netEventBus;
+	private INetClientTracker _clientTracker;
 
 	public IList<ExpeditionPartyMember> CurrentParty => _currentParty;
 
@@ -49,9 +53,13 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 	{
 		_netState = Singletons.GetSingleton<INetStateReader>();
 		_netEventBus = Singletons.GetSingleton<INetEventBus>();
+		_clientTracker = Singletons.GetSingleton<INetClientTracker>();
 
 		_netState.OnLocalDisconnected += NetState_OnLocalDisconnected;
 		_netEventBus.Subscribe<Message_AddExpeditionPartyMember>(OnAddExpeditionPartyMember);
+		_netEventBus.Subscribe<Message_RemoveExpeditionPartyMember>(OnRemoveExpeditionPartyMember);
+		_netEventBus.Subscribe<Message_InitializeExpeditionPartyForClient>(OnInitializeExpeditionPartyForClient);
+		_clientTracker.OnClientConnectedToUs += ClientTracker_OnClientConnectedToUs;
 	}
 
 	private void OnDestroy()
@@ -72,11 +80,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 
 	public void RemoveFromParty(uint id)
 	{
-		var member = _currentParty.FirstOrDefault(m => m.Id == id);
-		if (member != null)
-		{
-			_currentParty.Remove(member);
-		}
+		_netEventBus.SendToAll(new Message_RemoveExpeditionPartyMember { Id = id });
 	}
 
 	private void OnAddExpeditionPartyMember(Message_AddExpeditionPartyMember message, ulong senderClientId)
@@ -84,7 +88,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 
 		if (_currentParty.Count < MAX_CHARACTERS)
 		{
-			var newMember = new ExpeditionPartyMember(_currentId++, message.CustomizationData, senderClientId);
+			var newMember = new ExpeditionPartyMember(_currentId++, senderClientId, message.CustomizationData);
 			_currentParty.Add(newMember);
 		}
 		else
@@ -93,6 +97,29 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 		}
 	}
 
+	private void OnRemoveExpeditionPartyMember(Message_RemoveExpeditionPartyMember message, ulong senderClientId)
+	{
+		var member = _currentParty.FirstOrDefault(m => m.Id == message.Id);
+		if (member != null)
+		{
+			_currentParty.Remove(member);
+		}
+	}
+
+	private void OnInitializeExpeditionPartyForClient(Message_InitializeExpeditionPartyForClient message, ulong senderClientId)
+	{
+		_currentId = message.CurrentId;
+		_currentParty.Clear();
+		foreach (var member in message.CurrentParty)
+		{
+			_currentParty.Add(member);
+		}
+	}
+
+	private void ClientTracker_OnClientConnectedToUs(ulong clientId)
+	{
+		_netEventBus.SendToOne(new Message_InitializeExpeditionPartyForClient { CurrentId = _currentId, CurrentParty = _currentParty.ToList() }, clientId);
+	}
 }
 
 public struct Message_AddExpeditionPartyMember : INetMessage
@@ -118,10 +145,32 @@ public struct Message_RemoveExpeditionPartyMember : INetMessage
 
 public struct Message_InitializeExpeditionPartyForClient : INetMessage
 {
-	//public List<ExpeditionPartyMember> CurrentParty;
+	public uint CurrentId;
+	public List<ExpeditionPartyMember> CurrentParty;
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.ReliableFragmentedSequenced;
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
-		//serializer.SerializeList(ref CurrentParty);
+		serializer.SerializeValue(ref CurrentId);
+		if (serializer.IsWriter)
+		{
+			int partyLength = CurrentParty.Count;
+			serializer.SerializeValue(ref partyLength);
+			for (int i = 0; i < partyLength; i++)
+			{
+				CurrentParty[i].NetworkSerialize(serializer);
+			}
+		}
+		else
+		{
+			int partyLength = 0;
+			serializer.SerializeValue(ref partyLength);
+			CurrentParty = new List<ExpeditionPartyMember>(partyLength);
+			for (int i = 0; i < partyLength; i++)
+			{
+				var member = new ExpeditionPartyMember(0, 0, null);
+				member.NetworkSerialize(serializer);
+				CurrentParty.Add(member);
+			}
+		}
 	}
 }
