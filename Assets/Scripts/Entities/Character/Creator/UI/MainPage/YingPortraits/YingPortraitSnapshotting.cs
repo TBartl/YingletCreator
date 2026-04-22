@@ -1,24 +1,24 @@
-using Character.Creator.UI;
+using Character.Creator;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class YingPortraitSnapshotting : MonoBehaviour
 {
 	private RawImage _image;
-	private IPortraitReference _reference;
+	private ICachedYingletReference _reference;
 	private IYingSnapshotManager _snapshotManager;
 	private IYingSnapshotRenderTexture _rt;
 
 	private void Awake()
 	{
 		_image = this.GetComponent<RawImage>();
-		_reference = GetComponentInParent<IPortraitReference>();
+		_reference = GetComponentInParent<ICachedYingletReference>();
 		_snapshotManager = Singletons.GetSingleton<IYingSnapshotManager>();
 	}
 
 	private void Start()
 	{
-		_rt = _snapshotManager.GetRenderTexture(_reference.Reference);
+		_rt = _snapshotManager.GetRenderTexture(_reference);
 		_image.texture = _rt.RenderTexture;
 	}
 

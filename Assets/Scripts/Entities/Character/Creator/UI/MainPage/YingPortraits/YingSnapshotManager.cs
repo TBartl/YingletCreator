@@ -17,7 +17,7 @@ public interface IYingSnapshotManager
 	/// This will be shared by other sources trying to get the same texture
 	/// This should be disposed to ensure the render texture is cleaned up when no longer needed
 	/// </summary>
-	IYingSnapshotRenderTexture GetRenderTexture(CachedYingletReference yingletData);
+	IYingSnapshotRenderTexture GetRenderTexture(ICachedYingletReference yingletData);
 
 	ISnapshotterReferences References { get; }
 	SnapshotterCameraPosition CameraPosition { get; }
@@ -42,7 +42,7 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 	[SerializeField] SnapshotterReferences _references;
 	[SerializeField] AssetReferenceT<SnapshotterCameraPosition> _cameraPositionReference;
 
-	Dictionary<CachedYingletReference, DictValue> _snapshots = new();
+	Dictionary<ICachedYingletReference, DictValue> _snapshots = new();
 	private ICompositeResourceLoader _resourceLoader;
 
 	public ISnapshotterReferences References => _references;
@@ -54,7 +54,7 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 		_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
 	}
 
-	public IYingSnapshotRenderTexture GetRenderTexture(CachedYingletReference yingletData)
+	public IYingSnapshotRenderTexture GetRenderTexture(ICachedYingletReference yingletData)
 	{
 		DictValue dictValue = null;
 		if (_snapshots.TryGetValue(yingletData, out var cachedDictValue))
@@ -83,13 +83,21 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 
 	sealed class DictValue : IDisposable
 	{
-		public int Watchers { get; set; } = 0;
+		// Should this take an observable instead? Or maybe a separate implementation of this that takes an observable baseline?
+		// There's at least three use-cases:
+		// - Customization portraits
+		// - Expedition planning portraits
+		// - Ingame portraits
+		// - Ingame emotes(?)
+		// Currently, this suffices for the first two
 		IYingSnapshotManagerReferences _snapshotReferences;
-		CachedYingletReference _yingReference;
+
+		public int Watchers { get; set; } = 0;
+		ICachedYingletReference _yingReference;
 		public RenderTexture RenderTexture { get; private set; }
 		Reflector _reflector;
 
-		public DictValue(IYingSnapshotManagerReferences snapshotReferences, CachedYingletReference yingReference)
+		public DictValue(IYingSnapshotManagerReferences snapshotReferences, ICachedYingletReference yingReference)
 		{
 			_snapshotReferences = snapshotReferences;
 			_yingReference = yingReference;
@@ -111,7 +119,9 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 
 		void Snapshot()
 		{
-			var observableData = new ObservableCustomizationData(_yingReference.CachedData, _snapshotReferences.ResourceLoader);
+			var cachedData = _yingReference.CachedData;
+			if (cachedData == null) return;
+			var observableData = new ObservableCustomizationData(cachedData, _snapshotReferences.ResourceLoader);
 			var parameters = new SnapshotterParams(_snapshotReferences.CameraPosition, observableData);
 
 			// Apply portrait if it exists

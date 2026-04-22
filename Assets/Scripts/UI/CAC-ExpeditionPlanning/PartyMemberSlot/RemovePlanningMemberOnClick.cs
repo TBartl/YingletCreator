@@ -23,6 +23,6 @@ public class RemovePlanningMemberOnClick : MonoBehaviour
 
 	private void OnClick()
 	{
-		_planningManager.RemoveFromParty(_reference.Reference);
+		_planningManager.RemoveFromParty(_reference.Reference.Id);
 	}
 }

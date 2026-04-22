@@ -9,9 +9,15 @@ using UnityEngine;
 
 namespace Character.Creator
 {
-	public sealed class CachedYingletReference
+	public interface ICachedYingletReference
+	{
+		SerializableCustomizationData CachedData { get; }
+	}
+
+	public sealed class CachedYingletReference : ICachedYingletReference
 	{
 		Observable<SerializableCustomizationData> _cachedData;
+
 
 		public CachedYingletReference(string path, SerializableCustomizationData cachedData, LocalYingletGroup group)
 		{

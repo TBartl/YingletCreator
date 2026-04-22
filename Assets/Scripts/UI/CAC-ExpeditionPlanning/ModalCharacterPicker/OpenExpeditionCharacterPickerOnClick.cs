@@ -22,7 +22,10 @@ public class OpenExpeditionCharacterPickerOnClick : MonoBehaviour
 
 	private void Button_OnClick()
 	{
-		var data = new ModalCharacterPickerData(character => _expeditionPlanner.AddToParty(character));
+		var data = new ModalCharacterPickerData(character =>
+		{
+			_expeditionPlanner.AddToParty(character.CachedData);
+		});
 		_modalCharacterPickerManager.OpenModalCharacterPickerData(data);
 	}
 }

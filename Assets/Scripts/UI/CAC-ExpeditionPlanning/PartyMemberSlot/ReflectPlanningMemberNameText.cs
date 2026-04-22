@@ -15,8 +15,8 @@ public class ReflectPlanningMemberNameText : ReactiveBehaviour
 
 	private void ReflectText()
 	{
-		var reference = _reference.Reference;
-		if (reference == null) return;
-		_text.text = reference.CachedData.Name;
+		var customizationData = _reference.CachedData;
+		if (customizationData == null) return;
+		_text.text = customizationData.Name;
 	}
 }

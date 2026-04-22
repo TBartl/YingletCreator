@@ -1,10 +1,10 @@
 using Character.Creator;
-using Character.Creator.UI;
 using Reactivity;
 using System.Linq;
 
-public interface IExpeditionPlanningMemberReference : IPortraitReference
+public interface IExpeditionPlanningMemberReference : ICachedYingletReference
 {
+	ExpeditionPartyMember Reference { get; }
 	bool IsNextForAdd { get; }
 	ulong ClientId { get; }
 }
@@ -14,14 +14,16 @@ public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionP
 	private IExpeditionPlanningManager _planningManager;
 	private int _siblingIndex;
 	Computed<bool> _isNext;
-	Computed<CachedYingletReference> _reference;
+	Computed<ExpeditionPartyMember> _reference;
 
 	public bool IsNextForAdd => _isNext.Val;
-	public CachedYingletReference Reference => _reference.Val;
+	public ExpeditionPartyMember Reference => _reference.Val;
 
 	public ulong ClientId => 0;
 
 	public ClassId Class { get; private set; }
+
+	public SerializableCustomizationData CachedData => _reference.Val?.CustomizationData;
 
 	void Awake()
 	{
@@ -35,7 +37,7 @@ public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionP
 		Class = Singletons.GetSingleton<ICompositeResourceLoader>().LoadClasses().OrderBy(i => i.OrderIndex).ToArray()[_siblingIndex];
 	}
 
-	private CachedYingletReference ComputeReference()
+	private ExpeditionPartyMember ComputeReference()
 	{
 		var party = _planningManager.CurrentParty.ToList();
 

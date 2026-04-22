@@ -51,6 +51,7 @@ public interface INetStateReader
 	/// </summary>
 	ICustomFacepunchTransport SteamTransport { get; }
 
+	event Action OnLocalDisconnected;
 	event Action OnVoluntaryClientDisconnection;
 }
 
@@ -100,6 +101,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	Observable<Lobby?> _currentLobby = new();
 
+	public event Action OnLocalDisconnected = delegate { };
 	public event Action OnVoluntaryClientDisconnection = delegate { };
 
 	// If a user Disconnects while attempting to start a lobby, we should get rid of the lobby we created
@@ -216,6 +218,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 		_validLobbyIndex += 1; // Increment this to invalidate any lobbies we are currently getting
 
+		OnLocalDisconnected.Invoke();
 		// Otherwise, no events are called for this
 		if (wasClient)
 		{

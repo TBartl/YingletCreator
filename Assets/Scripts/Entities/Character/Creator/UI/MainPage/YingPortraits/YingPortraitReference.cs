@@ -12,14 +12,16 @@ namespace Character.Creator.UI
 		void Setup(CachedYingletReference reference);
 	}
 
-	public class YingPortraitReference : ReactiveBehaviour, IWriteablePortraitReference, ISelectable
+	public class YingPortraitReference : ReactiveBehaviour, IWriteablePortraitReference, ICachedYingletReference, ISelectable
 	{
 		private ICustomizationSelection _selection;
 		private Computed<bool> _selected;
 		private CachedYingletReference _reference;
 
 		public CachedYingletReference Reference => _reference;
+		public SerializableCustomizationData CachedData => _reference.CachedData;
 		public IReadOnlyObservable<bool> Selected => _selected;
+
 
 		void Start()
 		{
