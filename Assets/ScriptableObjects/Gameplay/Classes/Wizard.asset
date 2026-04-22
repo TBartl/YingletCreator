@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6accac1d3ac1d1b4894c4dcd0c3cc44d, type: 3}
+  m_Name: Wizard
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 955e48554434ab74a8fa8042a3821b39
+  _icon: {fileID: 1890141702, guid: 2a0bb081fc7b16e42a3d7f5f5fc6c3d3, type: 3}
+  _uiOverlayMaterial: {fileID: 2100000, guid: 6b96c9748fa8c4247ba97be2e48daaf8, type: 2}
+  _orderIndex: 200

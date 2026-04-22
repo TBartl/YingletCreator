@@ -21,6 +21,7 @@ public interface ICompositeResourceLoader
 	IEnumerable<PoseId> LoadAllPoseIds();
 	IEnumerable<PortraitId> LoadAllPortraitIds();
 	IEnumerable<MixTexture> LoadMixTextures();
+	IEnumerable<ClassId> LoadClasses();
 }
 
 public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
@@ -34,6 +35,7 @@ public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
 	private IEnumerable<CharacterToggleId> _cachedToggles;
 	private IEnumerable<PortraitId> _cachedPortraits;
 	private IEnumerable<MixTexture> _cachedTextures;
+	private IEnumerable<ClassId> _cachedClasses;
 
 	private void Awake()
 	{
@@ -46,6 +48,7 @@ public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
 		_cachedToggles = _provider.LoadAll<CharacterToggleId>();
 		_cachedPortraits = _provider.LoadAll<PortraitId>();
 		_cachedTextures = _provider.LoadAll<MixTexture>();
+		_cachedClasses = _provider.LoadAll<ClassId>();
 	}
 
 	private void OnDestroy()
@@ -88,6 +91,11 @@ public class CompositeResourceLoader : MonoBehaviour, ICompositeResourceLoader
 	public IEnumerable<MixTexture> LoadMixTextures()
 	{
 		return _cachedTextures;
+	}
+
+	public IEnumerable<ClassId> LoadClasses()
+	{
+		return _cachedClasses;
 	}
 }
 

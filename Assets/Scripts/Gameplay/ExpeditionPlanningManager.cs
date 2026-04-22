@@ -8,6 +8,7 @@ public interface IExpeditionPlanningManager
 	IList<CachedYingletReference> CurrentParty { get; }
 
 	void AddToParty(CachedYingletReference character);
+	void RemoveFromParty(CachedYingletReference character);
 }
 
 
@@ -29,5 +30,10 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 		{
 			Debug.LogWarning("Max party size reached");
 		}
+	}
+
+	public void RemoveFromParty(CachedYingletReference character)
+	{
+		_currentParty.Remove(character);
 	}
 }

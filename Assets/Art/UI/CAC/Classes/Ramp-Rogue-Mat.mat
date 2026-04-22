@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat-UI-Barbarian
+  m_Name: Ramp-Rogue-Mat
   m_Shader: {fileID: -6465566751694194690, guid: 7d9bc4bf202a92e4c90a081dcfbf2ddb, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 2800000, guid: 270ccab53b5eb1c4e883fa90beabdf67, type: 3}
+        m_Texture: {fileID: 2800000, guid: bc19e44758584f1409c3b073303f7608, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:

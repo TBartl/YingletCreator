@@ -9,7 +9,7 @@ public interface IExpeditionPlanningMemberReference : IPortraitReference
 	ulong ClientId { get; }
 }
 
-public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionPlanningMemberReference
+public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionPlanningMemberReference, IClassReference
 {
 	private IExpeditionPlanningManager _planningManager;
 	private int _siblingIndex;
@@ -21,6 +21,8 @@ public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionP
 
 	public ulong ClientId => 0;
 
+	public ClassId Class { get; private set; }
+
 	void Awake()
 	{
 		_planningManager = Singletons.GetSingleton<IExpeditionPlanningManager>();
@@ -28,6 +30,9 @@ public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionP
 		_siblingIndex = transform.GetSiblingIndex();
 		_isNext = CreateComputed(ComputeIsNext);
 		_reference = CreateComputed(ComputeReference);
+
+		// temp code
+		Class = Singletons.GetSingleton<ICompositeResourceLoader>().LoadClasses().OrderBy(i => i.OrderIndex).ToArray()[_siblingIndex];
 	}
 
 	private CachedYingletReference ComputeReference()
