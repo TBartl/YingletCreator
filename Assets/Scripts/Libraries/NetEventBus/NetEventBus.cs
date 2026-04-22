@@ -79,29 +79,54 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 	{
 		// For servers, send to everyone except ourselves and the sender
 		// For clients, send to the server only so we can relay it
-		var clients = _networkManager.IsServer
-			? _networkManager.ConnectedClientsIds.Where(c => c != NetworkManager.ServerClientId && c != sender).ToList()
-			: new List<ulong> { NetworkManager.ServerClientId };
+		var clients = GetRecipients();
 		Send(message, sender, clients);
+
+		List<ulong> GetRecipients()
+		{
+			if (_networkManager.IsServer)
+			{
+				if (message.SendToSelf)
+				{
+					return _networkManager.ConnectedClientsIds.ToList();
+				}
+				// Client that sent it shouldn't end up recieving it
+				return _networkManager.ConnectedClientsIds.Where(c => c != sender).ToList();
+			}
+			else
+			{
+				return new List<ulong> { NetworkManager.ServerClientId };
+			}
+		}
 	}
 
-	private void Send<T>(T message, ulong sender, IReadOnlyList<ulong> clients) where T : INetMessage
+	private void Send<T>(T message, ulong sender, IReadOnlyList<ulong> recipients) where T : INetMessage
 	{
+		if (message.DeliveryMethod != NetworkDelivery.Unreliable)
+		{
+			Debug.Log($"Sending message of type {typeof(T)} from client {sender} to recipients: {string.Join(", ", recipients)}");
+		}
+
+
+		if (recipients.Count == 0)
+		{
+			return;
+		}
+
 		var messagingManager = _networkManager.CustomMessagingManager;
-		if (_networkManager.IsServer || messagingManager == null)
+		if ((_networkManager.IsServer || messagingManager == null) && recipients.Contains(NetworkManager.ServerClientId))
 		{
 			// Send to ourselves if we're the server or if we're not running
 			FireMessageToListeners(message, sender);
-		}
 
-		if (clients.Count == 0)
-		{
-			// If we don't have anyone more to send to, we can skip the rest
-			// At some point I should re-evaluate how this logic all works
-			// Seemingly all the logic I've written for solo players to fire events gets ignored in the consumer logic
-			// So do I even need the FireMessageToListeners above?
-			// Or should I just leave it on the message recieved callback only?
-			return;
+			if (recipients.Count == 1)
+			{
+				// We were the only recipient, no need to send a network message
+				return;
+			}
+
+			// Update the recipients list to not send to ourselves again when we actually send the networked message
+			recipients = recipients.Where(r => r != NetworkManager.ServerClientId).ToList();
 		}
 
 		if (messagingManager == null)
@@ -129,14 +154,14 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 		writer.WriteNetworkSerializable(message);
 
 
-		if (clients.Count == 1)
+		if (recipients.Count == 1)
 		{
 			// We need to do this because clients seemingly can't use the List version of SendUnnamedMessage, even with a list of 1
-			messagingManager.SendUnnamedMessage(clients[0], writer, message.DeliveryMethod);
+			messagingManager.SendUnnamedMessage(recipients[0], writer, message.DeliveryMethod);
 		}
 		else
 		{
-			messagingManager.SendUnnamedMessage(clients, writer, message.DeliveryMethod);
+			messagingManager.SendUnnamedMessage(recipients, writer, message.DeliveryMethod);
 
 		}
 	}

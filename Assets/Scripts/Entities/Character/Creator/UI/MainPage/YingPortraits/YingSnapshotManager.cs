@@ -120,7 +120,16 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 		void Snapshot()
 		{
 			var cachedData = _yingReference.CachedData;
-			if (cachedData == null) return;
+			if (cachedData == null)
+			{
+				// Make the render texture transparent
+				var previous = RenderTexture.active;
+				RenderTexture.active = RenderTexture;
+				GL.Clear(true, true, Color.clear);
+				RenderTexture.active = previous;
+				return;
+
+			}
 			var observableData = new ObservableCustomizationData(cachedData, _snapshotReferences.ResourceLoader);
 			var parameters = new SnapshotterParams(_snapshotReferences.CameraPosition, observableData);
 

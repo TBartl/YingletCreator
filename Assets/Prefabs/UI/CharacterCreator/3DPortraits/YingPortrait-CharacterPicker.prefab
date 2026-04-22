@@ -8,9 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 294758313657133529, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.b
+      value: 0.14509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 294758313657133529, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.g
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 294758313657133529, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.r
+      value: 0.21176472
+      objectReference: {fileID: 0}
     - target: {fileID: 580242429759820414, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
       propertyPath: m_Name
       value: YingPortrait-CharacterPicker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391674913315096508, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391674913315096508, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.g
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391674913315096508, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.r
+      value: 0.38823533
       objectReference: {fileID: 0}
     - target: {fileID: 5812067709727348765, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
       propertyPath: m_Pivot.x
@@ -91,6 +115,18 @@ PrefabInstance:
     - target: {fileID: 5812067709727348765, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340890814680913250, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.b
+      value: 0.8705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340890814680913250, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.g
+      value: 0.9607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340890814680913250, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}
+      propertyPath: _selectColor.r
+      value: 0.98823535
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3288721736716856246, guid: 84eaece8a881d914394e4f27bfcecce9, type: 3}

@@ -18,6 +18,7 @@ public class RemovePlanningMemberOnClick : MonoBehaviour
 
 	private void OnDestroy()
 	{
+		if (_button == null) return;
 		_button.onClick.RemoveListener(OnClick);
 	}
 

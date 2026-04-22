@@ -66,6 +66,8 @@ namespace Character.Creator
 			NumberData = new SerializableCustomizationNumberData(data.NumberData);
 			PortraitData = new SerializableCustomizationPortraitData(data.PortraitData);
 		}
+
+
 	}
 
 

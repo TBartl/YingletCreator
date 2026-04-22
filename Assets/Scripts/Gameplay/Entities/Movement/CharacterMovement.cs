@@ -191,6 +191,7 @@ public struct Message_Jump : INetMessage
 	public Vector3 Position;
 	public Vector3 Velocity;
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
+	public bool SendToSelf => false;
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref Position);

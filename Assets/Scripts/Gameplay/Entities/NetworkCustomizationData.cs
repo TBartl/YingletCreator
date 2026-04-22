@@ -86,6 +86,7 @@ public struct Message_UpdateCustomizationData : INetMessage
 	}
 
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.ReliableFragmentedSequenced;
+	public bool SendToSelf => false;
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{

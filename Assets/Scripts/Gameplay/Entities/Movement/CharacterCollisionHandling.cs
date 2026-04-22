@@ -169,6 +169,7 @@ public struct Message_ImpactedGround : INetMessage
 	public Vector3 ImpactPosition;
 
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
+	public bool SendToSelf => false;
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{

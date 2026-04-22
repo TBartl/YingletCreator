@@ -5,7 +5,7 @@ public struct Message_TestMessage : INetMessage
 {
 	public string Text;
 
-	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
+	public NetworkDelivery DeliveryMethod => NetworkDelivery.ReliableSequenced;
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{

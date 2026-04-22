@@ -133,6 +133,7 @@ struct Message_SendRigidbodySnapshot : INetMessage
 	}
 
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.Unreliable;
+	public bool SendToSelf => false;
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{

@@ -6,104 +6,105 @@ using System.Collections.Generic;
 namespace Reactivity
 {
 
-    public class ObservableList<T> : IObservableEnumerable<T>, IList<T>
-    {
-        readonly IList<T> list;
+	public class ObservableList<T> : IObservableEnumerable<T>, IList<T>
+	{
+		readonly IList<T> list;
 
-        // Not using individual notifiers for vals since that will get a bit muddy as things are inserted / removed
-        readonly Notifier notifier = new Notifier();
+		// Not using individual notifiers for vals since that will get a bit muddy as things are inserted / removed
+		readonly Notifier notifier = new Notifier();
 
-        public ObservableList()
-        {
-            list = new List<T>();
-        }
+		public ObservableList()
+		{
+			list = new List<T>();
+		}
 
 
-        #region IList
-        public T this[int index]
-        {
-            get
-            {
-                notifier.Track();
-                return list[index];
-            }
-            set => throw new NotImplementedException();
-        }
+		#region IList
+		public T this[int index]
+		{
+			get
+			{
+				notifier.Track();
+				return list[index];
+			}
+			set => throw new NotImplementedException();
+		}
 
-        public int Count
-        {
-            get
-            {
-                notifier.Track();
-                return list.Count;
-            }
-        }
+		public int Count
+		{
+			get
+			{
+				notifier.Track();
+				return list.Count;
+			}
+		}
 
-        public bool IsReadOnly => throw new NotImplementedException();
+		public bool IsReadOnly => throw new NotImplementedException();
 
-        public void Add(T item)
-        {
-            list.Add(item);
-            notifier.Dirty();
-        }
+		public void Add(T item)
+		{
+			list.Add(item);
+			notifier.Dirty();
+		}
 
-        public void Clear()
-        {
-            throw new NotImplementedException();
-        }
+		public void Clear()
+		{
+			list.Clear();
+			notifier.Dirty();
+		}
 
-        public bool Contains(T item)
-        {
-            throw new NotImplementedException();
-        }
+		public bool Contains(T item)
+		{
+			throw new NotImplementedException();
+		}
 
-        public void CopyTo(T[] array, int arrayIndex)
-        {
-            notifier.Track();
-            list.CopyTo(array, arrayIndex);
-        }
+		public void CopyTo(T[] array, int arrayIndex)
+		{
+			notifier.Track();
+			list.CopyTo(array, arrayIndex);
+		}
 
-        public int IndexOf(T item)
-        {
-            notifier.Track();
-            return list.IndexOf(item);
-        }
+		public int IndexOf(T item)
+		{
+			notifier.Track();
+			return list.IndexOf(item);
+		}
 
-        public void Insert(int index, T item)
-        {
-            throw new NotImplementedException();
-        }
+		public void Insert(int index, T item)
+		{
+			throw new NotImplementedException();
+		}
 
-        public bool Remove(T item)
-        {
-            bool success = list.Remove(item);
-            if (success)
-            {
-                notifier.Dirty();
-            }
-            return success;
-        }
+		public bool Remove(T item)
+		{
+			bool success = list.Remove(item);
+			if (success)
+			{
+				notifier.Dirty();
+			}
+			return success;
+		}
 
-        public void RemoveAt(int index)
-        {
-            list.RemoveAt(index);
-            notifier.Dirty();
-        }
-        #endregion
+		public void RemoveAt(int index)
+		{
+			list.RemoveAt(index);
+			notifier.Dirty();
+		}
+		#endregion
 
-        #region IEnumerable
-        public IEnumerator<T> GetEnumerator()
-        {
-            notifier.Track();
+		#region IEnumerable
+		public IEnumerator<T> GetEnumerator()
+		{
+			notifier.Track();
 
-            return list.GetEnumerator();
-        }
+			return list.GetEnumerator();
+		}
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-        #endregion
-    }
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
+		}
+		#endregion
+	}
 
 }
