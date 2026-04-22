@@ -66,6 +66,11 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 	private void OnDestroy()
 	{
 		_netState.OnLocalDisconnected -= NetState_OnLocalDisconnected;
+		_netEventBus.Unsubscribe<Message_AddExpeditionPartyMember>(OnAddExpeditionPartyMember);
+		_netEventBus.Unsubscribe<Message_RemoveExpeditionPartyMember>(OnRemoveExpeditionPartyMember);
+		_netEventBus.Unsubscribe<Message_InitializeExpeditionPartyForClient>(OnInitializeExpeditionPartyForClient);
+		_clientTracker.OnClientConnectedToUs -= ClientTracker_OnClientConnectedToUs;
+		_clientTracker.OnClientDisconnectedFromUs -= ClientTracker_OnClientDisconnectedFromUs;
 	}
 
 	private void NetState_OnLocalDisconnected()

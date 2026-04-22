@@ -102,11 +102,11 @@ public class NetEventBus : MonoBehaviour, INetEventBus
 
 	private void Send<T>(T message, ulong sender, IReadOnlyList<ulong> recipients) where T : INetMessage
 	{
-		if (message.DeliveryMethod != NetworkDelivery.Unreliable)
-		{
-			Debug.Log($"Sending message of type {typeof(T)} from client {sender} to recipients: {string.Join(", ", recipients)}");
-		}
-
+		// Keeping this around a bit longer in case I need to debug it more
+		//if (message.DeliveryMethod != NetworkDelivery.Unreliable)
+		//{
+		//	Debug.Log($"Sending message of type {typeof(T)} from client {sender} to recipients: {string.Join(", ", recipients)}");
+		//}
 
 		if (recipients.Count == 0)
 		{
