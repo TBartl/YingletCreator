@@ -60,6 +60,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 		_netEventBus.Subscribe<Message_RemoveExpeditionPartyMember>(OnRemoveExpeditionPartyMember);
 		_netEventBus.Subscribe<Message_InitializeExpeditionPartyForClient>(OnInitializeExpeditionPartyForClient);
 		_clientTracker.OnClientConnectedToUs += ClientTracker_OnClientConnectedToUs;
+		_clientTracker.OnClientDisconnectedFromUs += ClientTracker_OnClientDisconnectedFromUs;
 	}
 
 	private void OnDestroy()
@@ -119,6 +120,14 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 	private void ClientTracker_OnClientConnectedToUs(ulong clientId)
 	{
 		_netEventBus.SendToOne(new Message_InitializeExpeditionPartyForClient { CurrentId = _currentId, CurrentParty = _currentParty.ToList() }, clientId);
+	}
+	private void ClientTracker_OnClientDisconnectedFromUs(ulong clientId)
+	{
+		var membersToRemove = _currentParty.Where(m => m.ClientId == clientId).ToList();
+		foreach (var member in membersToRemove)
+		{
+			_netEventBus.SendToAll(new Message_RemoveExpeditionPartyMember { Id = member.Id });
+		}
 	}
 }
 

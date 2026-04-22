@@ -37,6 +37,11 @@ public interface INetClientTracker
 	event Action<ulong> OnClientConnectedToUs;
 
 	/// <summary>
+	/// Called only for servers when a client disconnects
+	/// </summary>
+	event Action<ulong> OnClientDisconnectedFromUs;
+
+	/// <summary>
 	/// Called only when a pure client connects to a server
 	/// </summary>
 	event Action<ulong> OnConnectedToServer;
@@ -52,6 +57,7 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 	Computed<ulong> _computedLocalClientId; // Compute for less refires in the average case when a client is just connecting / disconnecting
 
 	public event Action<ulong> OnClientConnectedToUs = delegate { };
+	public event Action<ulong> OnClientDisconnectedFromUs = delegate { };
 	public event Action<ulong> OnConnectedToServer = delegate { };
 
 	public ulong LocalClientID => _computedLocalClientId.Val;
@@ -121,6 +127,7 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 		if (_netManager.IsServer && clientId != 0)
 		{
 			ServerSendUpdatedManifest();
+			OnClientDisconnectedFromUs.Invoke(clientId);
 		}
 		else
 		{
