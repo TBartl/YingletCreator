@@ -1,9 +1,11 @@
 ﻿using Reactivity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+
+public delegate void ClientConnectionEvent(ulong clientId);
+
 
 public struct ClientData
 {
@@ -34,17 +36,17 @@ public interface INetClientTracker
 	/// <summary>
 	/// Called only for servers when a client connects;
 	/// </summary>
-	event Action<ulong> OnClientConnectedToUs;
+	event ClientConnectionEvent OnClientConnectedToUs;
 
 	/// <summary>
 	/// Called only for servers when a client disconnects
 	/// </summary>
-	event Action<ulong> OnClientDisconnectedFromUs;
+	event ClientConnectionEvent OnClientDisconnectedFromUs;
 
 	/// <summary>
 	/// Called only when a pure client connects to a server
 	/// </summary>
-	event Action<ulong> OnConnectedToServer;
+	event ClientConnectionEvent OnConnectedToServer;
 }
 
 internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
@@ -56,9 +58,9 @@ internal sealed class NetClientTracker : ReactiveBehaviour, INetClientTracker
 	Observable<ClientData> _data = new Observable<ClientData>(new ClientData(0, new ulong[] { 0 }));
 	Computed<ulong> _computedLocalClientId; // Compute for less refires in the average case when a client is just connecting / disconnecting
 
-	public event Action<ulong> OnClientConnectedToUs = delegate { };
-	public event Action<ulong> OnClientDisconnectedFromUs = delegate { };
-	public event Action<ulong> OnConnectedToServer = delegate { };
+	public event ClientConnectionEvent OnClientConnectedToUs = delegate { };
+	public event ClientConnectionEvent OnClientDisconnectedFromUs = delegate { };
+	public event ClientConnectionEvent OnConnectedToServer = delegate { };
 
 	public ulong LocalClientID => _computedLocalClientId.Val;
 

@@ -96,7 +96,12 @@ namespace Reactivity
 
 		public void CopyTo(KeyValuePair<K, V>[] array, int arrayIndex)
 		{
-			throw new System.NotImplementedException();
+			enumerableNotifier.Track();
+			foreach (var kvp in dict.Where(kvp => kvp.Value.Exists).Select(kvp => new KeyValuePair<K, V>(kvp.Key, kvp.Value.Value)))
+			{
+				if (arrayIndex >= array.Length) throw new ArgumentException("Array is too small");
+				array[arrayIndex++] = kvp;
+			}
 		}
 
 		public bool Remove(KeyValuePair<K, V> item)
@@ -110,8 +115,14 @@ namespace Reactivity
 		public ICollection<V> Values =>
 		throw new System.NotImplementedException();
 
-		public int Count =>
-		throw new System.NotImplementedException();
+		public int Count
+		{
+			get
+			{
+				enumerableNotifier.Track();
+				return dict.Count(kvp => kvp.Value.Exists);
+			}
+		}
 
 		public bool IsReadOnly =>
 		throw new System.NotImplementedException();

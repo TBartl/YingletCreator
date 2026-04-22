@@ -19,7 +19,7 @@ public class ExpeditionPlanningMemberReference : ReactiveBehaviour, IExpeditionP
 	public bool IsNextForAdd => _isNext.Val;
 	public ExpeditionPartyMember Reference => _reference.Val;
 
-	public ulong ClientId => 0;
+	public ulong ClientId => _reference.Val?.ClientId ?? 0;
 
 	public ClassId Class { get; private set; }
 

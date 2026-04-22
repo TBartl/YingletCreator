@@ -53,6 +53,23 @@ public interface INetStateReader
 
 	event Action OnLocalDisconnected;
 	event Action OnVoluntaryClientDisconnection;
+
+	// These actually end up implemented by INetClientTracker, but are provided here for convenience
+
+	/// <summary>
+	/// Called only for servers when a client connects;
+	/// </summary>
+	event ClientConnectionEvent OnClientConnectedToUs;
+
+	/// <summary>
+	/// Called only for servers when a client disconnects
+	/// </summary>
+	event ClientConnectionEvent OnClientDisconnectedFromUs;
+
+	/// <summary>
+	/// Called only when a pure client connects to a server
+	/// </summary>
+	event ClientConnectionEvent OnConnectedToServer;
 }
 
 public interface INetStateWriter : INetStateReader
@@ -86,6 +103,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	// Host
 	Observable<bool> _isNetManagerHosted = new(false);
+	private INetClientTracker _netClientTracker;
 	private IToastManager _toastManager;
 	Computed<bool> _isAttemptingHost;
 	Computed<bool> _isConnectedHost;
@@ -103,12 +121,28 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	public event Action OnLocalDisconnected = delegate { };
 	public event Action OnVoluntaryClientDisconnection = delegate { };
+	public event ClientConnectionEvent OnConnectedToServer
+	{
+		add => _netClientTracker.OnConnectedToServer += value;
+		remove => _netClientTracker.OnConnectedToServer -= value;
+	}
+	public event ClientConnectionEvent OnClientConnectedToUs
+	{
+		add => _netClientTracker.OnClientConnectedToUs += value;
+		remove => _netClientTracker.OnClientConnectedToUs -= value;
+	}
+	public event ClientConnectionEvent OnClientDisconnectedFromUs
+	{
+		add => _netClientTracker.OnClientDisconnectedFromUs += value;
+		remove => _netClientTracker.OnClientDisconnectedFromUs -= value;
+	}
 
 	// If a user Disconnects while attempting to start a lobby, we should get rid of the lobby we created
 	private uint _validLobbyIndex = 0;
 
 	private void Awake()
 	{
+		_netClientTracker = Singletons.GetSingleton<INetClientTracker>();
 		_toastManager = Singletons.GetSingleton<IToastManager>();
 
 		_isAttemptingHost = CreateComputed(() => _isNetManagerHosted.Val && (_currentLobby.Val == null || !_steam));

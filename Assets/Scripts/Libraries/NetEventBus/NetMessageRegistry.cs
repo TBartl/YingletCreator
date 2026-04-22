@@ -30,6 +30,7 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 		Register<Message_AddExpeditionPartyMember>();
 		Register<Message_RemoveExpeditionPartyMember>();
 		Register<Message_InitializeExpeditionPartyForClient>();
+		Register<Message_SendClientName>();
 
 		// Do a little bit of reflection to see if there's any message types we missed out on and log a warning about them
 		var reflectedMessageTypes = AppDomain.CurrentDomain.GetAssemblies()
