@@ -43,7 +43,7 @@ internal class CameraControlProvider_FollowPlayer : ReactiveBehaviour, ICameraCo
 		pivotPoint += target.linearVelocity.WithoutY() * VELOCITY_OFFSET_MULTIPLIER; // Look ahead in the direction we're moving
 
 		var targetPos = pivotPoint + Vector3.back * OFFSET_BACK + Vector3.up * OFFSET_UP;
-		bool distanceTooFar = Vector3.Distance(targetPos, pivotPoint) > MAX_DISTANCE;
+		bool distanceTooFar = Vector3.Distance(_pos.WithoutY(), targetPos.WithoutY()) > MAX_DISTANCE;
 
 		if (distanceTooFar)
 		{

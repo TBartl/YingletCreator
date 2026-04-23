@@ -21,12 +21,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StoneBricks-Dense
-  m_Shader: {fileID: -6465566751694194690, guid: cdd59963bc31a574694fd8ea3917cd9f, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 526be0c183113734b97f88da3ca4174d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _EMISSION
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

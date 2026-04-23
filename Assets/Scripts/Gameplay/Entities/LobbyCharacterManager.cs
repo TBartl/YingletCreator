@@ -22,6 +22,8 @@ public interface ILobbyCharacterManager
 
 public class LobbyCharacterManager : MonoBehaviour, ILobbyCharacterManager
 {
+	[SerializeField] Transform _spawnPoint;
+
 	private ICharacterSpawner _characterSpawner;
 
 	ObservableList<LobbyCharacter> _lobbyCharacters = new ObservableList<LobbyCharacter>();
@@ -30,7 +32,10 @@ public class LobbyCharacterManager : MonoBehaviour, ILobbyCharacterManager
 	private void Start()
 	{
 		_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
-		var characterObject = _characterSpawner.SpawnCharacter(0);
+		var characterObject = _characterSpawner.SpawnCharacter(0, go =>
+		{
+			go.transform.position = _spawnPoint.position;
+		});
 		var lobbyCharacter = new LobbyCharacter(characterObject);
 		_lobbyCharacters.Add(lobbyCharacter);
 	}
