@@ -68,6 +68,11 @@ MonoBehaviour:
     m_GlyphIndex: 5
     m_Scale: 1
     m_Name: Ctrl
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 6
+    m_Scale: 1
+    m_Name: Warning
   m_GlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -162,6 +167,22 @@ MonoBehaviour:
       m_Width: 64
       m_Height: 64
     m_Scale: 3
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 2006197105, guid: a23590877c3bfe3479c852b699aece42, type: 3}
+  - m_Index: 6
+    m_Metrics:
+      m_Width: 64
+      m_Height: 64
+      m_HorizontalBearingX: -9.6
+      m_HorizontalBearingY: 52.4
+      m_HorizontalAdvance: 56.8
+    m_GlyphRect:
+      m_X: 128
+      m_Y: 128
+      m_Width: 64
+      m_Height: 64
+    m_Scale: 1.3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 2006197105, guid: a23590877c3bfe3479c852b699aece42, type: 3}

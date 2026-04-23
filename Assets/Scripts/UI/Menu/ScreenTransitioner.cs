@@ -23,6 +23,7 @@ public class ScreenTransitioner : MonoBehaviour
 		SetVal(1);
 
 		_screenTransitionManager.OnStartTransitionToOpaque += TransitionToOpaque;
+		_screenTransitionManager.OnStartTransitionToTransparent += TransitionToClear;
 
 		yield return null;
 		TransitionToClear();
@@ -31,6 +32,7 @@ public class ScreenTransitioner : MonoBehaviour
 	private void OnDestroy()
 	{
 		_screenTransitionManager.OnStartTransitionToOpaque -= TransitionToOpaque;
+		_screenTransitionManager.OnStartTransitionToTransparent -= TransitionToClear;
 	}
 
 	void TransitionToClear()
@@ -73,5 +75,4 @@ public class ScreenTransitioner : MonoBehaviour
 	{
 		_image.material.SetFloat("_Value", v);
 	}
-
 }
