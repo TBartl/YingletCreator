@@ -19,7 +19,7 @@ public class CloseMenusOnExpeditionStart : MonoBehaviour
 
 	private void OnExpeditionStateChanged(ExpeditionState from, ExpeditionState to)
 	{
-		if (to == ExpeditionState.Running)
+		if (to == ExpeditionState.Starting || to == ExpeditionState.Running)
 		{
 			while (_menusToClose.Contains(_menuManager.OpenMenu.Val))
 			{

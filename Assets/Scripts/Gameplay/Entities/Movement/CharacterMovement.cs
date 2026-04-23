@@ -145,7 +145,8 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 		// Just something simple for now
 		if (this.transform.position.y < -50)
 		{
-			_rb.MovePosition(Vector3.up * 3);
+			var root = this.transform.position.x < -100 ? Vector3.left * 200 : Vector3.zero;
+			_rb.MovePosition(root + Vector3.up * 3);
 		}
 	}
 
