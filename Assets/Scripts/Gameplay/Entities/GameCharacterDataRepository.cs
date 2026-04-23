@@ -34,15 +34,18 @@ namespace Character.Creator
 		{
 			_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
 			var initialSelection = this.GetComponent<ICustomizationSelection>();
-			var data = initialSelection.Selected.Val?.CachedData;
-			if (data == null)
-			{
-				Debug.LogError("No initial selection found for GameCharacterDataRepository");
-			}
-			_data.Val = new ObservableCustomizationData(data, _resourceLoader);
-
 			_identity = this.GetComponentInParent<IPlayerIdentity>();
 			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
+
+			if (_data.Val == null)
+			{
+				var data = initialSelection.Selected.Val?.CachedData;
+				if (data == null)
+				{
+					Debug.LogError("No initial selection found for GameCharacterDataRepository");
+				}
+				_data.Val = new ObservableCustomizationData(data, _resourceLoader);
+			}
 		}
 
 		private void Update()
@@ -63,6 +66,13 @@ namespace Character.Creator
 
 		public void ForceCustomizationData(SerializableCustomizationData cachedData)
 		{
+			// Not ideal but unless I get a proper DI setup w/e
+			if (_resourceLoader == null)
+			{
+				_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
+			}
+
+
 			_data.Val = new ObservableCustomizationData(cachedData, _resourceLoader);
 		}
 	}

@@ -1,3 +1,4 @@
+using Character.Creator;
 using Reactivity;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,9 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 			{
 				gameObject.transform.SetParent(_parentObject.transform);
 				gameObject.transform.position = GetNextSpawn().position;
+
+				var dataRepo = gameObject.GetComponentInChildren<IForceableCustomizationDataRepository>();
+				dataRepo.ForceCustomizationData(partyMember.CustomizationData);
 			});
 
 			_characters.Add(new ExpeditionCharacter(gameObject));
