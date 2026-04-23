@@ -72,10 +72,10 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 		if (!_identity.IsMine) return; // Don't use InputAllowed since we still want this to apply to ourselves as friction just in case
 
 		// Figure out the ideal speed
-		var targetDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-		if (!_inputRestrictor.InputAllowed)
+		var targetDirection = Vector3.zero;
+		if (_inputRestrictor.InputAllowed && _identity.IsActive)
 		{
-			targetDirection = Vector3.zero;
+			targetDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 		}
 
 		targetDirection = ClampMagnitude1(targetDirection); // Don't exceed 1
@@ -158,7 +158,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	{
 		get
 		{
-			if (!_identity.IsMine) return false;
+			if (!_identity.IsActive) return false;
 			if (!_inputRestrictor.InputAllowed) return false;
 			return true;
 		}

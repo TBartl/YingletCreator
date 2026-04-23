@@ -37,7 +37,7 @@ public class RotateToVelocity : MonoBehaviour
 	private void IsInCharacterCreator_OnChanged(bool arg1, bool to)
 	{
 		// Leaving character creator with this; reset the yaw
-		if (!to && _identity.IsMine)
+		if (!to && _identity.IsActive)
 		{
 			_yaw = this.transform.rotation;
 		}
@@ -45,7 +45,7 @@ public class RotateToVelocity : MonoBehaviour
 
 	void Update()
 	{
-		if (_characterCreatorTracker.IsInCharacterCreator.Val && _identity.IsMine)
+		if (_characterCreatorTracker.IsInCharacterCreator.Val && _identity.IsActive)
 		{
 			// We're editing this, don't rotate
 			return;

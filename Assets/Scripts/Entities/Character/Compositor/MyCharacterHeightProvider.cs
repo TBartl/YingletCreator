@@ -11,10 +11,10 @@ public class MyCharacterHeightProvider : ReactiveBehaviour, IYingletHeightProvid
 
 	void Awake()
 	{
-		var characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+		var activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 		_characterHeightProvider = CreateComputed(() =>
 		{
-			var myCharacter = characterSpawner.MyCharacter;
+			var myCharacter = activeCharacterProvider.ActiveCharacter.Val;
 			if (myCharacter == null) return null;
 
 			return myCharacter.GetComponentInChildren<IYingletHeightProvider>();

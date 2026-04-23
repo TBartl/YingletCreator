@@ -20,17 +20,17 @@ namespace Character.Creator
 	/// </summary>
 	public class CustomizationSelection : ReactiveBehaviour, ICustomizationSelection
 	{
-		private ICharacterSpawner _characterSpawner;
+		private IActiveCharacterProvider _activeCharacterProvider;
 		Computed<ICustomizationSelection> _currentGameCharacterSelection;
 		Computed<CachedYingletReference> _selected;
 
 		private void Awake()
 		{
-			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+			_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 
 			_currentGameCharacterSelection = CreateComputed(() =>
 			{
-				var currentCharacter = _characterSpawner.MyCharacter;
+				var currentCharacter = _activeCharacterProvider.ActiveCharacter.Val;
 				if (currentCharacter == null) return null;
 				return currentCharacter.GetComponentInChildren<ICustomizationSelection>();
 			});

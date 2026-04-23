@@ -21,7 +21,7 @@ public class TooltipProvider_CharacterInteraction : ReactiveBehaviour, ITooltipP
 {
 	[SerializeField] MenuType _validMenu;
 
-	private ICharacterSpawner _characterSpawner;
+	private IActiveCharacterProvider _activeCharacterProvider;
 	private IMenuManager _menuManager;
 	private Computed<bool> _onDesiredMenu;
 	Computed<ICharacterInteractionRadius> _interactionRadius;
@@ -30,10 +30,10 @@ public class TooltipProvider_CharacterInteraction : ReactiveBehaviour, ITooltipP
 
 	private void Awake()
 	{
-		_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
 		_onDesiredMenu = CreateComputed(() => _menuManager.OpenMenu.Val == _validMenu);
-		_interactionRadius = CreateComputed(() => _characterSpawner.MyCharacter?.GetComponentInChildren<ICharacterInteractionRadius>());
+		_interactionRadius = CreateComputed(() => _activeCharacterProvider.ActiveCharacter.Val?.GetComponentInChildren<ICharacterInteractionRadius>());
 		_desiredTooltip = CreateComputed(ComputeDesiredTooltip);
 	}
 

@@ -81,7 +81,7 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 
 	private void OnReceiveSnapshot(Message_SendRigidbodySnapshot message, ulong senderClientId)
 	{
-		if (_identity.IsMine) return; // Optimization opportunity: The server probably shouldn't even be sending this to us
+		if (_identity.IsMine) return;
 		if (senderClientId != _identity.ConnectionId) return;
 
 		SnapshotInterpolation.InsertIfNotExists(

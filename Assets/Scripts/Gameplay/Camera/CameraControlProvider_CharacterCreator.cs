@@ -16,7 +16,7 @@ internal class CameraControlProvider_CharacterCreator : ReactiveBehaviour, ICame
 	private ICharacterCreatorTracker _characterCreatorTracker;
 	IUiHoverManager _uiHoverManager;
 	IYingletHeightProvider _heightProvider;
-	private ICharacterSpawner _characterSpawner;
+	private IActiveCharacterProvider _activeCharacterProvider;
 	private Quaternion _startRotQuaternion;
 	private Quaternion _zoomRotQuaternion;
 	float _percent = 0f;
@@ -33,7 +33,7 @@ internal class CameraControlProvider_CharacterCreator : ReactiveBehaviour, ICame
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_uiHoverManager = Singletons.GetSingleton<IUiHoverManager>();
 		_heightProvider = Singletons.GetSingleton<IYingletHeightProvider>();
-		_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged += InCharacterCreator_OnChanged;
 	}
@@ -74,7 +74,7 @@ internal class CameraControlProvider_CharacterCreator : ReactiveBehaviour, ICame
 
 	(Vector3, Quaternion) CalculateIdealTransform()
 	{
-		var myCharacter = _characterSpawner.MyCharacter;
+		var myCharacter = _activeCharacterProvider.ActiveCharacter.Val;
 		if (myCharacter == null)
 		{
 			Debug.LogWarning($"CameraControlProvider_CharacterCreator: MyCharacter is null");

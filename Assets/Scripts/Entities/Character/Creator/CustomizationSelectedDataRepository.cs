@@ -20,7 +20,7 @@ namespace Character.Creator
 
 	public class CustomizationSelectedDataRepository : ReactiveBehaviour, ICustomizationSelectedDataRepository
 	{
-		private ICharacterSpawner _characterSpawner;
+		private IActiveCharacterProvider _activeCharacterProvider;
 		private ICustomizationSelection _selection;
 
 		Computed<IGameCharacterDataRepository> _characterDataRepository;
@@ -30,7 +30,7 @@ namespace Character.Creator
 
 		void Awake()
 		{
-			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+			_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 
 			// TODO: use this
 			_selection = Singletons.GetSingleton<ICustomizationSelection>();
@@ -61,7 +61,7 @@ namespace Character.Creator
 		// That way we wouldn't be changing it so much when jumping between different characters eventually
 		private IGameCharacterDataRepository ComputeCharacterDataRepository()
 		{
-			var myCharacter = _characterSpawner.MyCharacter;
+			var myCharacter = _activeCharacterProvider.ActiveCharacter.Val;
 			if (myCharacter == null)
 			{
 				return null;

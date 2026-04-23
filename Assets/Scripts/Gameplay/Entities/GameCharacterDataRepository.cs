@@ -47,7 +47,7 @@ namespace Character.Creator
 
 		private void Update()
 		{
-			if (!_identity.IsMine) return;
+			if (!_identity.IsActive) return;
 			if (!_inputRestrictor.InputAllowed) return;
 
 			//if (Input.GetKeyDown(KeyCode.Q))

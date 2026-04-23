@@ -8,7 +8,7 @@ namespace Character.Creator.UI
 {
 	public class ColorSelectionGroup : ReactiveBehaviour
 	{
-		private ICharacterSpawner _characterSpawner;
+		private IActiveCharacterProvider _activeCharacterProvider;
 		private IColorSelectionSorter _sorter;
 		private Computed<ITextureGatherer> _currentGatherer;
 		[SerializeField] GameObject _colorSelectionPrefab;
@@ -17,7 +17,7 @@ namespace Character.Creator.UI
 
 		private void Awake()
 		{
-			_characterSpawner = Singletons.GetSingleton<ICharacterSpawner>();
+			_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 			_sorter = this.GetComponentInParent<IColorSelectionSorter>();
 			_currentGatherer = CreateComputed(ComputeGatherer);
 
@@ -31,7 +31,7 @@ namespace Character.Creator.UI
 
 		private ITextureGatherer ComputeGatherer()
 		{
-			var myCharacter = _characterSpawner.MyCharacter;
+			var myCharacter = _activeCharacterProvider.ActiveCharacter.Val;
 			if (myCharacter == null) return null;
 			return myCharacter.GetComponentInChildren<ITextureGatherer>();
 		}

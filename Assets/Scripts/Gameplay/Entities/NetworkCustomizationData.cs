@@ -49,7 +49,7 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 	{
 		if (!_netStateTracker.IsInAnyState) return; // Optimization: Don't do anything if we're not in a net state
 
-		if (!_identity.IsMine) return;
+		if (!_identity.IsActive) return;
 		if (to) return; // Only act when we're leaving it
 
 		var message = CreateMessage();
