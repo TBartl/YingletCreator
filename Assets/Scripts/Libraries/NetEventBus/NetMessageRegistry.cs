@@ -23,14 +23,19 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 		// As a result, I'm registering each message type manually here
 		Register<Message_UpdateClientManifest>();
 		Register<Message_TestMessage>();
+
+		// Player
 		Register<Message_SendRigidbodySnapshot>();
 		Register<Message_Jump>();
 		Register<Message_ImpactedGround>();
 		Register<Message_UpdateCustomizationData>();
+
 		Register<Message_AddExpeditionPartyMember>();
 		Register<Message_RemoveExpeditionPartyMember>();
 		Register<Message_InitializeExpeditionPartyForClient>();
 		Register<Message_SendClientName>();
+		Register<Message_TransitionToExpedition>();
+		Register<Message_StartExpedition>();
 
 		// Do a little bit of reflection to see if there's any message types we missed out on and log a warning about them
 		var reflectedMessageTypes = AppDomain.CurrentDomain.GetAssemblies()
