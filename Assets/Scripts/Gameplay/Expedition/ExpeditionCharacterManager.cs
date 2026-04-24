@@ -1,4 +1,5 @@
 using Character.Creator;
+using Networking;
 using Reactivity;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,12 @@ public sealed class ExpeditionCharacter
 	public ExpeditionCharacter(GameObject gameObject)
 	{
 		GameObject = gameObject;
-		_identity = gameObject.GetComponentInChildren<IPlayerIdentity>();
+		_identity = gameObject.GetComponentInChildrenSafe<ICharacterIdentity>();
 	}
 
 	public GameObject GameObject;
-	public ulong ClientId => _identity.ConnectionId;
-	private IPlayerIdentity _identity;
+	public ulong ClientId => _identity.OwnerClientId;
+	private ICharacterIdentity _identity;
 }
 
 
@@ -47,10 +48,13 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 		// Create all the players
 		foreach (var partyMember in _expeditionPlanningManager.CurrentParty)
 		{
-			var gameObject = _characterSpawner.SpawnCharacter(partyMember.ClientId, (gameObject) =>
+			var gameObject = _characterSpawner.SpawnCharacter((gameObject) =>
 			{
 				gameObject.transform.SetParent(_parentObject.transform);
 				gameObject.transform.position = GetNextSpawn().position;
+
+				var identity = gameObject.GetComponentSafe<IWriteableCharacterIdentity>();
+				identity.SetOwner(partyMember.ClientId);
 
 				var dataRepo = gameObject.GetComponentInChildren<IForceableCustomizationDataRepository>();
 				dataRepo.ForceCustomizationData(partyMember.CustomizationData);

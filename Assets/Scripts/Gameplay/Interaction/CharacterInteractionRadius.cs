@@ -1,3 +1,4 @@
+using Networking;
 using Reactivity;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public interface ICharacterInteractionRadius
 
 public class CharacterInteractionRadius : MonoBehaviour, ICharacterInteractionRadius
 {
-	private IPlayerIdentity _playerIdentity;
+	private ICharacterIdentity _playerIdentity;
 	private ICharacterInteraction _characterInteraction;
 	IInteractable _closestCandidate;
 	Observable<IInteractable> _highlighted = new Observable<IInteractable>();
@@ -17,7 +18,7 @@ public class CharacterInteractionRadius : MonoBehaviour, ICharacterInteractionRa
 
 	void Start()
 	{
-		_playerIdentity = GetComponentInParent<IPlayerIdentity>();
+		_playerIdentity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_characterInteraction = this.GetComponentInParent<ICharacterInteraction>();
 	}
 	private void OnTriggerStay(Collider other)

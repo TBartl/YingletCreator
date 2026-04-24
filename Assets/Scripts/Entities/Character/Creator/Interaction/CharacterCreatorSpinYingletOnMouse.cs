@@ -1,3 +1,4 @@
+using Networking;
 using UnityEngine;
 
 public class CharacterCreatorSpinYingletOnMouse : MonoBehaviour
@@ -5,12 +6,12 @@ public class CharacterCreatorSpinYingletOnMouse : MonoBehaviour
 	[SerializeField] float _spinSensitivity = 10f;
 	[SerializeField] float _startRotation = -140f;
 	private ICharacterCreatorTracker _characterCreatorTracker;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
 
 	private void Awake()
 	{
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged += IsInCharacterCreator_OnChanged;
 	}
 

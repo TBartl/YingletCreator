@@ -1,6 +1,7 @@
 ﻿
 
 using Character.Creator;
+using Networking;
 using Reactivity;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ internal class GameCharacterCustomizationSelection : MonoBehaviour, ICustomizati
 
 		var allCharacters = _yingletRepository.GetAllYinglets();
 
-		var playerIdentity = this.GetComponentInParent<IPlayerIdentity>();
+		var playerIdentity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		if (!playerIdentity.IsMine)
 		{
 			// Just set it to anything; the server should overwrite this shortly

@@ -22,20 +22,27 @@ public static class SafeDependencyUtils
 
 	public static void InitializeIfNeeded(this IInitializable initializable)
 	{
-		InitializeIfNeeded(initializable);
+		InitializeIfNeeded((object)initializable);
 	}
 
 	public static T GetComponentSafe<T>(this Component component)
 	{
 		var result = component.GetComponent<T>();
-
 		if (result == null)
 		{
 			Debug.LogError($"Component of type {typeof(T).Name} not found on GameObject {component.gameObject.name}.");
 		}
-
 		InitializeIfNeeded(result);
-
+		return result;
+	}
+	public static T GetComponentSafe<T>(this GameObject gameObject)
+	{
+		var result = gameObject.GetComponent<T>();
+		if (result == null)
+		{
+			Debug.LogError($"Component of type {typeof(T).Name} not found on GameObject {gameObject.name}.");
+		}
+		InitializeIfNeeded(result);
 		return result;
 	}
 
@@ -45,6 +52,37 @@ public static class SafeDependencyUtils
 		if (result == null)
 		{
 			Debug.LogError($"Component of type {typeof(T).Name} not found in children of GameObject {component.gameObject.name}.");
+		}
+		InitializeIfNeeded(result);
+		return result;
+	}
+	public static T GetComponentInChildrenSafe<T>(this GameObject gameObject)
+	{
+		var result = gameObject.GetComponentInChildren<T>();
+		if (result == null)
+		{
+			Debug.LogError($"Component of type {typeof(T).Name} not found in children of GameObject {gameObject.name}.");
+		}
+		InitializeIfNeeded(result);
+		return result;
+	}
+
+	public static T GetComponentInParentSafe<T>(this Component component)
+	{
+		var result = component.GetComponentInParent<T>();
+		if (result == null)
+		{
+			Debug.LogError($"Component of type {typeof(T).Name} not found in parents of GameObject {component.gameObject.name}.");
+		}
+		InitializeIfNeeded(result);
+		return result;
+	}
+	public static T GetComponentInParentSafe<T>(this GameObject gameObject)
+	{
+		var result = gameObject.GetComponentInParent<T>();
+		if (result == null)
+		{
+			Debug.LogError($"Component of type {typeof(T).Name} not found in parents of GameObject {gameObject.name}.");
 		}
 		InitializeIfNeeded(result);
 		return result;

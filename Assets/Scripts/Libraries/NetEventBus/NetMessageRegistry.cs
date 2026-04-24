@@ -37,6 +37,9 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 		Register<Message_TransitionToExpedition>();
 		Register<Message_StartExpedition>();
 
+		Register<Message_CreateLobbyCharacter>();
+		Register<Message_RemoveLobbyCharacter>();
+
 		// Do a little bit of reflection to see if there's any message types we missed out on and log a warning about them
 		var reflectedMessageTypes = AppDomain.CurrentDomain.GetAssemblies()
 			.SelectMany(a => a.GetTypes())

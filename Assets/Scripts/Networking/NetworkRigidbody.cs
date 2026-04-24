@@ -1,4 +1,5 @@
 using Mirror;
+using Networking;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 	[SerializeField] int _snapshotBufferLimit = 20;
 
 	private INetEventBus _eventBus;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
 	private Rigidbody _rb;
 	readonly SortedList<double, RigidbodySnapshot> _snapshots = new();
 
@@ -30,7 +31,7 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 	void Start()
 	{
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_rb = this.GetComponent<Rigidbody>();
 		_eventBus.Subscribe<Message_SendRigidbodySnapshot>(OnReceiveSnapshot);
 
@@ -52,12 +53,7 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 		if (!_identity.IsMine) return;
 		if (Time.time < _lastSnapshotSendTime + _snapshotSendRate) return;
 
-		_eventBus.SendToAll(new Message_SendRigidbodySnapshot
-		{
-			Position = _rb.position,
-			Velocity = _rb.linearVelocity,
-			RemoteTime = (float)_eventBus.NetworkTime
-		});
+		_eventBus.SendToAll(new Message_SendRigidbodySnapshot(_identity.NetId, _rb.position, _rb.linearVelocity, (float)_eventBus.NetworkTime));
 
 		_lastSnapshotSendTime = Time.time;
 	}
@@ -81,8 +77,9 @@ public class NetworkRigidbody : MonoBehaviour, INetworkRigidbody
 
 	private void OnReceiveSnapshot(Message_SendRigidbodySnapshot message, ulong senderClientId)
 	{
-		if (_identity.IsMine) return;
-		if (senderClientId != _identity.ConnectionId) return;
+		if (_identity.IsMine) return; // We already know, return
+		if (senderClientId != _identity.OwnerClientId) return; // Not from the owner, return
+		if (message.NetId != _identity.NetId) return; // Not for this character, return
 
 		SnapshotInterpolation.InsertIfNotExists(
 			_snapshots,
@@ -102,6 +99,7 @@ struct RigidbodySnapshot : Snapshot
 
 	public RigidbodySnapshot(double remoteTime, double localTime, Vector3 position, Vector3 velocity)
 	{
+
 		this.remoteTime = remoteTime;
 		this.localTime = localTime;
 		this.Position = position;
@@ -121,12 +119,14 @@ struct RigidbodySnapshot : Snapshot
 // Optimization opportunity: This can probably be sent without UDP
 struct Message_SendRigidbodySnapshot : INetMessage
 {
+	public ulong NetId;
 	public Vector3 Position;
 	public Vector3 Velocity;
 	public float RemoteTime;
 
-	public Message_SendRigidbodySnapshot(Vector3 position, Vector3 velocity, float remoteTime)
+	public Message_SendRigidbodySnapshot(ulong netId, Vector3 position, Vector3 velocity, float remoteTime)
 	{
+		NetId = netId;
 		Position = position;
 		Velocity = velocity;
 		RemoteTime = remoteTime;
@@ -137,6 +137,7 @@ struct Message_SendRigidbodySnapshot : INetMessage
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
+		serializer.SerializeValue(ref NetId);
 		serializer.SerializeValue(ref Position);
 		serializer.SerializeValue(ref Velocity);
 		serializer.SerializeValue(ref RemoteTime);

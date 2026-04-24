@@ -1,3 +1,4 @@
+using Networking;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	[SerializeField] float LOW_GRAVITY_VELOCITY_PEAK = 7.73f;
 
 	private INetEventBus _eventBus;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
 	private INetworkRigidbody _networkRB;
 	private IInputRestrictor _inputRestrictor;
 	private Rigidbody _rb;
@@ -37,7 +38,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	private void Awake()
 	{
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
 		_networkRB = this.GetComponent<INetworkRigidbody>();
 		_rb = this.GetComponent<Rigidbody>();
@@ -167,17 +168,15 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 	void SendJumpMessage(Vector3 position)
 	{
-		_eventBus.SendToAll(new Message_Jump
-		{
-			Position = position,
-			Velocity = _rb.linearVelocity
-		});
+		_eventBus.SendToAll(new Message_Jump(_identity.NetId, position, _rb.linearVelocity));
 	}
 
 	private void OnMessageJump(Message_Jump message, ulong senderClientId)
 	{
-		if (senderClientId != _identity.ConnectionId) return;
-		if (_identity.IsMine) return;
+		if (_identity.IsMine) return; // We already know, return
+		if (senderClientId != _identity.OwnerClientId) return; // Not from the owner, return
+		if (message.NetId != _identity.NetId) return; // Not for this character, return
+
 		StartCoroutine(DelayJump(message.Position, message.Velocity));
 	}
 	IEnumerator DelayJump(Vector3 position, Vector3 velocity)
@@ -189,12 +188,21 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 public struct Message_Jump : INetMessage
 {
+	public ulong NetId;
 	public Vector3 Position;
 	public Vector3 Velocity;
+	public Message_Jump(ulong netId, Vector3 position, Vector3 velocity)
+	{
+		NetId = netId;
+		Position = position;
+		Velocity = velocity;
+	}
+
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
 	public bool SendToSelf => false;
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
+		serializer.SerializeValue(ref NetId);
 		serializer.SerializeValue(ref Position);
 		serializer.SerializeValue(ref Velocity);
 	}

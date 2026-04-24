@@ -1,3 +1,4 @@
+using Networking;
 using UnityEngine;
 
 public interface ICharacterInteraction
@@ -8,14 +9,14 @@ public interface ICharacterInteraction
 public class CharacterInteraction : MonoBehaviour, ICharacterInteraction
 {
 	private IInputRestrictor _inputRestrictor;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
 	private ICharacterInteractionRadius _interactionRadius;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_interactionRadius = this.GetComponentInChildren<ICharacterInteractionRadius>();
 	}
 

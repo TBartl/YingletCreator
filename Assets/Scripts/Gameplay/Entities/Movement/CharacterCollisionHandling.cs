@@ -1,3 +1,4 @@
+using Networking;
 using System.Collections;
 using System.Linq;
 using Unity.Netcode;
@@ -28,7 +29,7 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 	public ImpactGroundEvent OnImpactedGround { get; set; } = delegate { };
 
 	private INetEventBus _eventBus;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
 	private INetworkRigidbody _networkRB;
 	private int _raycastLayerMask;
 	float _lastJumpClearTime = 0; // The player stays on the ground the frame they jump, this prevents that from giving them another jump
@@ -37,7 +38,7 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 	private void Awake()
 	{
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_networkRB = this.GetComponent<INetworkRigidbody>();
 
 		_raycastLayerMask = LayerMask.GetMask("Default");
@@ -134,17 +135,15 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 
 	void SendImpactedGroundMessage(float impactVelocity, Vector3 impactPosition)
 	{
-		_eventBus.SendToAll(new Message_ImpactedGround
-		{
-			ImpactVelocity = impactVelocity,
-			ImpactPosition = impactPosition
-		});
+		_eventBus.SendToAll(new Message_ImpactedGround(_identity.NetId, impactVelocity, impactPosition));
 	}
 
 	private void OnMessageImpactedGround(Message_ImpactedGround message, ulong senderClientId)
 	{
-		if (senderClientId != _identity.ConnectionId) return;
-		if (_identity.IsMine) return; // We already played it for ourselves
+		if (_identity.IsMine) return; // We already know, return
+		if (senderClientId != _identity.OwnerClientId) return; // Not from the owner, return
+		if (message.NetId != _identity.NetId) return; // Not for this character, return
+
 		StartCoroutine(DelayImpactedGround(message.ImpactVelocity, message.ImpactPosition));
 	}
 
@@ -165,14 +164,23 @@ public class CharacterCollisionHandling : MonoBehaviour, ICharacterCollisionHand
 
 public struct Message_ImpactedGround : INetMessage
 {
+	public ulong NetId;
 	public float ImpactVelocity;
 	public Vector3 ImpactPosition;
+
+	public Message_ImpactedGround(ulong netId, float impactVelocity, Vector3 impactPosition)
+	{
+		NetId = netId;
+		ImpactVelocity = impactVelocity;
+		ImpactPosition = impactPosition;
+	}
 
 	public NetworkDelivery DeliveryMethod => NetworkDelivery.Reliable;
 	public bool SendToSelf => false;
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
+		serializer.SerializeValue(ref NetId);
 		serializer.SerializeValue(ref ImpactVelocity);
 		serializer.SerializeValue(ref ImpactPosition);
 	}

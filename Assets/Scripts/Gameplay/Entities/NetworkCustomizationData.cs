@@ -1,4 +1,5 @@
 using Character.Creator;
+using Networking;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 	private ICharacterCreatorTracker _characterCreatorTracker;
 	private INetEventBus _eventBus;
 	private IGameCharacterDataRepository _dataRepo;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
+	private bool _wantsToSendInitDataToServer = false;
 
 	void Awake()
 	{
@@ -23,19 +25,23 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
 		_dataRepo = this.GetComponent<IGameCharacterDataRepository>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 
-		_netClientTracker.OnConnectedToServer += NetClientTracker_OnConnectedToServer;
 		_netClientTracker.OnClientConnectedToUs += NetClientTracker_OnClientConnectedToUs;
+		_netClientTracker.OnConnectedToServer += NetClientTracker_OnConnectedToServer;
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged += InCharacterCreator_OnChanged;
 		_eventBus.Subscribe<Message_UpdateCustomizationData>(OnCustomizationDataUpdated);
+		_identity.NetIdObservable.OnChanged += OwnerNetIdObservable_OnChanged;
 	}
 
 	private void OnDestroy()
 	{
+		_netClientTracker.OnClientConnectedToUs -= NetClientTracker_OnClientConnectedToUs;
 		_netClientTracker.OnConnectedToServer -= NetClientTracker_OnConnectedToServer;
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged -= InCharacterCreator_OnChanged;
 		_eventBus.Unsubscribe<Message_UpdateCustomizationData>(OnCustomizationDataUpdated);
+		_identity.NetIdObservable.OnChanged -= OwnerNetIdObservable_OnChanged;
+
 	}
 
 	private void NetClientTracker_OnClientConnectedToUs(ulong clientId)
@@ -46,10 +52,15 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 
 	private void NetClientTracker_OnConnectedToServer(ulong connectionId)
 	{
-		if (!_identity.IsMine) return;
+		// We can't do this yet because we don't know our new IDs
+		_wantsToSendInitDataToServer = true;
+	}
 
-		var message = CreateMessage();
-		_eventBus.SendToAll(message);
+	private void OwnerNetIdObservable_OnChanged(ulong from, ulong to)
+	{
+		if (!_wantsToSendInitDataToServer) return;
+		_eventBus.SendToAll(CreateMessage());
+		_wantsToSendInitDataToServer = true;
 	}
 
 	private void InCharacterCreator_OnChanged(bool from, bool to)
@@ -67,7 +78,8 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 	private void OnCustomizationDataUpdated(Message_UpdateCustomizationData message, ulong senderClientId)
 	{
 		if (_identity.IsMine) return; // We already know, return
-		if (_identity.ConnectionId != message.ClientId) return; // Not for us, return
+		if (senderClientId != _identity.OwnerClientId) return; // Not from the owner, return
+		if (message.NetId != _identity.NetId) return; // Not for this character, return
 
 		var deserialized = JsonUtility.FromJson<SerializableCustomizationData>(message.JSONData);
 		_dataRepo.ForceCustomizationData(deserialized);
@@ -77,18 +89,18 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 	{
 		var data = _dataRepo.CustomizationData;
 		var serialized = new SerializableCustomizationData(data);
-		return new Message_UpdateCustomizationData(_identity.ConnectionId, JsonUtility.ToJson(serialized));
+		return new Message_UpdateCustomizationData(_identity.NetId, JsonUtility.ToJson(serialized));
 	}
 }
 
 public struct Message_UpdateCustomizationData : INetMessage
 {
-	public ulong ClientId;
+	public ulong NetId;
 	public string JSONData;
 
-	public Message_UpdateCustomizationData(ulong clientId, string jsonData)
+	public Message_UpdateCustomizationData(ulong netId, string jsonData)
 	{
-		ClientId = clientId;
+		NetId = netId;
 		JSONData = jsonData;
 	}
 
@@ -97,7 +109,7 @@ public struct Message_UpdateCustomizationData : INetMessage
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
-		serializer.SerializeValue(ref ClientId);
+		serializer.SerializeValue(ref NetId);
 		serializer.SerializeValue(ref JSONData);
 	}
 }

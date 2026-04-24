@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Networking;
+using UnityEngine;
 
 public class RotateToVelocity : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class RotateToVelocity : MonoBehaviour
 
 	private ICharacterCreatorTracker _characterCreatorTracker;
 	private Rigidbody _rb;
-	private IPlayerIdentity _identity;
+	private ICharacterIdentity _identity;
 	private IAccelerationTracker _accelTracker;
 	private Quaternion _yaw;
 	private Quaternion _tilt;
@@ -21,7 +22,7 @@ public class RotateToVelocity : MonoBehaviour
 	{
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
 		_rb = this.GetComponentInParent<Rigidbody>();
-		_identity = this.GetComponentInParent<IPlayerIdentity>();
+		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_accelTracker = this.GetComponentInParent<IAccelerationTracker>();
 		_yaw = transform.rotation;
 		_tilt = Quaternion.identity;

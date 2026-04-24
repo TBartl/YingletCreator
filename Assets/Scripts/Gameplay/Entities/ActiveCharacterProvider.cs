@@ -37,9 +37,10 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 			}
 		}
 
-		if (_lobbyCharacterManager.Characters.TryGetValue(_netState.LocalClientID, out var lobbyCharacter))
+		var myLobbyCharacter = _lobbyCharacterManager.Characters.FirstOrDefault(c => c.Identity.OwnerClientId == _netState.LocalClientID);
+		if (myLobbyCharacter != null)
 		{
-			return lobbyCharacter;
+			return myLobbyCharacter.GameObject;
 		}
 
 		return null;
