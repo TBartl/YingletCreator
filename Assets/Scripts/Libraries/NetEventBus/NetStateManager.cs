@@ -45,6 +45,8 @@ public interface INetStateReader
 	/// </summary>
 	Lobby? CurrentLobby { get; }
 
+	bool Steam { get; }
+
 	/// <summary>
 	/// The steam transport
 	/// Will have a value even when not in use
@@ -182,7 +184,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		SteamFriends.OnGameLobbyJoinRequested -= OnGameLobbyJoinRequested;
 	}
 
-
+	public bool Steam => _steam;
 	public bool IsAttemptingHost => _isAttemptingHost.Val;
 	public bool IsConnectedHost => _isConnectedHost.Val;
 	public bool IsAttemptingClient => _isAttemptingClient.Val;
@@ -192,7 +194,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 	public ICustomFacepunchTransport SteamTransport => _steamTransport;
 
-	public ulong LocalClientID => _netManager.LocalClientId;
+	Observable<ulong> _localClientId = new(0);
+	public ulong LocalClientID => _localClientId.Val;
 
 	public async void StartHost()
 	{
@@ -255,11 +258,13 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 		_validLobbyIndex += 1; // Increment this to invalidate any lobbies we are currently getting
 
+		_localClientId.Val = 0;
 		OnLocalDisconnected.Invoke();
 		// Otherwise, no events are called for this
 		if (wasClient)
 		{
 			OnVoluntaryClientDisconnection.Invoke();
+
 		}
 	}
 
@@ -273,6 +278,7 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		else if (clientId == _netManager.LocalClientId)
 		{
 			// We ourselves just connected as a client
+			_localClientId.Val = clientId;
 			_isNetManagerClientConnected.Val = true;
 			_isNetManagerClientAttempting.Val = false;
 		}
@@ -324,7 +330,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 
 		if (!_steam)
 		{
-			Debug.LogError("Trying to connect to lobby but we're not using steam transport, ignoring", this);
+			// Don't worry about joining a loby, just start up the client
+			_netManager.StartClient();
 			return;
 		}
 

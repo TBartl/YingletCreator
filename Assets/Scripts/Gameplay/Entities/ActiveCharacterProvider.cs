@@ -37,13 +37,11 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 			}
 		}
 
-		foreach (var lobbyCharacter in _lobbyCharacterManager.LobbyCharacters)
+		if (_lobbyCharacterManager.Characters.TryGetValue(_netState.LocalClientID, out var lobbyCharacter))
 		{
-			if (lobbyCharacter.ClientId == _netState.LocalClientID)
-			{
-				return lobbyCharacter.GameObject;
-			}
+			return lobbyCharacter;
 		}
+
 		return null;
 	}
 

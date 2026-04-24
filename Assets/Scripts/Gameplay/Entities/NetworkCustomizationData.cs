@@ -26,6 +26,7 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 		_identity = this.GetComponentInParent<IPlayerIdentity>();
 
 		_netClientTracker.OnConnectedToServer += NetClientTracker_OnConnectedToServer;
+		_netClientTracker.OnClientConnectedToUs += NetClientTracker_OnClientConnectedToUs;
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged += InCharacterCreator_OnChanged;
 		_eventBus.Subscribe<Message_UpdateCustomizationData>(OnCustomizationDataUpdated);
 	}
@@ -35,6 +36,12 @@ public class NetworkCustomizationData : MonoBehaviour, INetworkCustomizationData
 		_netClientTracker.OnConnectedToServer -= NetClientTracker_OnConnectedToServer;
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged -= InCharacterCreator_OnChanged;
 		_eventBus.Unsubscribe<Message_UpdateCustomizationData>(OnCustomizationDataUpdated);
+	}
+
+	private void NetClientTracker_OnClientConnectedToUs(ulong clientId)
+	{
+		var message = CreateMessage();
+		_eventBus.SendToOne(message, clientId);
 	}
 
 	private void NetClientTracker_OnConnectedToServer(ulong connectionId)

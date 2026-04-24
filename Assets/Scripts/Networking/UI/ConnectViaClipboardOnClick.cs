@@ -28,6 +28,12 @@ public class ConnectViaClipboardOnClick : MonoBehaviour
 			return;
 		}
 
+		if (!_netState.Steam)
+		{
+			_netState.StartConnectToLobby(0);
+			return;
+		}
+
 		var clipboardString = GUIUtility.systemCopyBuffer;
 
 		if (!ulong.TryParse(clipboardString.Trim(), out ulong lobbyId))

@@ -54,6 +54,11 @@ namespace Character.Creator
 				// This can happen on startup
 				return;
 			}
+			if (to == null)
+			{
+				// This seemingly happens when a client gets disconnected? Not sure why tbh
+				return;
+			}
 			characterRepository.ForceCustomizationData(to.CachedData);
 		}
 
