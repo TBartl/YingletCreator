@@ -1,3 +1,4 @@
+using Networking;
 using Reactivity;
 using System.Collections;
 using Unity.Netcode;
@@ -24,6 +25,7 @@ public class ExpeditionManager : MonoBehaviour, IExpeditionManager, IInitializab
 
 	Observable<ExpeditionState> _state = new Observable<ExpeditionState>(ExpeditionState.Planning);
 	Observable<GameObject> _rootObject = new Observable<GameObject>(null);
+	private INetIdentityProvider _netIdentityProvider;
 	private INetEventBus _eventBus;
 
 	public GameObject RootObject => _rootObject.Val;
@@ -32,6 +34,7 @@ public class ExpeditionManager : MonoBehaviour, IExpeditionManager, IInitializab
 
 	public void Initialize()
 	{
+		_netIdentityProvider = Singletons.GetSingleton<INetIdentityProvider>();
 		_eventBus = Singletons.GetSingleton<INetEventBus>();
 		_eventBus.Subscribe<Message_TransitionToExpedition>(OnTransitionToExpedition);
 		_eventBus.Subscribe<Message_StartExpedition>(OnStartExpedition);
@@ -53,7 +56,7 @@ public class ExpeditionManager : MonoBehaviour, IExpeditionManager, IInitializab
 	IEnumerator StartExpeditionCoroutine()
 	{
 		yield return new WaitForSeconds(_startExpeditionDuration);
-		_eventBus.SendToAll(new Message_StartExpedition());
+		_eventBus.SendToAll(new Message_StartExpedition(_netIdentityProvider.GetNextId()));
 	}
 
 
@@ -64,7 +67,13 @@ public class ExpeditionManager : MonoBehaviour, IExpeditionManager, IInitializab
 	}
 	private void OnStartExpedition(Message_StartExpedition message, ulong senderClientId)
 	{
-		_rootObject.Val = Instantiate(_expeditionPrefab);
+		_netIdentityProvider.ForceNextId(message.NetIdToSync);
+		using (var disabler = _expeditionPrefab.TemporarilyDisable())
+		{
+			_rootObject.Val = Instantiate(_expeditionPrefab);
+			_rootObject.Val.GetComponentInChildrenSafe<IDeterministicRandomProvider>().SetSeed(message.Seed);
+		}
+
 		_state.Val = ExpeditionState.Running;
 	}
 }
@@ -78,7 +87,15 @@ struct Message_TransitionToExpedition : INetMessage
 
 struct Message_StartExpedition : INetMessage
 {
+	public int Seed;
+	public ulong NetIdToSync;
+	public Message_StartExpedition(ulong netIdToSync)
+	{
+		Seed = Random.Range(int.MinValue, int.MaxValue);
+		NetIdToSync = netIdToSync;
+	}
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
+		serializer.SerializeValue(ref NetIdToSync);
 	}
 }

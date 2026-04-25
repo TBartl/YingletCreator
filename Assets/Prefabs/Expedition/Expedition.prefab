@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8004677050168258024}
   - component: {fileID: -6396283459118600261}
+  - component: {fileID: 8878102211484625238}
   - component: {fileID: 7553851871940420813}
   m_Layer: 0
   m_Name: Expedition
@@ -144,6 +145,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa67270734da6c34499ebafe4aebf30c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8878102211484625238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2253342286590760187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec36d29b3e6481c4c844bf719fb17512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7553851871940420813

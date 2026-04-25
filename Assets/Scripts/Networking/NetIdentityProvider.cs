@@ -8,6 +8,7 @@ namespace Networking
 	{
 		ulong GetNextId();
 		void ScrapNextIdIfClient();
+		void ForceNextId(ulong id);
 	}
 
 	internal class NetIdentityProvider : MonoBehaviour, INetIdentityProvider, IInitializable
@@ -30,6 +31,11 @@ namespace Networking
 		{
 			if (_netState.IsConnectedHost) return; // Server itself shouldn't scrap it since it generated it
 			_nextId++;
+		}
+
+		public void ForceNextId(ulong id)
+		{
+			_nextId = id;
 		}
 	}
 }
