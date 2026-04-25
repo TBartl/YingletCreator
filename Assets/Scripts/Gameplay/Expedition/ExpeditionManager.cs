@@ -71,8 +71,9 @@ public class ExpeditionManager : MonoBehaviour, IExpeditionManager, IInitializab
 		using (var disabler = _expeditionPrefab.TemporarilyDisable())
 		{
 			_rootObject.Val = Instantiate(_expeditionPrefab);
-			_rootObject.Val.GetComponentInChildrenSafe<IDeterministicRandomProvider>().SetSeed(message.Seed);
 		}
+		_rootObject.Val.GetComponentInChildrenSafe<IDeterministicRandomProvider>().SetSeed(message.Seed);
+		_rootObject.Val.SetActive(true);
 
 		_state.Val = ExpeditionState.Running;
 	}
