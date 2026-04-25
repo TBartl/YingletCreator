@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum ExpeditionState
 {
-	None,
+	Planning,
 	Starting,
 	Running,
 }
@@ -22,7 +22,7 @@ public class ExpeditionManager : MonoBehaviour, IExpeditionManager, IInitializab
 	[SerializeField] GameObject _expeditionPrefab;
 	[SerializeField] float _startExpeditionDuration = 1f;
 
-	Observable<ExpeditionState> _state = new Observable<ExpeditionState>(ExpeditionState.None);
+	Observable<ExpeditionState> _state = new Observable<ExpeditionState>(ExpeditionState.Planning);
 	Observable<GameObject> _rootObject = new Observable<GameObject>(null);
 	private INetEventBus _eventBus;
 

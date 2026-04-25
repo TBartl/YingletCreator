@@ -43,6 +43,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 	uint _currentId = 0;
 
 	private ObservableList<ExpeditionPartyMember> _currentParty = new ObservableList<ExpeditionPartyMember>();
+	private IExpeditionManager _expeditionManager;
 	private INetStateReader _netState;
 	private INetEventBus _netEventBus;
 	private INetClientTracker _clientTracker;
@@ -51,6 +52,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 
 	private void Awake()
 	{
+		_expeditionManager = Singletons.GetSingleton<IExpeditionManager>();
 		_netState = Singletons.GetSingleton<INetStateReader>();
 		_netEventBus = Singletons.GetSingleton<INetEventBus>();
 		_clientTracker = Singletons.GetSingleton<INetClientTracker>();
@@ -89,9 +91,11 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 		_netEventBus.SendToAll(new Message_RemoveExpeditionPartyMember { Id = id });
 	}
 
+	bool InPlanning => _expeditionManager.State.Val == ExpeditionState.Planning;
+
 	private void OnAddExpeditionPartyMember(Message_AddExpeditionPartyMember message, ulong senderClientId)
 	{
-
+		if (!InPlanning) return;
 		if (_currentParty.Count < MAX_CHARACTERS)
 		{
 			var newMember = new ExpeditionPartyMember(_currentId++, senderClientId, message.CustomizationData);
@@ -105,6 +109,7 @@ public class ExpeditionPlanningManager : MonoBehaviour, IExpeditionPlanningManag
 
 	private void OnRemoveExpeditionPartyMember(Message_RemoveExpeditionPartyMember message, ulong senderClientId)
 	{
+		if (!InPlanning) return;
 		var member = _currentParty.FirstOrDefault(m => m.Id == message.Id);
 		if (member != null)
 		{
