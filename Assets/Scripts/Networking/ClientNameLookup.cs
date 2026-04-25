@@ -104,6 +104,14 @@ public class ClientNameLookup : MonoBehaviour, IClientNameLookup
 
 	public string GetNameForClient(ulong clientId)
 	{
+		// Hacky little code to make non-steam things look better
+		if (!_netState.Steam)
+		{
+			if (clientId == 0) return "Tabski";
+			if (clientId == 1) return "Iskbat";
+		}
+
+
 		if (_clientIdToNameCache.TryGetValue(clientId, out var name))
 		{
 			return name;
