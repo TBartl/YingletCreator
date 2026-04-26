@@ -46,6 +46,16 @@ public static class SafeDependencyUtils
 		return result;
 	}
 
+	public static T[] GetComponentsSafe<T>(this Component component)
+	{
+		var results = component.GetComponents<T>();
+		foreach (var result in results)
+		{
+			InitializeIfNeeded(result);
+		}
+		return results;
+	}
+
 	public static T GetComponentInChildrenSafe<T>(this Component component)
 	{
 		var result = component.GetComponentInChildren<T>();

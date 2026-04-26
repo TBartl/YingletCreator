@@ -23,7 +23,10 @@ public class ScaleInOnSelected : MonoBehaviour
 	}
 	private void OnDestroy()
 	{
-		_selectable.Selected.OnChanged -= Selected_OnChanged;
+		if (_selectable != null)
+		{
+			_selectable.Selected.OnChanged -= Selected_OnChanged;
+		}
 	}
 
 	private void Selected_OnChanged(bool from, bool to)

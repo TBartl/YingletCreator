@@ -12,7 +12,7 @@ public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 	void Start()
 	{
 		_dictReflector = new EnumerableDictReflector<GameObject, GameObject>(Added, Removed);
-		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>(Singletons.GetSingleton<IExpeditionManager>());
+		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>();
 
 		// Destroy existing children (there for mock purposes)
 		foreach (Transform child in transform)
@@ -27,7 +27,7 @@ public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 	{
 		using var disabler = _partyMemberPrefab.TemporarilyDisable();
 		var hudGameObject = Instantiate(_partyMemberPrefab, transform);
-		hudGameObject.GetComponentSafe<IPartyMemberHUDReference>().CharacterGameObject = characterGameObject;
+		hudGameObject.GetComponentSafe<IWriteablePartyMemberHUDReference>().SetCharacterGameObject(characterGameObject);
 		hudGameObject.SetActive(true);
 		return hudGameObject;
 	}

@@ -44,7 +44,7 @@ namespace Character.Creator.UI
 		// Start is called once before the first execution of Update after the MonoBehaviour is created
 		void Start()
 		{
-			_mutators = this.GetComponents<IReactiveOffsetMutator>();
+			_mutators = this.GetComponentsSafe<IReactiveOffsetMutator>();
 
 			_originalPos = this.transform.localPosition;
 

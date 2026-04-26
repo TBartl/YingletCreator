@@ -3,14 +3,13 @@ using UnityEngine.UI;
 
 public class SwitchToPartyHUDMemberOnClick : ReactiveBehaviour
 {
-	private IActiveCharacterProvider _activeCharacterProvider;
 	private Computed<IExpeditionCharacterManager> _expeditionCharacterManager;
 	private IPartyMemberHUDReference _hudReference;
 	private Button _button;
 
 	private void Start()
 	{
-		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>(Singletons.GetSingleton<IExpeditionManager>());
+		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>();
 		_hudReference = this.GetComponentInParentSafe<IPartyMemberHUDReference>();
 
 		_button = this.GetComponentInParentSafe<Button>();

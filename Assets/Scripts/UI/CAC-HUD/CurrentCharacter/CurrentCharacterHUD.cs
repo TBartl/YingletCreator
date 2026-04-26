@@ -2,46 +2,30 @@ using Character.Creator;
 using Reactivity;
 using UnityEngine;
 
-public interface IPartyMemberHUDReference
+public class CurrentCharacterHUD : ReactiveBehaviour, IPartyMemberHUDReference, ICachedYingletReference, IClassReference, IInitializable, ISelectable
 {
-	GameObject CharacterGameObject { get; }
-	IReadOnlyObservable<GameObject> CharacterGameObjectObservable { get; }
-}
-
-public interface IWriteablePartyMemberHUDReference : IPartyMemberHUDReference
-{
-	void SetCharacterGameObject(GameObject characterGameObject);
-}
-
-public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberHUDReference, ICachedYingletReference, IClassReference, IInitializable, ISelectable
-{
-	private IActiveCharacterProvider _activeCharacterProvider;
-	Observable<GameObject> _characterGameObject = new Observable<GameObject>();
+	private Computed<IExpeditionCharacterManager> _expeditionCharacterManager;
 	Computed<bool> _selected;
 	Computed<ClassId> _class;
+	Computed<GameObject> _characterGameObject;
 
-	public GameObject CharacterGameObject => _characterGameObject.Val;
-	public IReadOnlyObservable<GameObject> CharacterGameObjectObservable => _characterGameObject;
 
 	Observable<SerializableCustomizationData> _cachedData = new Observable<SerializableCustomizationData>();
 	public SerializableCustomizationData CachedData => _cachedData.Val;
 
 	public ClassId Class => _class.Val;
 
-	public void SetCharacterGameObject(GameObject characterGameObject)
-	{
-		_characterGameObject.Val = characterGameObject;
-	}
-
 	public IReadOnlyObservable<bool> Selected => _selected;
 
+	public GameObject CharacterGameObject => _characterGameObject.Val;
+	public IReadOnlyObservable<GameObject> CharacterGameObjectObservable => _characterGameObject;
 
 	public void Initialize()
 	{
-		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
+		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>();
+		_characterGameObject = CreateComputed(() => _expeditionCharacterManager.Val?.ActiveCharacter?.Val?.GameObject);
 		_selected = CreateComputed(ComputeSelected);
 		_class = CreateComputed(ComputeClass);
-
 	}
 
 	private void Start()
@@ -61,9 +45,9 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 
 	private bool ComputeSelected()
 	{
-		return _activeCharacterProvider.ActiveCharacter.Val == _characterGameObject.Val;
+		bool isSelected = CharacterGameObject != null;
+		return isSelected;
 	}
-
 	private ClassId ComputeClass()
 	{
 		var characterGameObject = CharacterGameObject;

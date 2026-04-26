@@ -20,7 +20,7 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 	{
 		_netState = Singletons.GetSingleton<INetStateReader>();
 		_lobbyCharacterManager = Singletons.GetSingleton<ILobbyCharacterManager>();
-		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>(Singletons.GetSingleton<IExpeditionManager>());
+		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>();
 		_activeCharacter = CreateComputed(ComputeActiveCharacter);
 	}
 
