@@ -19,7 +19,7 @@ public class OffsetInOnCharacterChanged : MonoBehaviour
 	}
 	private void OnDestroy()
 	{
-		if (_reference.CharacterGameObjectObservable != null)
+		if (_reference != null)
 		{
 			_reference.CharacterGameObjectObservable.OnChanged -= CharacterGameObject_OnChanged;
 		}
