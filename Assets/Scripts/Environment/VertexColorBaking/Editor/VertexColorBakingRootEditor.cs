@@ -41,7 +41,7 @@ public class VertexColorBakingRootEditor : Editor
 		}
 		GUILayout.EndHorizontal();
 
-		if (GUILayout.Button("Revert child prefab mesh filters"))
+		if (GUILayout.Button("[DEPRECATED] Revert child prefab mesh filters"))
 		{
 			VertexColorBakingLogic.RevertChildMeshFilters(root.transform);
 		}

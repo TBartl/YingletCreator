@@ -5,51 +5,40 @@ using UnityEngine;
 public class BakedVertexColorData : MonoBehaviour
 {
 	[SerializeField][HideInInspector] Color[] _colors = new Color[0];
-	[SerializeField][HideInInspector] Mesh _originalMesh = null;
 
 	void OnEnable()
 	{
-
-		if (!Application.isPlaying)
-		{
-			// Editor mode? Check to see if we want to render this
-			if (!this.GetComponentInParent<VertexColorBakingRoot>()._settings.ShowEvenInEditor)
-			{
-				return;
-			}
-		}
+		if (_colors.Length == 0) return; // No colors to apply
 
 		MeshFilter meshFilter = gameObject.GetComponent<MeshFilter>();
-		if (_originalMesh == null) return; // This was likely JUST instantiated by the editor
-		if (meshFilter.sharedMesh == null)
-		{
-			meshFilter.sharedMesh = _originalMesh;
-		}
-		if (meshFilter.sharedMesh != _originalMesh) return; // The mesh has already been swapped off the original
+		MeshRenderer meshRenderer = gameObject.GetComponent<MeshRenderer>();
 
+		if (meshFilter.sharedMesh == null || meshRenderer == null) return;
 
-		var coloredMesh = Mesh.Instantiate(meshFilter.sharedMesh);  //make a deep copy
-		coloredMesh.colors = _colors;
-		meshFilter.sharedMesh = coloredMesh;
+		// Create a mesh for additional vertex streams with the same vertices and colors
+		Mesh additionalStream = new Mesh();
+		additionalStream.vertices = meshFilter.sharedMesh.vertices;
+		additionalStream.colors = _colors;
+		additionalStream.hideFlags = HideFlags.DontSave;
+
+		// Apply the additional vertex stream to the mesh renderer
+		meshRenderer.additionalVertexStreams = additionalStream;
 	}
 
 	void OnDisable()
 	{
-		if (_originalMesh == null) return;
-		var meshFilter = gameObject.GetComponent<MeshFilter>();
-		if (meshFilter.sharedMesh != _originalMesh) meshFilter.sharedMesh = _originalMesh;
+		MeshRenderer meshRenderer = gameObject.GetComponent<MeshRenderer>();
+		if (meshRenderer != null)
+		{
+			meshRenderer.additionalVertexStreams = null;
+		}
 	}
 
 
 #if UNITY_EDITOR
 	public void SetColors(Color[] colors)
 	{
-		MeshFilter meshFilter = gameObject.GetComponent<MeshFilter>();
 		_colors = colors;
-		if (_originalMesh == null)
-		{
-			_originalMesh = meshFilter.sharedMesh;
-		}
 		OnEnable();
 	}
 #endif
