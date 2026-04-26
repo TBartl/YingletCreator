@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UI-QuickWoosh
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 7774dfc965c09b941adc58f38c3393eb, type: 3}
-  _volume: 0.8
-  _randomPitchRange: {x: 0.95, y: 1.05}
+  _volume: 0.274
+  _randomPitchRange: {x: 0.4, y: 0.5}
