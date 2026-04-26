@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 5389703483872628197}
   - component: {fileID: 3068599080144606578}
   m_Layer: 7
-  m_Name: Yinglet
+  m_Name: Yinglet-Lobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

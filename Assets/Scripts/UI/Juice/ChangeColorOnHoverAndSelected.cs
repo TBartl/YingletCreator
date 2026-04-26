@@ -17,7 +17,7 @@ public class ChangeColorOnHoverAndSelected : ReactiveBehaviour
 	private void Awake()
 	{
 		_hoverable = this.GetComponentInParent<IHoverable>();
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_originalColor = _targets.First().color;
 		UpdateColors(_originalColor);
 	}

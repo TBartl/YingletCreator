@@ -19,7 +19,7 @@ namespace Character.Creator.UI
 		{
 			_selection = Singletons.GetSingleton<ICustomizationSelection>();
 			_reference = this.GetComponent<IPortraitReference>();
-			_selectable = this.GetComponent<ISelectable>();
+			_selectable = this.GetComponentSafe<ISelectable>();
 			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
 			_button = this.GetComponent<Button>();

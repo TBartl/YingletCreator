@@ -29,11 +29,9 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 		var expeditionCharacterManager = _expeditionCharacterManager.Val;
 		if (expeditionCharacterManager != null)
 		{
-			var validCharacters = expeditionCharacterManager.Characters.Where(c => c.ClientId == _netState.LocalClientID);
-			if (validCharacters.Any())
+			if (expeditionCharacterManager.ActiveCharacter.Val != null)
 			{
-				// TODO: Use _testOffset
-				return validCharacters.ElementAt(_testOffset.Val % validCharacters.Count()).GameObject;
+				return expeditionCharacterManager.ActiveCharacter.Val.GameObject;
 			}
 		}
 
@@ -44,15 +42,5 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 		}
 
 		return null;
-	}
-
-	// Logic to be moved
-	Observable<int> _testOffset = new Observable<int>(0);
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Tab))
-		{
-			_testOffset.Val += 1;
-		}
 	}
 }

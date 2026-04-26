@@ -54,6 +54,7 @@ public class ReflectPortraitPreview : ReactiveBehaviour
 
 	private new void OnDestroy()
 	{
+		base.OnDestroy();
 		if (_image)
 		{
 			_image.texture = null;

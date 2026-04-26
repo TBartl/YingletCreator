@@ -14,7 +14,7 @@ public class ChangeColorOnSelected : ReactiveBehaviour
 
 	private void Awake()
 	{
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_originalColor = _targets.First().color;
 		UpdateColors(_originalColor);
 	}

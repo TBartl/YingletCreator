@@ -25,7 +25,7 @@ namespace Character.Creator.UI
 			_canvasGroup = this.GetComponent<CanvasGroup>();
 			_clipboardOrdering = this.GetComponentInParent<IClipboardOrdering>();
 			_freeFallManager = this.GetComponentInParent<IClipboardFreeFallManager>();
-			_elementSelection = this.GetComponent<ISelectable>();
+			_elementSelection = this.GetComponentSafe<ISelectable>();
 			_tintImage.color = Color.clear;
 			_tintImage.gameObject.SetActive(false);
 			this.gameObject.SetActive(false);

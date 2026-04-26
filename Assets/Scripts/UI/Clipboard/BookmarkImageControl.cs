@@ -22,7 +22,7 @@ namespace Character.Creator.UI
 		private void Awake()
 		{
 			_unselectedColor = _icon.color;
-			_selection = this.GetComponent<ISelectable>();
+			_selection = this.GetComponentSafe<ISelectable>();
 		}
 
 		void Start()

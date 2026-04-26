@@ -163,7 +163,7 @@ public class LobbyCharacterManager : MonoBehaviour, ILobbyCharacterManager, IIni
 			}
 
 			identity.SetOwner(clientId);
-		});
+		}, CharacterPrefabType.Lobby);
 		var lobbyCharacter = new LobbyCharacter(character);
 		_characters.Add(lobbyCharacter);
 		return lobbyCharacter;

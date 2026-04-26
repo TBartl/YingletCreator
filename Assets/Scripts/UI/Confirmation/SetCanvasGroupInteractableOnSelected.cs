@@ -9,7 +9,7 @@ public class SetCanvasGroupInteractableOnSelected : ReactiveBehaviour
 	void Start()
 	{
 		_canvasGroup = this.GetComponent<CanvasGroup>();
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		AddReflector(Reflect);
 	}
 

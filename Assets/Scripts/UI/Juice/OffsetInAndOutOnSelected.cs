@@ -14,7 +14,7 @@ public class OffsetInAndOutOnSelected : MonoBehaviour
 
 	private void Awake()
 	{
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_rectTransform = this.GetComponent<RectTransform>();
 		_originalAnchoredPosition = _rectTransform.anchoredPosition;
 

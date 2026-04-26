@@ -9,7 +9,7 @@ public class PlaySoundOnSelected : MonoBehaviour
 	private void Start()
 	{
 		_audioPlayer = Singletons.GetSingleton<IAudioPlayer>();
-		_selectable = this.GetComponent<ISelectable>();
+		_selectable = this.GetComponentSafe<ISelectable>();
 		_selectable.Selected.OnChanged += OnSelectedChanged;
 
 	}

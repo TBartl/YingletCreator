@@ -11,7 +11,7 @@ public class ScaleInOnSelected : MonoBehaviour
 
 	private void Start()
 	{
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_rectTransform = this.GetComponent<RectTransform>();
 
 		_selectable.Selected.OnChanged += Selected_OnChanged;

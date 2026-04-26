@@ -25,7 +25,7 @@ namespace Character.Creator.UI
 			_imageControl = this.GetComponent<IBookmarkImageControl>();
 			_clipboardOrdering = this.GetComponentInParent<IClipboardOrdering>();
 			_freeFallManager = this.GetComponentInParent<IClipboardFreeFallManager>();
-			_selectable = this.GetComponent<ISelectable>();
+			_selectable = this.GetComponentSafe<ISelectable>();
 			_elementSelection = this.GetComponent<IClipboardElementSelection>();
 		}
 

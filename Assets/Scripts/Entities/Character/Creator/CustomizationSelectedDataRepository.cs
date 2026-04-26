@@ -33,7 +33,7 @@ namespace Character.Creator
 			_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 
 			// TODO: use this
-			_selection = Singletons.GetSingleton<ICustomizationSelection>();
+			_selection = this.GetComponentSafe<ICustomizationSelection>();
 			_selection.Selected.OnChanged += Selected_OnChanged;
 
 			_characterDataRepository = CreateComputed(ComputeCharacterDataRepository);

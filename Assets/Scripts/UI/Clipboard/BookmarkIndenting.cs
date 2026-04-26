@@ -15,7 +15,7 @@ namespace Character.Creator.UI
 		private void Awake()
 		{
 			_originalPos = transform.localPosition;
-			_selection = this.GetComponent<ISelectable>();
+			_selection = this.GetComponentSafe<ISelectable>();
 			_hoverable = this.GetComponent<IHoverable>();
 		}
 

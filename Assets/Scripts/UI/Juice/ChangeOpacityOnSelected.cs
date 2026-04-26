@@ -11,7 +11,7 @@ public class ChangeOpacityOnSelected : ReactiveBehaviour
 
 	private void Awake()
 	{
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_canvasGroup = this.GetComponent<CanvasGroup>();
 	}
 

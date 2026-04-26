@@ -15,7 +15,7 @@ namespace Character.Creator.UI
 		{
 			_rt = this.GetComponent<RectTransform>();
 			_initialOffset = _rt.offsetMin;
-			_selectable = this.GetComponentInParent<ISelectable>();
+			_selectable = this.GetComponentInParentSafe<ISelectable>();
 		}
 
 		void Start()

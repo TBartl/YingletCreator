@@ -6,7 +6,7 @@ public class SetActiveOnSelected : ReactiveBehaviour
 
 	private void Awake()
 	{
-		_selection = this.GetComponentInParent<ISelectable>();
+		_selection = this.GetComponentInParentSafe<ISelectable>();
 	}
 
 	private void Start()

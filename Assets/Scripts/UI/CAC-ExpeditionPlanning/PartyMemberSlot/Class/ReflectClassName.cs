@@ -8,7 +8,7 @@ public class ReflectClassName : ReactiveBehaviour
 
 	void Start()
 	{
-		_reference = GetComponentInParent<IClassReference>();
+		_reference = this.GetComponentInParentSafe<IClassReference>();
 		_text = GetComponent<TMP_Text>();
 		AddReflector(Reflect);
 	}

@@ -8,7 +8,7 @@ public class ReflectClassIcon : ReactiveBehaviour
 
 	void Start()
 	{
-		_reference = GetComponentInParent<IClassReference>();
+		_reference = this.GetComponentInParentSafe<IClassReference>();
 		_image = GetComponent<Image>();
 		AddReflector(Reflect);
 	}

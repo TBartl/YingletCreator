@@ -13,7 +13,7 @@ public class OffsetOnSelected : ReactiveBehaviour
 
 	private void Awake()
 	{
-		_selectable = this.GetComponentInParent<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_rectTransform = this.GetComponent<RectTransform>();
 	}
 

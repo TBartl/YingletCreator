@@ -11,7 +11,7 @@ namespace Character.Creator.UI
 
 		private void Awake()
 		{
-			_elementSelection = this.GetComponent<ISelectable>();
+			_elementSelection = this.GetComponentSafe<ISelectable>();
 			_clipboardOrdering = this.GetComponentInParent<IClipboardOrdering>();
 		}
 
