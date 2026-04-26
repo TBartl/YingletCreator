@@ -10,7 +10,7 @@ public class CurrentCharacterHUD : ReactiveBehaviour, IPartyMemberHUDReference, 
 	Computed<GameObject> _characterGameObject;
 
 
-	Observable<SerializableCustomizationData> _cachedData = new Observable<SerializableCustomizationData>();
+	Computed<SerializableCustomizationData> _cachedData;
 	public SerializableCustomizationData CachedData => _cachedData.Val;
 
 	public ClassId Class => _class.Val;
@@ -26,23 +26,8 @@ public class CurrentCharacterHUD : ReactiveBehaviour, IPartyMemberHUDReference, 
 		_characterGameObject = CreateComputed(() => _expeditionCharacterManager.Val?.ActiveCharacter?.Val?.GameObject);
 		_selected = CreateComputed(ComputeSelected);
 		_class = CreateComputed(ComputeClass);
+		_cachedData = CreateComputed(ComputeCustomizationData);
 	}
-
-	private void Start()
-	{
-		// This is currently just statically defined
-		// It might be better for the character GameObject to provide this since it will know better when it needs to be updated
-		CreateInitialPortrait();
-	}
-
-	void CreateInitialPortrait()
-	{
-		var characterGameObject = CharacterGameObject;
-		if (characterGameObject == null) return;
-		var dataRepo = characterGameObject.GetComponentInChildrenSafe<ICustomizationDataRepository>();
-		_cachedData.Val = new SerializableCustomizationData(dataRepo.CustomizationData);
-	}
-
 	private bool ComputeSelected()
 	{
 		bool isSelected = CharacterGameObject != null;
@@ -54,5 +39,12 @@ public class CurrentCharacterHUD : ReactiveBehaviour, IPartyMemberHUDReference, 
 		if (characterGameObject == null) return null;
 		var classRepo = characterGameObject.GetComponentInChildrenSafe<IClassReference>();
 		return classRepo.Class;
+	}
+	private SerializableCustomizationData ComputeCustomizationData()
+	{
+		var characterGameObject = CharacterGameObject;
+		if (characterGameObject == null) return null;
+		var customizationDataRepo = characterGameObject.GetComponentInChildrenSafe<IGameCharacterDataRepository>();
+		return customizationDataRepo.LastSerializedData.Val;
 	}
 }

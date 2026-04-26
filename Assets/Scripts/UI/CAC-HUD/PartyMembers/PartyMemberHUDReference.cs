@@ -23,7 +23,7 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 	public GameObject CharacterGameObject => _characterGameObject.Val;
 	public IReadOnlyObservable<GameObject> CharacterGameObjectObservable => _characterGameObject;
 
-	Observable<SerializableCustomizationData> _cachedData = new Observable<SerializableCustomizationData>();
+	Computed<SerializableCustomizationData> _cachedData;
 	public SerializableCustomizationData CachedData => _cachedData.Val;
 
 	public ClassId Class => _class.Val;
@@ -41,22 +41,7 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 		_selected = CreateComputed(ComputeSelected);
 		_class = CreateComputed(ComputeClass);
-
-	}
-
-	private void Start()
-	{
-		// This is currently just statically defined
-		// It might be better for the character GameObject to provide this since it will know better when it needs to be updated
-		CreateInitialPortrait();
-	}
-
-	void CreateInitialPortrait()
-	{
-		var characterGameObject = CharacterGameObject;
-		if (characterGameObject == null) return;
-		var dataRepo = characterGameObject.GetComponentInChildrenSafe<ICustomizationDataRepository>();
-		_cachedData.Val = new SerializableCustomizationData(dataRepo.CustomizationData);
+		_cachedData = CreateComputed(ComputeCustomizationData);
 	}
 
 	private bool ComputeSelected()
@@ -70,5 +55,13 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 		if (characterGameObject == null) return null;
 		var classRepo = characterGameObject.GetComponentInChildrenSafe<IClassReference>();
 		return classRepo.Class;
+	}
+
+	private SerializableCustomizationData ComputeCustomizationData()
+	{
+		var characterGameObject = CharacterGameObject;
+		if (characterGameObject == null) return null;
+		var customizationDataRepo = characterGameObject.GetComponentInChildrenSafe<IGameCharacterDataRepository>();
+		return customizationDataRepo.LastSerializedData.Val;
 	}
 }
