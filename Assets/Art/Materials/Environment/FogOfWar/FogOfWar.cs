@@ -1,3 +1,4 @@
+using Reactivity;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,7 @@ public interface IFogOfWar
 	void RevealRoom(IRoom room);
 }
 
-public class FogOfWar : MonoBehaviour, IFogOfWar, IInitializable
+public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 {
 	static readonly int MAIN_TEX_PROPERTY_ID = Shader.PropertyToID("_MainTex");
 	static readonly int SCALE_PROPERTY_ID = Shader.PropertyToID("_Scale");
@@ -20,7 +21,7 @@ public class FogOfWar : MonoBehaviour, IFogOfWar, IInitializable
 
 	private IFogOfWarCarver _carver;
 	private FogOfWarRendererFeature _rendererFeature;
-	public Material _material; // tODO: unpublic
+	private Material _material;
 	private DoubleBufferedRenderTexture _renderTextures;
 	HashSet<Vector2Int> _revealedRooms = new HashSet<Vector2Int>();
 
@@ -37,7 +38,6 @@ public class FogOfWar : MonoBehaviour, IFogOfWar, IInitializable
 		const int roomSize = 6;
 		_material.SetVector(SCALE_PROPERTY_ID, (Vector2.one / _debugNumRooms) / roomSize);
 		_material.SetVector(OFFSET_PROPERTY_ID, new Vector2(0.5f, 0.5f));
-
 	}
 
 	private void Start()
@@ -45,10 +45,17 @@ public class FogOfWar : MonoBehaviour, IFogOfWar, IInitializable
 		this.InitializeIfNeeded();
 
 		CarveRoom(new Vector2Int(2, 2));
+		AddReflector(ReflectRenderTexture);
 	}
 
-	private void OnDestroy()
+	private void ReflectRenderTexture()
 	{
+		_material.SetTexture(MAIN_TEX_PROPERTY_ID, _renderTextures.GetCurrent());
+	}
+
+	private new void OnDestroy()
+	{
+		base.OnDestroy();
 		if (_rendererFeature != null)
 		{
 			_rendererFeature.Data.Material = null;
@@ -67,7 +74,6 @@ public class FogOfWar : MonoBehaviour, IFogOfWar, IInitializable
 			return;
 		}
 		_carver.CarveRoom(_renderTextures, vector2Int);
-		_material.SetTexture(MAIN_TEX_PROPERTY_ID, _renderTextures.GetCurrent());
 		_revealedRooms.Add(vector2Int);
 	}
 

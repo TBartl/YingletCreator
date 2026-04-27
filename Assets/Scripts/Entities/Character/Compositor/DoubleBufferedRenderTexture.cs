@@ -1,3 +1,4 @@
+using Reactivity.Implementation;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -12,6 +13,8 @@ public sealed class DoubleBufferedRenderTexture
 {
 	RenderTexture _upToDate;
 	RenderTexture _backup;
+	Notifier _notifier = new Notifier(); // Render textures don't play nicely with Observable. At least, my unity keeps crashing
+
 	public DoubleBufferedRenderTexture(Vector2Int textureSize)
 		: this(textureSize, _ => { }) { }
 	public DoubleBufferedRenderTexture(Vector2Int textureSize, System.Action<RenderTexture> beforeCreate)
@@ -61,6 +64,7 @@ public sealed class DoubleBufferedRenderTexture
 
 	public RenderTexture GetCurrent()
 	{
+		_notifier.Track();
 		return _upToDate;
 	}
 
@@ -85,5 +89,6 @@ public sealed class DoubleBufferedRenderTexture
 		RenderTexture temp = _upToDate;
 		_upToDate = _backup;
 		_backup = temp;
+		_notifier.Dirty();
 	}
 }
