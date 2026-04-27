@@ -114,7 +114,6 @@ MonoBehaviour:
   _sourceMaterial: {fileID: 2100000, guid: 0b2324894e2e369439ab8e917e687ec3, type: 2}
   _debugNumRooms: {x: 5, y: 5}
   _rendererData: {fileID: 11400000, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
-  _material: {fileID: 0}
 --- !u!114 &1410937030481448361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f48672b0be7914cae5520db7489c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _carveEaseSettings: {fileID: 11400000, guid: 8fc803fea4e88b24a9b131c40344e8a4, type: 2}
   _pixelsPerRoomEdge: 256
   _carveMaterialSource: {fileID: 2100000, guid: 85314b38751d19649b297a63cdab961c, type: 2}
 --- !u!1 &1430740190752233797

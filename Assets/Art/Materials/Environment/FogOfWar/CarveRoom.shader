@@ -6,6 +6,7 @@ Shader "Custom/CarveRoom"
         _RoomTex ("Room Texture", 2D) = "black" {}
         _RoomScale ("Room Scale", Vector) = (1,1,0,0)
         _RoomOffset ("Room Offset", Vector) = (0,0,0,0)
+        _Progress ("Progress", Range(0, 1)) = 1
     }
 
     SubShader
@@ -35,6 +36,7 @@ Shader "Custom/CarveRoom"
 
             float2 _RoomScale;
             float2 _RoomOffset;
+            float _Progress;
 
             struct Attributes
             {
@@ -68,6 +70,9 @@ Shader "Custom/CarveRoom"
                 // Apply offset + scale for room texture
                 float2 roomUV = (uv + _RoomOffset) * _RoomScale;
                 half4 roomCol = SAMPLE_TEXTURE2D(_RoomTex, sampler_RoomTex, roomUV);
+
+                // Apply progress to room color
+                roomCol = min(roomCol, _Progress);
 
                 // Take max per-channel
                 return max(mainCol, roomCol);

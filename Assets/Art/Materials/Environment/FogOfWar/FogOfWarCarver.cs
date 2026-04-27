@@ -10,7 +10,9 @@ public class FogOfWarCarver : MonoBehaviour, IFogOfWarCarver, IInitializable
 {
 	static readonly int ROOM_SCALE_PROPERTY_ID = Shader.PropertyToID("_RoomScale");
 	static readonly int ROOM_OFFSET_PROPERTY_ID = Shader.PropertyToID("_RoomOffset");
+	static readonly int PROGRESS_PROPERTY_ID = Shader.PropertyToID("_Progress");
 
+	[SerializeField] SharedEaseSettings _carveEaseSettings;
 	[SerializeField] int _pixelsPerRoomEdge = 256;
 	[SerializeField] Material _carveMaterialSource;
 	Material _carveMaterial;
@@ -40,10 +42,18 @@ public class FogOfWarCarver : MonoBehaviour, IFogOfWarCarver, IInitializable
 	{
 		var numRooms = new Vector2Int(renderTextures.GetCurrent().width, renderTextures.GetCurrent().height) / _pixelsPerRoomEdge;
 
-		_carveMaterial.SetVector(ROOM_SCALE_PROPERTY_ID, new Vector2(numRooms.x, numRooms.y));
-		_carveMaterial.SetVector(ROOM_OFFSET_PROPERTY_ID, -new Vector2(roomPos.x / (float)numRooms.x, roomPos.y / (float)numRooms.y));
+		var scale = new Vector2(numRooms.x, numRooms.y);
+		var offset = -new Vector2(roomPos.x / (float)numRooms.x, roomPos.y / (float)numRooms.y);
 
-		// Make the room area white
-		renderTextures.Blit(_carveMaterial);
+		Coroutine c = null;
+		this.StartEaseCoroutine(ref c, _carveEaseSettings, p =>
+		{
+			// Need to do this repeatedly in case multiple rooms are being revealed (we share the material)
+			_carveMaterial.SetVector(ROOM_SCALE_PROPERTY_ID, scale);
+			_carveMaterial.SetVector(ROOM_OFFSET_PROPERTY_ID, offset);
+
+			_carveMaterial.SetFloat(PROGRESS_PROPERTY_ID, p);
+			renderTextures.Blit(_carveMaterial);
+		});
 	}
 }
