@@ -8,6 +8,8 @@ public class DebugQuickExpedition : MonoBehaviour
 	private IExpeditionManager _expeditionManager;
 	private ILocalYingletRepository _yingletRepository;
 
+	static int[] TEST_PARTY = new[] { 9, 5, 10, 13 };
+
 	private void Start()
 	{
 		_expeditionPlanner = Singletons.GetSingleton<IExpeditionPlanningManager>();
@@ -25,7 +27,7 @@ public class DebugQuickExpedition : MonoBehaviour
 		{
 			var allCharacters = _yingletRepository.GetAllYinglets().ToArray();
 
-			for (int i = 0; i < 4; i++)
+			foreach (var i in TEST_PARTY)
 			{
 				_expeditionPlanner.AddToParty(allCharacters[i].CachedData);
 			}
