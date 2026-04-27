@@ -56,9 +56,9 @@ public static class SafeDependencyUtils
 		return results;
 	}
 
-	public static T GetComponentInChildrenSafe<T>(this Component component)
+	public static T GetComponentInChildrenSafe<T>(this Component component, bool includeInactive = false)
 	{
-		var result = component.GetComponentInChildren<T>();
+		var result = component.GetComponentInChildren<T>(includeInactive);
 		if (result == null)
 		{
 			Debug.LogError($"Component of type {typeof(T).Name} not found in children of GameObject {component.gameObject.name}.");

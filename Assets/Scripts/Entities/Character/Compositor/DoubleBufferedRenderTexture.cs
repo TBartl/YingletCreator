@@ -12,8 +12,9 @@ public sealed class DoubleBufferedRenderTexture
 {
 	RenderTexture _upToDate;
 	RenderTexture _backup;
-
 	public DoubleBufferedRenderTexture(Vector2Int textureSize)
+		: this(textureSize, _ => { }) { }
+	public DoubleBufferedRenderTexture(Vector2Int textureSize, System.Action<RenderTexture> beforeCreate)
 	{
 		_upToDate = CreateRT();
 		_backup = CreateRT();
@@ -22,6 +23,7 @@ public sealed class DoubleBufferedRenderTexture
 		{
 			var rt = new RenderTexture(textureSize.x, textureSize.y, 0);
 			rt.wrapMode = TextureWrapMode.Clamp;
+			beforeCreate(rt);
 			rt.Create();
 			ClearRt(rt, Color.clear);
 
@@ -55,6 +57,27 @@ public sealed class DoubleBufferedRenderTexture
 		}
 
 		return _upToDate;
+	}
+
+	public RenderTexture GetCurrent()
+	{
+		return _upToDate;
+	}
+
+	public void Cleanup()
+	{
+		if (_upToDate != null)
+		{
+			_upToDate.Release();
+			Object.Destroy(_upToDate);
+			_upToDate = null;
+		}
+		if (_backup != null)
+		{
+			_backup.Release();
+			Object.Destroy(_backup);
+			_backup = null;
+		}
 	}
 
 	void Swap()
