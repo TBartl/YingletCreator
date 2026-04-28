@@ -16,28 +16,33 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 	static readonly int OFFSET_PROPERTY_ID = Shader.PropertyToID("_Offset");
 
 	[SerializeField] Material _sourceMaterial;
-	[SerializeField] Vector2Int _debugNumRooms;
 	[SerializeField] UniversalRendererData _rendererData;
 
+	private IRoomManager _roomManager;
 	private IFogOfWarCarver _carver;
 	private FogOfWarRendererFeature _rendererFeature;
-	private Material _material;
+	private Material _material; // TODO: Remove public 
 	private DoubleBufferedRenderTexture _renderTextures;
 	HashSet<Vector2Int> _revealedRooms = new HashSet<Vector2Int>();
 
 	public void Initialize()
 	{
+		_roomManager = this.GetExpeditionComponent<IRoomManager>();
 		_carver = this.GetComponentSafe<IFogOfWarCarver>();
 		_rendererFeature = _rendererData.rendererFeatures.OfType<FogOfWarRendererFeature>().First();
 		_material = new Material(_sourceMaterial);
 
 		_rendererFeature.Data.Material = _material;
 
-		_renderTextures = _carver.GenerateFogOfWarTexture(_debugNumRooms);
+		var range = _roomManager.Range;
+		Vector2Int totalSize = range.Max - range.Min + Vector2Int.one;
+		_renderTextures = _carver.GenerateFogOfWarTexture(totalSize);
 
-		const int roomSize = 6;
-		_material.SetVector(SCALE_PROPERTY_ID, (Vector2.one / _debugNumRooms) / roomSize);
-		_material.SetVector(OFFSET_PROPERTY_ID, new Vector2(0.5f, 0.5f));
+		// Fog of war is sampled by UV = WORLD_POS * SCALE + OFFSET
+		var scale = (Vector2.one / totalSize) / RoomManager.ROOM_SIZE;
+		var offset = (-range.Min + Vector2.one * 0.5f) / totalSize;
+		_material.SetVector(SCALE_PROPERTY_ID, scale);
+		_material.SetVector(OFFSET_PROPERTY_ID, offset);
 	}
 
 	private void Start()
@@ -67,14 +72,16 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 		}
 	}
 
-	void CarveRoom(Vector2Int vector2Int)
+	void CarveRoom(Vector2Int position)
 	{
-		if (_revealedRooms.Contains(vector2Int))
+		if (_revealedRooms.Contains(position))
 		{
 			return;
 		}
-		_carver.CarveRoom(_renderTextures, vector2Int);
-		_revealedRooms.Add(vector2Int);
+		// Convert from room position to array position
+		var carverPosition = position - _roomManager.Range.Min;
+		_carver.CarveRoom(_renderTextures, carverPosition);
+		_revealedRooms.Add(position);
 	}
 
 	public void RevealRoom(IRoom room)
