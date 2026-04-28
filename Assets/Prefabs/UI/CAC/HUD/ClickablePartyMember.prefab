@@ -681,7 +681,7 @@ MonoBehaviour:
   m_text: Kassen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31289117d6afe2c449a86f120137f0d5, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 863de801c41372244a58319b1d121a96, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 033de7fa443d3184dafbb22e0aeb5f70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_text: Kassen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31289117d6afe2c449a86f120137f0d5, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 863de801c41372244a58319b1d121a96, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 033de7fa443d3184dafbb22e0aeb5f70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
