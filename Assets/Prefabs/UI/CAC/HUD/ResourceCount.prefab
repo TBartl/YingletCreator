@@ -85,6 +85,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7929100023408224377}
   - component: {fileID: 7195745036266971605}
+  - component: {fileID: 1909354800029868874}
+  - component: {fileID: 7043828761981339479}
   m_Layer: 5
   m_Name: ResourceCount
   m_TagString: Untagged
@@ -122,6 +124,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122463845893263223}
   m_CullTransparentMesh: 1
+--- !u!114 &1909354800029868874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122463845893263223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7043828761981339479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122463845893263223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92853d98fed596748b66486394098bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: '<b>ENERGY</B>
+
+    Expended when moving between rooms
+
+    or performing
+    certain actions.
+
+    Recharged at the start of each round.'
 --- !u!1 &3207906063097811695
 GameObject:
   m_ObjectHideFlags: 0

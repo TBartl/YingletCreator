@@ -40,6 +40,8 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 		Register<Message_CreateLobbyCharacter>();
 		Register<Message_RemoveLobbyCharacter>();
 
+		Register<Message_CharacterEnteredRoom>();
+
 		// Do a little bit of reflection to see if there's any message types we missed out on and log a warning about them
 		var reflectedMessageTypes = AppDomain.CurrentDomain.GetAssemblies()
 			.SelectMany(a => a.GetTypes())

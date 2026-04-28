@@ -4,6 +4,7 @@ using UnityEngine;
 public interface IRoomManager
 {
 	Vector2IntRange Range { get; }
+	IRoom GetRoom(Vector2Int position);
 }
 
 
@@ -52,5 +53,15 @@ public class RoomManager : MonoBehaviour, IRoomManager, IInitializable
 			max = Vector2Int.Max(max, position);
 		}
 		Range = new Vector2IntRange(min, max);
+	}
+
+	public IRoom GetRoom(Vector2Int position)
+	{
+		if (_rooms.TryGetValue(position, out var room))
+		{
+			return room;
+		}
+		Debug.LogWarning($"Room at position {position} not found.");
+		return null;
 	}
 }

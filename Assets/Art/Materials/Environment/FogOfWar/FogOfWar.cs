@@ -6,7 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public interface IFogOfWar
 {
-	void RevealRoom(IRoom room);
+	void RevealRoom(Vector2Int roomPosition);
+	bool CheckRevealed(Vector2Int roomPosition);
 }
 
 public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
@@ -43,13 +44,14 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 		var offset = (-range.Min + Vector2.one * 0.5f) / totalSize;
 		_material.SetVector(SCALE_PROPERTY_ID, scale);
 		_material.SetVector(OFFSET_PROPERTY_ID, offset);
+
+		CarveRoom(new Vector2Int(0, 0));
 	}
 
 	private void Start()
 	{
 		this.InitializeIfNeeded();
 
-		CarveRoom(new Vector2Int(2, 2));
 		AddReflector(ReflectRenderTexture);
 	}
 
@@ -84,8 +86,13 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 		_revealedRooms.Add(position);
 	}
 
-	public void RevealRoom(IRoom room)
+	public void RevealRoom(Vector2Int roomPosition)
 	{
-		CarveRoom(room.Position);
+		CarveRoom(roomPosition);
+	}
+
+	public bool CheckRevealed(Vector2Int roomPosition)
+	{
+		return _revealedRooms.Contains(roomPosition);
 	}
 }

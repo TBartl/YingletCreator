@@ -1278,6 +1278,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -96171179, guid: 577025f0ff2732e4fb8fe2004f08c11c, type: 3}
+    - target: {fileID: 7043828761981339479, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _text
+      value: '<b>ENERGY</B>
+
+        Can be spent to re-roll a dice.'
+      objectReference: {fileID: 0}
     - target: {fileID: 7929100023408224377, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1400,6 +1406,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 222386347, guid: 577025f0ff2732e4fb8fe2004f08c11c, type: 3}
+    - target: {fileID: 7043828761981339479, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _text
+      value: "<b>CLAMS</B>\nCan be spent to gain the effect \nof certain die faces."
+      objectReference: {fileID: 0}
     - target: {fileID: 7929100023408224377, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

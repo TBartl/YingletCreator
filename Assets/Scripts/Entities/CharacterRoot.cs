@@ -15,14 +15,14 @@ public static class CharacterRootExtensionMethods
 	public static T GetCharacterRootComponent<T>(this MonoBehaviour mb)
 	{
 		var type = typeof(T);
-		var root = mb.GetComponentInParent<CharacterRoot>();
+		var root = mb.GetComponentInParentSafe<CharacterRoot>();
 		if (root == null)
 		{
 			Debug.LogWarning($"Failed to get component of type {type}; could not find character root");
 			return default(T);
 		}
 
-		var component = root.GetComponentInChildren<T>();
+		var component = root.GetComponentInChildrenSafe<T>();
 		if (component == null)
 		{
 			Debug.LogWarning($"Failed to get component of type {type}; could not find a component");

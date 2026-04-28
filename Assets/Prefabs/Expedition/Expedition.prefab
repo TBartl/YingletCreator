@@ -159,7 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sourceMaterial: {fileID: 2100000, guid: 0b2324894e2e369439ab8e917e687ec3, type: 2}
-  _debugNumRooms: {x: 5, y: 5}
   _rendererData: {fileID: 11400000, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
 --- !u!114 &1410937030481448361
 MonoBehaviour:

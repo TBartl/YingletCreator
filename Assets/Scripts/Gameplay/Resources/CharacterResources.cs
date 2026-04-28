@@ -11,6 +11,7 @@ public enum CharacterResourceType
 public interface ICharacterResources
 {
 	int GetResource(CharacterResourceType type);
+	void SetResource(CharacterResourceType type, int value);
 }
 
 public class CharacterResources : MonoBehaviour, ICharacterResources, IInitializable
@@ -27,5 +28,10 @@ public class CharacterResources : MonoBehaviour, ICharacterResources, IInitializ
 	{
 		_resources.TryGetValue(type, out var value);
 		return value;
+	}
+
+	public void SetResource(CharacterResourceType type, int value)
+	{
+		_resources[type] = value;
 	}
 }
