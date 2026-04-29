@@ -15,9 +15,21 @@ public class BakedVertexColorData : MonoBehaviour
 
 		if (meshFilter.sharedMesh == null || meshRenderer == null) return;
 
+		// Check if shared mesh has read write enabled
+		if (!meshFilter.sharedMesh.isReadable)
+		{
+			Debug.LogWarning($"Error applying colors to {this.gameObject.name}: Shared mesh is not readable. Please enable Read/Write in the model import settings.");
+			return;
+		}
+
 		// Create a mesh for additional vertex streams with the same vertices and colors
 		Mesh additionalStream = new Mesh();
 		additionalStream.vertices = meshFilter.sharedMesh.vertices;
+		if (_colors.Length != additionalStream.vertexCount)
+		{
+			Debug.LogWarning($"Error applying colors to {this.gameObject.name}: Color array length {_colors.Length} does not match vertex count {additionalStream.vertexCount}.");
+			return;
+		}
 		additionalStream.colors = _colors;
 		additionalStream.hideFlags = HideFlags.DontSave;
 

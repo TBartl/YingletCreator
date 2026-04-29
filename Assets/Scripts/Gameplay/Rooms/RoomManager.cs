@@ -21,6 +21,8 @@ public struct Vector2IntRange
 
 public class RoomManager : MonoBehaviour, IRoomManager, IInitializable
 {
+	[SerializeField] GameObject _passagePrefab;
+
 	public const int ROOM_SIZE = 6;
 
 	Dictionary<Vector2Int, IRoom> _rooms = new Dictionary<Vector2Int, IRoom>();
@@ -28,6 +30,13 @@ public class RoomManager : MonoBehaviour, IRoomManager, IInitializable
 	public Vector2IntRange Range { get; private set; }
 
 	public void Initialize()
+	{
+		// This should eventually have some sort of generator or something
+		FindRooms();
+		GeneratePassages();
+	}
+
+	void FindRooms()
 	{
 		var rooms = this.GetComponentsInChildrenSafe<IRoom>();
 		Vector2Int min = new Vector2Int(int.MaxValue, int.MaxValue);
@@ -53,6 +62,43 @@ public class RoomManager : MonoBehaviour, IRoomManager, IInitializable
 			max = Vector2Int.Max(max, position);
 		}
 		Range = new Vector2IntRange(min, max);
+	}
+
+	private void GeneratePassages()
+	{
+		foreach (var room in _rooms.Values)
+		{
+			CheckAndCreatePassage(room, CardinalDirection.North, new Vector2Int(0, 1));
+			CheckAndCreatePassage(room, CardinalDirection.East, new Vector2Int(1, 0));
+			//CheckAndCreatePassage(room, CardinalDirection.South, new Vector2Int(0, -1));
+			//CheckAndCreatePassage(room, CardinalDirection.West, new Vector2Int(-1, 0));
+		}
+	}
+
+	private void CheckAndCreatePassage(IRoom room, CardinalDirection direction, Vector2Int adjacentOffset)
+	{
+		// Check if we have an opening
+		if (!PassageUtils.HasOpening(room, direction)) return;
+
+		// Check if there's a room in that spot
+		Vector2Int adjacentPosition = room.Position + adjacentOffset;
+		if (!_rooms.TryGetValue(adjacentPosition, out var adjacentRoom))
+		{
+			Debug.LogWarning($"Room at position {room.Position} has an opening to the {direction}, but no adjacent room found at {adjacentPosition}.");
+			return;
+		}
+
+
+		// Check if the adjacent room has an opening in the opposite direction
+		CardinalDirection oppositeDirection = PassageUtils.GetOppositeDirection(direction);
+		if (!PassageUtils.HasOpening(adjacentRoom, oppositeDirection))
+		{
+			Debug.LogWarning($"Room at position {adjacentPosition} has an opening to the {oppositeDirection}, but no opening found in the adjacent room.");
+			return;
+		}
+
+		// Create the passage
+		Instantiate(_passagePrefab, PassageUtils.CalculatePassagePosition(room, adjacentRoom), Quaternion.identity, this.transform);
 	}
 
 	public IRoom GetRoom(Vector2Int position)

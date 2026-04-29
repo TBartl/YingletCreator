@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 52046a70ea257194bb77efeafb8a01d8
+guid: cd6a0a9c8617f2f4ea90ec6a2c45d9f0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
