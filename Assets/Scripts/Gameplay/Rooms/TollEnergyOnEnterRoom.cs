@@ -1,6 +1,12 @@
+using System;
 using UnityEngine;
 
-public class TollEnergyOnEnterRoom : MonoBehaviour
+public interface ITollEnergyOnEnterRoom
+{
+	event Action OnEnergyTollApplied;
+}
+
+public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 {
 	public const int DiscoveryEnergyCost = 2;
 	public const int ReEntryEnergyCost = 1;
@@ -8,6 +14,8 @@ public class TollEnergyOnEnterRoom : MonoBehaviour
 	private ICharacterRoomDetector _characterRoomDetector;
 	private IFogOfWar _fogOfWar;
 	private ICharacterResources _resources;
+
+	public event Action OnEnergyTollApplied;
 
 	private void Awake()
 	{
@@ -35,6 +43,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour
 		}
 		resourceCount = Mathf.Max(0, resourceCount - energyCost);
 		_resources.SetResource(CharacterResourceType.Energy, resourceCount);
+		OnEnergyTollApplied?.Invoke();
 	}
 }
 

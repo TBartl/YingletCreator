@@ -14,11 +14,11 @@ public class ReflectPartyMemberResourceCount : ReactiveBehaviour
 	{
 		_text = this.GetComponent<TMP_Text>();
 		_reference = this.GetComponentInParentSafe<IPartyMemberHUDReference>();
-		_dataRepo = CreateComputed(ComputeDataRepo);
+		_dataRepo = CreateComputed(ComputeCharacterResources);
 		AddReflector(ReflectResourceCount);
 	}
 
-	private ICharacterResources ComputeDataRepo()
+	private ICharacterResources ComputeCharacterResources()
 	{
 		var characterGameObject = _reference.CharacterGameObject;
 		if (characterGameObject == null) return null;
