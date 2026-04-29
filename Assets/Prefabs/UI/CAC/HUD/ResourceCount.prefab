@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7195745036266971605}
   - component: {fileID: 1909354800029868874}
   - component: {fileID: 7043828761981339479}
+  - component: {fileID: 3304985610266057635}
   m_Layer: 5
   m_Name: ResourceCount
   m_TagString: Untagged
@@ -172,6 +173,18 @@ MonoBehaviour:
     certain actions.
 
     Recharged at the start of each round.'
+--- !u!114 &3304985610266057635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122463845893263223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1f1f7ff1b5cda46bd79014f44d30a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2997295738721264288
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7994909922582626548}
   - component: {fileID: 6846161318771925960}
+  - component: {fileID: 3482286720513669472}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -226,6 +240,20 @@ MonoBehaviour:
   _resourceType: 0
   _offsetAmount: {x: 0, y: 10, z: 0}
   _easeSettings: {fileID: 11400000, guid: 38862b286ef7ea242947493aa6546211, type: 2}
+--- !u!114 &3482286720513669472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997295738721264288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ed9140f19d2647a51f1226c44253c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverScale: 1.06
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
 --- !u!1 &3207906063097811695
 GameObject:
   m_ObjectHideFlags: 0
