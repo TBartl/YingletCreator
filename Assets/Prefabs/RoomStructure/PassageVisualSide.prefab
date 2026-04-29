@@ -234,3 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815976b111a74f4489b5c0ae3f65b637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minYCutoff: 1.2
+  _maxYCutoff: 1.97
+  _easeSettings: {fileID: 11400000, guid: b7c4e41d6d0b15f429c9f00caa92d59c, type: 2}
