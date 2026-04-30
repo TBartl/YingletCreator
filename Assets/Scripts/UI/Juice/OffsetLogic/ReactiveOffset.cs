@@ -1,4 +1,5 @@
 using Reactivity;
+using System.Collections;
 using UnityEngine;
 
 namespace Character.Creator.UI
@@ -42,7 +43,7 @@ namespace Character.Creator.UI
 
 
 		// Start is called once before the first execution of Update after the MonoBehaviour is created
-		void Start()
+		IEnumerator Start()
 		{
 			_mutators = this.GetComponentsSafe<IReactiveOffsetMutator>();
 
@@ -52,8 +53,13 @@ namespace Character.Creator.UI
 
 			_offsetTarget.OnChanged += OnOffsetTargetChanged;
 			this.transform.localPosition = _originalPos + _offsetTarget.Val.Offset;
-			if (!_forceEnabledOnStart && _offsetTarget.Val.OnScreen == false)
+			if (_offsetTarget.Val.OnScreen == false)
 			{
+				if (_forceEnabledOnStart)
+				{
+					yield return null;
+					yield return null;
+				}
 				this.gameObject.SetActive(false);
 			}
 		}
