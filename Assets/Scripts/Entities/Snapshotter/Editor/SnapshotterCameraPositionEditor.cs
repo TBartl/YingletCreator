@@ -46,7 +46,7 @@ namespace Snapshotter
 			if (GUILayout.Button("Move Game Camera Here"))
 			{
 				SnapshotterCameraPosition snapshot = (SnapshotterCameraPosition)target;
-				var cam = FindFirstObjectByType<Camera>();
+				var cam = FindAnyObjectByType<Camera>();
 				cam.transform.position = snapshot.Position;
 				cam.transform.rotation = Quaternion.Euler(snapshot.Rotation);
 			}

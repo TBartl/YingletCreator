@@ -252,7 +252,7 @@ namespace Snapshotter
 
 		public static void UpdateIconsInScene()
 		{
-			var sprites = UnityEngine.Object.FindObjectsByType<CharacterCreatorToggleSprite>(FindObjectsSortMode.None);
+			var sprites = UnityEngine.Object.FindObjectsByType<CharacterCreatorToggleSprite>();
 			foreach (var sprite in sprites)
 			{
 				sprite.Start(); // Call to force regeneration

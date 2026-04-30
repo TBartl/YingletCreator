@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class DebugVisualizeHeadTrackingPoint : MonoBehaviour
 {
-    private IPointTrackingLocationProvider _pointLocationProvider;
-    private MeshRenderer _mr;
+	private IPointTrackingLocationProvider _pointLocationProvider;
+	private MeshRenderer _mr;
 
-    void Start()
-    {
-        _pointLocationProvider = FindFirstObjectByType<PointTrackingLocationProvider>();
-        _mr = this.GetComponent<MeshRenderer>();
-    }
+	void Start()
+	{
+		_pointLocationProvider = FindAnyObjectByType<PointTrackingLocationProvider>();
+		_mr = this.GetComponent<MeshRenderer>();
+	}
 
-    void LateUpdate()
-    {
-        this.transform.position = _pointLocationProvider.Position;
-        _mr.enabled = _pointLocationProvider.Active.Val;
-    }
+	void LateUpdate()
+	{
+		this.transform.position = _pointLocationProvider.Position;
+		_mr.enabled = _pointLocationProvider.Active.Val;
+	}
 }

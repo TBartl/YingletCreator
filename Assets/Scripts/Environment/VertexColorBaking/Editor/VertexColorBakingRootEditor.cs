@@ -17,7 +17,7 @@ public class VertexColorBakingRootEditor : Editor
 		}
 		if (GUILayout.Button("Clear (all)"))
 		{
-			var allBakingRoots = FindObjectsByType<VertexColorBakingRoot>(FindObjectsSortMode.None);
+			var allBakingRoots = FindObjectsByType<VertexColorBakingRoot>();
 			foreach (var bakingRoot in allBakingRoots)
 			{
 				VertexColorBakingLogic.ClearVertexColorData(bakingRoot.transform);
@@ -33,7 +33,7 @@ public class VertexColorBakingRootEditor : Editor
 		}
 		if (GUILayout.Button("Bake (all)"))
 		{
-			var allBakingRoots = FindObjectsByType<VertexColorBakingRoot>(FindObjectsSortMode.None);
+			var allBakingRoots = FindObjectsByType<VertexColorBakingRoot>();
 			foreach (var bakingRoot in allBakingRoots)
 			{
 				VertexColorBakingLogic.BakeVertexColors(bakingRoot.transform, bakingRoot._settings);

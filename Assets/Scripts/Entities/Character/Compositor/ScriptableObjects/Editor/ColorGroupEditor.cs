@@ -58,8 +58,8 @@ namespace Character.Compositor
 			if (GUILayout.Button("Character creator color to base+shade"))
 			{
 				Undo.RecordObject(myScript, "Changed Selected Color");
-				var activeSelection = FindFirstObjectByType<ColorActiveSelection>();
-				var dataRepo = FindFirstObjectByType<CustomizationSelectedDataRepository>();
+				var activeSelection = FindAnyObjectByType<ColorActiveSelection>();
+				var dataRepo = FindAnyObjectByType<CustomizationSelectedDataRepository>();
 				var colorizeValues = dataRepo.GetColorizeValues(activeSelection.FirstSelected);
 				((SerializableColorizeValuesPart)myScript.DefaultColors.Base).Set(colorizeValues.Base);
 				((SerializableColorizeValuesPart)myScript.DefaultColors.Shade).Set(colorizeValues.Shade);
