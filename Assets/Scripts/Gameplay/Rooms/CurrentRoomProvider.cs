@@ -19,7 +19,7 @@ public class CurrentRoomProvider : ReactiveBehaviour, ICurrentRoomProvider, IIni
 
 	private IRoom ComputeCurrentRoom()
 	{
-		var activeCharacter = _activeCharacterProvider.ActiveCharacter.Val;
+		var activeCharacter = _activeCharacterProvider.ActiveExpeditionCharacter.Val;
 		if (activeCharacter == null) return null;
 		return activeCharacter.GetComponentInChildrenSafe<ICharacterRoomDetector>().CurrentRoom.Val;
 	}

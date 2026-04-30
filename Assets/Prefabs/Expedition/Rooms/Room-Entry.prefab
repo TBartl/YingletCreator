@@ -11858,6 +11858,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 622278228216937966, guid: 7ae41af8ba5390241b2dd6e203cdfd4e, type: 3}
+      propertyPath: _music
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f87cbcaeeed668438365aa643142a0d, type: 3}
+    - target: {fileID: 622278228216937966, guid: 7ae41af8ba5390241b2dd6e203cdfd4e, type: 3}
       propertyPath: _openings.North
       value: 1
       objectReference: {fileID: 0}

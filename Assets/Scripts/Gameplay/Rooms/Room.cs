@@ -6,17 +6,21 @@ public interface IRoom
 	Vector3 WorldPosition { get; }
 	CardinalDirection Rotation { get; }
 	RoomOpeningsDefinition Openings { get; }
+
+	AudioClip Music { get; }
 }
 
 public class Room : MonoBehaviour, IRoom, IInitializable
 {
 	[SerializeField] private RoomOpeningsDefinition _openings;
+	[SerializeField] AudioClip _music;
 
 	public Vector2Int Position { get; private set; }
 	public Vector3 WorldPosition => this.transform.position;
 	public CardinalDirection Rotation { get; set; }
 
 	public RoomOpeningsDefinition Openings => _openings;
+	public AudioClip Music => _music;
 
 	public void Initialize()
 	{
