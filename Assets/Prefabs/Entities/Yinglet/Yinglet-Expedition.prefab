@@ -207,7 +207,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yinglet-Expedition
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8535334404757956897, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 460304451652016370, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}

@@ -59,6 +59,16 @@ namespace Character.Creator
 				// This seemingly happens when a client gets disconnected? Not sure why tbh
 				return;
 			}
+
+			if (((Component)characterRepository).gameObject.GetComponentInParent<IClassReference>() != null)
+			{
+				// Super hacky code to see if this is a game character
+				// I should really reconsider how all this logic works
+				// Right now, switching who we're spectating is causing this to be forced
+				// This should probably be forced from within the component or something
+				return;
+			}
+
 			characterRepository.ForceCustomizationData(to.CachedData);
 		}
 

@@ -1,4 +1,3 @@
-using Networking;
 using Reactivity;
 using UnityEngine;
 
@@ -19,21 +18,16 @@ namespace Character.Creator
 		private Observable<SerializableCustomizationData> _lastSerializedData = new();
 		private Observable<ObservableCustomizationData> _data = new();
 
-		private ICharacterIdentity _identity;
-		private IInputRestrictor _inputRestrictor;
-
 		public IReadOnlyObservable<SerializableCustomizationData> LastSerializedData => _lastSerializedData;
 		public ObservableCustomizationData CustomizationData => _data.Val;
 
 		void Awake()
 		{
 			_resourceLoader = Singletons.GetSingleton<ICompositeResourceLoader>();
-			_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
-			_inputRestrictor = Singletons.GetSingleton<IInputRestrictor>();
 
 			if (_data.Val == null)
 			{
-				var initialSelection = this.GetComponent<ICustomizationSelection>();
+				var initialSelection = this.GetComponentSafe<ICustomizationSelection>();
 				var data = initialSelection.Selected.Val?.CachedData;
 				if (data == null)
 				{

@@ -47,7 +47,6 @@ public class MusicPlayer : ReactiveBehaviour
 	{
 		foreach (var provider in _providers)
 		{
-			Debug.Log($"Checking provider {provider} for music clip: {provider.Clip}");
 			if (provider.Clip != null)
 			{
 				return provider.Clip;

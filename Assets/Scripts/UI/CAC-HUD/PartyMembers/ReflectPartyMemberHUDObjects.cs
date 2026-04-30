@@ -1,6 +1,7 @@
 using Reactivity;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 {
@@ -47,5 +48,9 @@ public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 			return;
 		}
 		_dictReflector.Enumerate(characterManager.Characters.Select(c => c.Root));
+
+		// I don't know why this is necessary, but without it this seems to be bugging out on occasion
+		Canvas.ForceUpdateCanvases();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)transform);
 	}
 }

@@ -2,7 +2,7 @@ using Reactivity;
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class ChangeOpacityOnSelected : ReactiveBehaviour
+public class ChangeCanvasOpacityOnSelected : ReactiveBehaviour
 {
 	[SerializeField] SharedEaseSettings _easeSettings;
 	private ISelectable _selectable;

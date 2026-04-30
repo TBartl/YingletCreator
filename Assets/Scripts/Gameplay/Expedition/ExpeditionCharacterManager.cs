@@ -16,6 +16,7 @@ public sealed class ExpeditionCharacter
 
 	public ICharacterRoot Root;
 	public ulong ClientId => _identity.OwnerClientId;
+	public bool IsMine => _identity.IsMine;
 	private ICharacterIdentity _identity;
 }
 
@@ -74,7 +75,7 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 
 			_characters.Add(new ExpeditionCharacter(gameObject.GetComponentSafe<ICharacterRoot>()));
 		}
-		_activeCharacter.Val = _characters.FirstOrDefault();
+		_activeCharacter.Val = _characters.FirstOrDefault(c => c.IsMine);
 	}
 
 	int _lastSpawn = 0;
