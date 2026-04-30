@@ -22,7 +22,7 @@ public class CharacterCreatorSpinYingletOnMouse : MonoBehaviour
 
 	private void IsInCharacterCreator_OnChanged(bool arg1, bool to)
 	{
-		if (to && _identity.IsActive)
+		if (to && _identity.IsActiveAndMine)
 		{
 			this.transform.rotation = Quaternion.Euler(0, _startRotation, 0);
 		}

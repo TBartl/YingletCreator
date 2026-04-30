@@ -74,7 +74,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
 		// Figure out the ideal speed
 		var targetDirection = Vector3.zero;
-		if (_inputRestrictor.InputAllowed && _identity.IsActive)
+		if (_inputRestrictor.InputAllowed && _identity.IsActiveAndMine)
 		{
 			targetDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 		}
@@ -160,7 +160,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 	{
 		get
 		{
-			if (!_identity.IsActive) return false;
+			if (!_identity.IsActiveAndMine) return false;
 			if (!_inputRestrictor.InputAllowed) return false;
 			return true;
 		}

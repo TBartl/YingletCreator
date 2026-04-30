@@ -23,7 +23,7 @@ public class CharacterInteractionRadius : MonoBehaviour, ICharacterInteractionRa
 	}
 	private void OnTriggerStay(Collider other)
 	{
-		if (!_playerIdentity.IsActive) return;
+		if (!_playerIdentity.IsActiveAndMine) return;
 
 		var interactable = other.attachedRigidbody?.GetNullableComponentSafe<IInteractable>();
 		if (interactable == null) return;

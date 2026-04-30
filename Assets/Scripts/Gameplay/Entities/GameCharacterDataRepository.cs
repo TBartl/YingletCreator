@@ -44,12 +44,6 @@ namespace Character.Creator
 			}
 		}
 
-		private void Update()
-		{
-			if (!_identity.IsActive) return;
-			if (!_inputRestrictor.InputAllowed) return;
-		}
-
 		public void ForceCustomizationData(SerializableCustomizationData cachedData)
 		{
 			// Not ideal but unless I get a proper DI setup w/e

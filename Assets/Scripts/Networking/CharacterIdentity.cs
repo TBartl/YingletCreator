@@ -8,8 +8,8 @@ namespace Networking
 		IReadOnlyObservable<ulong> OwnerClientIdObservable { get; }
 		bool IsMine { get; }
 
-		// Not sure this fits here, but will leave it for now
 		bool IsActive { get; }
+		bool IsActiveAndMine { get; }
 	}
 
 	public interface IWriteableCharacterIdentity : ICharacterIdentity, IWriteableNetIdentity
@@ -29,12 +29,15 @@ namespace Networking
 		private IWriteableNetIdentity _netIdentity;
 		Computed<bool> _isMine;
 		Computed<bool> _isActive;
+		Computed<bool> _isActiveAndMine;
 		public ulong OwnerClientId => _ownerId.Val;
 		public IReadOnlyObservable<ulong> OwnerClientIdObservable => _ownerId;
 
 		public bool IsMine => _isMine.Val;
 
 		public bool IsActive => _isActive.Val;
+
+		public bool IsActiveAndMine => _isActiveAndMine.Val;
 
 		public ulong NetId => _netIdentity.NetId;
 
@@ -58,6 +61,7 @@ namespace Networking
 			_netIdentity = _root.GetComponentSafe<IWriteableNetIdentity>();
 			_isMine = CreateComputed(() => _ownerId.Val == _clientTracker.LocalClientID);
 			_isActive = CreateComputed(() => _activeCharacterProvider.ActiveCharacter.Val == _root);
+			_isActiveAndMine = CreateComputed(() => _isMine.Val && _isActive.Val);
 		}
 	}
 }

@@ -22,7 +22,7 @@ public class CharacterInteraction : MonoBehaviour, ICharacterInteraction
 
 	void Update()
 	{
-		if (!_identity.IsActive) return;
+		if (!_identity.IsActiveAndMine) return;
 		if (!_inputRestrictor.InputAllowed) return;
 
 		var interactable = _interactionRadius.Highlighted;
