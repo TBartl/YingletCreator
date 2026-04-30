@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 6649890375454769651}
   - component: {fileID: 4594907130848125960}
   - component: {fileID: 1028486508740405076}
+  - component: {fileID: 4971177146116473375}
   m_Layer: 0
   m_Name: RoomHandling
   m_TagString: Untagged
@@ -140,6 +141,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundEffect: {fileID: 11400000, guid: 56752e839af56484a9e4c4e57271af74, type: 2}
+--- !u!114 &4971177146116473375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155841896273677354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1949a05b8818ca4dbe58da11d689426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particlePrefab1: {fileID: 2726017935438424958, guid: 641ce69adf715c14fa5906e49e53f6a3, type: 3}
+  _particlePrefab2: {fileID: 8270908720345458378, guid: 3fc06adaa8d615943b1774d08d239483, type: 3}
 --- !u!1001 &6916365060296164461
 PrefabInstance:
   m_ObjectHideFlags: 0

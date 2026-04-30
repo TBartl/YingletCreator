@@ -18,7 +18,7 @@ internal class PlaySoundOnTollEnergy : MonoBehaviour
 		_toll.OnEnergyTollApplied -= OnTolled;
 	}
 
-	void OnTolled()
+	void OnTolled(int _)
 	{
 		_audioPlayer.Play(_soundEffect, new AudioPlayOptions() { Position = transform.position });
 	}

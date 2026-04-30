@@ -5,7 +5,7 @@ public interface ITollEnergyOnEnterRoom
 {
 	int GetCostToEnterRoom(IRoom room);
 	bool CanAffordEntry(int cost);
-	event Action OnEnergyTollApplied;
+	event Action<int> OnEnergyTollApplied;
 }
 
 public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
@@ -17,7 +17,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 	private IFogOfWar _fogOfWar;
 	private ICharacterResources _resources;
 
-	public event Action OnEnergyTollApplied;
+	public event Action<int> OnEnergyTollApplied;
 
 	private void Awake()
 	{
@@ -45,7 +45,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 		}
 		resourceCount = Mathf.Max(0, resourceCount - energyCost);
 		_resources.SetResource(CharacterResourceType.Energy, resourceCount);
-		OnEnergyTollApplied?.Invoke();
+		OnEnergyTollApplied?.Invoke(energyCost);
 	}
 
 	public int GetCostToEnterRoom(IRoom room)
