@@ -1,5 +1,4 @@
 using Reactivity;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -24,7 +23,7 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 	private FogOfWarRendererFeature _rendererFeature;
 	private Material _material; // TODO: Remove public 
 	private DoubleBufferedRenderTexture _renderTextures;
-	HashSet<Vector2Int> _revealedRooms = new HashSet<Vector2Int>();
+	ObservableHashSet<Vector2Int> _revealedRooms = new ObservableHashSet<Vector2Int>();
 
 	public void Initialize()
 	{
