@@ -1,36 +1,35 @@
 using Character.Creator;
 using Reactivity;
-using UnityEngine;
 
 public interface IPartyMemberHUDReference
 {
-	GameObject CharacterGameObject { get; }
-	IReadOnlyObservable<GameObject> CharacterGameObjectObservable { get; }
+	ICharacterRoot Character { get; }
+	IReadOnlyObservable<ICharacterRoot> CharacterObservable { get; }
 }
 
 public interface IWriteablePartyMemberHUDReference : IPartyMemberHUDReference
 {
-	void SetCharacterGameObject(GameObject characterGameObject);
+	void SetCharacter(ICharacterRoot character);
 }
 
 public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberHUDReference, ICachedYingletReference, IClassReference, IInitializable, ISelectable
 {
 	private IActiveCharacterProvider _activeCharacterProvider;
-	Observable<GameObject> _characterGameObject = new Observable<GameObject>();
+	Observable<ICharacterRoot> _character = new Observable<ICharacterRoot>();
 	Computed<bool> _selected;
 	Computed<ClassId> _class;
 
-	public GameObject CharacterGameObject => _characterGameObject.Val;
-	public IReadOnlyObservable<GameObject> CharacterGameObjectObservable => _characterGameObject;
+	public ICharacterRoot Character => _character.Val;
+	public IReadOnlyObservable<ICharacterRoot> CharacterObservable => _character;
 
 	Computed<SerializableCustomizationData> _cachedData;
 	public SerializableCustomizationData CachedData => _cachedData.Val;
 
 	public ClassId Class => _class.Val;
 
-	public void SetCharacterGameObject(GameObject characterGameObject)
+	public void SetCharacter(ICharacterRoot character)
 	{
-		_characterGameObject.Val = characterGameObject;
+		_character.Val = character;
 	}
 
 	public IReadOnlyObservable<bool> Selected => _selected;
@@ -46,22 +45,22 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 
 	private bool ComputeSelected()
 	{
-		return _activeCharacterProvider.ActiveCharacter.Val == _characterGameObject.Val;
+		return _activeCharacterProvider.ActiveCharacter.Val == _character.Val;
 	}
 
 	private ClassId ComputeClass()
 	{
-		var characterGameObject = CharacterGameObject;
-		if (characterGameObject == null) return null;
-		var classRepo = characterGameObject.GetComponentInChildrenSafe<IClassReference>();
+		var character = Character;
+		if (character == null) return null;
+		var classRepo = character.GetComponentInChildrenSafe<IClassReference>();
 		return classRepo.Class;
 	}
 
 	private SerializableCustomizationData ComputeCustomizationData()
 	{
-		var characterGameObject = CharacterGameObject;
-		if (characterGameObject == null) return null;
-		var customizationDataRepo = characterGameObject.GetComponentInChildrenSafe<IGameCharacterDataRepository>();
+		var character = Character;
+		if (character == null) return null;
+		var customizationDataRepo = character.GetComponentInChildrenSafe<IGameCharacterDataRepository>();
 		return customizationDataRepo.LastSerializedData.Val;
 	}
 }

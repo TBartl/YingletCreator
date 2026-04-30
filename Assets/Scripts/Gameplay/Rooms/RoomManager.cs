@@ -70,8 +70,6 @@ public class RoomManager : MonoBehaviour, IRoomManager, IInitializable
 		{
 			CheckAndCreatePassage(room, CardinalDirection.North, new Vector2Int(0, 1));
 			CheckAndCreatePassage(room, CardinalDirection.East, new Vector2Int(1, 0));
-			//CheckAndCreatePassage(room, CardinalDirection.South, new Vector2Int(0, -1));
-			//CheckAndCreatePassage(room, CardinalDirection.West, new Vector2Int(-1, 0));
 		}
 	}
 
@@ -98,7 +96,9 @@ public class RoomManager : MonoBehaviour, IRoomManager, IInitializable
 		}
 
 		// Create the passage
-		Instantiate(_passagePrefab, PassageUtils.CalculatePassagePosition(room, adjacentRoom), Quaternion.identity, this.transform);
+		var go = Instantiate(_passagePrefab, PassageUtils.CalculatePassagePosition(room, adjacentRoom), Quaternion.identity, this.transform);
+		var passage = go.GetComponentSafe<IPassage>();
+		passage.SetRooms(room, adjacentRoom);
 	}
 
 	public IRoom GetRoom(Vector2Int position)

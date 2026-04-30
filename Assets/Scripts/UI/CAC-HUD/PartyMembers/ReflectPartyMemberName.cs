@@ -18,9 +18,9 @@ public class ReflectPartyMemberName : ReactiveBehaviour
 
 	private ICustomizationDataRepository ComputeDataRepo()
 	{
-		var characterGameObject = _reference.CharacterGameObject;
-		if (characterGameObject == null) return null;
-		return characterGameObject.GetComponentInChildrenSafe<ICustomizationDataRepository>();
+		var character = _reference.Character;
+		if (character == null) return null;
+		return character.GetComponentInChildrenSafe<ICustomizationDataRepository>();
 	}
 
 	private void ReflectName()

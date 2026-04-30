@@ -13,7 +13,7 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 	private IPartyMemberHUDReference _reference;
 	Computed<ICharacterResources> _characterResources;
 	private Computed<int> _resourceCount;
-	private GameObject _lastCharacter;
+	private ICharacterRoot _lastCharacter;
 
 	void Start()
 	{
@@ -35,7 +35,7 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 	private void OnResourceCountChanged(int fromVal, int toVal)
 	{
 		var lastCharacter = _lastCharacter;
-		var thisCharacter = _reference.CharacterGameObject;
+		var thisCharacter = _reference.Character;
 		_lastCharacter = thisCharacter;
 		if (lastCharacter != null && thisCharacter != lastCharacter)
 		{
@@ -49,7 +49,7 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 
 	private ICharacterResources ComputeCharacterResources()
 	{
-		var characterGameObject = _reference.CharacterGameObject;
+		var characterGameObject = _reference.Character;
 		if (characterGameObject == null) return null;
 		return characterGameObject.GetComponentInChildrenSafe<ICharacterResources>();
 	}

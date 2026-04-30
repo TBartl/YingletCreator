@@ -40,9 +40,9 @@ public class OverlayEnergyBlipOnChanged : ReactiveBehaviour
 
 	private ICharacterResources ComputeCharacterResources()
 	{
-		var characterGameObject = _reference.CharacterGameObject;
-		if (characterGameObject == null) return null;
-		return characterGameObject.GetComponentInChildrenSafe<ICharacterResources>();
+		var character = _reference.Character;
+		if (character == null) return null;
+		return character.GetComponentInChildrenSafe<ICharacterResources>();
 	}
 
 	private void OnResourceCountChanged(int fromVal, int toVal)

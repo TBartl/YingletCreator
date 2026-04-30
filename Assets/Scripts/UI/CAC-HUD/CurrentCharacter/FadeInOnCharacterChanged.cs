@@ -12,17 +12,17 @@ public class FadeInOnCharacterChanged : MonoBehaviour
 	{
 		_canvasGroup = this.GetComponentSafe<CanvasGroup>();
 		_reference = this.GetComponentInParentSafe<IPartyMemberHUDReference>();
-		_reference.CharacterGameObjectObservable.OnChanged += CharacterGameObject_OnChanged;
+		_reference.CharacterObservable.OnChanged += CharacterGameObject_OnChanged;
 	}
 	private void OnDestroy()
 	{
 		if (_reference != null)
 		{
-			_reference.CharacterGameObjectObservable.OnChanged -= CharacterGameObject_OnChanged;
+			_reference.CharacterObservable.OnChanged -= CharacterGameObject_OnChanged;
 		}
 	}
 
-	private void CharacterGameObject_OnChanged(GameObject from, GameObject to)
+	private void CharacterGameObject_OnChanged(ICharacterRoot from, ICharacterRoot to)
 	{
 		this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, p => _canvasGroup.alpha = Mathf.Lerp(0, 1, p));
 	}

@@ -33,7 +33,7 @@ public class TooltipProvider_CharacterInteraction : ReactiveBehaviour, ITooltipP
 		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
 		_onDesiredMenu = CreateComputed(() => _menuManager.OpenMenu.Val == _validMenu);
-		_interactionRadius = CreateComputed(() => _activeCharacterProvider.ActiveCharacter.Val?.GetComponentInChildren<ICharacterInteractionRadius>());
+		_interactionRadius = CreateComputed(() => _activeCharacterProvider.ActiveCharacter.Val?.GetComponentInChildrenSafe<ICharacterInteractionRadius>());
 		_desiredTooltip = CreateComputed(ComputeDesiredTooltip);
 	}
 

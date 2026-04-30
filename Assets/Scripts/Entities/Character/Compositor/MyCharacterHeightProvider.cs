@@ -17,7 +17,7 @@ public class MyCharacterHeightProvider : ReactiveBehaviour, IYingletHeightProvid
 			var myCharacter = activeCharacterProvider.ActiveCharacter.Val;
 			if (myCharacter == null) return null;
 
-			return myCharacter.GetComponentInChildren<IYingletHeightProvider>();
+			return myCharacter.GetComponentInChildrenSafe<IYingletHeightProvider>();
 		});
 	}
 }

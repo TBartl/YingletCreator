@@ -24,6 +24,6 @@ public class SwitchToPartyHUDMemberOnClick : ReactiveBehaviour
 
 	private void Button_OnClick()
 	{
-		_expeditionCharacterManager.Val?.SetActiveCharacter(_hudReference.CharacterGameObject);
+		_expeditionCharacterManager.Val?.SetActiveCharacter(_hudReference.Character);
 	}
 }

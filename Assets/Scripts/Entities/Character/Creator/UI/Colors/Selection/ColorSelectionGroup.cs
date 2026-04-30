@@ -33,7 +33,7 @@ namespace Character.Creator.UI
 		{
 			var myCharacter = _activeCharacterProvider.ActiveCharacter.Val;
 			if (myCharacter == null) return null;
-			return myCharacter.GetComponentInChildren<ITextureGatherer>();
+			return myCharacter.GetComponentInChildrenSafe<ITextureGatherer>();
 		}
 
 		private GameObject Create(ReColorId id)

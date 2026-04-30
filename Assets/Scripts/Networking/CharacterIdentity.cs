@@ -25,6 +25,7 @@ namespace Networking
 		Observable<ulong> _ownerId = new Observable<ulong>(0);
 		private INetClientTracker _clientTracker;
 		private IActiveCharacterProvider _activeCharacterProvider;
+		private ICharacterRoot _root;
 		private IWriteableNetIdentity _netIdentity;
 		Computed<bool> _isMine;
 		Computed<bool> _isActive;
@@ -53,9 +54,10 @@ namespace Networking
 		{
 			_clientTracker = Singletons.GetSingleton<INetClientTracker>();
 			_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
-			_netIdentity = this.GetComponentSafe<IWriteableNetIdentity>();
+			_root = this.GetComponentSafe<ICharacterRoot>();
+			_netIdentity = _root.GetComponentSafe<IWriteableNetIdentity>();
 			_isMine = CreateComputed(() => _ownerId.Val == _clientTracker.LocalClientID);
-			_isActive = CreateComputed(() => _activeCharacterProvider.ActiveCharacter.Val == this.gameObject);
+			_isActive = CreateComputed(() => _activeCharacterProvider.ActiveCharacter.Val == _root);
 		}
 	}
 }

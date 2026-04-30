@@ -3,6 +3,8 @@ using UnityEngine;
 
 public interface ITollEnergyOnEnterRoom
 {
+	int GetCostToEnterRoom(IRoom room);
+	bool CanAffordEntry(int cost);
 	event Action OnEnergyTollApplied;
 }
 
@@ -33,10 +35,10 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 
 	private void OnCharacterEnteredRoom(IRoom from, IRoom to)
 	{
-		bool isDiscovered = _fogOfWar.CheckRevealed(to.Position);
-		int energyCost = isDiscovered ? ReEntryEnergyCost : DiscoveryEnergyCost;
+		int energyCost = GetCostToEnterRoom(to);
 		var resourceCount = _resources.GetResource(CharacterResourceType.Energy);
-		if (resourceCount < energyCost)
+		bool canAffordEntry = CanAffordEntry(energyCost);
+		if (!canAffordEntry)
 		{
 			Debug.LogWarning($"Not enough energy to enter room at {to.Position}. Required: {energyCost}, Available: {resourceCount}");
 			return;
@@ -44,6 +46,17 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 		resourceCount = Mathf.Max(0, resourceCount - energyCost);
 		_resources.SetResource(CharacterResourceType.Energy, resourceCount);
 		OnEnergyTollApplied?.Invoke();
+	}
+
+	public int GetCostToEnterRoom(IRoom room)
+	{
+		bool isDiscovered = _fogOfWar.CheckRevealed(room.Position);
+		return isDiscovered ? ReEntryEnergyCost : DiscoveryEnergyCost;
+	}
+	public bool CanAffordEntry(int cost)
+	{
+		var resourceCount = _resources.GetResource(CharacterResourceType.Energy);
+		return resourceCount >= cost;
 	}
 }
 

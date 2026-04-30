@@ -32,7 +32,7 @@ namespace Character.Creator
 			{
 				var currentCharacter = _activeCharacterProvider.ActiveCharacter.Val;
 				if (currentCharacter == null) return null;
-				return currentCharacter.GetComponentInChildren<ICustomizationSelection>();
+				return currentCharacter.GetComponentInChildrenSafe<ICustomizationSelection>();
 			});
 			_selected = CreateComputed(() =>
 			{

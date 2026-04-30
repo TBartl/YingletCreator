@@ -44,7 +44,7 @@ public static class PassageUtils
 	public static bool HasOpening(IRoom room, CardinalDirection direction)
 	{
 		// Rotate the direction based on the room's rotation
-		CardinalDirection rotatedDirection = RotateDirection(direction, room.Rotation);
+		CardinalDirection rotatedDirection = InverseRotateDirection(direction, room.Rotation);
 		return rotatedDirection switch
 		{
 			CardinalDirection.North => room.Openings.North,
@@ -55,11 +55,11 @@ public static class PassageUtils
 		};
 	}
 
-	public static CardinalDirection RotateDirection(CardinalDirection direction, CardinalDirection rotation)
+	public static CardinalDirection InverseRotateDirection(CardinalDirection direction, CardinalDirection rotation)
 	{
 		int directionIndex = (int)direction;
 		int rotationIndex = (int)rotation;
-		return (CardinalDirection)((directionIndex + rotationIndex) % 4);
+		return (CardinalDirection)((directionIndex - rotationIndex + 4) % 4);
 	}
 
 	public static CardinalDirection GetOppositeDirection(CardinalDirection direction)

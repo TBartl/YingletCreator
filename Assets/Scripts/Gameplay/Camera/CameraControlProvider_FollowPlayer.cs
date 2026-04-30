@@ -29,7 +29,7 @@ internal class CameraControlProvider_FollowPlayer : ReactiveBehaviour, ICameraCo
 
 	private Rigidbody ComputeLocalCharacterRigidbody()
 	{
-		return _activeCharacterProvider.ActiveCharacter.Val?.GetComponent<Rigidbody>();
+		return _activeCharacterProvider.ActiveCharacter.Val?.GetComponentInChildrenSafe<Rigidbody>();
 	}
 
 	void LateUpdate()

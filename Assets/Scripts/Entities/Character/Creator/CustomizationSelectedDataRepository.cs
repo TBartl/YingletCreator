@@ -72,7 +72,7 @@ namespace Character.Creator
 				return null;
 			}
 
-			return myCharacter.GetComponentInChildren<IGameCharacterDataRepository>();
+			return myCharacter.GetComponentInChildrenSafe<IGameCharacterDataRepository>();
 		}
 
 		private ObservableCustomizationData ComputeCustomizationData()

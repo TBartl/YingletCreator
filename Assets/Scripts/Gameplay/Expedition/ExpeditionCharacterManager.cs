@@ -8,13 +8,13 @@ using UnityEngine;
 
 public sealed class ExpeditionCharacter
 {
-	public ExpeditionCharacter(GameObject gameObject)
+	public ExpeditionCharacter(ICharacterRoot root)
 	{
-		GameObject = gameObject;
-		_identity = gameObject.GetComponentInChildrenSafe<ICharacterIdentity>();
+		Root = root;
+		_identity = root.GetComponentInChildrenSafe<ICharacterIdentity>();
 	}
 
-	public GameObject GameObject;
+	public ICharacterRoot Root;
 	public ulong ClientId => _identity.OwnerClientId;
 	private ICharacterIdentity _identity;
 }
@@ -24,7 +24,7 @@ public interface IExpeditionCharacterManager
 	IReadOnlyObservable<ExpeditionCharacter> ActiveCharacter { get; }
 	IEnumerable<ExpeditionCharacter> Characters { get; }
 
-	void SetActiveCharacter(GameObject character);
+	void SetActiveCharacter(ICharacterRoot character);
 }
 public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterManager
 {
@@ -72,7 +72,7 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 				classReference.SetClass(classId);
 			}, CharacterPrefabType.Expedition);
 
-			_characters.Add(new ExpeditionCharacter(gameObject));
+			_characters.Add(new ExpeditionCharacter(gameObject.GetComponentSafe<ICharacterRoot>()));
 		}
 		_activeCharacter.Val = _characters.FirstOrDefault();
 	}
@@ -85,9 +85,9 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 		return spawnPoint;
 	}
 
-	public void SetActiveCharacter(GameObject character)
+	public void SetActiveCharacter(ICharacterRoot character)
 	{
-		var expeditionCharacter = _characters.FirstOrDefault(c => c.GameObject == character);
+		var expeditionCharacter = _characters.FirstOrDefault(c => c.Root == character);
 		if (expeditionCharacter == null)
 		{
 			Debug.LogError($"Trying to set active character to {character.name} but it doesn't exist in the list of characters.");

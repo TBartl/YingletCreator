@@ -26,7 +26,7 @@ public class ChangeActiveExpeditionCharacterOnTab : ReactiveBehaviour
 			var nextCharacter = possibleCharacters[(currentCharacterIndex + i) % possibleCharacters.Length];
 			if (nextCharacter.ClientId == myId)
 			{
-				_expeditionCharacterManager.SetActiveCharacter(nextCharacter.GameObject);
+				_expeditionCharacterManager.SetActiveCharacter(nextCharacter.Root);
 				break;
 			}
 		}

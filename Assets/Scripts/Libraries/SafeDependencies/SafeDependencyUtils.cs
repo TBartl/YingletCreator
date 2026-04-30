@@ -5,7 +5,7 @@ public static class SafeDependencyUtils
 {
 	private static readonly ConditionalWeakTable<object, object> _initialized = new();
 
-	static void InitializeIfNeeded(object obj)
+	public static void InitializeIfNeeded(object obj)
 	{
 		if (obj is IInitializable initializable)
 		{
@@ -35,6 +35,7 @@ public static class SafeDependencyUtils
 		InitializeIfNeeded(result);
 		return result;
 	}
+
 	public static T GetComponentSafe<T>(this GameObject gameObject)
 	{
 		var result = gameObject.GetComponent<T>();
@@ -43,6 +44,16 @@ public static class SafeDependencyUtils
 			Debug.LogError($"Component of type {typeof(T).Name} not found on GameObject {gameObject.name}.");
 		}
 		InitializeIfNeeded(result);
+		return result;
+	}
+
+	public static T GetNullableComponentSafe<T>(this Component component) where T : class
+	{
+		var result = component.GetComponent<T>();
+		if (result != null)
+		{
+			InitializeIfNeeded(result);
+		}
 		return result;
 	}
 
@@ -87,9 +98,9 @@ public static class SafeDependencyUtils
 		return results;
 	}
 
-	public static T GetComponentInParentSafe<T>(this Component component)
+	public static T GetComponentInParentSafe<T>(this Component component, bool includeInactive = false)
 	{
-		var result = component.GetComponentInParent<T>();
+		var result = component.GetComponentInParent<T>(includeInactive);
 		if (result == null)
 		{
 			Debug.LogError($"Component of type {typeof(T).Name} not found in parents of GameObject {component.gameObject.name}.");

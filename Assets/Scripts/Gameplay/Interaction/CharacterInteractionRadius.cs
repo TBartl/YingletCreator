@@ -25,7 +25,7 @@ public class CharacterInteractionRadius : MonoBehaviour, ICharacterInteractionRa
 	{
 		if (!_playerIdentity.IsActive) return;
 
-		var interactable = other.attachedRigidbody?.GetComponent<IInteractable>();
+		var interactable = other.attachedRigidbody?.GetNullableComponentSafe<IInteractable>();
 		if (interactable == null) return;
 
 		// Should probably check that we're not already in it?

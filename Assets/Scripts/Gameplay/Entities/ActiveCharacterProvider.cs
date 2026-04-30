@@ -1,11 +1,10 @@
 using Reactivity;
 using System.Linq;
-using UnityEngine;
 
 public interface IActiveCharacterProvider
 {
-	IReadOnlyObservable<GameObject> ActiveExpeditionCharacter { get; }
-	IReadOnlyObservable<GameObject> ActiveCharacter { get; }
+	IReadOnlyObservable<ICharacterRoot> ActiveExpeditionCharacter { get; }
+	IReadOnlyObservable<ICharacterRoot> ActiveCharacter { get; }
 }
 
 public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvider
@@ -13,11 +12,11 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 	private INetStateReader _netState;
 	Computed<IExpeditionCharacterManager> _expeditionCharacterManager;
 	private ILobbyCharacterManager _lobbyCharacterManager;
-	private Computed<GameObject> _activeExpeditionCharacter;
-	private Computed<GameObject> _activeCharacter;
+	private Computed<ICharacterRoot> _activeExpeditionCharacter;
+	private Computed<ICharacterRoot> _activeCharacter;
 
-	public IReadOnlyObservable<GameObject> ActiveExpeditionCharacter => _activeExpeditionCharacter;
-	public IReadOnlyObservable<GameObject> ActiveCharacter => _activeCharacter;
+	public IReadOnlyObservable<ICharacterRoot> ActiveExpeditionCharacter => _activeExpeditionCharacter;
+	public IReadOnlyObservable<ICharacterRoot> ActiveCharacter => _activeCharacter;
 
 	private void Awake()
 	{
@@ -28,20 +27,20 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 		_activeCharacter = CreateComputed(ComputeActiveCharacter);
 	}
 
-	private GameObject ComputeActiveExpeditionCharacter()
+	private ICharacterRoot ComputeActiveExpeditionCharacter()
 	{
 		var expeditionCharacterManager = _expeditionCharacterManager.Val;
 		if (expeditionCharacterManager != null)
 		{
 			if (expeditionCharacterManager.ActiveCharacter.Val != null)
 			{
-				return expeditionCharacterManager.ActiveCharacter.Val.GameObject;
+				return expeditionCharacterManager.ActiveCharacter.Val.Root;
 			}
 		}
 		return null;
 	}
 
-	private GameObject ComputeActiveCharacter()
+	private ICharacterRoot ComputeActiveCharacter()
 	{
 		var activeExpeditionCharacter = _activeExpeditionCharacter.Val;
 		if (activeExpeditionCharacter != null)
@@ -52,7 +51,7 @@ public class ActiveCharacterProvider : ReactiveBehaviour, IActiveCharacterProvid
 		var myLobbyCharacter = _lobbyCharacterManager.Characters.FirstOrDefault(c => c.Identity.OwnerClientId == _netState.LocalClientID);
 		if (myLobbyCharacter != null)
 		{
-			return myLobbyCharacter.GameObject;
+			return myLobbyCharacter.GameObject.GetComponentSafe<ICharacterRoot>();
 		}
 
 		return null;

@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class Passage : MonoBehaviour
+public interface IPassage
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+	IRoom RoomA { get; }
+	IRoom RoomB { get; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void SetRooms(IRoom roomA, IRoom roomB);
+}
+
+
+public class Passage : MonoBehaviour, IPassage
+{
+	public IRoom RoomA { get; private set; }
+	public IRoom RoomB { get; private set; }
+
+	public void SetRooms(IRoom roomA, IRoom roomB)
+	{
+		RoomA = roomA;
+		RoomB = roomB;
+	}
 }

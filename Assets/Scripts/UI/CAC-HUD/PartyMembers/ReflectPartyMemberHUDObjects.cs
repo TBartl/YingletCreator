@@ -7,11 +7,11 @@ public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 	[SerializeField] GameObject _partyMemberPrefab;
 
 	private Computed<IExpeditionCharacterManager> _expeditionCharacterManager;
-	EnumerableDictReflector<GameObject, GameObject> _dictReflector;
+	EnumerableDictReflector<ICharacterRoot, GameObject> _dictReflector;
 
 	void Start()
 	{
-		_dictReflector = new EnumerableDictReflector<GameObject, GameObject>(Added, Removed);
+		_dictReflector = new EnumerableDictReflector<ICharacterRoot, GameObject>(Added, Removed);
 		_expeditionCharacterManager = this.CreateExpeditionComputed<IExpeditionCharacterManager>();
 
 		// Destroy existing children (there for mock purposes)
@@ -23,11 +23,11 @@ public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 		AddReflector(Reflect);
 	}
 
-	private GameObject Added(GameObject characterGameObject)
+	private GameObject Added(ICharacterRoot character)
 	{
 		using var disabler = _partyMemberPrefab.TemporarilyDisable();
 		var hudGameObject = Instantiate(_partyMemberPrefab, transform);
-		hudGameObject.GetComponentSafe<IWriteablePartyMemberHUDReference>().SetCharacterGameObject(characterGameObject);
+		hudGameObject.GetComponentSafe<IWriteablePartyMemberHUDReference>().SetCharacter(character);
 		hudGameObject.SetActive(true);
 		return hudGameObject;
 	}
@@ -43,9 +43,9 @@ public class ReflectPartyMemberHUDObjects : ReactiveBehaviour
 		var characterManager = _expeditionCharacterManager.Val;
 		if (characterManager == null)
 		{
-			_dictReflector.Enumerate(Enumerable.Empty<GameObject>());
+			_dictReflector.Enumerate(Enumerable.Empty<ICharacterRoot>());
 			return;
 		}
-		_dictReflector.Enumerate(characterManager.Characters.Select(c => c.GameObject));
+		_dictReflector.Enumerate(characterManager.Characters.Select(c => c.Root));
 	}
 }
