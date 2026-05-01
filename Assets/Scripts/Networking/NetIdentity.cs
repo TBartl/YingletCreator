@@ -7,6 +7,7 @@ namespace Networking
 	{
 		ulong NetId { get; }
 		IReadOnlyObservable<ulong> NetIdObservable { get; }
+		public GameObject gameObject { get; }
 	}
 
 	public interface IWriteableNetIdentity : INetIdentity
@@ -27,6 +28,7 @@ namespace Networking
 		{
 			// The server generated this ID, so we should do the same and discard it
 			_idProvider.ScrapNextIdIfClient();
+			_idProvider.RegisterIdentity(this, networkId);
 
 			_networkId.Val = networkId;
 		}
@@ -43,7 +45,16 @@ namespace Networking
 			// Something may have already forced our ID
 			if (_networkId.Val == 0)
 			{
-				_networkId.Val = _idProvider.GetNextId();
+				var nextId = _idProvider.GetNextId();
+				_idProvider.RegisterIdentity(this, nextId);
+				_networkId.Val = nextId;
+			}
+		}
+		private void OnDestroy()
+		{
+			if (_networkId.Val != 0)
+			{
+				_idProvider.UnregisterIdentity(_networkId.Val);
 			}
 		}
 	}

@@ -4,6 +4,7 @@ using UnityEngine;
 public interface ICharacterInteraction
 {
 	public GameObject gameObject { get; }
+	public ICharacterIdentity Identity { get; }
 }
 
 public class CharacterInteraction : MonoBehaviour, ICharacterInteraction
@@ -11,6 +12,8 @@ public class CharacterInteraction : MonoBehaviour, ICharacterInteraction
 	private IInputRestrictor _inputRestrictor;
 	private ICharacterIdentity _identity;
 	private ICharacterInteractionRadius _interactionRadius;
+
+	public ICharacterIdentity Identity => _identity;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()

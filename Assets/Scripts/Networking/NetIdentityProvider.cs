@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Networking
@@ -9,12 +10,18 @@ namespace Networking
 		ulong GetNextId();
 		void ScrapNextIdIfClient();
 		void ForceNextId(ulong id);
+		void RegisterIdentity(INetIdentity identity, ulong id);
+		void UnregisterIdentity(ulong id);
+
+		INetIdentity GetById(ulong id);
 	}
 
 	internal class NetIdentityProvider : MonoBehaviour, INetIdentityProvider, IInitializable
 	{
 		private ulong _nextId = 1;
 		private INetStateReader _netState;
+
+		Dictionary<ulong, INetIdentity> _identities = new Dictionary<ulong, INetIdentity>();
 
 		public void Initialize()
 		{
@@ -23,7 +30,8 @@ namespace Networking
 
 		public ulong GetNextId()
 		{
-			return _nextId++;
+			var nextId = _nextId++;
+			return nextId;
 		}
 
 
@@ -36,6 +44,29 @@ namespace Networking
 		public void ForceNextId(ulong id)
 		{
 			_nextId = id;
+		}
+
+		public void RegisterIdentity(INetIdentity identity, ulong id)
+		{
+			_identities[id] = identity;
+		}
+
+		public void UnregisterIdentity(ulong id)
+		{
+			_identities.Remove(id);
+		}
+
+		public INetIdentity GetById(ulong id)
+		{
+			if (_identities.TryGetValue(id, out var identity))
+			{
+				return identity;
+			}
+			else
+			{
+				Debug.LogWarning($"No identity found for id {id}");
+				return null;
+			}
 		}
 	}
 }

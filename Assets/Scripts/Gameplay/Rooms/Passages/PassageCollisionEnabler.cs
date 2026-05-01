@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PassageCollisionEnabler : ReactiveBehaviour
 {
-	private ICurrentRoomProvider _activeRoomProvider;
+	private IActiveRoomProvider _activeRoomProvider;
 	private IPassage _passage;
 	private Collider _collider;
 	private EnumerableDictReflector<ICharacterRoot, PassageCollisionHandler> _characterToHandler;

@@ -11,14 +11,14 @@ internal class PassageTooltip : ReactiveBehaviour, IInteractable, IInitializable
 	public string TooltipText => _computedTooltip.Val;
 	public Vector3 TooltipOffset => new Vector3(0, _tooltipOffset, 0);
 
-	private ICurrentRoomProvider _currentRoomProvider;
+	private IActiveRoomProvider _activeRoomProvider;
 	private IActiveCharacterProvider _activeCharacterProvider;
 	private IPassage _passage;
 	Computed<string> _computedTooltip;
 
 	public void Initialize()
 	{
-		_currentRoomProvider = Singletons.GetSingleton<ICurrentRoomProvider>();
+		_activeRoomProvider = Singletons.GetSingleton<IActiveRoomProvider>();
 		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 		_passage = this.GetComponentInParentSafe<IPassage>();
 		_computedTooltip = CreateComputed(ComputeTooltipText);
@@ -29,9 +29,9 @@ internal class PassageTooltip : ReactiveBehaviour, IInteractable, IInitializable
 		var activeCharacter = _activeCharacterProvider.ActiveExpeditionCharacter.Val;
 		if (activeCharacter == null) return string.Empty; // No active character, no tooltip
 
-		var currentRoom = _currentRoomProvider.CurrentRoom.Val;
-		bool inRoomA = currentRoom == _passage.RoomA;
-		bool inRoomB = currentRoom == _passage.RoomB;
+		var activeRoom = _activeRoomProvider.ActiveRoom.Val;
+		bool inRoomA = activeRoom == _passage.RoomA;
+		bool inRoomB = activeRoom == _passage.RoomB;
 		if (!inRoomA && !inRoomB) return string.Empty; // Must be in either room
 
 		var otherRoom = inRoomA ? _passage.RoomB : _passage.RoomA;

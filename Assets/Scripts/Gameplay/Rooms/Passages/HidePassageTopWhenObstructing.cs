@@ -6,7 +6,7 @@ public class HidePassageTopWhenObstructing : ReactiveBehaviour
 	[SerializeField] float _minYCutoff = 1.2f;
 	[SerializeField] float _maxYCutoff = 1.97f;
 	[SerializeField] SharedEaseSettings _easeSettings;
-	private ICurrentRoomProvider _currentRoomProvider;
+	private IActiveRoomProvider _activeRoomProvider;
 	Shader CUTOFF_FROM_TOP_SHADER;
 	static readonly int Y_CUTOFF_PROPERTY_ID = Shader.PropertyToID("_YCutoff");
 
@@ -32,7 +32,7 @@ public class HidePassageTopWhenObstructing : ReactiveBehaviour
 
 		CUTOFF_FROM_TOP_SHADER = Shader.Find("Shader Graphs/CutOffFromTop");
 		var roomManager = this.GetExpeditionComponent<IRoomManager>();
-		_currentRoomProvider = Singletons.GetSingleton<ICurrentRoomProvider>();
+		_activeRoomProvider = Singletons.GetSingleton<IActiveRoomProvider>();
 
 		_mr = this.GetComponentSafe<MeshRenderer>();
 		_originalMaterial = _mr.sharedMaterial;
@@ -56,7 +56,7 @@ public class HidePassageTopWhenObstructing : ReactiveBehaviour
 
 	private bool ComputeShow()
 	{
-		return _currentRoomProvider.CurrentRoom.Val != _roomToObstructIn;
+		return _activeRoomProvider.ActiveRoom.Val != _roomToObstructIn;
 	}
 	private void Show_OnChanged(bool _, bool show)
 	{

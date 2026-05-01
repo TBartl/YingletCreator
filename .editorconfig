@@ -1,2 +1,3 @@
 [*.cs]
 indent_style = tab
+csharp_indent_namespace_contents = false

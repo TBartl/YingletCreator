@@ -221,6 +221,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7301196521609204666}
+    - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6961630798180044867}
   m_SourcePrefab: {fileID: 100100000, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
 --- !u!4 &6456060791184399519 stripped
 Transform:
@@ -256,3 +259,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b315c22aebbaa4047909349773fde9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6961630798180044867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905449425488676304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162ac77e40aa6c14e801683238fabdf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterEncounterReference
