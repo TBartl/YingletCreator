@@ -224,7 +224,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6961630798180044867}
+    - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2015257988535939821}
+    - targetCorrespondingSourceObject: {fileID: 6794495727578903111, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3929025820596562865}
   m_SourcePrefab: {fileID: 100100000, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+--- !u!1 &121941050219542058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6794495727578903111, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3929025820596562865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121941050219542058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed469fc048fd2409c2532b14067de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterEncounterRotation
 --- !u!4 &6456060791184399519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460304451652016370, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
@@ -271,3 +294,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162ac77e40aa6c14e801683238fabdf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterEncounterReference
+--- !u!114 &2015257988535939821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905449425488676304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4433ad0a984b42e4db2941c544ae92e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterEncounterPositioning

@@ -1,7 +1,14 @@
 ﻿using Networking;
+using Reactivity;
+using System;
 using UnityEngine;
 
-public class RotateToVelocity : MonoBehaviour
+public interface IRotateToVelocity
+{
+	IDisposable SuspendAutoRotation();
+}
+
+public class RotateToVelocity : ReactiveBehaviour, IRotateToVelocity
 {
 	[Header("Y-Axis Rotation (Yaw)")]
 	[SerializeField] private float MIN_SPEED = 0.1f;
@@ -18,6 +25,9 @@ public class RotateToVelocity : MonoBehaviour
 	private Quaternion _yaw;
 	private Quaternion _tilt;
 
+	Observable<int> _numSuspendingAutoRotation = new Observable<int>(0);
+	private Computed<bool> _suspendingAutoRotation;
+
 	void Awake()
 	{
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
@@ -27,18 +37,20 @@ public class RotateToVelocity : MonoBehaviour
 		_yaw = transform.rotation;
 		_tilt = Quaternion.identity;
 
-		_characterCreatorTracker.IsInCharacterCreator.OnChanged += IsInCharacterCreator_OnChanged;
+		_suspendingAutoRotation = CreateComputed(() => _numSuspendingAutoRotation.Val > 0);
+
+		_suspendingAutoRotation.OnChanged += SuspendingAutoRotation_OnChanged;
 	}
 
-	private void OnDestroy()
+	private new void OnDestroy()
 	{
-		_characterCreatorTracker.IsInCharacterCreator.OnChanged -= IsInCharacterCreator_OnChanged;
+		base.OnDestroy();
+		_suspendingAutoRotation.OnChanged -= SuspendingAutoRotation_OnChanged;
 	}
 
-	private void IsInCharacterCreator_OnChanged(bool arg1, bool to)
+	private void SuspendingAutoRotation_OnChanged(bool from, bool to)
 	{
-		// Leaving character creator with this; reset the yaw
-		if (!to && _identity.IsActiveAndMine)
+		if (to == false)
 		{
 			_yaw = this.transform.rotation;
 		}
@@ -46,7 +58,7 @@ public class RotateToVelocity : MonoBehaviour
 
 	void Update()
 	{
-		if (_characterCreatorTracker.IsInCharacterCreator.Val && _identity.IsActiveAndMine)
+		if (_suspendingAutoRotation.Val)
 		{
 			// We're editing this, don't rotate
 			return;
@@ -79,5 +91,12 @@ public class RotateToVelocity : MonoBehaviour
 
 		Quaternion targetTilt = Quaternion.Euler(pitch, 0f, roll);
 		_tilt = _tilt.SmoothTo(targetTilt, TILT_SMOOTH, Time.deltaTime);
+	}
+
+	public IDisposable SuspendAutoRotation()
+	{
+		using var _ = new ReactivityTrackingSuspender();
+		_numSuspendingAutoRotation.Val += 1;
+		return new BasicActionDisposable(() => _numSuspendingAutoRotation.Val -= 1);
 	}
 }

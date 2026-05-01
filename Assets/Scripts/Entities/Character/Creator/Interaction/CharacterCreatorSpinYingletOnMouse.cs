@@ -1,4 +1,5 @@
 using Networking;
+using System;
 using UnityEngine;
 
 public class CharacterCreatorSpinYingletOnMouse : MonoBehaviour
@@ -6,11 +7,16 @@ public class CharacterCreatorSpinYingletOnMouse : MonoBehaviour
 	[SerializeField] float _spinSensitivity = 10f;
 	[SerializeField] float _startRotation = -140f;
 	private ICharacterCreatorTracker _characterCreatorTracker;
+	private IRotateToVelocity _rotateToVelocity;
 	private ICharacterIdentity _identity;
+
+	IDisposable _suspendAutoRotation;
 
 	private void Awake()
 	{
 		_characterCreatorTracker = Singletons.GetSingleton<ICharacterCreatorTracker>();
+		_rotateToVelocity = this.GetComponentSafe<IRotateToVelocity>();
+
 		_identity = this.GetComponentInParentSafe<ICharacterIdentity>();
 		_characterCreatorTracker.IsInCharacterCreator.OnChanged += IsInCharacterCreator_OnChanged;
 	}
@@ -25,6 +31,13 @@ public class CharacterCreatorSpinYingletOnMouse : MonoBehaviour
 		if (to && _identity.IsActiveAndMine)
 		{
 			this.transform.rotation = Quaternion.Euler(0, _startRotation, 0);
+
+			if (_suspendAutoRotation == null) _suspendAutoRotation = _rotateToVelocity.SuspendAutoRotation();
+		}
+		else
+		{
+			_suspendAutoRotation?.Dispose();
+			_suspendAutoRotation = null;
 		}
 	}
 
