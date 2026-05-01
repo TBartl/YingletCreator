@@ -1284,6 +1284,10 @@ PrefabInstance:
       propertyPath: '_menus.Array.data[6]'
       value: 
       objectReference: {fileID: 11400000, guid: d031822831f3f48408d77a0c2bf47b8d, type: 2}
+    - target: {fileID: 257400913434119412, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
+      propertyPath: '_menus.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
     - target: {fileID: 273682841411150509, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2372,6 +2376,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4757012077995415745, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
+      propertyPath: _menus.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757012077995415745, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
+      propertyPath: '_menus.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
+    - target: {fileID: 4757012077995415745, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
+      propertyPath: '_menus.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
     - target: {fileID: 4878287093095034160, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5132,6 +5148,7 @@ GameObject:
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
   - component: {fileID: 330585551}
+  - component: {fileID: 330585552}
   - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
@@ -5322,6 +5339,18 @@ MonoBehaviour:
   _posSpringTime: 0.2
   _rotSpringTime: 0.2
   _frameOffset: {x: -0.59, y: 1.12, z: -1.09}
+--- !u!114 &330585552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35af3c66dcfac9543800cb5bd541feba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraControlProvider_FrameEncounter
 --- !u!1 &379822681
 GameObject:
   m_ObjectHideFlags: 0
@@ -11826,6 +11855,7 @@ MonoBehaviour:
   _offset:
     _onScreen: 1
     _offset: {x: 0, y: 0, z: 0}
+  _inverse: 0
   _menus:
   - {fileID: 11400000, guid: 9ee8e169f7d63f843a3e2fef263876d6, type: 2}
 --- !u!114 &1040987604
@@ -24092,6 +24122,7 @@ MonoBehaviour:
   _offset:
     _onScreen: 1
     _offset: {x: 0, y: 0, z: 0}
+  _inverse: 0
   _menus:
   - {fileID: 11400000, guid: 9ee8e169f7d63f843a3e2fef263876d6, type: 2}
 --- !u!114 &1967979815
@@ -26203,6 +26234,7 @@ GameObject:
   - component: {fileID: 2142855965}
   - component: {fileID: 2142855966}
   - component: {fileID: 2142855967}
+  - component: {fileID: 2142855968}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -26299,6 +26331,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd7f2ecb6dbeac48805b854aa588e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActiveEncounterProvider
+--- !u!114 &2142855968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142855960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526b23f5d1a978a4498155b92564942c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InsertEncounterMenu
+  _menuToInsert: {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
+  _menuToInsertAfter: {fileID: 11400000, guid: 00c88cfc5996f6147a771f9e1fe2381a, type: 2}
 --- !u!4 &292703496834528392
 Transform:
   m_ObjectHideFlags: 0

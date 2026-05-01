@@ -28,7 +28,7 @@ public class CameraControl : ReactiveBehaviour
 
 	private void Start()
 	{
-		_providers = this.GetComponentsInChildren<ICameraControlProvider>();
+		_providers = this.GetComponentsInChildrenSafe<ICameraControlProvider>();
 		_bestProvider = CreateComputed(ComputeBestProvider);
 		_bestProvider.OnChanged += OnBestProviderChanged;
 	}

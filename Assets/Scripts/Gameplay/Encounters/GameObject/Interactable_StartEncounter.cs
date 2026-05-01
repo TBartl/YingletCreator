@@ -52,7 +52,7 @@ public class Interactable_StartEncounter : MonoBehaviour, IInteractable, IInitia
 		var characterEncounter = character.gameObject.GetComponentInChildrenSafe<ICharacterEncounterReference>();
 		if (characterEncounter.Encounter.Val != null) return;
 
-		var encounterInstance = new EncounterInstance();
+		var encounterInstance = new EncounterInstance(this.gameObject, character.gameObject.GetComponentSafe<ICharacterRoot>());
 		_encounterInstance.Val = encounterInstance;
 		characterEncounter.SetEncounter(encounterInstance);
 	}

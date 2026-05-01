@@ -6,9 +6,11 @@ using UnityEngine.Serialization;
 internal class ReactiveOffset_OnSpecificMenus : MonoBehaviour, IReactiveOffsetMutator
 {
 	[SerializeField] ReactiveOffsetValues _offset;
+	[SerializeField] bool _inverse;
 
 	[FormerlySerializedAs("_hideOnMenus")]
 	[SerializeField] MenuType[] _menus;
+
 
 	private IMenuManager _menuManager;
 
@@ -20,7 +22,8 @@ internal class ReactiveOffset_OnSpecificMenus : MonoBehaviour, IReactiveOffsetMu
 
 	public ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset)
 	{
-		if (_menus.Contains(_menuManager.OpenMenu.Val))
+		bool onMenu = _inverse ? !_menus.Contains(_menuManager.OpenMenu.Val) : _menus.Contains(_menuManager.OpenMenu.Val);
+		if (onMenu)
 		{
 			return _offset;
 		}

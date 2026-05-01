@@ -72,7 +72,8 @@ namespace Reactivity
 
 		public void Insert(int index, T item)
 		{
-			throw new NotImplementedException();
+			list.Insert(index, item);
+			notifier.Dirty();
 		}
 
 		public bool Remove(T item)

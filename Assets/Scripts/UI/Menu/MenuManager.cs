@@ -13,6 +13,9 @@ public interface IMenuManager
 
 	void PushMenu(MenuType menuType);
 	void PopMenu();
+
+	void InsertMenuAfter(MenuType menuToInsert, MenuType menuToInsertAfter);
+	void RemoveMenu(MenuType menuType);
 }
 
 public class MenuManager : ReactiveBehaviour, IMenuManager
@@ -52,6 +55,36 @@ public class MenuManager : ReactiveBehaviour, IMenuManager
 	public void PushMenu(MenuType menuType)
 	{
 		_menuStack.Add(menuType);
+	}
+
+	public void InsertMenuAfter(MenuType menuToInsert, MenuType menuToInsertAfter)
+	{
+		int insertAfterIndex = _menuStack.IndexOf(menuToInsertAfter);
+		if (insertAfterIndex == -1)
+		{
+			Debug.LogError($"Menu {menuToInsertAfter.name} not found in menu stack");
+			return;
+		}
+
+		_menuStack.Insert(insertAfterIndex + 1, menuToInsert);
+	}
+
+	public void RemoveMenu(MenuType menuType)
+	{
+		int removeIndex = _menuStack.IndexOf(menuType);
+		if (removeIndex == -1)
+		{
+			Debug.LogError($"Menu {menuType.name} not found in menu stack");
+			return;
+		}
+
+		if (_menuStack.Count == 1)
+		{
+			Debug.LogError("Cannot remove the last menu from the stack");
+			return;
+		}
+
+		_menuStack.RemoveAt(removeIndex);
 	}
 }
 

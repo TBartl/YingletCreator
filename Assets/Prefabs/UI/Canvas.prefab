@@ -107,6 +107,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -401,6 +402,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -850,6 +852,7 @@ MonoBehaviour:
   _offset:
     _onScreen: 0
     _offset: {x: -500, y: 0, z: 0}
+  _inverse: 0
   _menus:
   - {fileID: 11400000, guid: 82ca42ce12f001b48936cd125fb88a29, type: 2}
   - {fileID: 11400000, guid: 0329cd955c934d14baa05133d0122aa7, type: 2}
@@ -989,8 +992,8 @@ MonoBehaviour:
   _offset:
     _onScreen: 1
     _offset: {x: 850, y: 0, z: 0}
+  _inverse: 0
   _menus:
-  - {fileID: 11400000, guid: 9ee8e169f7d63f843a3e2fef263876d6, type: 2}
   - {fileID: 11400000, guid: 9ee8e169f7d63f843a3e2fef263876d6, type: 2}
 --- !u!114 &257400913434119412
 MonoBehaviour:
@@ -1007,6 +1010,7 @@ MonoBehaviour:
   _offset:
     _onScreen: 1
     _offset: {x: 2280, y: 0, z: 0}
+  _inverse: 0
   _menus:
   - {fileID: 11400000, guid: 4c151a66e9834ac4faa85abc9adc7761, type: 2}
   - {fileID: 11400000, guid: 54806b9e9e0c4ef48b7c1776aeb80ccc, type: 2}
@@ -1200,6 +1204,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1593,6 +1598,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1831,6 +1837,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2116,6 +2123,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4177,7 +4185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: 540bff77abe3c014c8dcf8cf36a96862, type: 3}
       propertyPath: m_Size
-      value: 0.7540985
+      value: 0.75409824
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: 540bff77abe3c014c8dcf8cf36a96862, type: 3}
       propertyPath: m_Value
@@ -4511,7 +4519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0.9999997
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchorMax.y

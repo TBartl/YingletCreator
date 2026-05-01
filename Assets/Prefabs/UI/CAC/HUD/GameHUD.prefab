@@ -112,6 +112,7 @@ MonoBehaviour:
   _offset:
     _onScreen: 1
     _offset: {x: 0, y: 0, z: 0}
+  _inverse: 0
   _menus:
   - {fileID: 11400000, guid: 00c88cfc5996f6147a771f9e1fe2381a, type: 2}
 --- !u!1 &1600962363131035334
@@ -409,6 +410,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -546,6 +548,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -768,6 +771,7 @@ GameObject:
   - component: {fileID: 1270337894012672311}
   - component: {fileID: 7260731463618204264}
   - component: {fileID: 8512731917948179271}
+  - component: {fileID: 2468723140995344322}
   - component: {fileID: 842344645751877407}
   - component: {fileID: 8486452714292056456}
   m_Layer: 0
@@ -845,6 +849,25 @@ MonoBehaviour:
   _offset:
     _onScreen: 1
     _offset: {x: 0, y: 0, z: 0}
+--- !u!114 &2468723140995344322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069697444262954136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f970c4bba86d1047bf8f1c54a589133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReactiveOffset_OnSpecificMenus
+  _offset:
+    _onScreen: 0
+    _offset: {x: 0, y: -220, z: 0}
+  _inverse: 1
+  _menus:
+  - {fileID: 11400000, guid: 00c88cfc5996f6147a771f9e1fe2381a, type: 2}
+  - {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
 --- !u!225 &842344645751877407
 CanvasGroup:
   m_ObjectHideFlags: 0
