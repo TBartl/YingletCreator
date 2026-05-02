@@ -6,5 +6,11 @@ namespace Encounters.Runtime
 		public StartNode()
 		{
 		}
+
+		public override void Run(IEncounterInstance encounterInstance)
+		{
+			encounterInstance.ProgressToNode(_next);
+		}
+
 	}
 }

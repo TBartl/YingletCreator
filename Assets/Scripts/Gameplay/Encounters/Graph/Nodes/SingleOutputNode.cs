@@ -7,7 +7,7 @@ namespace Encounters.Runtime
 	[System.Serializable]
 	public abstract class SingleOutputNode : IEncounterNode
 	{
-		[SerializeField]
+		[SerializeReference]
 		protected IEncounterNode _next;
 
 		public void EditorSetConnections(IList<IEncounterNode> connections)
@@ -18,5 +18,7 @@ namespace Encounters.Runtime
 			}
 			_next = connections.FirstOrDefault();
 		}
+
+		public abstract void Run(IEncounterInstance encounterInstance);
 	}
 }
