@@ -5,6 +5,7 @@ using UnityEngine;
 public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 {
 	[SerializeField] GameObject _narrationPrefab;
+	[SerializeField] GameObject _promptContinuePrefab;
 	IActiveEncounterProvider _activeEncounterProvider;
 
 	void Awake()
@@ -26,7 +27,6 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 
 	private void OnActiveEncounterChanged(IEncounterInstance from, IEncounterInstance to)
 	{
-		DestroyAllChildren();
 
 		if (from != null)
 		{
@@ -35,6 +35,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 
 		if (to != null)
 		{
+			DestroyAllChildren(); // We don't want to always do this - when we're transitioning out we want to leave the UI on screen
 			to.CurrentNode.OnChanged += OnEncounterNodeChanged;
 		}
 	}
@@ -51,7 +52,11 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		if (node is NarrationNode narrationNode)
 		{
 			GameObject narrationObject = Instantiate(_narrationPrefab, transform);
-			narrationObject.GetComponentInChildrenSafe<TMPro.TMP_Text>().SetText(narrationNode.Text);
+			narrationObject.GetComponentInChildrenSafe<INarrationTextBox>().SetNode(_activeEncounterProvider.ActiveEncounter.Val, narrationNode);
+		}
+		else if (node is PromptContinueNode)
+		{
+			Instantiate(_promptContinuePrefab, transform);
 		}
 	}
 

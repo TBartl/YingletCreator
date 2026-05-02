@@ -1,4 +1,5 @@
 ﻿
+using Character.Creator;
 using Encounters.Runtime;
 using Reactivity;
 using System;
@@ -19,6 +20,8 @@ public interface IEncounterInstance
 	GameObject EncounterSource { get; }
 	ICharacterRoot Character { get; }
 
+	string CharacterName { get; }
+
 	event Action OnFinished;
 }
 
@@ -28,11 +31,14 @@ public sealed class EncounterInstance : IEncounterInstance
 	Observable<IEncounterNode> _currentNode = new();
 	IList<IEncounterNode> _nodeHistory = new List<IEncounterNode>();
 	private EncounterGraph _encounterGraph;
+	Lazy<string> _characterName;
 
 	public GameObject EncounterSource { get; private set; }
 	public ICharacterRoot Character { get; private set; }
 
 	public IReadOnlyObservable<IEncounterNode> CurrentNode => _currentNode;
+
+	public string CharacterName => _characterName.Value;
 
 	public event Action OnFinished;
 
@@ -41,6 +47,8 @@ public sealed class EncounterInstance : IEncounterInstance
 		_encounterGraph = encounterGraph;
 		this.EncounterSource = encounterSource;
 		this.Character = character;
+
+		_characterName = new Lazy<string>(GetCharacterName);
 	}
 
 	public void Start()
@@ -60,5 +68,12 @@ public sealed class EncounterInstance : IEncounterInstance
 		_currentNode.Val = next;
 		_nodeHistory.Add(_currentNode.Val);
 		_currentNode.Val.Run(this);
+	}
+
+
+	private string GetCharacterName()
+	{
+		var dataRepo = Character.GetComponentInChildrenSafe<ICustomizationDataRepository>().CustomizationData;
+		return dataRepo.Name.Val;
 	}
 }

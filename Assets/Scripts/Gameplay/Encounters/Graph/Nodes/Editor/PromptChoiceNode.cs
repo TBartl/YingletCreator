@@ -5,7 +5,7 @@ using Unity.GraphToolkit.Editor;
 namespace Encounters.Editor
 {
 	[Serializable]
-	public class ChoiceNode : Node, IEditorNode
+	public class PromptChoiceNode : Node, IEditorNode
 	{
 		protected override void OnDefinePorts(IPortDefinitionContext context)
 		{
@@ -22,7 +22,7 @@ namespace Encounters.Editor
 		}
 		public IEncounterNode CreateRuntimeNode()
 		{
-			return new Runtime.ChoiceNode();
+			return new Runtime.PromptChoiceNode();
 		}
 	}
 }
