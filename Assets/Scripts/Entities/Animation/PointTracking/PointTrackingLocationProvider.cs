@@ -4,6 +4,7 @@ using UnityEngine;
 public interface IPointTrackingLocationProvider
 {
 	IReadOnlyObservable<bool> Active { get; }
+	bool MoveUpperBody { get; }
 	Vector3 Position { get; }
 }
 
@@ -22,6 +23,8 @@ public class PointTrackingLocationProvider : MonoBehaviour, IPointTrackingLocati
 
 	public IReadOnlyObservable<bool> Active => _active;
 	public Vector3 Position { get; private set; }
+
+	public bool MoveUpperBody => true;
 
 	Vector3 ForwardDir => -_forwardProvider.forward;
 

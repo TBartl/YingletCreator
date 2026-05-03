@@ -236,6 +236,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8316547844715126431, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3891358435595301476}
+    - targetCorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 7088393783442014636}
+    - targetCorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 4839121308005171604}
   m_SourcePrefab: {fileID: 100100000, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
 --- !u!1 &121941050219542058 stripped
 GameObject:
@@ -290,6 +296,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 460304451652016370, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
   m_PrefabInstance: {fileID: 6916365060296164461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7194861684085552788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7088393783442014636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194861684085552788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4089326cfefdb644ba44253d40a67c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Entities.Animation.PointTracking.CombinedPointTrackingLocationProvider
+--- !u!114 &4839121308005171604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194861684085552788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24413fc0778d67e49b0abb7d145de9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterPointTrackingLocationProvider
 --- !u!1 &8905449425488676304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}

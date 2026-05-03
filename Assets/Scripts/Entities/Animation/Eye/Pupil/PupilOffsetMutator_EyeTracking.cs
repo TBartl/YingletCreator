@@ -20,8 +20,8 @@ public class PupilOffsetMutator_EyeTracking : MonoBehaviour, IPupilOffsetMutator
 
 	void Awake()
 	{
-		_locationProvider = this.GetComponentInParent<IPointTrackingLocationProvider>();
-		_weightProvider = this.GetComponentInParent<IPointTrackingWeightProvider>();
+		_locationProvider = this.GetComponentInParentSafe<IPointTrackingLocationProvider>();
+		_weightProvider = this.GetComponentInParentSafe<IPointTrackingWeightProvider>();
 	}
 
 	public PupilOffsets Mutate(PupilOffsets input)

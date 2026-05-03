@@ -15,6 +15,8 @@ public class MovementPointTrackingLocationProvider : MonoBehaviour, IPointTracki
 	public IReadOnlyObservable<bool> Active => _active;
 	public Vector3 Position { get; private set; }
 
+	public bool MoveUpperBody => true;
+
 	private void Awake()
 	{
 		_rb = this.GetComponentInParent<Rigidbody>();
