@@ -8,10 +8,12 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 	[SerializeField] GameObject _promptContinuePrefab;
 	[SerializeField] GameObject _promptChoicesPrefab;
 	IActiveEncounterProvider _activeEncounterProvider;
+	private IEncounterLogPositioner _positioner;
 
 	void Awake()
 	{
 		_activeEncounterProvider = Singletons.GetSingleton<IActiveEncounterProvider>();
+		_positioner = this.GetComponentSafe<IEncounterLogPositioner>();
 
 		DestroyAllChildren();
 		_activeEncounterProvider.ActiveEncounter.OnChanged += OnActiveEncounterChanged;
@@ -37,6 +39,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		if (to != null)
 		{
 			DestroyAllChildren(); // We don't want to always do this - when we're transitioning out we want to leave the UI on screen
+			_positioner.ResetPosition();
 			to.CurrentNode.OnChanged += OnEncounterNodeChanged;
 		}
 	}
@@ -54,15 +57,18 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		{
 			GameObject narrationObject = Instantiate(_narrationPrefab, transform);
 			narrationObject.GetComponentInChildrenSafe<INarrationTextBox>().SetNode(_activeEncounterProvider.ActiveEncounter.Val, narrationNode);
+			_positioner.ObjectAdded(false);
 		}
 		else if (node is PromptContinueNode)
 		{
 			Instantiate(_promptContinuePrefab, transform);
+			_positioner.ObjectAdded(false);
 		}
 		else if (node is PromptChoiceNode)
 		{
 			GameObject promptChoicesObject = Instantiate(_promptChoicesPrefab, transform);
 			promptChoicesObject.GetComponentInChildrenSafe<IPromptChoicesUI>().SetNode(_activeEncounterProvider.ActiveEncounter.Val, (PromptChoiceNode)node);
+			_positioner.ObjectAdded(true);
 		}
 	}
 

@@ -109,8 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a796a065a48be4e80f0cfb550768cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncounterLogPositioner
-  _normalOffset: 100
-  _closerToBottomOffset: 50
+  _normalOffset: 360
+  _closerToBottomOffset: 325
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
 --- !u!1 &3486858157922709058
 GameObject:
   m_ObjectHideFlags: 0

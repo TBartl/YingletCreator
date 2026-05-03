@@ -1,10 +1,19 @@
 ﻿
 using Character.Creator;
+using Character.Data;
 using Encounters.Runtime;
 using Reactivity;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+
+public sealed class EncounterInstanceExtraData
+{
+	Observable<PoseId> _poseId = new();
+	public PoseId PoseId { get => _poseId.Val; set => _poseId.Val = value; }
+
+
+}
 
 public interface IEncounterInstance
 {
@@ -23,6 +32,8 @@ public interface IEncounterInstance
 	string CharacterName { get; }
 
 	event Action OnFinished;
+
+	EncounterInstanceExtraData Data { get; }
 }
 
 public sealed class EncounterInstance : IEncounterInstance
@@ -40,6 +51,8 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public string CharacterName => _characterName.Value;
 
+	public EncounterInstanceExtraData Data { get; private set; }
+
 	public event Action OnFinished;
 
 	public EncounterInstance(EncounterGraph encounterGraph, GameObject encounterSource, ICharacterRoot character)
@@ -49,6 +62,7 @@ public sealed class EncounterInstance : IEncounterInstance
 		this.Character = character;
 
 		_characterName = new Lazy<string>(GetCharacterName);
+		Data = new EncounterInstanceExtraData();
 	}
 
 	public void Start()

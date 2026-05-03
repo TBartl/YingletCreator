@@ -12,6 +12,11 @@ public class AssetReferenceT<T> : AssetReference where T : UnityEngine.Object
 	bool _cached = false; // Can't rely on nullability because the value might be null
 	T _cachedVal;
 
+	public AssetReferenceT(string guid) : base()
+	{
+		m_AssetGUID = guid;
+	}
+
 	public T LoadSync()
 	{
 #if UNITY_EDITOR
