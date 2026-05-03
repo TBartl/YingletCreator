@@ -41,7 +41,7 @@ public class MouthExpressions : ReactiveBehaviour, IMouthExpressions
 
 	void Awake()
 	{
-		_mutators = this.GetComponents<IMouthExpressionsMutator>();
+		_mutators = this.GetComponentsSafe<IMouthExpressionsMutator>();
 		AddReflector(Reflect);
 	}
 

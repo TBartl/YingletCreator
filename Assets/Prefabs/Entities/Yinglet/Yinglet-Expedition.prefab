@@ -242,6 +242,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: 4
       addedObject: {fileID: 4839121308005171604}
+    - targetCorrespondingSourceObject: {fileID: 3977407187431825258, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 3921375337868959408}
+    - targetCorrespondingSourceObject: {fileID: 5964574009170198526, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 6179824031525405901}
     - targetCorrespondingSourceObject: {fileID: 6568862148423832943, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6066155314230745513}
@@ -280,6 +286,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c4bf0c4c9176a43937361971e30eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisableJiggleInEncounter
+--- !u!1 &954113400210570131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5964574009170198526, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6179824031525405901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954113400210570131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed0b7f069a87ea47a55197186908972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouthExpressionsMutator_Encounter
 --- !u!1 &3211503397218376434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8316547844715126431, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
@@ -345,6 +368,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24413fc0778d67e49b0abb7d145de9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncounterPointTrackingLocationProvider
+--- !u!1 &7550649414756719367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3977407187431825258, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3921375337868959408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550649414756719367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4e94f5f64a69440a5bf906a566d5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Encounter
 --- !u!1 &8905449425488676304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}

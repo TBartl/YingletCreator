@@ -14,6 +14,9 @@ public sealed class EncounterInstanceExtraData
 
 	Observable<bool> _mirror = new();
 	public bool Mirror { get => _mirror.Val; set => _mirror.Val = value; }
+
+	Observable<FullCharacterExpressions> _characterExpressions = new();
+	public FullCharacterExpressions CharacterExpressions { get => _characterExpressions.Val; internal set => _characterExpressions.Val = value; }
 }
 
 public interface IEncounterInstance

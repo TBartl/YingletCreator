@@ -50,8 +50,8 @@ public class EyeExpressions : ReactiveBehaviour, IEyeExpressions
 
 	void Awake()
 	{
-		_baseMutators = this.GetComponentsInChildren<IBaseEyeExpressionMutator>();
-		_currentMutators = this.GetComponentsInChildren<ICurrentEyeExpressionMutator>();
+		_baseMutators = this.GetComponentsInChildrenSafe<IBaseEyeExpressionMutator>();
+		_currentMutators = this.GetComponentsInChildrenSafe<ICurrentEyeExpressionMutator>();
 		AddReflector(Reflect);
 	}
 
