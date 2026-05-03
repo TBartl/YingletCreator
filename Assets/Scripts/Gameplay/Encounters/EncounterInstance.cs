@@ -12,7 +12,8 @@ public sealed class EncounterInstanceExtraData
 	Observable<PoseId> _poseId = new();
 	public PoseId PoseId { get => _poseId.Val; set => _poseId.Val = value; }
 
-
+	Observable<bool> _mirror = new();
+	public bool Mirror { get => _mirror.Val; set => _mirror.Val = value; }
 }
 
 public interface IEncounterInstance

@@ -1235,8 +1235,10 @@ MonoBehaviour:
         m_InputConstantsById:
           m_KeyList:
           - Pose
+          - Mirror
           m_ValueList:
           - rid: 3002418893318783039
+          - rid: 3002418893318783043
         m_InputPortInfos:
           expandedPortsById:
             m_KeyList: []
@@ -1323,6 +1325,10 @@ MonoBehaviour:
           m_PortDirection: 1
           m_PortOrientation: 0
           m_Title: 
+    - rid: 3002418893318783043
+      type: {class: 'Constant`1[[System.Boolean, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value: 1
     - rid: 7360723072746520644
       type: {class: GraphModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: UnityEditor.GraphToolkitModule}
       data:

@@ -9,6 +9,7 @@ namespace Encounters.Editor
 	public class SetCharacterPoseNode : Node, IEditorNode
 	{
 		const string POSE_PORT_NAME = "Pose";
+		const string MIRROR_PORT_NAME = "Mirror";
 
 		protected override void OnDefinePorts(IPortDefinitionContext context)
 		{
@@ -20,6 +21,9 @@ namespace Encounters.Editor
 			context.AddInputPort<PoseId>(POSE_PORT_NAME)
 				.Build();
 
+			context.AddInputPort<bool>(MIRROR_PORT_NAME)
+				.Build();
+
 			context.AddOutputPort(EditorNodeUtils.EXECUTION_PORT_NAME)
 				.WithDisplayName(string.Empty)
 				.WithConnectorUI(PortConnectorUI.Arrowhead)
@@ -29,7 +33,8 @@ namespace Encounters.Editor
 		public IEncounterNode CreateRuntimeNode()
 		{
 			PoseId pose = this.GetPortValue<PoseId>(POSE_PORT_NAME);
-			return new Runtime.SetCharacterPoseNode(pose);
+			bool mirror = this.GetPortValue<bool>(MIRROR_PORT_NAME);
+			return new Runtime.SetCharacterPoseNode(pose, mirror);
 		}
 	}
 }

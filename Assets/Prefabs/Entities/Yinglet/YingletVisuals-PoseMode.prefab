@@ -142,6 +142,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2605495616372628955}
+    - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1419997381667913942}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 3
       addedObject: {fileID: 4727693738479124798}
@@ -218,6 +221,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79273eb04f1699418314a3e6eb3aad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1419997381667913942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520589046506231786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ee58d3cdd5ba14296c9707fc5fa3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MirrorAnimationOnPose
 --- !u!4 &5203132945128745802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4467667786261249746, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
