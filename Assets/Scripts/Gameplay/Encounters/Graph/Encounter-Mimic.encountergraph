@@ -512,8 +512,8 @@ MonoBehaviour:
     - rid: 3002418868681965679
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: Before {Zally} can open the chest, it opens itself.\nIt's a mimic!
-          And it has its eye set on {CHARACTER}.
+        m_Value: Before {CHARACTER} can open the chest, it opens itself.\n\nIt's
+          a mimic! And it has its eye set on {CHARACTER}.
     - rid: 3002418868681965680
       type: {class: NarrationNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -787,7 +787,7 @@ MonoBehaviour:
     - rid: 3002418880530612316
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: Accept your fate.
+        m_Value: Freeze up.
     - rid: 3002418880530612317
       type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:

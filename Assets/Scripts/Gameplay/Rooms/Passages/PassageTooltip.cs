@@ -47,7 +47,7 @@ internal class PassageTooltip : ReactiveBehaviour, IInteractable, IInitializable
 			sb.Append($"<color={TMPUtils.TooltipRed}>");
 		}
 
-		sb.Append($"<size=130%>{cost}x <sprite tint=\"1\" name=\"Energy\"></size>");
+		sb.Append($"<size=130%>{cost}x {TMPUtils.EnergySprite}</size>");
 
 		if (!canAfford)
 		{

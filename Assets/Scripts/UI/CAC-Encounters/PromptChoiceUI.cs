@@ -29,10 +29,40 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI
 		_hoverable = this.GetComponentSafe<IHoverable>();
 		_button = this.GetComponentSafe<Button>();
 
-		_text.text = _choice.Text;
+		_text.text = GetText();
+
 		_button.onClick.AddListener(OnClicked);
 		AddReflector(ReflectHovering);
 	}
+
+	private string GetText()
+	{
+		var currentEnergy = _encounter.Character.GetComponentInChildrenSafe<ICharacterResources>().GetResource(CharacterResourceType.Energy);
+
+		var sb = new System.Text.StringBuilder();
+		if (_choice.EnergyCost > 0)
+		{
+			if (currentEnergy < _choice.EnergyCost)
+			{
+				sb.Append($"<color={TMPUtils.TooltipRed}>");
+			}
+
+			sb.Append($"[");
+			for (int i = 0; i < _choice.EnergyCost; i++)
+			{
+				sb.Append(TMPUtils.EnergySprite);
+			}
+			sb.Append("] ");
+			if (currentEnergy < _choice.EnergyCost)
+			{
+				sb.Append($"</color>");
+			}
+		}
+		// TODO: Eventually want to preview roll type
+		sb.Append(_choice.Text);
+		return sb.ToString();
+	}
+
 
 	private new void OnDestroy()
 	{
