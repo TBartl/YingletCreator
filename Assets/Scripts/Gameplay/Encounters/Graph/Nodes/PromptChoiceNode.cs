@@ -1,11 +1,28 @@
-﻿namespace Encounters.Runtime
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace Encounters.Runtime
 {
 	[System.Serializable]
-	public sealed class PromptChoiceNode : SingleOutputNode // For now; later we'll want to support multiple outputs for different choices
+	public sealed class PromptChoiceNode : IEncounterNode
 	{
-		public override void Run(IEncounterInstance encounterInstance)
+		[field: SerializeField]
+		public ChoiceBlockNode[] Choices { get; private set; }
+
+		public void EditorSetConnections(IList<IEncounterNode> connections)
 		{
-			//encounterInstance.ProgressToNode(_next);
+			Choices = connections.Cast<ChoiceBlockNode>().ToArray();
+		}
+
+		public void Run(IEncounterInstance encounterInstance)
+		{
+			// UI will drive this and call back to our Continue function
+		}
+
+		public void Continue(IEncounterInstance encounterInstance, int choiceIndex)
+		{
+			encounterInstance.ProgressToNode(Choices[choiceIndex]);
 		}
 	}
 }

@@ -68,23 +68,34 @@ namespace Encounters.Editor
 
 			void RecurseNode(INode node)
 			{
-				var connectedNode = GetNextNode(node);
-				if (connectedNode == null) return; // This is the end of the graph
+				// Most nodes have a singular "ExecutionPort" node. Add it if available
+				var connectedExecutionNode = GetExecutionOutputNode(node);
+				AddConnectedNode(node, connectedExecutionNode);
 
-				// Capture the connection
-				if (nodeConnections.TryGetValue(node, out var existingList))
+				// Nodes with multiple outcomes will have "block nodes". Add those as well.
+				var blockNodes = GetBlockNodes(node);
+				foreach (var blockNode in blockNodes)
 				{
-					existingList.Add(connectedNode);
+					AddConnectedNode(node, blockNode);
+				}
+			}
+
+			void AddConnectedNode(INode fromNode, INode toNode)
+			{
+				if (toNode == null) return;
+				if (nodeConnections.TryGetValue(fromNode, out var existingList))
+				{
+					existingList.Add(toNode);
 				}
 				else
 				{
-					nodeConnections[node] = new List<INode> { connectedNode };
+					nodeConnections[fromNode] = new List<INode> { toNode };
 				}
 
 				// Recurse through the connected node if needed
-				if (allConnectedNodes.Contains(connectedNode)) return; // We've already visited this node
-				allConnectedNodes.Add(connectedNode);
-				RecurseNode(connectedNode);
+				if (allConnectedNodes.Contains(toNode)) return; // We've already visited this node
+				allConnectedNodes.Add(toNode);
+				RecurseNode(toNode);
 			}
 		}
 
@@ -104,11 +115,27 @@ namespace Encounters.Editor
 			return runtimeNodes;
 		}
 
-		static INode GetNextNode(INode currentNode, string portName = EditorNodeUtils.EXECUTION_PORT_NAME)
+		static INode GetOutputNode(INode currentNode, string portName)
 		{
 			var outputPort = currentNode.GetOutputPortByName(portName);
 			var nextNodePort = outputPort?.FirstConnectedPort;
 			return nextNodePort?.GetNode();
+		}
+
+		static INode GetExecutionOutputNode(INode currentNode)
+		{
+			return GetOutputNode(currentNode, EditorNodeUtils.EXECUTION_PORT_NAME);
+		}
+
+		static IEnumerable<INode> GetBlockNodes(INode currentNode)
+		{
+			var contextNode = currentNode as ContextNode;
+			if (contextNode == null)
+			{
+				return Enumerable.Empty<INode>();
+			}
+
+			return contextNode.BlockNodes.ToArray();
 		}
 
 		static void ConnectRuntimeNodes(IList<IEncounterNode> runtimeNodes, IList<INode> editorNodes, Dictionary<INode, IList<INode>> editorNodeConnections)

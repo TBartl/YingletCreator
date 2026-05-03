@@ -6,6 +6,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 {
 	[SerializeField] GameObject _narrationPrefab;
 	[SerializeField] GameObject _promptContinuePrefab;
+	[SerializeField] GameObject _promptChoicesPrefab;
 	IActiveEncounterProvider _activeEncounterProvider;
 
 	void Awake()
@@ -57,6 +58,11 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		else if (node is PromptContinueNode)
 		{
 			Instantiate(_promptContinuePrefab, transform);
+		}
+		else if (node is PromptChoiceNode)
+		{
+			GameObject promptChoicesObject = Instantiate(_promptChoicesPrefab, transform);
+			promptChoicesObject.GetComponentInChildrenSafe<IPromptChoicesUI>().SetNode(_activeEncounterProvider.ActiveEncounter.Val, (PromptChoiceNode)node);
 		}
 	}
 
