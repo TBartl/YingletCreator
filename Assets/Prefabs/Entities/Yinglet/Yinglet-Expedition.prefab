@@ -242,6 +242,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: 4
       addedObject: {fileID: 4839121308005171604}
+    - targetCorrespondingSourceObject: {fileID: 6568862148423832943, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6066155314230745513}
   m_SourcePrefab: {fileID: 100100000, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
 --- !u!1 &121941050219542058 stripped
 GameObject:
@@ -260,6 +263,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ed469fc048fd2409c2532b14067de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterEncounterRotation
+--- !u!1 &347503066627412226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6568862148423832943, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6066155314230745513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347503066627412226}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c4bf0c4c9176a43937361971e30eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableJiggleInEncounter
 --- !u!1 &3211503397218376434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8316547844715126431, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
