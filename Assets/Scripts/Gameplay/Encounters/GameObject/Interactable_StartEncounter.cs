@@ -14,6 +14,8 @@ public class Interactable_StartEncounter : MonoBehaviour, IInteractable, IInitia
 	private INetIdentityProvider _identityProvider;
 	private INetIdentity _netIdentity;
 
+	IEncounterMemory _memory = new EncounterMemory();
+
 	public string TooltipText { get; private set; }
 
 	public Vector3 TooltipOffset => Vector3.up * .6f;
@@ -52,7 +54,7 @@ public class Interactable_StartEncounter : MonoBehaviour, IInteractable, IInitia
 		var characterEncounter = character.gameObject.GetComponentInChildrenSafe<ICharacterEncounterReference>();
 		if (characterEncounter.Encounter.Val != null) return;
 
-		var encounterInstance = new EncounterInstance(_encounter, this.gameObject, character.gameObject.GetComponentSafe<ICharacterRoot>());
+		var encounterInstance = new EncounterInstance(_encounter, _memory, this.gameObject, character.gameObject.GetComponentSafe<ICharacterRoot>());
 		_encounterInstance.Val = encounterInstance;
 		_encounterInstance.Val.OnFinished += Encounter_OnFinished;
 		characterEncounter.SetEncounter(encounterInstance);

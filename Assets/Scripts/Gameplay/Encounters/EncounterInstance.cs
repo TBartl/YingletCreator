@@ -37,31 +37,33 @@ public interface IEncounterInstance
 
 	event Action OnFinished;
 
+	IEncounterMemory Memory { get; }
 	EncounterInstanceExtraData Data { get; }
 }
 
 public sealed class EncounterInstance : IEncounterInstance
 {
-
 	Observable<IEncounterNode> _currentNode = new();
 	IList<IEncounterNode> _nodeHistory = new List<IEncounterNode>();
 	private EncounterGraph _encounterGraph;
 	Lazy<string> _characterName;
 
-	public GameObject EncounterSource { get; private set; }
-	public ICharacterRoot Character { get; private set; }
+	public GameObject EncounterSource { get; }
+	public ICharacterRoot Character { get; }
 
 	public IReadOnlyObservable<IEncounterNode> CurrentNode => _currentNode;
 
 	public string CharacterName => _characterName.Value;
 
+	public IEncounterMemory Memory { get; }
 	public EncounterInstanceExtraData Data { get; private set; }
 
 	public event Action OnFinished;
 
-	public EncounterInstance(EncounterGraph encounterGraph, GameObject encounterSource, ICharacterRoot character)
+	public EncounterInstance(EncounterGraph encounterGraph, IEncounterMemory encounterMemory, GameObject encounterSource, ICharacterRoot character)
 	{
 		_encounterGraph = encounterGraph;
+		this.Memory = encounterMemory;
 		this.EncounterSource = encounterSource;
 		this.Character = character;
 
