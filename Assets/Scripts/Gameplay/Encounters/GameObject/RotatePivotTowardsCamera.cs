@@ -34,7 +34,6 @@ public class RotatePivotTowardsCamera : MonoBehaviour
 		// Shift the sprite along Z to maintain its center position
 		// As the pivot rotates, the sprite's center moves, so we need to compensate
 		float zOffset = CHILD_RADIUS * Mathf.Sin(angleX * Mathf.Deg2Rad);
-		Debug.Log(zOffset);
 		transform.localPosition = new Vector3(0, 0, -zOffset);
 	}
 }
