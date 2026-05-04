@@ -2,6 +2,7 @@
 
 namespace Encounters.Runtime
 {
+	[System.Serializable]
 	public enum EncounterPlaySoundLocation
 	{
 		EncounterSource,
