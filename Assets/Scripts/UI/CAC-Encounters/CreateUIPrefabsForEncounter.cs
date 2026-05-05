@@ -7,6 +7,10 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 	[SerializeField] GameObject _narrationPrefab;
 	[SerializeField] GameObject _promptContinuePrefab;
 	[SerializeField] GameObject _promptChoicesPrefab;
+	[SerializeField] GameObject _rollPrefab;
+
+	int _nodeResultDataIndex;
+
 	IActiveEncounterProvider _activeEncounterProvider;
 	private IEncounterLogPositioner _positioner;
 
@@ -39,6 +43,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		if (to != null)
 		{
 			DestroyAllChildren(); // We don't want to always do this - when we're transitioning out we want to leave the UI on screen
+			_nodeResultDataIndex = 0;
 			_positioner.ResetPosition();
 			to.CurrentNode.OnChanged += OnEncounterNodeChanged;
 		}
@@ -48,15 +53,18 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 	{
 		if (to == null) return;
 		CreateObjectForNode(to);
-
 	}
+
+
 
 	void CreateObjectForNode(IEncounterNode node)
 	{
+		var encounter = _activeEncounterProvider.ActiveEncounter.Val;
+
 		if (node is NarrationNode narrationNode)
 		{
 			GameObject narrationObject = Instantiate(_narrationPrefab, transform);
-			narrationObject.GetComponentInChildrenSafe<INarrationTextBox>().SetNode(_activeEncounterProvider.ActiveEncounter.Val, narrationNode);
+			narrationObject.GetComponentInChildrenSafe<INarrationTextBox>().SetNode(encounter, narrationNode);
 			_positioner.ObjectAdded(false);
 		}
 		else if (node is PromptContinueNode)
@@ -64,12 +72,28 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 			Instantiate(_promptContinuePrefab, transform);
 			_positioner.ObjectAdded(false);
 		}
-		else if (node is PromptChoiceNode)
+		else if (node is PromptChoiceNode promptChoiceNode)
 		{
 			GameObject promptChoicesObject = Instantiate(_promptChoicesPrefab, transform);
-			promptChoicesObject.GetComponentInChildrenSafe<IPromptChoicesUI>().SetNode(_activeEncounterProvider.ActiveEncounter.Val, (PromptChoiceNode)node);
+			promptChoicesObject.GetComponentInChildrenSafe<IPromptChoicesUI>().SetNode(encounter, promptChoiceNode);
 			_positioner.ObjectAdded(true);
 		}
+		else if (node is RollBlockNode rollBlockNode)
+		{
+			// We create the UI when the block has been selected since that's when all the data is available
+			// Figure out the note that originated it
+			var rollNode = (RollNode)(encounter.NodeHistory[encounter.NodeHistory.Count - 2]);
+			GameObject rollObject = Instantiate(_rollPrefab, transform);
+			rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
+			_positioner.ObjectAdded(false);
+		}
+	}
+
+	object GetNextData(IEncounterInstance encounter)
+	{
+		var data = encounter.NodeResultData[_nodeResultDataIndex];
+		_nodeResultDataIndex++;
+		return data;
 	}
 
 	void DestroyAllChildren()

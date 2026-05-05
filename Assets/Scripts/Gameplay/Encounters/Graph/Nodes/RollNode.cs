@@ -32,15 +32,13 @@ namespace Encounters.Runtime
 
 		public void Run(IEncounterInstance encounterInstance)
 		{
-			// TODO: once we figure out how this will all work
-			//var rng = encounterInstance.EncounterSource.GetComponentInParentSafe<IDeterministicRandomProvider>();
-			//rng.GetNextRandomInt()
+			var rollProvider = encounterInstance.EncounterSource.GetComponentInParentSafe<IRollProvider>();
+			int rollResult = rollProvider.GetRoll(encounterInstance.Character, RollType);
 
-			var branch = Branches.FirstOrDefault();
-			if (branch == null)
-			{
-				Debug.LogWarning($"No branches on {nameof(RollNode)}.");
-			}
+			// Write this to the instance so the UI can read it
+			encounterInstance.NodeResultData.Add(rollResult);
+
+			var branch = Branches.FirstOrDefault(branch => rollResult <= branch.MaxValueInclusive);
 			encounterInstance.ProgressToNode(branch); // Ok to be null
 		}
 	}

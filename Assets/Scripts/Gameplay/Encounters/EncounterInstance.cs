@@ -1,5 +1,4 @@
-﻿
-using Character.Creator;
+﻿using Character.Creator;
 using Character.Data;
 using Encounters.Runtime;
 using Reactivity;
@@ -30,6 +29,15 @@ public interface IEncounterInstance
 
 	IReadOnlyObservable<IEncounterNode> CurrentNode { get; }
 
+	/// <summary>
+	/// Nodes can put arbitrary data here relating to their execution. For example:
+	/// - PromptChoiceNodes may store their result
+	/// - RollNodes may store the roll result
+	/// This isn't particularly relevant for driving logic (the nodes themselves should be doing that)
+	/// But it can be useful for observers like the UI
+	/// </summary>
+	IList<object> NodeResultData { get; }
+
 	GameObject EncounterSource { get; }
 	ICharacterRoot Character { get; }
 
@@ -39,12 +47,18 @@ public interface IEncounterInstance
 
 	IEncounterMemory Memory { get; }
 	EncounterInstanceExtraData Data { get; }
+
+	/// <summary>
+	/// A history of all nodes visited during this encounter, in order
+	/// </summary>
+	IList<IEncounterNode> NodeHistory { get; }
 }
 
 public sealed class EncounterInstance : IEncounterInstance
 {
 	Observable<IEncounterNode> _currentNode = new();
 	IList<IEncounterNode> _nodeHistory = new List<IEncounterNode>();
+	IList<object> _nodeResultData = new List<object>();
 	private EncounterGraph _encounterGraph;
 	Lazy<string> _characterName;
 
@@ -57,6 +71,10 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public IEncounterMemory Memory { get; }
 	public EncounterInstanceExtraData Data { get; private set; }
+
+	public IList<object> NodeResultData => _nodeResultData;
+
+	public IList<IEncounterNode> NodeHistory => _nodeHistory;
 
 	public event Action OnFinished;
 
@@ -73,9 +91,7 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public void Start()
 	{
-		_currentNode.Val = _encounterGraph.StartNode;
-		_nodeHistory.Add(_currentNode.Val);
-		_currentNode.Val.Run(this);
+		ProgressToNode(_encounterGraph.StartNode);
 	}
 
 	public void ProgressToNode(IEncounterNode next)
@@ -85,8 +101,8 @@ public sealed class EncounterInstance : IEncounterInstance
 			OnFinished?.Invoke();
 			return;
 		}
+		_nodeHistory.Add(next);
 		_currentNode.Val = next;
-		_nodeHistory.Add(_currentNode.Val);
 		_currentNode.Val.Run(this);
 	}
 
