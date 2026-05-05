@@ -5,14 +5,13 @@ using Unity.GraphToolkit.Editor;
 namespace Encounters.Editor
 {
 	[Serializable]
-	public class MemoryBranchNode : ContextNode, IEditorNode
+	public class RollNode : ContextNode, IEditorNode
 	{
-		const string KEY_PORT_NAME = "Key";
-
+		const string ROLL_TYPE_PORT_NAME = "Type";
 
 		protected override void OnDefinePorts(IPortDefinitionContext context)
 		{
-			context.AddInputPort<string>(KEY_PORT_NAME)
+			context.AddInputPort<RollType>(ROLL_TYPE_PORT_NAME)
 				.Build();
 
 			context.AddInputPort(EditorNodeUtils.EXECUTION_PORT_NAME)
@@ -22,8 +21,8 @@ namespace Encounters.Editor
 		}
 		public IEncounterNode CreateRuntimeNode()
 		{
-			string key = this.GetPortValue<string>(KEY_PORT_NAME);
-			return new Runtime.MemoryBranchNode(key);
+			RollType rollType = this.GetPortValue<RollType>(ROLL_TYPE_PORT_NAME);
+			return new Runtime.RollNode(rollType);
 		}
 	}
 }

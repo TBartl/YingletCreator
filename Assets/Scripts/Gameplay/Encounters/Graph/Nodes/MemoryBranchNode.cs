@@ -27,7 +27,6 @@ namespace Encounters.Runtime
 			if (branch == null)
 			{
 				Debug.LogWarning($"MemoryBranchNode with key {_key} has no branch for value {memoryVal}");
-				return;
 			}
 			encounterInstance.ProgressToNode(branch); // Ok to be null
 		}
