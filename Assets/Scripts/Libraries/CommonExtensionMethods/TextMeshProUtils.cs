@@ -8,4 +8,5 @@ public static class TMPUtils
 	public const string TooltipRed = "#FF5A58";
 	public const string TooltipGreen = "#52E750";
 	public const string EnergySprite = "<sprite tint=\"1\" name=\"Energy\">";
+	public const string DiceSprite = "<sprite tint=\"1\" name=\"Dice\">";
 }

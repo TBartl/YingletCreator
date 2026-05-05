@@ -58,7 +58,13 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI
 				sb.Append($"</color>");
 			}
 		}
-		// TODO: Eventually want to preview roll type
+
+		if (_choice.Next is RollNode rollNode)
+		{
+			// Next node we're rolling, so let's display that in this text
+			sb.Append($"[{TMPUtils.DiceSprite}{rollNode.RollType.ToString().ToUpper()}] ");
+		}
+
 		sb.Append(_choice.Text);
 		return sb.ToString();
 	}

@@ -28,6 +28,12 @@ namespace Encounters.Runtime
 			Text = text;
 		}
 
+		/// <summary>
+		/// The node after this
+		/// Exposed for UI purposes: We want to display the subsequent roll type when applicable
+		/// </summary>
+		public IEncounterNode Next => _next;
+
 		public override void Run(IEncounterInstance encounterInstance)
 		{
 			// Charge the player
