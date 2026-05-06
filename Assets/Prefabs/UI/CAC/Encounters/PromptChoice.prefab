@@ -154,6 +154,9 @@ GameObject:
   - component: {fileID: 1984015388162119730}
   - component: {fileID: 5689645587903384411}
   - component: {fileID: 7120251353591532573}
+  - component: {fileID: 6397164663545871520}
+  - component: {fileID: 4124876153669509996}
+  - component: {fileID: 2397759532409744559}
   m_Layer: 5
   m_Name: PromptChoice
   m_TagString: Untagged
@@ -341,3 +344,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnButtonClicked
   _soundEffect: {fileID: 11400000, guid: 66f9c6c60fe90fd4bb4a8aa7d90d09a8, type: 2}
+--- !u!225 &6397164663545871520
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171743516772032580}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4124876153669509996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171743516772032580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8fa028335d4a04f995a75db4097974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ApplyUIInteractableToCanvasGroup
+--- !u!114 &2397759532409744559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171743516772032580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae8e5f1ad79d0547b8e7bbda63c3b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LowerCanvasGroupAlphaIfNotUIInteractable
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
+  _reducedAlpha: 0.5

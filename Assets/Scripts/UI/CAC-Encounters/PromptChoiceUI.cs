@@ -8,7 +8,7 @@ public interface IPromptChoiceUI
 {
 	void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice);
 }
-public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI
+public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractable
 {
 	[SerializeField] Sprite _normalState;
 	[SerializeField] Sprite _hoveredState;
@@ -19,6 +19,9 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI
 	private Button _button;
 	private IEncounterInstance _encounter;
 	private ChoiceBlockNode _choice;
+	private Observable<bool> _canAfford = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
+
+	public IReadOnlyObservable<bool> Interactable => _canAfford;
 
 	public void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice)
 	{
@@ -32,17 +35,23 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI
 		_text.text = GetText();
 
 		_button.onClick.AddListener(OnClicked);
+		SetCanAfford();
 		AddReflector(ReflectHovering);
+	}
+
+	void SetCanAfford()
+	{
+		var currentEnergy = _encounter.Character.GetComponentInChildrenSafe<ICharacterResources>().GetResource(CharacterResourceType.Energy);
+		_canAfford.Val = currentEnergy >= _choice.EnergyCost;
 	}
 
 	private string GetText()
 	{
-		var currentEnergy = _encounter.Character.GetComponentInChildrenSafe<ICharacterResources>().GetResource(CharacterResourceType.Energy);
 
 		var sb = new System.Text.StringBuilder();
 		if (_choice.EnergyCost > 0)
 		{
-			if (currentEnergy < _choice.EnergyCost)
+			if (!_canAfford.Val)
 			{
 				sb.Append($"<color={TMPUtils.TooltipRed}>");
 			}
@@ -53,7 +62,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI
 				sb.Append(TMPUtils.EnergySprite);
 			}
 			sb.Append("] ");
-			if (currentEnergy < _choice.EnergyCost)
+			if (!_canAfford.Val)
 			{
 				sb.Append($"</color>");
 			}
