@@ -26,7 +26,7 @@ public class EncounterLogPositioner : MonoBehaviour, IEncounterLogPositioner, II
 
 	public void ObjectAdded(bool closerToBottom)
 	{
-		this.StopAndStartCoroutine(ref _coroutine, DelayedHandling(closerToBottom));
+		CoroutineRunner.S.StopAndStartCoroutine(ref _coroutine, DelayedHandling(closerToBottom));
 	}
 
 	public void ResetPosition()

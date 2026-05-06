@@ -46,6 +46,13 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 			_nodeResultDataIndex = 0;
 			_positioner.ResetPosition();
 			to.CurrentNode.OnChanged += OnEncounterNodeChanged;
+
+			// Catch up
+			for (int i = 0; i < to.NodeHistory.Count; i++)
+			{
+				var node = to.NodeHistory[i];
+				CreateObjectForNode(node, i);
+			}
 		}
 	}
 

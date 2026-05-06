@@ -33,7 +33,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		_text = this.GetComponentInChildrenSafe<TMP_Text>();
 		_hoverable = this.GetComponentSafe<IHoverable>();
 		_button = this.GetComponentSafe<Button>();
-		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>();
+		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
 
 		SetCanAfford();
 		_text.text = GetText();
