@@ -17,11 +17,12 @@ public class PromptChoicesUI : MonoBehaviour, IPromptChoicesUI
 			Destroy(child.gameObject);
 		}
 
-		foreach (var choice in node.Choices)
+		for (int i = 0; i < node.Choices.Length; i++)
 		{
+			var choice = node.Choices[i];
 			var choiceGO = Instantiate(_choicePrefab, transform);
 			var choiceUI = choiceGO.GetComponent<IPromptChoiceUI>();
-			choiceUI.SetChoice(encounter, choice);
+			choiceUI.SetChoice(encounter, choice, i);
 		}
 	}
 }

@@ -45,6 +45,7 @@ public interface IEncounterInstance : IDisposable
 
 	event Action OnFinished;
 
+	IEncounterNetworking Networking { get; }
 	IEncounterMemory Memory { get; }
 	EncounterInstanceExtraData Data { get; }
 
@@ -72,6 +73,7 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public string CharacterName => _characterName.Value;
 
+	public IEncounterNetworking Networking { get; private set; }
 	public IEncounterMemory Memory { get; }
 	public EncounterInstanceExtraData Data { get; private set; }
 
@@ -86,17 +88,19 @@ public sealed class EncounterInstance : IEncounterInstance
 	public EncounterInstance(EncounterGraph encounterGraph, IEncounterMemory encounterMemory, GameObject encounterSource, ICharacterRoot character)
 	{
 		_encounterGraph = encounterGraph;
-		this.Memory = encounterMemory;
-		this.EncounterSource = encounterSource;
-		this.Character = character;
+		Memory = encounterMemory;
+		EncounterSource = encounterSource;
+		Character = character;
 
 		_characterName = new Lazy<string>(GetCharacterName);
+		Networking = new EncounterNetworking(this);
 		Data = new EncounterInstanceExtraData();
 		_lastBlockingNode = new Computed<int>(ComputeLastBlockingNode);
 	}
 
 	public void Dispose()
 	{
+		Networking.Dispose();
 		_lastBlockingNode.Destroy();
 	}
 

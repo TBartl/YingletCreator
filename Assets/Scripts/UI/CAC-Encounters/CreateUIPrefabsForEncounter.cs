@@ -93,7 +93,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		{
 			// We create the UI when the block has been selected since that's when all the data is available
 			// Figure out the note that originated it
-			var rollNode = (RollNode)(encounter.NodeHistory[encounter.NodeHistory.Count - 2]);
+			var rollNode = (RollNode)(encounter.NodeHistory[indexInHistory - 1]);
 			GameObject rollObject = Instantiate(_rollPrefab, transform);
 			SetReferenceUI(rollObject);
 			rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));

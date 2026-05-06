@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public interface IPromptChoiceUI
 {
-	void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice);
+	void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice, int choiceIndex);
 }
 public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractable
 {
@@ -20,15 +20,17 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	private IEncounterNodeReferenceUI _reference;
 	private IEncounterInstance _encounter;
 	private ChoiceBlockNode _choice;
+	private int _choiceIndex;
 	private Observable<bool> _canAfford = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
 
 	public IReadOnlyObservable<bool> Interactable => _canAfford;
 	Computed<bool> _showAsSelected;
 
-	public void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice)
+	public void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice, int choiceIndex)
 	{
 		_encounter = encounter;
 		_choice = choice;
+		_choiceIndex = choiceIndex;
 		_backgroundImage = this.GetComponentSafe<Image>();
 		_text = this.GetComponentInChildrenSafe<TMP_Text>();
 		_hoverable = this.GetComponentSafe<IHoverable>();
@@ -94,7 +96,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 
 	private void OnClicked()
 	{
-		_encounter.ProgressToNode(_choice);
+		_encounter.Networking.SendMessage_SelectChoice(_choiceIndex);
 	}
 
 	private bool ComputeShowAsSelected()

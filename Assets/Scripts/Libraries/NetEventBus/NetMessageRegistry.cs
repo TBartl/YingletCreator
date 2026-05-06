@@ -43,6 +43,9 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 		Register<Message_CharacterEnteredRoom>();
 		Register<Message_InteractWithEncounter>();
 
+		Register<Message_EncounterContinue>();
+		Register<Message_EncounterSelectChoice>();
+
 		// Do a little bit of reflection to see if there's any message types we missed out on and log a warning about them
 		var reflectedMessageTypes = AppDomain.CurrentDomain.GetAssemblies()
 			.SelectMany(a => a.GetTypes())

@@ -161,6 +161,9 @@ GameObject:
   - component: {fileID: 2773551925551238394}
   - component: {fileID: 8846267701287649218}
   - component: {fileID: 459274995753239410}
+  - component: {fileID: 3132439128526144066}
+  - component: {fileID: 4429999302758146861}
+  - component: {fileID: 6381610244915963413}
   m_Layer: 0
   m_Name: EncounterHUD
   m_TagString: Untagged
@@ -223,6 +226,42 @@ MonoBehaviour:
   _inverse: 0
   _menus:
   - {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
+--- !u!225 &3132439128526144066
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903919125420193185}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4429999302758146861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903919125420193185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8fa028335d4a04f995a75db4097974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ApplyUIInteractableToCanvasGroup
+--- !u!114 &6381610244915963413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903919125420193185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c5fa2b990c838438d674e95c953dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterUIInteractableOnlyIfOurCharacter
 --- !u!1001 &1793295071618484896
 PrefabInstance:
   m_ObjectHideFlags: 0
