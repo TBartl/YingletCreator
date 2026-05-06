@@ -8,6 +8,9 @@ using Reactivity;
 public interface IEncounterNodeReferenceUI
 {
 	void SetReference(IEncounterInstance encounterInstance, int indexInHistory);
+
+	IEncounterInstance EncounterInstance { get; }
+	int IndexInHistory { get; }
 }
 
 public class EncounterNodeReferenceUI : ReactiveBehaviour, IEncounterNodeReferenceUI, IUIInteractable
@@ -17,6 +20,9 @@ public class EncounterNodeReferenceUI : ReactiveBehaviour, IEncounterNodeReferen
 	private Computed<bool> _interactable;
 
 	public IReadOnlyObservable<bool> Interactable => _interactable;
+
+	public IEncounterInstance EncounterInstance => _encounterInstance;
+	public int IndexInHistory => _indexInHistory;
 
 	public void SetReference(IEncounterInstance encounterInstance, int indexInHistory)
 	{
