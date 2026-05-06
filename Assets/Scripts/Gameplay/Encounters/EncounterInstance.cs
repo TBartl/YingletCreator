@@ -18,7 +18,7 @@ public sealed class EncounterInstanceExtraData
 	public FullCharacterExpressions CharacterExpressions { get => _characterExpressions.Val; internal set => _characterExpressions.Val = value; }
 }
 
-public interface IEncounterInstance
+public interface IEncounterInstance : IDisposable
 {
 	/// <summary>
 	/// To be called after references to this are setup
@@ -52,15 +52,18 @@ public interface IEncounterInstance
 	/// A history of all nodes visited during this encounter, in order
 	/// </summary>
 	IList<IEncounterNode> NodeHistory { get; }
+
+	int LastBlockingNode { get; }
 }
 
 public sealed class EncounterInstance : IEncounterInstance
 {
 	Observable<IEncounterNode> _currentNode = new();
-	IList<IEncounterNode> _nodeHistory = new List<IEncounterNode>();
+	IList<IEncounterNode> _nodeHistory = new ObservableList<IEncounterNode>();
 	IList<object> _nodeResultData = new List<object>();
 	private EncounterGraph _encounterGraph;
 	Lazy<string> _characterName;
+	Computed<int> _lastBlockingNode;
 
 	public GameObject EncounterSource { get; }
 	public ICharacterRoot Character { get; }
@@ -76,6 +79,8 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public IList<IEncounterNode> NodeHistory => _nodeHistory;
 
+	public int LastBlockingNode => _lastBlockingNode.Val;
+
 	public event Action OnFinished;
 
 	public EncounterInstance(EncounterGraph encounterGraph, IEncounterMemory encounterMemory, GameObject encounterSource, ICharacterRoot character)
@@ -87,6 +92,12 @@ public sealed class EncounterInstance : IEncounterInstance
 
 		_characterName = new Lazy<string>(GetCharacterName);
 		Data = new EncounterInstanceExtraData();
+		_lastBlockingNode = new Computed<int>(ComputeLastBlockingNode);
+	}
+
+	public void Dispose()
+	{
+		_lastBlockingNode.Destroy();
 	}
 
 	public void Start()
@@ -111,5 +122,15 @@ public sealed class EncounterInstance : IEncounterInstance
 	{
 		var dataRepo = Character.GetComponentInChildrenSafe<ICustomizationDataRepository>().CustomizationData;
 		return dataRepo.Name.Val;
+	}
+
+	private int ComputeLastBlockingNode()
+	{
+		for (int i = _nodeHistory.Count - 2; i >= 0; i--)
+		{
+			if (_nodeHistory[i].Blocking)
+				return i;
+		}
+		return -1;
 	}
 }

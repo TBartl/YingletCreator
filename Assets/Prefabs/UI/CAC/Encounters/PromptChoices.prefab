@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 3463840994337747591}
   - component: {fileID: 1563960760656548919}
   - component: {fileID: 3082895004580460984}
+  - component: {fileID: 3747011152505938351}
+  - component: {fileID: 8727047831562539121}
+  - component: {fileID: -3471639599998014476}
+  - component: {fileID: -5380082971413065786}
   m_Layer: 5
   m_Name: PromptChoices
   m_TagString: Untagged
@@ -86,6 +90,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncounterChoicesUI
   _choicePrefab: {fileID: 2171743516772032580, guid: 58a66fccc4d304b44a28e3db11a41e3f, type: 3}
+--- !u!114 &3747011152505938351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284093574424852559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beac0d9de4db3a4439bb29bf0237c37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterNodeReferenceUI
+--- !u!225 &8727047831562539121
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284093574424852559}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &-3471639599998014476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284093574424852559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8fa028335d4a04f995a75db4097974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ApplyUIInteractableToCanvasGroup
+--- !u!114 &-5380082971413065786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284093574424852559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae8e5f1ad79d0547b8e7bbda63c3b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LowerCanvasGroupAlphaIfNotUIInteractable
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
+  _reducedAlpha: 0.3
 --- !u!1 &8489287216317870475
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@
 			// Don't continue - the UI will do it
 		}
 
+		public override bool Blocking => true;
+
 		public void Continue(IEncounterInstance encounterInstance)
 		{
 			encounterInstance.ProgressToNode(_next);

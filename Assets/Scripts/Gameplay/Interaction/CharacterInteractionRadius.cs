@@ -4,17 +4,17 @@ using UnityEngine;
 
 public interface ICharacterInteractionRadius
 {
-	public IInteractable Highlighted { get; }
+	public ICharacterInteractable Highlighted { get; }
 }
 
 public class CharacterInteractionRadius : MonoBehaviour, ICharacterInteractionRadius
 {
 	private ICharacterIdentity _playerIdentity;
 	private ICharacterInteraction _characterInteraction;
-	IInteractable _closestCandidate;
-	Observable<IInteractable> _highlighted = new Observable<IInteractable>();
+	ICharacterInteractable _closestCandidate;
+	Observable<ICharacterInteractable> _highlighted = new Observable<ICharacterInteractable>();
 
-	public IInteractable Highlighted => _highlighted.Val;
+	public ICharacterInteractable Highlighted => _highlighted.Val;
 
 	void Start()
 	{
@@ -25,7 +25,7 @@ public class CharacterInteractionRadius : MonoBehaviour, ICharacterInteractionRa
 	{
 		if (!_playerIdentity.IsActiveAndMine) return;
 
-		var interactable = other.attachedRigidbody?.GetNullableComponentSafe<IInteractable>();
+		var interactable = other.attachedRigidbody?.GetNullableComponentSafe<ICharacterInteractable>();
 		if (interactable == null) return;
 
 		// Should probably check that we're not already in it?

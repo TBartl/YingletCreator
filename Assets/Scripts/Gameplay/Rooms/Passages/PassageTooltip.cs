@@ -3,7 +3,7 @@ using System.Text;
 using UnityEngine;
 
 // Currently leverages the IInteractable system. Might not in the future but for now this is fine
-internal class PassageTooltip : ReactiveBehaviour, IInteractable, IInitializable
+internal class PassageTooltip : ReactiveBehaviour, ICharacterInteractable, IInitializable
 {
 	[SerializeField] float _tooltipOffset = 1f;
 

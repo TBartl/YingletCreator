@@ -20,6 +20,8 @@ namespace Encounters.Runtime
 			_branches = connections.Cast<MemoryBranchBlockNode>().ToArray();
 		}
 
+		public bool Blocking => false;
+
 		public void Run(IEncounterInstance encounterInstance)
 		{
 			var memoryVal = encounterInstance.Memory.Read(_key);

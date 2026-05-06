@@ -10,6 +10,7 @@ namespace Encounters.Runtime
 		[SerializeReference]
 		protected IEncounterNode _next;
 
+
 		public void EditorSetConnections(IList<IEncounterNode> connections)
 		{
 			if (connections.Count > 1)
@@ -19,6 +20,9 @@ namespace Encounters.Runtime
 			_next = connections.FirstOrDefault();
 		}
 
+		public virtual bool Blocking => false;
+
 		public abstract void Run(IEncounterInstance encounterInstance);
+
 	}
 }

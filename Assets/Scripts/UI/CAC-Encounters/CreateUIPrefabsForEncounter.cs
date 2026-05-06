@@ -52,29 +52,33 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 	private void OnEncounterNodeChanged(IEncounterNode from, IEncounterNode to)
 	{
 		if (to == null) return;
-		CreateObjectForNode(to);
+		int indexInHistory = _activeEncounterProvider.ActiveEncounter.Val.NodeHistory.Count - 1;
+		CreateObjectForNode(to, indexInHistory);
 	}
 
 
 
-	void CreateObjectForNode(IEncounterNode node)
+	void CreateObjectForNode(IEncounterNode node, int indexInHistory)
 	{
 		var encounter = _activeEncounterProvider.ActiveEncounter.Val;
 
 		if (node is NarrationNode narrationNode)
 		{
 			GameObject narrationObject = Instantiate(_narrationPrefab, transform);
+			SetReferenceUI(narrationObject);
 			narrationObject.GetComponentInChildrenSafe<INarrationTextBox>().SetNode(encounter, narrationNode);
 			_positioner.ObjectAdded(false);
 		}
 		else if (node is PromptContinueNode)
 		{
-			Instantiate(_promptContinuePrefab, transform);
+			var go = Instantiate(_promptContinuePrefab, transform);
+			SetReferenceUI(go);
 			_positioner.ObjectAdded(false);
 		}
 		else if (node is PromptChoiceNode promptChoiceNode)
 		{
 			GameObject promptChoicesObject = Instantiate(_promptChoicesPrefab, transform);
+			SetReferenceUI(promptChoicesObject);
 			promptChoicesObject.GetComponentInChildrenSafe<IPromptChoicesUI>().SetNode(encounter, promptChoiceNode);
 			_positioner.ObjectAdded(true);
 		}
@@ -84,8 +88,14 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 			// Figure out the note that originated it
 			var rollNode = (RollNode)(encounter.NodeHistory[encounter.NodeHistory.Count - 2]);
 			GameObject rollObject = Instantiate(_rollPrefab, transform);
+			SetReferenceUI(rollObject);
 			rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
 			_positioner.ObjectAdded(false);
+		}
+
+		void SetReferenceUI(GameObject obj)
+		{
+			obj.GetComponentSafe<IEncounterNodeReferenceUI>().SetReference(encounter, indexInHistory);
 		}
 	}
 

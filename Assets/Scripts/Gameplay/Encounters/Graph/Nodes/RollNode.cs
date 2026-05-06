@@ -30,6 +30,8 @@ namespace Encounters.Runtime
 			Branches = connections.Cast<RollBlockNode>().ToArray();
 		}
 
+		public bool Blocking => false;
+
 		public void Run(IEncounterInstance encounterInstance)
 		{
 			var rollProvider = encounterInstance.EncounterSource.GetComponentInParentSafe<IRollProvider>();

@@ -115,6 +115,9 @@ GameObject:
   - component: {fileID: 8579870299614260648}
   - component: {fileID: 1397496403204476223}
   - component: {fileID: 2017539025426507966}
+  - component: {fileID: -2145684263265087876}
+  - component: {fileID: 3455463121456135189}
+  - component: {fileID: -7695624274729388941}
   m_Layer: 5
   m_Name: NarrationTextBox
   m_TagString: Untagged
@@ -188,6 +191,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace6f39074da4ae4f9e8ded30a623b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NarrationTextBox
+--- !u!114 &-2145684263265087876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887970609144080224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beac0d9de4db3a4439bb29bf0237c37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterNodeReferenceUI
+--- !u!225 &3455463121456135189
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887970609144080224}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &-7695624274729388941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887970609144080224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae8e5f1ad79d0547b8e7bbda63c3b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LowerCanvasGroupAlphaIfNotUIInteractable
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
+  _reducedAlpha: 0.3
 --- !u!1 &9216757324635791066
 GameObject:
   m_ObjectHideFlags: 0

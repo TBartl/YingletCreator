@@ -10,6 +10,8 @@ namespace Encounters.Runtime
 		[field: SerializeField]
 		public ChoiceBlockNode[] Choices { get; private set; }
 
+		public bool Blocking => true;
+
 		public void EditorSetConnections(IList<IEncounterNode> connections)
 		{
 			Choices = connections.Cast<ChoiceBlockNode>().ToArray();

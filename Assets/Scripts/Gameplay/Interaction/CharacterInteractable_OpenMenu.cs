@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Interactable_OpenMenu : MonoBehaviour, IInteractable
+public class CharacterInteractable_OpenMenu : MonoBehaviour, ICharacterInteractable
 {
 	[SerializeField] MenuType _menuToOpen;
 	[SerializeField] string _tooltipText = "Customize Character";

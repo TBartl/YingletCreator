@@ -4,7 +4,7 @@ using Reactivity;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Interactable_StartEncounter : MonoBehaviour, IInteractable, IInitializable
+public class CharacterInteractable_StartEncounter : MonoBehaviour, ICharacterInteractable, IInitializable
 {
 	[SerializeField] EncounterGraph _encounter;
 	[SerializeField] string _tooltipName;
@@ -56,8 +56,9 @@ public class Interactable_StartEncounter : MonoBehaviour, IInteractable, IInitia
 
 		var encounterInstance = new EncounterInstance(_encounter, _memory, this.gameObject, character.gameObject.GetComponentSafe<ICharacterRoot>());
 		_encounterInstance.Val = encounterInstance;
-		_encounterInstance.Val.OnFinished += Encounter_OnFinished;
 		characterEncounter.SetEncounter(encounterInstance);
+
+		_encounterInstance.Val.OnFinished += Encounter_OnFinished;
 		encounterInstance.Start();
 	}
 
@@ -65,6 +66,7 @@ public class Interactable_StartEncounter : MonoBehaviour, IInteractable, IInitia
 	private void Encounter_OnFinished()
 	{
 		_encounterInstance.Val.OnFinished -= Encounter_OnFinished;
+		_encounterInstance.Val.Dispose();
 		_encounterInstance.Val = null;
 	}
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public interface IInteractable
+public interface ICharacterInteractable
 {
 	public string TooltipText { get; }
 	public Vector3 TooltipOffset { get; }

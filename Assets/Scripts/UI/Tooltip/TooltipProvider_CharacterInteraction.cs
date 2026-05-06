@@ -3,9 +3,9 @@ using UnityEngine;
 
 public sealed class InteractableTooltip : ITooltip
 {
-	private readonly IInteractable _interactable;
+	private readonly ICharacterInteractable _interactable;
 
-	public InteractableTooltip(IInteractable interactable)
+	public InteractableTooltip(ICharacterInteractable interactable)
 	{
 		_interactable = interactable;
 	}
