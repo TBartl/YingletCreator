@@ -17,11 +17,13 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	TMP_Text _text;
 	private IHoverable _hoverable;
 	private Button _button;
+	private IEncounterNodeReferenceUI _reference;
 	private IEncounterInstance _encounter;
 	private ChoiceBlockNode _choice;
 	private Observable<bool> _canAfford = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
 
 	public IReadOnlyObservable<bool> Interactable => _canAfford;
+	Computed<bool> _showAsSelected;
 
 	public void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice)
 	{
@@ -31,11 +33,13 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		_text = this.GetComponentInChildrenSafe<TMP_Text>();
 		_hoverable = this.GetComponentSafe<IHoverable>();
 		_button = this.GetComponentSafe<Button>();
+		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>();
 
+		SetCanAfford();
 		_text.text = GetText();
 
 		_button.onClick.AddListener(OnClicked);
-		SetCanAfford();
+		_showAsSelected = CreateComputed(ComputeShowAsSelected);
 		AddReflector(ReflectHovering);
 	}
 
@@ -90,12 +94,34 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 
 	private void OnClicked()
 	{
-		_choice.Run(_encounter);
+		_encounter.ProgressToNode(_choice);
+	}
+
+	private bool ComputeShowAsSelected()
+	{
+		bool hovering = _hoverable.Hovered.Val;
+		if (hovering)
+		{
+			return true;
+		}
+		int indexInHistory = _reference.IndexInHistory;
+		var history = _reference.EncounterInstance.NodeHistory;
+		if (indexInHistory + 2 < history.Count)
+		{
+			// In this conditional, we know we're not the latest node
+			var selectedBlockNode = history[indexInHistory + 1];
+			if (selectedBlockNode == _choice)
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	private void ReflectHovering()
 	{
-		bool hovering = _hoverable.Hovered.Val;
-		_backgroundImage.sprite = hovering ? _hoveredState : _normalState;
+		bool showAsSelected = _showAsSelected.Val;
+		_backgroundImage.sprite = showAsSelected ? _hoveredState : _normalState;
 	}
 }

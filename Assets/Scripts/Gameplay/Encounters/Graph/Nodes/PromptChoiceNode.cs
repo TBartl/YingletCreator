@@ -21,10 +21,5 @@ namespace Encounters.Runtime
 		{
 			// UI will drive this and call back to our Continue function
 		}
-
-		public void Continue(IEncounterInstance encounterInstance, int choiceIndex)
-		{
-			encounterInstance.ProgressToNode(Choices[choiceIndex]);
-		}
 	}
 }
