@@ -15,4 +15,11 @@ MonoBehaviour:
   _uniqueAssetId: 324936bd27b56ae4e8927f2c80fc8787
   _icon: {fileID: -1564839197, guid: 2a0bb081fc7b16e42a3d7f5f5fc6c3d3, type: 3}
   _uiOverlayMaterial: {fileID: 2100000, guid: bdff78f0c30f3ca499dec79ccb970bf3, type: 2}
+  <Stats>k__BackingField:
+  - Stat:
+      m_AssetGUID: d6c79b72f3115bc48bc2cc6b159762f8
+    Value: 4
+  - Stat:
+      m_AssetGUID: ceb6f64157e76d147ba8c978bc9e072d
+    Value: 5
   _orderIndex: 300

@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+public struct StatAllocation
+{
+	[SerializeField] public AssetReferenceT<StatId> Stat;
+	[SerializeField] public int Value;
+}
+
 /// <summary>
 /// Controls the preview portrait generated for characters
 /// </summary>
@@ -14,6 +21,8 @@ public class ClassId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptable
 
 	[SerializeField] Material _uiOverlayMaterial;
 	public Material UiOverlayMaterial => _uiOverlayMaterial;
+
+	[field: SerializeField] public StatAllocation[] Stats { get; private set; }
 
 	[SerializeField] int _orderIndex;
 	public int OrderIndex => _orderIndex;

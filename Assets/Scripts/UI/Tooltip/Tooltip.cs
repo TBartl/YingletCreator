@@ -1,3 +1,4 @@
+using Reactivity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +10,7 @@ public interface ITooltip
 }
 
 
-public abstract class Tooltip : MonoBehaviour, ITooltip, IPointerEnterHandler, IPointerExitHandler
+public abstract class Tooltip : ReactiveBehaviour, ITooltip, IPointerEnterHandler, IPointerExitHandler
 {
 	private ITooltipProvider_UI _tooltipManager;
 	private RectTransform _rectTransform;
@@ -25,8 +26,9 @@ public abstract class Tooltip : MonoBehaviour, ITooltip, IPointerEnterHandler, I
 		_rectTransform = GetComponent<RectTransform>();
 	}
 
-	private void OnDestroy()
+	private new void OnDestroy()
 	{
+		base.OnDestroy();
 		_tooltipManager.Unregister(this);
 	}
 
