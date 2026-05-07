@@ -18,7 +18,9 @@ public class RollUI : MonoBehaviour, IRollUI
 		var rollResult = (int)nodeResultData;
 
 		_rollNumberText.text = rollResult.ToString();
-		_rollTypeText.text = $"ROLL: {node.RollType.ToString().ToUpper()}";
+		string rollType = node.RollInstructionsName;
+		int diceCount = RollProvider.GetNumDiceToRoll(encounter.Character, node.RollInstructions);
+		_rollTypeText.text = $"ROLL: {rollType} ({diceCount}x{TMPUtils.DiceSprite})";
 
 		var classification = blockNode.Classification;
 		_rollClassificationText.text = classification switch

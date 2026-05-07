@@ -4878,9 +4878,9 @@ MonoBehaviour:
         m_State: 0
         m_InputConstantsById:
           m_KeyList:
-          - Type
+          - Stat
           m_ValueList:
-          - rid: 3002418927067988031
+          - rid: 3002418971354595390
         m_InputPortInfos:
           expandedPortsById:
             m_KeyList: []
@@ -4905,17 +4905,6 @@ MonoBehaviour:
         m_Subtitle: 
         m_Node:
           rid: 3002418927067988032
-    - rid: 3002418927067988031
-      type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value:
-          m_EnumType:
-            m_Identification: Encounters.RollType, Assembly-CSharp, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
-          m_Value: 2
-        m_EnumType:
-          m_Identification: Encounters.RollType, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
     - rid: 3002418927067988032
       type: {class: RollNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -5352,6 +5341,10 @@ MonoBehaviour:
           m_PortDirection: 1
           m_PortOrientation: 0
           m_Title: 
+    - rid: 3002418971354595390
+      type: {class: 'Constant`1[[StatId, Assembly-CSharp]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value: {fileID: 11400000, guid: ceb6f64157e76d147ba8c978bc9e072d, type: 2}
     - rid: 7360723072746520644
       type: {class: GraphModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: UnityEditor.GraphToolkitModule}
       data:

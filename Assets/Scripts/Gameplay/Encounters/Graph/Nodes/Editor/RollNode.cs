@@ -7,11 +7,11 @@ namespace Encounters.Editor
 	[Serializable]
 	public class RollNode : ContextNode, IEditorNode
 	{
-		const string ROLL_TYPE_PORT_NAME = "Type";
+		const string ROLL_STAT_PORT_NAME = "Stat";
 
 		protected override void OnDefinePorts(IPortDefinitionContext context)
 		{
-			context.AddInputPort<RollType>(ROLL_TYPE_PORT_NAME)
+			context.AddInputPort<StatId>(ROLL_STAT_PORT_NAME)
 				.Build();
 
 			context.AddInputPort(EditorNodeUtils.EXECUTION_PORT_NAME)
@@ -21,8 +21,8 @@ namespace Encounters.Editor
 		}
 		public IEncounterNode CreateRuntimeNode()
 		{
-			RollType rollType = this.GetPortValue<RollType>(ROLL_TYPE_PORT_NAME);
-			return new Runtime.RollNode(rollType);
+			StatId rollStat = this.GetPortValue<StatId>(ROLL_STAT_PORT_NAME);
+			return new Runtime.RollNode(rollStat);
 		}
 	}
 }

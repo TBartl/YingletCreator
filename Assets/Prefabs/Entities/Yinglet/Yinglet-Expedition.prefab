@@ -223,6 +223,9 @@ PrefabInstance:
       addedObject: {fileID: 7301196521609204666}
     - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7331154189015399723}
+    - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6961630798180044867}
     - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
@@ -414,6 +417,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b315c22aebbaa4047909349773fde9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7331154189015399723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905449425488676304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85994ba2a0f6bf34ea8eb75daf50d436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
 --- !u!114 &6961630798180044867
 MonoBehaviour:
   m_ObjectHideFlags: 0

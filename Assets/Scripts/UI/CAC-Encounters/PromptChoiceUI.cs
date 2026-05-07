@@ -79,7 +79,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		if (_choice.Next is RollNode rollNode)
 		{
 			// Next node we're rolling, so let's display that in this text
-			sb.Append($"[{TMPUtils.DiceSprite}{rollNode.RollType.ToString().ToUpper()}] ");
+			sb.Append($"[{TMPUtils.DiceSprite}{rollNode.RollInstructionsName}] ");
 		}
 
 		sb.Append(_choice.Text);

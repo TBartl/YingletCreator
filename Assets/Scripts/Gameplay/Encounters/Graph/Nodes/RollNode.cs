@@ -2,27 +2,34 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Encounters
-{
-	public enum RollType
-	{
-		Any,
-		Body,
-		Mind
-	}
-}
-
 namespace Encounters.Runtime
 {
+
+	[System.Serializable]
+	public sealed class RollInstructions
+	{
+		[SerializeField] AssetReferenceT<StatId> _stat;
+		public StatId Stat => _stat?.LoadSync();
+		public RollInstructions(StatId stat)
+		{
+			if (stat != null)
+			{
+				_stat = new AssetReferenceT<StatId>(stat.UniqueAssetID);
+			}
+		}
+	}
+
 	[System.Serializable]
 	public sealed class RollNode : IEncounterNode
 	{
-		[field: SerializeField] public RollType RollType { get; private set; }
 		[field: SerializeField] public RollBlockNode[] Branches { get; private set; }
+		[field: SerializeField] public RollInstructions RollInstructions { get; private set; }
 
-		public RollNode(RollType rollType)
+		public string RollInstructionsName => RollInstructions.Stat.name?.ToString().ToUpper() ?? "Luck";
+
+		public RollNode(StatId stat)
 		{
-			RollType = rollType;
+			RollInstructions = new RollInstructions(stat);
 		}
 
 		public void EditorSetConnections(IList<IEncounterNode> connections)
@@ -35,7 +42,7 @@ namespace Encounters.Runtime
 		public void Run(IEncounterInstance encounterInstance)
 		{
 			var rollProvider = encounterInstance.EncounterSource.GetComponentInParentSafe<IRollProvider>();
-			int rollResult = rollProvider.GetRoll(encounterInstance.Character, RollType);
+			int rollResult = rollProvider.GetRoll(encounterInstance.Character, RollInstructions);
 
 			// Write this to the instance so the UI can read it
 			encounterInstance.NodeResultData.Add(rollResult);
