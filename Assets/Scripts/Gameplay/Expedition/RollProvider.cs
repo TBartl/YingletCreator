@@ -23,8 +23,8 @@ internal class RollProvider : MonoBehaviour, IRollProvider, IInitializable
 	{
 		_random = this.GetComponentSafe<IDeterministicRandomProvider>();
 
-		//_forcedRolls.Enqueue(2);
-		//_forcedRolls.Enqueue(5);
+		_forcedRolls.Enqueue(4);
+		_forcedRolls.Enqueue(6);
 	}
 	public int GetRoll(ICharacterRoot character, RollInstructions rollInstructions)
 	{

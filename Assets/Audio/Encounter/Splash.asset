@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4db867ccc3b54a4ab308bb659da15df, type: 3}
   m_Name: Splash
   m_EditorClassIdentifier: 
-  _clip: {fileID: 8300000, guid: 888a046752890654bbc868ab565e0728, type: 3}
+  _clip: {fileID: 8300000, guid: 95301e32d696bc24baa15b6b41e86f9f, type: 3}
   _volume: 1
   _randomPitchRange: {x: 0.9, y: 1.1}

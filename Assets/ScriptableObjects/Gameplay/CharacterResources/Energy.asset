@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Energy
   m_EditorClassIdentifier: Assembly-CSharp::ResourceId
   _uniqueAssetId: 6cd29e9808c41b04d83ec3a772a90f5e
+  _textIconName: Energy

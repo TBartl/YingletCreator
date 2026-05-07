@@ -11,4 +11,7 @@ public class CharacterResourceId : ScriptableObject, IHasUniqueAssetId
 	[SerializeField, HideInInspector] string _uniqueAssetId;
 	public string UniqueAssetID { get => _uniqueAssetId; set => _uniqueAssetId = value; }
 
+	[SerializeField] string _textIconName = "Energy";
+	public string TextIconName => _textIconName;
+
 }

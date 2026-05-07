@@ -8,6 +8,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 	[SerializeField] GameObject _promptContinuePrefab;
 	[SerializeField] GameObject _promptChoicesPrefab;
 	[SerializeField] GameObject _rollPrefab;
+	[SerializeField] GameObject _resourceChangedPrefab;
 
 	int _nodeResultDataIndex;
 
@@ -97,6 +98,13 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 			GameObject rollObject = Instantiate(_rollPrefab, transform);
 			SetReferenceUI(rollObject);
 			rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
+			_positioner.ObjectAdded(false);
+		}
+		else if (node is ChangeCharacterResourceNode changeCharacterResourceNode)
+		{
+			GameObject resourceChangeObject = Instantiate(_resourceChangedPrefab, transform);
+			SetReferenceUI(resourceChangeObject);
+			resourceChangeObject.GetComponentInChildrenSafe<IResourceChangeBox>().SetNode(encounter, changeCharacterResourceNode);
 			_positioner.ObjectAdded(false);
 		}
 
