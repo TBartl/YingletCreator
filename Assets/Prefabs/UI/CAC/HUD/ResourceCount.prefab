@@ -237,7 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f34d64a844a5104a9a938cebb8b59e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceType: 0
+  _resource:
+    m_AssetGUID: 6cd29e9808c41b04d83ec3a772a90f5e
   _offsetAmount: {x: 0, y: 10, z: 0}
   _easeSettings: {fileID: 11400000, guid: 38862b286ef7ea242947493aa6546211, type: 2}
 --- !u!114 &3482286720513669472
@@ -312,7 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb2007b670ce314999539cd31301b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceType: 0
+  _resource:
+    m_AssetGUID: 6cd29e9808c41b04d83ec3a772a90f5e
 --- !u!114 &1352402998100952509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +373,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

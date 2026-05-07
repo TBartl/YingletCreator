@@ -1,36 +1,34 @@
 using Reactivity;
 using UnityEngine;
 
-public enum CharacterResourceType
-{
-	Energy,
-	Clams,
-	Rerolls,
-}
 
 public interface ICharacterResources
 {
-	int GetResource(CharacterResourceType type);
-	void SetResource(CharacterResourceType type, int value);
+	int GetResource(CharacterResourceId type);
+	void SetResource(CharacterResourceId type, int value);
 }
 
 public class CharacterResources : MonoBehaviour, ICharacterResources, IInitializable
 {
-	ObservableDict<CharacterResourceType, int> _resources = new ObservableDict<CharacterResourceType, int>();
+	ObservableDict<CharacterResourceId, int> _resources = new ObservableDict<CharacterResourceId, int>();
+	private ICommonGameplayAssets _assets;
+
 	public void Initialize()
 	{
-		_resources[CharacterResourceType.Energy] = 5;
-		_resources[CharacterResourceType.Clams] = 2;
-		_resources[CharacterResourceType.Rerolls] = 0;
+		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
+
+		_resources[_assets.ResourceEnergy] = 5;
+		_resources[_assets.ResourceClams] = 2;
+		_resources[_assets.ResourceRerolls] = 0;
 	}
 
-	public int GetResource(CharacterResourceType type)
+	public int GetResource(CharacterResourceId type)
 	{
 		_resources.TryGetValue(type, out var value);
 		return value;
 	}
 
-	public void SetResource(CharacterResourceType type, int value)
+	public void SetResource(CharacterResourceId type, int value)
 	{
 		_resources[type] = value;
 	}

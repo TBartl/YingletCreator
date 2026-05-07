@@ -21,6 +21,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	private IEncounterInstance _encounter;
 	private ChoiceBlockNode _choice;
 	private int _choiceIndex;
+	private ICommonGameplayAssets _assets;
 	private Observable<bool> _canAfford = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
 
 	public IReadOnlyObservable<bool> Interactable => _canAfford;
@@ -31,6 +32,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		_encounter = encounter;
 		_choice = choice;
 		_choiceIndex = choiceIndex;
+		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 		_backgroundImage = this.GetComponentSafe<Image>();
 		_text = this.GetComponentInChildrenSafe<TMP_Text>();
 		_hoverable = this.GetComponentSafe<IHoverable>();
@@ -47,7 +49,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 
 	void SetCanAfford()
 	{
-		var currentEnergy = _encounter.Character.GetComponentInChildrenSafe<ICharacterResources>().GetResource(CharacterResourceType.Energy);
+		var currentEnergy = _encounter.Character.GetComponentInChildrenSafe<ICharacterResources>().GetResource(_assets.ResourceEnergy);
 		_canAfford.Val = currentEnergy >= _choice.EnergyCost;
 	}
 

@@ -39,13 +39,14 @@ namespace Encounters.Runtime
 			// Charge the player
 			if (EnergyCost > 0)
 			{
+				var assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 				var characterResources = encounterInstance.Character.GetComponentInChildrenSafe<ICharacterResources>();
-				int currentEnergy = characterResources.GetResource(CharacterResourceType.Energy);
+				int currentEnergy = characterResources.GetResource(assets.ResourceEnergy);
 				if (currentEnergy < EnergyCost)
 				{
 					Debug.LogWarning($"Not enough energy to run ChoiceBlockNode. Required: {EnergyCost}, Current: {currentEnergy}");
 				}
-				characterResources.SetResource(CharacterResourceType.Energy, Mathf.Max(currentEnergy - EnergyCost, 0));
+				characterResources.SetResource(assets.ResourceEnergy, Mathf.Max(currentEnergy - EnergyCost, 0));
 			}
 
 			// Go to our next node

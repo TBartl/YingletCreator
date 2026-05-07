@@ -11,6 +11,7 @@ public class OverlayEnergyBlipOnChanged : ReactiveBehaviour
 	[SerializeField] SharedEaseSettings _easeSettings;
 	[SerializeField] Color _addedColor;
 	[SerializeField] Color _removedColor;
+	private ICommonGameplayAssets _assets;
 	private Image _image;
 	private Coroutine _transitionCoroutine;
 	private IPartyMemberHUDReference _reference;
@@ -20,11 +21,12 @@ public class OverlayEnergyBlipOnChanged : ReactiveBehaviour
 
 	private void Start()
 	{
+		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 		_image = this.GetComponentSafe<Image>();
 		_parentSiblingIndex = this.transform.parent.GetSiblingIndex();
 		_reference = this.GetComponentInParentSafe<IPartyMemberHUDReference>();
 		_characterResources = CreateComputed(ComputeCharacterResources);
-		_resourceCount = CreateComputed(() => _characterResources.Val?.GetResource(CharacterResourceType.Energy) ?? 0);
+		_resourceCount = CreateComputed(() => _characterResources.Val?.GetResource(_assets.ResourceEnergy) ?? 0);
 		_resourceCount.OnChanged += OnResourceCountChanged;
 		this.gameObject.SetActive(false);
 	}

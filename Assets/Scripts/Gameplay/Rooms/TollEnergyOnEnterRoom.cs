@@ -12,7 +12,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 {
 	public const int DiscoveryEnergyCost = 2;
 	public const int ReEntryEnergyCost = 1;
-
+	private ICommonGameplayAssets _assets;
 	private ICharacterRoomDetector _characterRoomDetector;
 	private IFogOfWar _fogOfWar;
 	private ICharacterResources _resources;
@@ -21,6 +21,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 
 	private void Awake()
 	{
+		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 		_characterRoomDetector = this.GetCharacterRootComponent<ICharacterRoomDetector>();
 		_fogOfWar = this.GetExpeditionComponent<IFogOfWar>();
 		_resources = this.GetCharacterRootComponent<ICharacterResources>();
@@ -36,7 +37,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 	private void OnCharacterEnteredRoom(IRoom from, IRoom to)
 	{
 		int energyCost = GetCostToEnterRoom(to);
-		var resourceCount = _resources.GetResource(CharacterResourceType.Energy);
+		var resourceCount = _resources.GetResource(_assets.ResourceEnergy);
 		bool canAffordEntry = CanAffordEntry(energyCost);
 		if (!canAffordEntry)
 		{
@@ -44,7 +45,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 			return;
 		}
 		resourceCount = Mathf.Max(0, resourceCount - energyCost);
-		_resources.SetResource(CharacterResourceType.Energy, resourceCount);
+		_resources.SetResource(_assets.ResourceEnergy, resourceCount);
 		OnEnergyTollApplied?.Invoke(energyCost);
 	}
 
@@ -55,7 +56,7 @@ public class TollEnergyOnEnterRoom : MonoBehaviour, ITollEnergyOnEnterRoom
 	}
 	public bool CanAffordEntry(int cost)
 	{
-		var resourceCount = _resources.GetResource(CharacterResourceType.Energy);
+		var resourceCount = _resources.GetResource(_assets.ResourceEnergy);
 		return resourceCount >= cost;
 	}
 }

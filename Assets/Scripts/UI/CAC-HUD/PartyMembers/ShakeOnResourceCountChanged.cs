@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ShakeOnResourceCountChanged : ReactiveBehaviour
 {
-	[SerializeField] CharacterResourceType _resourceType;
+	[SerializeField] AssetReferenceT<CharacterResourceId> _resource;
 	[SerializeField] Vector3 _offsetAmount;
 	[SerializeField] SharedEaseSettings _easeSettings;
 	private RectTransform _rectTransform;
@@ -21,7 +21,7 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 		_originalPos = _rectTransform.anchoredPosition3D;
 		_reference = this.GetComponentInParentSafe<IPartyMemberHUDReference>();
 		_characterResources = CreateComputed(ComputeCharacterResources);
-		_resourceCount = CreateComputed(() => _characterResources.Val?.GetResource(_resourceType) ?? 0);
+		_resourceCount = CreateComputed(() => _characterResources.Val?.GetResource(_resource.LoadSync()) ?? 0);
 		_resourceCount.OnChanged += OnResourceCountChanged;
 	}
 

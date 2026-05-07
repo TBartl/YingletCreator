@@ -1630,6 +1630,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -96171179, guid: 577025f0ff2732e4fb8fe2004f08c11c, type: 3}
+    - target: {fileID: 6846161318771925960, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resource.m_AssetGUID
+      value: c50cc7c7dd27a98469cda018a86d12f9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846161318771925960, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resourceType.m_AssetGUID
+      value: c50cc7c7dd27a98469cda018a86d12f9
+      objectReference: {fileID: 0}
     - target: {fileID: 7043828761981339479, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: _text
       value: '<b>ENERGY</B>
@@ -1724,6 +1732,14 @@ PrefabInstance:
       propertyPath: _resourceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8443944965015463037, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resource.m_AssetGUID
+      value: c50cc7c7dd27a98469cda018a86d12f9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443944965015463037, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resourceType.m_AssetGUID
+      value: c50cc7c7dd27a98469cda018a86d12f9
+      objectReference: {fileID: 0}
     - target: {fileID: 8819916635186464699, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: _resourceType
       value: 2
@@ -1758,6 +1774,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 222386347, guid: 577025f0ff2732e4fb8fe2004f08c11c, type: 3}
+    - target: {fileID: 6846161318771925960, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resource.m_AssetGUID
+      value: 45c3d9151386d2d4f8664a4c0e97ad44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846161318771925960, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resourceType.m_AssetGUID
+      value: 45c3d9151386d2d4f8664a4c0e97ad44
+      objectReference: {fileID: 0}
     - target: {fileID: 7043828761981339479, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: _text
       value: "<b>CLAMS</B>\nCan be spent to gain the effect \nof certain die faces."
@@ -1849,6 +1873,14 @@ PrefabInstance:
     - target: {fileID: 8443944965015463037, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: _resourceType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443944965015463037, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resource.m_AssetGUID
+      value: 45c3d9151386d2d4f8664a4c0e97ad44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443944965015463037, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
+      propertyPath: _resourceType.m_AssetGUID
+      value: 45c3d9151386d2d4f8664a4c0e97ad44
       objectReference: {fileID: 0}
     - target: {fileID: 8819916635186464699, guid: 0ceb5187240b8b94fbbf50316df9b50e, type: 3}
       propertyPath: _resourceType

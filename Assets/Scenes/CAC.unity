@@ -3250,7 +3250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623481570392247861, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366.00006
+      value: 365.99994
       objectReference: {fileID: 0}
     - target: {fileID: 8968949668412764963, guid: c4c973aa5ea218147b52eeddebfb5a56, type: 3}
       propertyPath: m_AnchorMax.y
@@ -26319,6 +26319,7 @@ GameObject:
   - component: {fileID: 2142855967}
   - component: {fileID: 2142855968}
   - component: {fileID: 2142855969}
+  - component: {fileID: 2142855970}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -26444,6 +26445,24 @@ MonoBehaviour:
   TOTAL_SHAKE_TIME: 0.5
   TIME_BETWEEN_SHAKES: 0.05
   MAX_RANGE: 0.08
+--- !u!114 &2142855970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142855960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745b7dadeb729f5439f3794df8f43104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CommonGameplayAssets
+  _resourceEnergy:
+    m_AssetGUID: 6cd29e9808c41b04d83ec3a772a90f5e
+  _resourceClams:
+    m_AssetGUID: 45c3d9151386d2d4f8664a4c0e97ad44
+  _resourceRerolls:
+    m_AssetGUID: c50cc7c7dd27a98469cda018a86d12f9
 --- !u!4 &292703496834528392
 Transform:
   m_ObjectHideFlags: 0

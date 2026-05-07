@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReflectPartyMemberResourceCount : ReactiveBehaviour
 {
-	[SerializeField] CharacterResourceType _resourceType;
+	[SerializeField] AssetReferenceT<CharacterResourceId> _resource;
 
 	private TMP_Text _text;
 	private IPartyMemberHUDReference _reference;
@@ -27,6 +27,6 @@ public class ReflectPartyMemberResourceCount : ReactiveBehaviour
 
 	private void ReflectResourceCount()
 	{
-		_text.text = $"x{_dataRepo.Val?.GetResource(_resourceType).ToString() ?? "0"}";
+		_text.text = $"x{_dataRepo.Val?.GetResource(_resource.LoadSync()).ToString() ?? "0"}";
 	}
 }
