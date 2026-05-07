@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6197415792005767408
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3200410889672685152, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200410889672685152, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587944332407070528, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 373717227, guid: a7222c391e408f545b60ceee1b86502c, type: 3}
+    - target: {fileID: 3797042008725145608, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: _encounter
+      value: 
+      objectReference: {fileID: 2841676755933307327, guid: 8e47ec3c32273b140b6a630ac893b7b0, type: 3}
+    - target: {fileID: 3797042008725145608, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: _tooltipName
+      value: Clam Fishing Clam
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056468882369474479, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_Name
+      value: Encounter-ClamFishingClam
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9252115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9252115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.9252115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054326086965296697, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
