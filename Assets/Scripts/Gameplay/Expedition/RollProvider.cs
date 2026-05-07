@@ -1,4 +1,5 @@
 ﻿using Encounters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine;
 public interface IRollProvider
 {
 	int GetRoll(ICharacterRoot character, RollType rollType);
+
+	event Action<ICharacterRoot> OnRolled;
 }
 
 internal class RollProvider : MonoBehaviour, IRollProvider, IInitializable
@@ -13,6 +16,8 @@ internal class RollProvider : MonoBehaviour, IRollProvider, IInitializable
 	private IDeterministicRandomProvider _random;
 
 	Queue<int> _forcedRolls = new Queue<int>();
+
+	public event Action<ICharacterRoot> OnRolled;
 
 	public void Initialize()
 	{
@@ -23,6 +28,8 @@ internal class RollProvider : MonoBehaviour, IRollProvider, IInitializable
 	}
 	public int GetRoll(ICharacterRoot character, RollType rollType)
 	{
+		OnRolled?.Invoke(character);
+
 		if (_forcedRolls.Any())
 		{
 			var result = _forcedRolls.Dequeue();

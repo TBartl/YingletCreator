@@ -460,7 +460,6 @@ GameObject:
   - component: {fileID: 4187210272920214731}
   - component: {fileID: 5391282885057856360}
   - component: {fileID: 1225581707389663841}
-  - component: {fileID: 5062667440579114742}
   - component: {fileID: 3873765439933209204}
   - component: {fileID: -3348995212526509245}
   - component: {fileID: -3418098020087112249}
@@ -534,20 +533,6 @@ MonoBehaviour:
   _rollNumberText: {fileID: 262001207746263013}
   _rollTypeText: {fileID: 8676508303846136683}
   _rollClassificationText: {fileID: 1576926626724582028}
---- !u!114 &5062667440579114742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718687067684017667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d31844b5961ac41a14d2cc09f53848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnStart
-  _soundEffect: {fileID: 11400000, guid: 6a0dfbd19b8159e449e77d9e8792e247, type: 2}
-  _playOnPosition: 0
 --- !u!114 &3873765439933209204
 MonoBehaviour:
   m_ObjectHideFlags: 0
