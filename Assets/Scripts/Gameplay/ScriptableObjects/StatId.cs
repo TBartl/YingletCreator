@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Controls the preview portrait generated for characters
-/// </summary>
 [CreateAssetMenu(fileName = "Stat", menuName = "Scriptable Objects/Gameplay/Stat")]
 public class StatId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptableObject
 {
@@ -11,4 +8,6 @@ public class StatId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptableO
 
 	[SerializeField] int _orderIndex;
 	public int OrderIndex => _orderIndex;
+
+	public string DisplayName => name;
 }

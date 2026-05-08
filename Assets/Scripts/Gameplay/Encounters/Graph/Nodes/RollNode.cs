@@ -25,7 +25,7 @@ namespace Encounters.Runtime
 		[field: SerializeField] public RollBlockNode[] Branches { get; private set; }
 		[field: SerializeField] public RollInstructions RollInstructions { get; private set; }
 
-		public string RollInstructionsName => RollInstructions.Stat.name?.ToString().ToUpper() ?? "Luck";
+		public string RollInstructionsName => RollInstructions.Stat?.DisplayName?.ToUpper() ?? "Luck";
 
 		public RollNode(StatId stat)
 		{

@@ -19,7 +19,7 @@ public class ClassIconTooltip : Tooltip
 		var stats = _reference.Class.Stats;
 		foreach (var stat in stats)
 		{
-			sb.AppendLine($"{stat.Value} {stat.Stat.LoadSync().name}");
+			sb.AppendLine($"{stat.Value} {stat.Stat.LoadSync().DisplayName}");
 		}
 		sb.AppendLine($"<color=#FFFFFF99><size=70%>Stats are used in\n{TMPUtils.DiceSprite} dice rolls.</size></color>");
 		return sb.ToString();

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15d48095767d87478fb6eb5754d8a7c, type: 3}
+  m_Name: Wounded_ChangeStat
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffect_ChangeStat
+  _uniqueAssetId: 967c7e652f41f52418133ed61c06751c
+  <Stat>k__BackingField: {fileID: 11400000, guid: d6c79b72f3115bc48bc2cc6b159762f8, type: 2}
+  <Delta>k__BackingField: -1
