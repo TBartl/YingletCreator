@@ -4,6 +4,7 @@ using Unity.GraphToolkit.Editor;
 public static class EditorNodeUtils
 {
 	public const string EXECUTION_PORT_NAME = "ExecutionPort";
+	public const string CHOICE_REQUIREMENTS_PORT_NAME = "Requirements";
 
 	public static T GetPortValue<T>(this Node node, string portName)
 	{

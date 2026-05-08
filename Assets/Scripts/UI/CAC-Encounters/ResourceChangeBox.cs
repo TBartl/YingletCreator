@@ -16,10 +16,10 @@ public class ResourceChangeBox : MonoBehaviour, IResourceChangeBox
 
 	public void SetNode(IEncounterInstance encounter, ChangeCharacterResourceNode node)
 	{
-		var iconName = node.Resource.TextIconName;
-		_topText.text = node.Delta >= 0 ? $"{iconName} Gained" : $"{iconName} Lost";
+		var displayName = node.Resource.TextDisplayName;
+		_topText.text = node.Delta >= 0 ? $"{displayName} Gained" : $"{displayName} Lost";
 		var sign = node.Delta >= 0 ? "+" : "-";
-		_bottomText.text = $"{sign}{Mathf.Abs(node.Delta)} <sprite name=\"{iconName}\">";
+		_bottomText.text = $"{sign}{Mathf.Abs(node.Delta)} {node.Resource.TMPIcon}";
 
 		if (node.Delta < 0)
 		{

@@ -12,6 +12,7 @@ public class CharacterResourceId : ScriptableObject, IHasUniqueAssetId
 	public string UniqueAssetID { get => _uniqueAssetId; set => _uniqueAssetId = value; }
 
 	[SerializeField] string _textIconName = "Energy";
-	public string TextIconName => _textIconName;
+	public string TextDisplayName => _textIconName;
+	public string TMPIcon => $"<sprite tint=\"1\" name=\"{_textIconName}\">";
 
 }

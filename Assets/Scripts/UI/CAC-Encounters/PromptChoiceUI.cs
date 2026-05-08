@@ -21,10 +21,9 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	private IEncounterInstance _encounter;
 	private ChoiceBlockNode _choice;
 	private int _choiceIndex;
-	private ICommonGameplayAssets _assets;
-	private Observable<bool> _canAfford = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
+	private Observable<bool> _requirementsMet = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
 
-	public IReadOnlyObservable<bool> Interactable => _canAfford;
+	public IReadOnlyObservable<bool> Interactable => _requirementsMet;
 	Computed<bool> _showAsSelected;
 
 	public void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice, int choiceIndex)
@@ -32,14 +31,13 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		_encounter = encounter;
 		_choice = choice;
 		_choiceIndex = choiceIndex;
-		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 		_backgroundImage = this.GetComponentSafe<Image>();
 		_text = this.GetComponentInChildrenSafe<TMP_Text>();
 		_hoverable = this.GetComponentSafe<IHoverable>();
 		_button = this.GetComponentSafe<Button>();
 		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
 
-		SetCanAfford();
+		SetRequirementsMet();
 		_text.text = GetText();
 
 		_button.onClick.AddListener(OnClicked);
@@ -47,30 +45,39 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		AddReflector(ReflectHovering);
 	}
 
-	void SetCanAfford()
+	void SetRequirementsMet()
 	{
-		var currentEnergy = _encounter.Character.GetComponentInChildrenSafe<ICharacterResources>().GetResource(_assets.ResourceEnergy);
-		_canAfford.Val = currentEnergy >= _choice.EnergyCost;
+		bool requirementsMet = true;
+		foreach (var requirement in _choice.Requirements)
+		{
+			if (!requirement.RequirementsMet(_encounter))
+			{
+				requirementsMet = false;
+				break;
+			}
+		}
+
+		_requirementsMet.Val = requirementsMet;
 	}
 
 	private string GetText()
 	{
 
 		var sb = new System.Text.StringBuilder();
-		if (_choice.EnergyCost > 0)
+
+		foreach (var requirement in _choice.Requirements)
 		{
-			if (!_canAfford.Val)
+			bool requirementMet = requirement.RequirementsMet(_encounter);
+
+			if (!requirementMet)
 			{
 				sb.Append($"<color={TMPUtils.TooltipRed}>");
 			}
 
 			sb.Append($"[");
-			for (int i = 0; i < _choice.EnergyCost; i++)
-			{
-				sb.Append(TMPUtils.EnergySprite);
-			}
+			requirement.AppendDisplayText(sb);
 			sb.Append("] ");
-			if (!_canAfford.Val)
+			if (!requirementMet)
 			{
 				sb.Append($"</color>");
 			}

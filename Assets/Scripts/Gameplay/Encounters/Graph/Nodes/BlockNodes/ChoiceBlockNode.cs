@@ -1,31 +1,21 @@
 ﻿using UnityEngine;
 
-namespace Encounters
-{
-	public enum ChoiceBlockRollType
-	{
-		None,
-		RollAny,
-		RollBody,
-		RollMind
-	}
-}
-
 namespace Encounters.Runtime
 {
 	[System.Serializable]
 	public class ChoiceBlockNode : SingleOutputNode
 	{
-		[field: SerializeField]
-		public int EnergyCost { get; private set; }
 
 		[field: SerializeField]
 		public string Text { get; private set; }
 
-		public ChoiceBlockNode(int energyCost, string text)
+		[field: SerializeReference]
+		public IChoiceRequirementNode[] Requirements { get; private set; }
+
+		public ChoiceBlockNode(string text, IChoiceRequirementNode[] requirements)
 		{
-			EnergyCost = energyCost;
 			Text = text;
+			Requirements = requirements;
 		}
 
 		/// <summary>
@@ -36,17 +26,20 @@ namespace Encounters.Runtime
 
 		public override void Run(IEncounterInstance encounterInstance)
 		{
-			// Charge the player
-			if (EnergyCost > 0)
+			// Check all requirements met
+			foreach (var requirement in Requirements)
 			{
-				var assets = Singletons.GetSingleton<ICommonGameplayAssets>();
-				var characterResources = encounterInstance.Character.GetComponentInChildrenSafe<ICharacterResources>();
-				int currentEnergy = characterResources.GetResource(assets.ResourceEnergy);
-				if (currentEnergy < EnergyCost)
+				if (!requirement.RequirementsMet(encounterInstance))
 				{
-					Debug.LogWarning($"Not enough energy to run ChoiceBlockNode. Required: {EnergyCost}, Current: {currentEnergy}");
+					Debug.LogWarning($"ChoiceBlockNode requirement not met: {requirement.GetType().Name}");
+					return;
 				}
-				characterResources.SetResource(assets.ResourceEnergy, Mathf.Max(currentEnergy - EnergyCost, 0));
+			}
+
+			// Apply any requirement costs
+			foreach (var requirement in Requirements)
+			{
+				requirement.Apply(encounterInstance);
 			}
 
 			// Go to our next node
