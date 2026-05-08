@@ -15,4 +15,6 @@ MonoBehaviour:
   _uniqueAssetId: 4fa6b49a5d9a2ea4985381804aba2dc7
   <Icon>k__BackingField: {fileID: -1135121096, guid: 39e028cd131d9d845a7c9ef8a6ec9c52, type: 3}
   _overrideDisplayName: 
-  _statusEffects: []
+  <Sentiment>k__BackingField: 0
+  _statusEffects:
+  - m_AssetGUID: 967c7e652f41f52418133ed61c06751c

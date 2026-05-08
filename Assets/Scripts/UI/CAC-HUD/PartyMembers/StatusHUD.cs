@@ -20,9 +20,22 @@ public class StatusHUD : Tooltip, IStatusHUD
 
 		var sb = new StringBuilder();
 		sb.Append(status.DisplayName);
+
+		bool firstEffect = true;
+
 		foreach (var effect in status.StatusEffects)
 		{
-			sb.AppendLine();
+			if (firstEffect)
+			{
+				sb.Append("<line-height=130%>");
+				sb.AppendLine();
+				sb.Append("</line-height>");
+				firstEffect = false;
+			}
+			else
+			{
+				sb.AppendLine();
+			}
 			effect.AppendTooltipText(sb);
 		}
 		_text = sb.ToString();
