@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlaySoundOnLand : MonoBehaviour
 {
 
@@ -19,6 +20,14 @@ public class PlaySoundOnLand : MonoBehaviour
 	private void OnDestroy()
 	{
 		_collisionHandling.OnImpactedGround -= OnImpactedGround;
+	}
+
+	public void ForcePlay(float speed)
+	{
+		var material = _collisionHandling.LastGroundMaterial;
+		if (material == null) return;
+		var position = transform.position;
+		OnImpactedGround(material, speed, position);
 	}
 
 	private void OnImpactedGround(PhysicsMaterial material, float speed, Vector3 position)

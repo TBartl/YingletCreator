@@ -266,6 +266,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6568862148423832943, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6066155314230745513}
+    - targetCorrespondingSourceObject: {fileID: 3124229929184896766, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2319242008481628200}
   m_SourcePrefab: {fileID: 100100000, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
 --- !u!1 &121941050219542058 stripped
 GameObject:
@@ -400,6 +403,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4e94f5f64a69440a5bf906a566d5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Encounter
+--- !u!1 &8403897164154397331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3124229929184896766, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2319242008481628200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403897164154397331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17a961a4ec8f14abd61475a71b5fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnFallAsleep
+  _soundEffect: {fileID: 11400000, guid: f7b6909cf19076c45b8e72bac9b6ec36, type: 2}
 --- !u!1 &8905449425488676304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
