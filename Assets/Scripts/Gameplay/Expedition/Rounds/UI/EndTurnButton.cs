@@ -24,6 +24,14 @@ public class EndTurnButton : MonoBehaviour
 	{
 		var activeCharacter = _globalRoundProvider.ActiveCharacterState;
 		if (activeCharacter == null) return;
-		activeCharacter.GoToSleep();
+
+		if (!activeCharacter.IsAsleep.Val)
+		{
+			activeCharacter.GoToSleep();
+		}
+		else
+		{
+			activeCharacter.WakeBackUp();
+		}
 	}
 }

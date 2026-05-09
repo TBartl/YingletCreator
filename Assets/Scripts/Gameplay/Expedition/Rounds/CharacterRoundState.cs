@@ -36,7 +36,7 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 		_roundManager.CurrentRound.OnChanged += OnRoundChanged;
 
 		_eventBus.Subscribe<Message_CharacterGoToSleep>(OnMessage_CharacterGoToSleep);
-		_eventBus.Subscribe<Message_WakeBackUp>(OnMessage_WakeBackUp);
+		_eventBus.Subscribe<Message_CharacterWakeBackUp>(OnMessage_CharacterWakeBackUp);
 	}
 
 	private void OnDestroy()
@@ -47,7 +47,7 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 		}
 
 		_eventBus?.Unsubscribe<Message_CharacterGoToSleep>(OnMessage_CharacterGoToSleep);
-		_eventBus?.Unsubscribe<Message_WakeBackUp>(OnMessage_WakeBackUp);
+		_eventBus?.Unsubscribe<Message_CharacterWakeBackUp>(OnMessage_CharacterWakeBackUp);
 	}
 
 	private void OnRoundChanged(int from, int to)
@@ -63,7 +63,7 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 
 	public void WakeBackUp()
 	{
-		_eventBus.SendToAll(new Message_WakeBackUp(_netIdentity.NetId));
+		_eventBus.SendToAll(new Message_CharacterWakeBackUp(_netIdentity.NetId));
 	}
 
 	private void OnMessage_CharacterGoToSleep(Message_CharacterGoToSleep message, ulong senderClientId)
@@ -73,7 +73,7 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 		_isAsleep.Val = true;
 	}
 
-	private void OnMessage_WakeBackUp(Message_WakeBackUp message, ulong senderClientId)
+	private void OnMessage_CharacterWakeBackUp(Message_CharacterWakeBackUp message, ulong senderClientId)
 	{
 		if (message.CharacterNetId != _netIdentity.NetId) return;
 		_isAsleep.Val = false;
@@ -95,11 +95,11 @@ struct Message_CharacterGoToSleep : INetMessage
 	}
 }
 
-struct Message_WakeBackUp : INetMessage
+struct Message_CharacterWakeBackUp : INetMessage
 {
 	public ulong CharacterNetId;
 
-	public Message_WakeBackUp(ulong characterNetId)
+	public Message_CharacterWakeBackUp(ulong characterNetId)
 	{
 		CharacterNetId = characterNetId;
 	}

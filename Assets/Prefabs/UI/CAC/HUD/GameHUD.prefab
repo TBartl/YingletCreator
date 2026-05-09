@@ -501,6 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3248845839796924323}
   - component: {fileID: 5887066109011740579}
+  - component: {fileID: 69539440197933911}
   - component: {fileID: 7924676073258922445}
   m_Layer: 5
   m_Name: Text
@@ -536,6 +537,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421607764305113114}
   m_CullTransparentMesh: 1
+--- !u!114 &69539440197933911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421607764305113114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9727395b7d1f04b885dffcb25d0bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReflectSleepOrWakeUpText
 --- !u!114 &7924676073258922445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,6 +1685,10 @@ GameObject:
   - component: {fileID: 4629955783843640098}
   - component: {fileID: 1674153828388522697}
   - component: {fileID: 4505202927247244722}
+  - component: {fileID: 7322066534670207148}
+  - component: {fileID: 4695028627920961502}
+  - component: {fileID: 1897746964167219719}
+  - component: {fileID: 4766592027470994441}
   m_Layer: 5
   m_Name: Button-EndTurn
   m_TagString: Untagged
@@ -1881,6 +1898,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76a51c2235d6174fac87cfb30537f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndTurnButton
+--- !u!225 &7322066534670207148
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527653796600356612}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4695028627920961502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527653796600356612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8fa028335d4a04f995a75db4097974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ApplyUIInteractableToCanvasGroup
+--- !u!114 &1897746964167219719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527653796600356612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae8e5f1ad79d0547b8e7bbda63c3b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LowerCanvasGroupAlphaIfNotUIInteractable
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
+  _reducedAlpha: 0.3
+--- !u!114 &4766592027470994441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527653796600356612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda163c3475c64b418c1bf9300aa0429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MakeUINotInteractableIfActiveCharacterIsntMine
 --- !u!1 &4951132230016062727
 GameObject:
   m_ObjectHideFlags: 0
