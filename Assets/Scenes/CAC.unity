@@ -26320,6 +26320,7 @@ GameObject:
   - component: {fileID: 2142855968}
   - component: {fileID: 2142855969}
   - component: {fileID: 2142855970}
+  - component: {fileID: 2142855971}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -26463,6 +26464,18 @@ MonoBehaviour:
     m_AssetGUID: 45c3d9151386d2d4f8664a4c0e97ad44
   _resourceRerolls:
     m_AssetGUID: c50cc7c7dd27a98469cda018a86d12f9
+--- !u!114 &2142855971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142855960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bdfc10f933bc44b9e2479f9505c150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalRoundProvider
 --- !u!4 &292703496834528392
 Transform:
   m_ObjectHideFlags: 0

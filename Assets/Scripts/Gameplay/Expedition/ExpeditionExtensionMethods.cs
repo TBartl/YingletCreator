@@ -18,7 +18,7 @@ public static class ExpeditionExtensionMethods
 
 			if (rootObject == null) return default(T);
 
-			return rootObject.GetComponentInChildren<T>(true);
+			return rootObject.GetComponentInChildrenSafe<T>(true);
 		});
 	}
 
