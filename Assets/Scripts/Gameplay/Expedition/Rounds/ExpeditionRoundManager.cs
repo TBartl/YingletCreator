@@ -5,6 +5,7 @@ using System.Linq;
 public interface IExpeditionRoundManager
 {
 	IReadOnlyObservable<int> CurrentRound { get; }
+	IEnumerable<ICharacterRoundState> CharacterRoundStates { get; }
 }
 
 public class ExpeditionRoundManager : ReactiveBehaviour, IExpeditionRoundManager
@@ -15,6 +16,7 @@ public class ExpeditionRoundManager : ReactiveBehaviour, IExpeditionRoundManager
 	private Computed<bool> _allCharactersAsleep;
 
 	public IReadOnlyObservable<int> CurrentRound => _currentRound;
+	public IEnumerable<ICharacterRoundState> CharacterRoundStates => _characterRoundStates.Val;
 
 	void Start()
 	{
