@@ -10,6 +10,8 @@ public interface ICharacterResources
 
 public class CharacterResources : MonoBehaviour, ICharacterResources, IInitializable
 {
+	public const int MAX_ENERGY = 5;
+
 	ObservableDict<CharacterResourceId, int> _resources = new ObservableDict<CharacterResourceId, int>();
 	private ICommonGameplayAssets _assets;
 
@@ -17,7 +19,7 @@ public class CharacterResources : MonoBehaviour, ICharacterResources, IInitializ
 	{
 		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 
-		_resources[_assets.ResourceEnergy] = 5;
+		_resources[_assets.ResourceEnergy] = MAX_ENERGY;
 		_resources[_assets.ResourceClams] = 2;
 		_resources[_assets.ResourceRerolls] = 0;
 	}
