@@ -19,18 +19,7 @@ public class RestrictInputOnSelectMenus : ReactiveBehaviour
 
 	private void Reflect()
 	{
-		if (_menuManager.OpenMenu.Val.RestrictGameInput)
-		{
-			// Want to restrict
-			if (_heldRestriction != null) return; // but we're already restricting
-			_heldRestriction = _inputRestrictor.RestrictInput();
-		}
-		else
-		{
-			// Input allowed
-			if (_heldRestriction == null) return; // and we're already allowing
-			_heldRestriction.Dispose();
-			_heldRestriction = null;
-		}
+		bool wantsToRestrict = _menuManager.OpenMenu.Val.RestrictGameInput;
+		_heldRestriction = _heldRestriction.Toggle(wantsToRestrict, _inputRestrictor.RestrictInput);
 	}
 }

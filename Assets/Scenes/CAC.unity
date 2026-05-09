@@ -3255,6 +3255,7 @@ GameObject:
   - component: {fileID: 396940737}
   - component: {fileID: 396940736}
   - component: {fileID: 396940735}
+  - component: {fileID: 396940738}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -3325,6 +3326,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fcba77117e94e4c94497fc9282f02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputRestrictor
+--- !u!114 &396940738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396940732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae405405bec2f847af2c96f8dc0f4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RestrictInputWhenSleepingCharacter
 --- !u!1001 &412409778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28246,7 +28259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Size
-      value: 0.33688197
+      value: 0.79037726
       objectReference: {fileID: 0}
     - target: {fileID: 2284722871094423945, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Value
@@ -29063,8 +29076,8 @@ RectTransform:
   - {fileID: 1967979807}
   - {fileID: 1878570677}
   - {fileID: 1040987602}
-  - {fileID: 3302972329920627725}
   - {fileID: 2588469293144798210}
+  - {fileID: 3302972329920627725}
   - {fileID: 8426313269171632401}
   - {fileID: 1190426920}
   - {fileID: 430054925}

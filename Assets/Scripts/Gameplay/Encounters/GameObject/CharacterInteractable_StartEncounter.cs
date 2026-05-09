@@ -54,6 +54,9 @@ public class CharacterInteractable_StartEncounter : MonoBehaviour, ICharacterInt
 		var characterEncounter = character.gameObject.GetComponentInChildrenSafe<ICharacterEncounterReference>();
 		if (characterEncounter.Encounter.Val != null) return;
 
+		var characterAsleep = character.gameObject.GetComponentInChildrenSafe<ICharacterRoundState>().IsAsleep.Val;
+		if (characterAsleep) return;
+
 		var encounterInstance = new EncounterInstance(_encounter, _memory, this.gameObject, character.gameObject.GetComponentSafe<ICharacterRoot>());
 		_encounterInstance.Val = encounterInstance;
 		characterEncounter.SetEncounter(encounterInstance);
