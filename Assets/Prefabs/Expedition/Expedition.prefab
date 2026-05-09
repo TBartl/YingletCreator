@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 8775650583844880331}
   - component: {fileID: 3880509427378691068}
   - component: {fileID: 8469249743060556925}
+  - component: {fileID: 3391483670876454262}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -499,6 +500,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnRoll
   _soundEffect: {fileID: 11400000, guid: 6a0dfbd19b8159e449e77d9e8792e247, type: 2}
+--- !u!114 &3391483670876454262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864224224979353919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b0616a5e5115b4fae80a9774fe5f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnRoundChanged
+  _soundEffect: {fileID: 11400000, guid: 074e9ee041d3acf429ecfcb92908fa12, type: 2}
 --- !u!1 &9008212375909909597
 GameObject:
   m_ObjectHideFlags: 0
