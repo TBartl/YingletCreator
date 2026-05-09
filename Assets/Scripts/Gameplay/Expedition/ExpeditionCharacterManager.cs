@@ -1,6 +1,7 @@
 using Character.Creator;
 using Networking;
 using Reactivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -26,6 +27,12 @@ public interface IExpeditionCharacterManager
 	IEnumerable<ExpeditionCharacter> Characters { get; }
 
 	void SetActiveCharacter(ICharacterRoot character);
+
+	/// <summary>
+	/// Attempts to select the next logical player
+	/// Prioritizes players that are our own and aren't asleep
+	/// </summary>
+	void TryTabToNextCharacter();
 }
 public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterManager
 {
@@ -33,6 +40,7 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 
 	Observable<ExpeditionCharacter> _activeCharacter = new Observable<ExpeditionCharacter>();
 	ObservableList<ExpeditionCharacter> _characters = new ObservableList<ExpeditionCharacter>();
+	private INetStateReader _netState;
 	private IExpeditionPlanningManager _expeditionPlanningManager;
 	private ICharacterSpawner _characterSpawner;
 	private ExpeditionRoot _root;
@@ -95,5 +103,37 @@ public class ExpeditionCharacterManager : MonoBehaviour, IExpeditionCharacterMan
 			return;
 		}
 		_activeCharacter.Val = expeditionCharacter;
+	}
+
+	public void TryTabToNextCharacter()
+	{
+		var possibleCharacters = Characters.ToArray();
+		var currentCharacter = ActiveCharacter.Val;
+
+		var sleepingCharacters = Characters.Where(c => c.Root.GetComponentInChildrenSafe<ICharacterRoundState>().IsAsleep.Val).ToHashSet();
+
+		// First, see if we can get one of our own characters that isn't asleep
+		int currentCharacterIndex = Array.IndexOf(possibleCharacters, currentCharacter);
+		for (int i = 1; i <= possibleCharacters.Length; i++)
+		{
+			var nextCharacter = possibleCharacters[(currentCharacterIndex + i) % possibleCharacters.Length];
+			if (nextCharacter.IsMine && !sleepingCharacters.Contains(nextCharacter))
+			{
+				SetActiveCharacter(nextCharacter.Root);
+				return;
+			}
+		}
+		// If we can't, see if we can get any character that isn't asleep
+		for (int i = 1; i <= possibleCharacters.Length; i++)
+		{
+			var nextCharacter = possibleCharacters[(currentCharacterIndex + i) % possibleCharacters.Length];
+			if (!sleepingCharacters.Contains(nextCharacter))
+			{
+				SetActiveCharacter(nextCharacter.Root);
+				return;
+			}
+		}
+
+		// If we can't, don't change the active character
 	}
 }
