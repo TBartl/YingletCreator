@@ -7,8 +7,7 @@ internal class CameraControlProvider_RoundTransition : ReactiveBehaviour, ICamer
 {
 	[SerializeField] Vector3 _posOffset;
 	[SerializeField] Vector3 _rotation;
-
-	private Vector3 _lastPos;
+	private CameraControlProvider_FollowPlayer _followPlayer;
 	private IGlobalRoundProvider _globalRoundProvider;
 	private Computed<bool> _transitioning;
 
@@ -16,21 +15,15 @@ internal class CameraControlProvider_RoundTransition : ReactiveBehaviour, ICamer
 
 	public (Vector3, Quaternion) CalculateTransform()
 	{
-		return (_lastPos + _posOffset, Quaternion.Euler(_rotation));
+		return (_followPlayer.CalculateTransform().Item1 + _posOffset, Quaternion.Euler(_rotation));
 	}
 
 	public void Initialize()
 	{
+		_followPlayer = this.GetComponentSafe<CameraControlProvider_FollowPlayer>();
+
 		_globalRoundProvider = Singletons.GetSingleton<IGlobalRoundProvider>();
 		_transitioning = CreateComputed(ComputeTransitioning);
-	}
-
-	void Update()
-	{
-		if (!_transitioning.Val)
-		{
-			_lastPos = transform.position;
-		}
 	}
 
 	bool ComputeTransitioning()

@@ -3084,8 +3084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11df401db35a515429272dcaac53fa89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraControlProvider_RoundTransition
-  _posOffset: {x: 0, y: 0, z: 0}
-  _rotOffset: {x: 0, y: 0, z: 0}
+  _posOffset: {x: 0, y: 4, z: 2}
+  _rotation: {x: 90, y: 0, z: 0}
 --- !u!1 &379822681
 GameObject:
   m_ObjectHideFlags: 0
@@ -28325,7 +28325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 365.99997
+      value: 366
       objectReference: {fileID: 0}
     - target: {fileID: 6748708911707019781, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Name
