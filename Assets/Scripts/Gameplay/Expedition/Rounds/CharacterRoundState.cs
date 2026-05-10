@@ -33,7 +33,7 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 		_encounterReference = this.GetCharacterRootComponent<ICharacterEncounterReference>();
 		_netIdentity = this.GetCharacterRootComponent<INetIdentity>();
 
-		_roundManager.CurrentRound.OnChanged += OnRoundChanged;
+		_roundManager.TransitionState.OnChanged += OnTransitionStateChanged;
 
 		_eventBus.Subscribe<Message_CharacterGoToSleep>(OnMessage_CharacterGoToSleep);
 		_eventBus.Subscribe<Message_CharacterWakeBackUp>(OnMessage_CharacterWakeBackUp);
@@ -43,17 +43,21 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 	{
 		if (_roundManager != null)
 		{
-			_roundManager.CurrentRound.OnChanged -= OnRoundChanged;
+			_roundManager.TransitionState.OnChanged -= OnTransitionStateChanged;
 		}
 
 		_eventBus?.Unsubscribe<Message_CharacterGoToSleep>(OnMessage_CharacterGoToSleep);
 		_eventBus?.Unsubscribe<Message_CharacterWakeBackUp>(OnMessage_CharacterWakeBackUp);
 	}
 
-	private void OnRoundChanged(int from, int to)
+
+
+	private void OnTransitionStateChanged(RoundTransitionState from, RoundTransitionState to)
 	{
-		// Wake up when the round changes
-		_isAsleep.Val = false;
+		if (to == RoundTransitionState.None)
+		{
+			_isAsleep.Val = false;
+		}
 	}
 
 	public void GoToSleep()

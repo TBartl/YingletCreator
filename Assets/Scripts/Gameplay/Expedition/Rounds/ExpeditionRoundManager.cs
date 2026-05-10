@@ -6,7 +6,8 @@ public enum RoundTransitionState
 {
 	None,
 	TransitioningIn,
-	IncrementRound
+	IncrementRound,
+	TransitionOut
 }
 
 public interface IExpeditionRoundManager

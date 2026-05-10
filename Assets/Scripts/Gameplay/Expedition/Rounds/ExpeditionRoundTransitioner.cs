@@ -11,6 +11,7 @@ public class ExpeditionRoundTransitioner : ReactiveBehaviour
 {
 	[SerializeField] float _transitionInDuration = 1f;
 	[SerializeField] float _incrementRoundDuration = 0.5f;
+	[SerializeField] float _transitionOutDuration = 0.5f;
 
 	private INetStateReader _netState;
 	private INetEventBus _eventBus;
@@ -73,6 +74,8 @@ public class ExpeditionRoundTransitioner : ReactiveBehaviour
 		yield return new WaitForSeconds(_transitionInDuration);
 		_eventBus.SendToAll(new Message_ChangeRoundTransitionState() { State = RoundTransitionState.IncrementRound });
 		yield return new WaitForSeconds(_incrementRoundDuration);
+		_eventBus.SendToAll(new Message_ChangeRoundTransitionState() { State = RoundTransitionState.TransitionOut });
+		yield return new WaitForSeconds(_transitionOutDuration);
 		_eventBus.SendToAll(new Message_ChangeRoundTransitionState() { State = RoundTransitionState.None });
 		_coroutine = null;
 	}
