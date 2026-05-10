@@ -26,7 +26,7 @@ public class ScreenTransitioner : MonoBehaviour
 		_screenTransitionManager.OnStartTransitionToTransparent += TransitionToClear;
 
 		yield return null;
-		TransitionToClear();
+		TransitionToClear(0f);
 	}
 
 	private void OnDestroy()
@@ -37,9 +37,23 @@ public class ScreenTransitioner : MonoBehaviour
 
 	void TransitionToClear()
 	{
+		TransitionToClear(.2f);
+	}
+
+	void TransitionToClear(float delay)
+	{
 		_image.enabled = true;
 		_image.material.SetFloat("_X", 1);
-		_audioPlayer.Play(_soundEffect);
+		if (delay < 0.01f) // Bit hacky but w/e
+		{
+			_audioPlayer.Play(_soundEffect);
+		}
+		this.StopAndStartCoroutine(ref _coroutine, TransitionToClearAfterDelay(delay));
+	}
+
+	IEnumerator TransitionToClearAfterDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
 
 		float from = _transitionRange.y;
 		float to = _transitionRange.x;
@@ -54,6 +68,7 @@ public class ScreenTransitioner : MonoBehaviour
 			_image.enabled = false;
 		}
 	}
+
 	void TransitionToOpaque()
 	{
 		_image.enabled = true;
