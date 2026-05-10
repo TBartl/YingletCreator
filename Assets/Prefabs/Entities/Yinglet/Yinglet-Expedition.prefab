@@ -260,9 +260,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3977407187431825258, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: 6
       addedObject: {fileID: 3921375337868959408}
+    - targetCorrespondingSourceObject: {fileID: 3977407187431825258, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 5759351330591537437}
     - targetCorrespondingSourceObject: {fileID: 5964574009170198526, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: 4
       addedObject: {fileID: 6179824031525405901}
+    - targetCorrespondingSourceObject: {fileID: 5964574009170198526, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 7912084745821303401}
     - targetCorrespondingSourceObject: {fileID: 6568862148423832943, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6066155314230745513}
@@ -321,6 +327,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed0b7f069a87ea47a55197186908972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouthExpressionsMutator_Encounter
+--- !u!114 &7912084745821303401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954113400210570131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924b6a378cfaca740bb27c5658a436d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouthExpressionsMutator_Sleeping
 --- !u!1 &3211503397218376434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8316547844715126431, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
@@ -403,6 +421,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4e94f5f64a69440a5bf906a566d5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Encounter
+--- !u!114 &5759351330591537437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550649414756719367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81cbb9904194dc4280dd881603c51d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Sleeping
 --- !u!1 &8403897164154397331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3124229929184896766, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
