@@ -45,7 +45,8 @@ public enum YingletAnimState
 {
 	Idle,
 	Moving,
-	Airborne
+	Airborne,
+	Sleeping
 }
 
 public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
@@ -63,6 +64,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	static readonly int STATE_IDLE_ANIM = Animator.StringToHash("Idle");
 	static readonly int STATE_MOVING_ANIM = Animator.StringToHash("Moving");
 	static readonly int STATE_AIRBORNE_ANIM = Animator.StringToHash("Airborne");
+	static readonly int STATE_SLEEPING_ANIM = Animator.StringToHash("Sleeping");
 
 	private Animator _animator;
 
@@ -119,6 +121,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 			YingletAnimState.Idle => STATE_IDLE_ANIM,
 			YingletAnimState.Moving => STATE_MOVING_ANIM,
 			YingletAnimState.Airborne => STATE_AIRBORNE_ANIM,
+			YingletAnimState.Sleeping => STATE_SLEEPING_ANIM,
 			_ => throw new System.Exception($"Unsupported state {state}")
 		};
 	}

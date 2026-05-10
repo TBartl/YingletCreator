@@ -424,7 +424,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExpeditionRoundTransitioner
   _transitionInDuration: 1
   _incrementRoundDuration: 0.5
-  _transitionOutDuration: 1
 --- !u!1 &4395619676150457690
 GameObject:
   m_ObjectHideFlags: 0

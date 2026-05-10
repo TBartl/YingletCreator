@@ -11,7 +11,6 @@ public class ExpeditionRoundTransitioner : ReactiveBehaviour
 {
 	[SerializeField] float _transitionInDuration = 1f;
 	[SerializeField] float _incrementRoundDuration = 0.5f;
-	[SerializeField] float _transitionOutDuration = 1f;
 
 	private INetStateReader _netState;
 	private INetEventBus _eventBus;

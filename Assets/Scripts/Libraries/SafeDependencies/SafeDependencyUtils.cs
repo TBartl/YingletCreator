@@ -47,16 +47,6 @@ public static class SafeDependencyUtils
 		return result;
 	}
 
-	public static T GetNullableComponentSafe<T>(this Component component) where T : class
-	{
-		var result = component.GetComponent<T>();
-		if (result != null)
-		{
-			InitializeIfNeeded(result);
-		}
-		return result;
-	}
-
 	public static T[] GetComponentsSafe<T>(this Component component)
 	{
 		var results = component.GetComponents<T>();
@@ -116,6 +106,27 @@ public static class SafeDependencyUtils
 			Debug.LogError($"Component of type {typeof(T).Name} not found in parents of GameObject {gameObject.name}.");
 		}
 		InitializeIfNeeded(result);
+		return result;
+	}
+
+
+
+	public static T GetNullableComponentSafe<T>(this Component component) where T : class
+	{
+		var result = component.GetComponent<T>();
+		if (result != null)
+		{
+			InitializeIfNeeded(result);
+		}
+		return result;
+	}
+	public static T GetNullableComponentInParentSafe<T>(this Component component, bool includeInactive = false) where T : class
+	{
+		var result = component.GetComponentInParent<T>(includeInactive);
+		if (result != null)
+		{
+			InitializeIfNeeded(result);
+		}
 		return result;
 	}
 }

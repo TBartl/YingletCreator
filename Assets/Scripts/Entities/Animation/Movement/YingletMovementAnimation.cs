@@ -20,6 +20,7 @@ public class YingletMovementAnimation : MonoBehaviour
 
 	private Rigidbody _rigidBody;
 	private ICharacterCollisionHandling _collisionHandling;
+	private ICharacterRoundState _roundState;
 	private IYingletAnimationBridge _animation;
 	private Coroutine _impactGroundCoroutine;
 
@@ -28,6 +29,7 @@ public class YingletMovementAnimation : MonoBehaviour
 	{
 		_rigidBody = this.GetComponentInParent<Rigidbody>();
 		_collisionHandling = this.GetComponentInParent<ICharacterCollisionHandling>();
+		_roundState = this.GetNullableComponentInParentSafe<ICharacterRoundState>();
 
 		_collisionHandling.OnImpactedGround += OnImpactedGround;
 		_animation = this.GetComponent<IYingletAnimationBridge>();
@@ -59,6 +61,10 @@ public class YingletMovementAnimation : MonoBehaviour
 		{
 			state = YingletAnimState.Airborne;
 			_animation.SetRising(VERTICAL_VELOCITY_TO_RISING_WEIGHT.Evaluate(_rigidBody.linearVelocity.y));
+		}
+		if (_roundState?.IsAsleep?.Val ?? false)
+		{
+			state = YingletAnimState.Sleeping;
 		}
 
 		_animation.SetAnimState(state);
