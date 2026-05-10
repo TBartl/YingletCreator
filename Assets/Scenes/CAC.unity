@@ -2970,6 +2970,7 @@ GameObject:
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
   - component: {fileID: 330585551}
+  - component: {fileID: 330585553}
   - component: {fileID: 330585552}
   - component: {fileID: 330585550}
   m_Layer: 0
@@ -3071,6 +3072,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35af3c66dcfac9543800cb5bd541feba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraControlProvider_FrameEncounter
+--- !u!114 &330585553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11df401db35a515429272dcaac53fa89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraControlProvider_RoundTransition
+  _posOffset: {x: 0, y: 0, z: 0}
+  _rotOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &379822681
 GameObject:
   m_ObjectHideFlags: 0

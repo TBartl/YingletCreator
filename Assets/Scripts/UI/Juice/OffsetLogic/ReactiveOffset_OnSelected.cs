@@ -8,7 +8,7 @@ internal class ReactiveOffset_OnSelected : MonoBehaviour, IReactiveOffsetMutator
 
 	public void Initialize()
 	{
-		_selectable = this.GetComponentSafe<ISelectable>();
+		_selectable = this.GetComponentInParentSafe<ISelectable>();
 	}
 
 	public IReactiveOffsetValues MutateOffset(IReactiveOffsetValues currentOffset)
