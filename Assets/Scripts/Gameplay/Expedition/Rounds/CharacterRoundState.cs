@@ -18,7 +18,7 @@ public interface ICharacterRoundState
 
 public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 {
-	private Observable<bool> _isAsleep = new Observable<bool>(false);
+	private Observable<bool> _isAsleep = new Observable<bool>(true);
 	private INetEventBus _eventBus;
 	private IExpeditionRoundManager _roundManager;
 	private ICharacterEncounterReference _encounterReference;
@@ -70,12 +70,14 @@ public class CharacterRoundState : MonoBehaviour, ICharacterRoundState
 	{
 		if (message.CharacterNetId != _netIdentity.NetId) return;
 		if (_encounterReference.Encounter.Val != null) return;
+		if (_roundManager.TransitionState.Val != RoundTransitionState.None) return;
 		_isAsleep.Val = true;
 	}
 
 	private void OnMessage_CharacterWakeBackUp(Message_CharacterWakeBackUp message, ulong senderClientId)
 	{
 		if (message.CharacterNetId != _netIdentity.NetId) return;
+		if (_roundManager.TransitionState.Val != RoundTransitionState.None) return;
 		_isAsleep.Val = false;
 	}
 }

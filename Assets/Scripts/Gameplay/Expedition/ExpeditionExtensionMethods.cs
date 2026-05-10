@@ -31,7 +31,7 @@ public static class ExpeditionExtensionMethods
 		/// Returns the first component under the parent composited yinglet root
 		/// </summary>
 		var type = typeof(T);
-		var root = mb.GetComponentInParentSafe<ExpeditionRoot>();
+		var root = mb.GetComponentInParentSafe<ExpeditionRoot>(true);
 		if (root == null)
 		{
 			Debug.LogWarning($"Failed to get expedition component of type {type}; could not find expedition root");

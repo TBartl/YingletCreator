@@ -1065,8 +1065,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 6
     m_Right: 16
-    m_Top: 4
-    m_Bottom: 4
+    m_Top: 6
+    m_Bottom: 6
   m_ChildAlignment: 4
   m_Spacing: 16.46
   m_ChildForceExpandWidth: 0
@@ -1962,6 +1962,9 @@ GameObject:
   - component: {fileID: 7210938045912667900}
   - component: {fileID: 6944351794857932605}
   - component: {fileID: 7177408244907695645}
+  - component: {fileID: 156354057141079821}
+  - component: {fileID: 8944012678757000322}
+  - component: {fileID: 798997484937032490}
   m_Layer: 0
   m_Name: RoundNumberClock
   m_TagString: Untagged
@@ -1986,9 +1989,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -26.08667, y: 54.586487}
+  m_AnchoredPosition: {x: 67.00006, y: -38.500153}
   m_SizeDelta: {x: 186.1732, y: 186.1732}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2598374142421212783
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2039,7 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c1c333c3ac4ce478fbd4abfdf81ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _easeSettings: {fileID: 11400000, guid: 9e4f64c018f924d4ab2cc05482e7a311, type: 2}
+  _easeSettings: {fileID: 11400000, guid: 8fc803fea4e88b24a9b131c40344e8a4, type: 2}
   _baseOffset:
     _onScreen: 0
     _offset: {x: 0, y: 270, z: 0}
@@ -2077,6 +2080,49 @@ MonoBehaviour:
   _inverse: 1
   _menus:
   - {fileID: 11400000, guid: 00c88cfc5996f6147a771f9e1fe2381a, type: 2}
+--- !u!114 &156354057141079821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951132230016062727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a921f3030bb3e488ed6b9828c5dd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectedOnMenu
+  _menus:
+  - {fileID: 11400000, guid: cc086d66b93421f47ad30e0f16d28da2, type: 2}
+--- !u!114 &8944012678757000322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951132230016062727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da80354475a654889251f294db1cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReactiveOffset_OnSelected
+  _offset:
+    _onScreen: 1
+    _offset: {x: 893.4399, y: -501.4998, z: 0}
+--- !u!114 &798997484937032490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951132230016062727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0c4553eb8e4574281de6632e5d4b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScaleOnSelected
+  _scale: {x: 4, y: 4, z: 4}
+  _easeSettings: {fileID: 11400000, guid: 8fc803fea4e88b24a9b131c40344e8a4, type: 2}
 --- !u!1 &5926016182495147830
 GameObject:
   m_ObjectHideFlags: 0

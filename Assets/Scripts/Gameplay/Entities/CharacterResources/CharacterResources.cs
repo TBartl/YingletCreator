@@ -19,7 +19,7 @@ public class CharacterResources : MonoBehaviour, ICharacterResources, IInitializ
 	{
 		_assets = Singletons.GetSingleton<ICommonGameplayAssets>();
 
-		_resources[_assets.ResourceEnergy] = MAX_ENERGY;
+		_resources[_assets.ResourceEnergy] = 0;
 		_resources[_assets.ResourceClams] = 2;
 		_resources[_assets.ResourceRerolls] = 0;
 	}

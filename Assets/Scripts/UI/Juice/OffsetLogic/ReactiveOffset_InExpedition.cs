@@ -11,7 +11,7 @@ internal class ReactiveOffset_InExpedition : MonoBehaviour, IReactiveOffsetMutat
 		_expeditionManager = Singletons.GetSingleton<IExpeditionManager>();
 	}
 
-	public ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset)
+	public IReactiveOffsetValues MutateOffset(IReactiveOffsetValues currentOffset)
 	{
 		if (_expeditionManager.State.Val == ExpeditionState.Running)
 		{

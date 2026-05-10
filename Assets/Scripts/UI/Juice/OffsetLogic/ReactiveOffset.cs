@@ -4,11 +4,17 @@ using UnityEngine;
 
 namespace Character.Creator.UI
 {
+	public interface IReactiveOffsetValues
+	{
+		bool OnScreen { get; }
+		Vector3 Offset { get; }
+	}
+
 	/// <summary>
 	/// We want more than just a Vector3: we want to know if this item is considered on-screen or not so we can optimize
 	/// </summary>
 	[System.Serializable]
-	public sealed class ReactiveOffsetValues
+	public sealed class ReactiveOffsetValues : IReactiveOffsetValues
 	{
 		[SerializeField] bool _onScreen;
 		[SerializeField] Vector3 _offset;
@@ -19,11 +25,17 @@ namespace Character.Creator.UI
 		/// </summary>
 		public bool OnScreen => _onScreen;
 		public Vector3 Offset => _offset;
+
+		public ReactiveOffsetValues(bool onScreen, Vector3 offset)
+		{
+			_onScreen = onScreen;
+			_offset = offset;
+		}
 	}
 
 	public interface IReactiveOffsetMutator
 	{
-		ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset);
+		IReactiveOffsetValues MutateOffset(IReactiveOffsetValues currentOffset);
 	}
 
 	public class ReactiveOffset : ReactiveBehaviour
@@ -39,7 +51,7 @@ namespace Character.Creator.UI
 		private Vector3 _originalPos;
 		private Coroutine _transitionCoroutine;
 
-		Computed<ReactiveOffsetValues> _offsetTarget;
+		Computed<IReactiveOffsetValues> _offsetTarget;
 
 
 		// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,9 +76,9 @@ namespace Character.Creator.UI
 			}
 		}
 
-		private ReactiveOffsetValues ComputeOffset()
+		private IReactiveOffsetValues ComputeOffset()
 		{
-			var offset = _baseOffset;
+			IReactiveOffsetValues offset = _baseOffset;
 			foreach (var mutator in _mutators)
 			{
 				offset = mutator.MutateOffset(offset);
@@ -74,7 +86,7 @@ namespace Character.Creator.UI
 			return offset;
 		}
 
-		private void OnOffsetTargetChanged(ReactiveOffsetValues fromOffset, ReactiveOffsetValues toOffset)
+		private void OnOffsetTargetChanged(IReactiveOffsetValues fromOffset, IReactiveOffsetValues toOffset)
 		{
 			if (toOffset.OnScreen)
 			{

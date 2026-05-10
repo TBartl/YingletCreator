@@ -12,7 +12,7 @@ internal class ReactiveOffset_OnPortraitPage : MonoBehaviour, IReactiveOffsetMut
 		_viewingPortraitTracker = this.GetComponentInParent<IViewingPortraitPageTracker>();
 	}
 
-	public ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset)
+	public IReactiveOffsetValues MutateOffset(IReactiveOffsetValues currentOffset)
 	{
 		if (_viewingPortraitTracker.IsViewingPortraitPage)
 		{

@@ -11,7 +11,7 @@ internal class ReactiveOffset_OnSelected : MonoBehaviour, IReactiveOffsetMutator
 		_selectable = this.GetComponentSafe<ISelectable>();
 	}
 
-	public ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset)
+	public IReactiveOffsetValues MutateOffset(IReactiveOffsetValues currentOffset)
 	{
 		if (_selectable.Selected.Val)
 		{

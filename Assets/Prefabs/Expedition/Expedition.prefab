@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 7553851871940420813}
   - component: {fileID: -3536241691765510713}
   - component: {fileID: 91632669655584558}
+  - component: {fileID: 3316659272670894508}
   m_Layer: 0
   m_Name: Expedition
   m_TagString: Untagged
@@ -409,6 +410,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699e8d2bc1a0c8e4cbbc365984f19041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpeditionRoundManager
+--- !u!114 &3316659272670894508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2253342286590760187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767a1020848092e45aa75e06059ab21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExpeditionRoundTransitioner
+  _transitionInDuration: 1
+  _incrementRoundDuration: 0.5
+  _transitionOutDuration: 1
 --- !u!1 &4395619676150457690
 GameObject:
   m_ObjectHideFlags: 0

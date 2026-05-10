@@ -20,7 +20,7 @@ internal class ReactiveOffset_OnSpecificMenus : MonoBehaviour, IReactiveOffsetMu
 		_menuManager = Singletons.GetSingleton<IMenuManager>();
 	}
 
-	public ReactiveOffsetValues MutateOffset(ReactiveOffsetValues currentOffset)
+	public IReactiveOffsetValues MutateOffset(IReactiveOffsetValues currentOffset)
 	{
 		bool onMenu = _inverse ? !_menus.Contains(_menuManager.OpenMenu.Val) : _menus.Contains(_menuManager.OpenMenu.Val);
 		if (onMenu)
