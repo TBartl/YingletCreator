@@ -19,6 +19,8 @@ public class ClassId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptable
 	[SerializeField] Sprite _icon;
 	public Sprite Icon => _icon;
 
+	[field: SerializeField] public Color TextColor { get; private set; }
+
 	[SerializeField] Material _uiOverlayMaterial;
 	public Material UiOverlayMaterial => _uiOverlayMaterial;
 
@@ -26,4 +28,17 @@ public class ClassId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptable
 
 	[SerializeField] int _orderIndex;
 	public int OrderIndex => _orderIndex;
+
+	private string _cachedColorHtml;
+	public string TextColorHtml
+	{
+		get
+		{
+			if (string.IsNullOrWhiteSpace(_cachedColorHtml))
+			{
+				return "#" + ColorUtility.ToHtmlStringRGB(TextColor);
+			}
+			return _cachedColorHtml;
+		}
+	}
 }

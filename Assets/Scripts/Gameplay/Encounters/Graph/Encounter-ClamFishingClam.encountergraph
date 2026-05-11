@@ -288,11 +288,9 @@ MonoBehaviour:
         m_InputConstantsById:
           m_KeyList:
           - Text
-          - Energy Cost
           - Requirements
           m_ValueList:
           - rid: 3002418971354595434
-          - rid: 3002418971354595435
           - rid: 3002418990697676862
         m_InputPortInfos:
           expandedPortsById:
@@ -330,11 +328,9 @@ MonoBehaviour:
         m_InputConstantsById:
           m_KeyList:
           - Text
-          - Energy Cost
           - Requirements
           m_ValueList:
           - rid: 3002418971354595437
-          - rid: 3002418971354595438
           - rid: 3002418990697676864
         m_InputPortInfos:
           expandedPortsById:
@@ -360,10 +356,6 @@ MonoBehaviour:
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
         m_Value: Ask if it's a cannibal.
-    - rid: 3002418971354595435
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 0
     - rid: 3002418971354595436
       type: {class: ChoiceBlockNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -371,10 +363,6 @@ MonoBehaviour:
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
         m_Value: Take the clam's clam.
-    - rid: 3002418971354595438
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 1
     - rid: 3002418971354595439
       type: {class: ChoiceBlockNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -428,11 +416,9 @@ MonoBehaviour:
         m_State: 0
         m_InputConstantsById:
           m_KeyList:
-          - Energy Cost
           - Text
           - Requirements
           m_ValueList:
-          - rid: 3002418971354595445
           - rid: 3002418971354595446
           - rid: 3002418990697676863
         m_InputPortInfos:
@@ -452,10 +438,6 @@ MonoBehaviour:
           rid: 3002418971354595429
         m_Node:
           rid: 3002418971354595447
-    - rid: 3002418971354595445
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 0
     - rid: 3002418971354595446
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -1121,11 +1103,9 @@ MonoBehaviour:
         m_InputConstantsById:
           m_KeyList:
           - Text
-          - Energy Cost
           - Requirements
           m_ValueList:
           - rid: 3002418971354595522
-          - rid: 3002418971354595523
           - rid: 3002418990697676866
         m_InputPortInfos:
           expandedPortsById:
@@ -1151,10 +1131,6 @@ MonoBehaviour:
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
         m_Value: Wait patiently for the clam to catch another clam.
-    - rid: 3002418971354595523
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 1
     - rid: 3002418971354595524
       type: {class: ChoiceBlockNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -1176,11 +1152,9 @@ MonoBehaviour:
         m_State: 0
         m_InputConstantsById:
           m_KeyList:
-          - Energy Cost
           - Text
           - Requirements
           m_ValueList:
-          - rid: 3002418971354595532
           - rid: 3002418971354595533
           - rid: 3002418990697676865
         m_InputPortInfos:
@@ -1200,10 +1174,6 @@ MonoBehaviour:
           rid: 3002418971354595429
         m_Node:
           rid: 3002418971354595534
-    - rid: 3002418971354595532
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 0
     - rid: 3002418971354595533
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -1229,11 +1199,9 @@ MonoBehaviour:
         m_State: 0
         m_InputConstantsById:
           m_KeyList:
-          - Energy Cost
           - Text
           - Requirements
           m_ValueList:
-          - rid: 3002418971354595536
           - rid: 3002418971354595537
           - rid: 3002418990697676867
         m_InputPortInfos:
@@ -1253,10 +1221,6 @@ MonoBehaviour:
           rid: 3002418971354595517
         m_Node:
           rid: 3002418971354595538
-    - rid: 3002418971354595536
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 2
     - rid: 3002418971354595537
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -1282,11 +1246,9 @@ MonoBehaviour:
         m_State: 0
         m_InputConstantsById:
           m_KeyList:
-          - Energy Cost
           - Text
           - Requirements
           m_ValueList:
-          - rid: 3002418971354595540
           - rid: 3002418971354595541
           - rid: 3002418990697676868
         m_InputPortInfos:
@@ -1306,10 +1268,6 @@ MonoBehaviour:
           rid: 3002418971354595517
         m_Node:
           rid: 3002418971354595542
-    - rid: 3002418971354595540
-      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Value: 0
     - rid: 3002418971354595541
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -6342,7 +6300,7 @@ MonoBehaviour:
     - rid: 3002418993290543219
       type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 2
+        m_Value: 1
     - rid: 3002418993290543220
       type: {class: ChoiceRequirement_CostsResource, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 

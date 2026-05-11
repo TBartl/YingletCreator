@@ -24361,7 +24361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526b23f5d1a978a4498155b92564942c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InsertEncounterMenu
-  _menuToInsert: {fileID: 11400000, guid: c945305ec97374941a44c860f1718821, type: 2}
+  _menuToInsert: {fileID: 11400000, guid: cc37562c277282845851ae7e57bf6278, type: 2}
   _menuToInsertAfter: {fileID: 11400000, guid: 00c88cfc5996f6147a771f9e1fe2381a, type: 2}
 --- !u!114 &2142855969
 MonoBehaviour:
@@ -25786,10 +25786,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1767134002}
+  - {fileID: 5139684162816571264}
   - {fileID: 2109714423022177571}
   - {fileID: 2861038797240453988}
   - {fileID: 1772641592652340080}
-  - {fileID: 5139684162816571264}
   - {fileID: 6026662517244016797}
   - {fileID: 396940733}
   - {fileID: 1427149859}
@@ -28325,7 +28325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366
+      value: 366.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6748708911707019781, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Name

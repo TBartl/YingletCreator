@@ -17,9 +17,8 @@ public class NarrationTextBox : MonoBehaviour, INarrationTextBox
 
 		string ProcessText(string text)
 		{
-			var characterName = encounter.CharacterName;
-			var formattedCharacterName = $"<b><color=#D55F4E>{characterName}</color></b>";
-			return text.Replace("{CHARACTER}", formattedCharacterName, System.StringComparison.OrdinalIgnoreCase);
+			var characterName = encounter.FormattedCharacterName;
+			return text.Replace("{CHARACTER}", characterName, System.StringComparison.OrdinalIgnoreCase);
 		}
 	}
 

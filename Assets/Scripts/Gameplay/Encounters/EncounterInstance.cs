@@ -41,7 +41,7 @@ public interface IEncounterInstance : IDisposable
 	GameObject EncounterSource { get; }
 	ICharacterRoot Character { get; }
 
-	string CharacterName { get; }
+	string FormattedCharacterName { get; }
 
 	event Action OnFinished;
 
@@ -63,7 +63,7 @@ public sealed class EncounterInstance : IEncounterInstance
 	IList<IEncounterNode> _nodeHistory = new ObservableList<IEncounterNode>();
 	IList<object> _nodeResultData = new List<object>();
 	private EncounterGraph _encounterGraph;
-	Lazy<string> _characterName;
+	Lazy<string> _formattedCharacterName;
 	Computed<int> _lastBlockingNode;
 
 	public GameObject EncounterSource { get; }
@@ -71,7 +71,7 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public IReadOnlyObservable<IEncounterNode> CurrentNode => _currentNode;
 
-	public string CharacterName => _characterName.Value;
+	public string FormattedCharacterName => _formattedCharacterName.Value;
 
 	public IEncounterNetworking Networking { get; private set; }
 	public IEncounterMemory Memory { get; }
@@ -92,7 +92,7 @@ public sealed class EncounterInstance : IEncounterInstance
 		EncounterSource = encounterSource;
 		Character = character;
 
-		_characterName = new Lazy<string>(GetCharacterName);
+		_formattedCharacterName = new Lazy<string>(GetCharacterName);
 		Networking = new EncounterNetworking(this);
 		Data = new EncounterInstanceExtraData();
 		_lastBlockingNode = new Computed<int>(ComputeLastBlockingNode);
@@ -125,7 +125,13 @@ public sealed class EncounterInstance : IEncounterInstance
 	private string GetCharacterName()
 	{
 		var dataRepo = Character.GetComponentInChildrenSafe<ICustomizationDataRepository>().CustomizationData;
-		return dataRepo.Name.Val;
+		var name = dataRepo.Name.Val;
+
+		var characterClass = Character.GetComponentInChildrenSafe<IClassReference>().Class;
+
+
+		var formattedCharacterName = $"<b><color={characterClass.TextColorHtml}>{name}</color></b>";
+		return formattedCharacterName;
 	}
 
 	private int ComputeLastBlockingNode()

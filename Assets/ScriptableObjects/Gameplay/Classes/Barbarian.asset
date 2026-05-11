@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uniqueAssetId: 3e6f9c979605e234c82d6da66efb5110
   _icon: {fileID: -750928680, guid: 2a0bb081fc7b16e42a3d7f5f5fc6c3d3, type: 3}
+  <TextColor>k__BackingField: {r: 0.67058825, g: 0.3019608, b: 0.2784314, a: 1}
   _uiOverlayMaterial: {fileID: 2100000, guid: 88515a14be05bde41a9113d1f1e47ed9, type: 2}
   <Stats>k__BackingField:
   - Stat:

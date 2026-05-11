@@ -685,8 +685,8 @@ MonoBehaviour:
     - rid: 3002418882154856518
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: '{CHARACTER} tells the mimic that their chest is second only to
-          Hazbig''s.'
+        m_Value: '{CHARACTER} tells the mimic that they''ve never seen such a large
+          chest.'
     - rid: 3002418882154856519
       type: {class: NarrationNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -2217,8 +2217,8 @@ MonoBehaviour:
     - rid: 3002418903283138741
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 'Unfortunately, {CHARACTER}''s sweet words fall on deaf ears. Or
-          in this case, no ears.\n\nThe mimic continues its assault! '
+        m_Value: 'Unfortunately, {CHARACTER}''s sweet words fall on deaf ears.\n\nThe
+          mimic continues its assault! '
     - rid: 3002418903283138742
       type: {class: NarrationNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
