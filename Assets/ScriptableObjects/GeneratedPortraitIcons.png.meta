@@ -100,7 +100,7 @@ TextureImporter:
       name: Default
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 0
         width: 128
         height: 128
@@ -122,7 +122,7 @@ TextureImporter:
       name: Bless
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 0
         width: 128
         height: 128
@@ -141,11 +141,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apprehensive
+      name: Timid
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 768
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -166,7 +166,7 @@ TextureImporter:
       name: Embarassed
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 0
         width: 128
         height: 128
@@ -188,7 +188,7 @@ TextureImporter:
       name: Exhausted
       rect:
         serializedVersion: 2
-        x: 512
+        x: 384
         y: 0
         width: 128
         height: 128
@@ -210,7 +210,7 @@ TextureImporter:
       name: Fabulous
       rect:
         serializedVersion: 2
-        x: 640
+        x: 512
         y: 0
         width: 128
         height: 128
@@ -232,7 +232,7 @@ TextureImporter:
       name: Fierce
       rect:
         serializedVersion: 2
-        x: 768
+        x: 640
         y: 0
         width: 128
         height: 128
@@ -254,7 +254,7 @@ TextureImporter:
       name: Flattered
       rect:
         serializedVersion: 2
-        x: 896
+        x: 768
         y: 0
         width: 128
         height: 128
@@ -276,8 +276,8 @@ TextureImporter:
       name: Giddy
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 896
+        y: 0
         width: 128
         height: 128
       alignment: 0
@@ -298,7 +298,7 @@ TextureImporter:
       name: Happying
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 128
         width: 128
         height: 128
@@ -320,7 +320,7 @@ TextureImporter:
       name: Head Tilt
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 128
         width: 128
         height: 128
@@ -342,7 +342,7 @@ TextureImporter:
       name: Philosopher
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 128
         width: 128
         height: 128
@@ -364,7 +364,7 @@ TextureImporter:
       name: Proud
       rect:
         serializedVersion: 2
-        x: 512
+        x: 384
         y: 128
         width: 128
         height: 128
@@ -386,7 +386,7 @@ TextureImporter:
       name: Refined
       rect:
         serializedVersion: 2
-        x: 640
+        x: 512
         y: 128
         width: 128
         height: 128
@@ -408,7 +408,7 @@ TextureImporter:
       name: Thinker
       rect:
         serializedVersion: 2
-        x: 768
+        x: 640
         y: 128
         width: 128
         height: 128
@@ -500,6 +500,7 @@ TextureImporter:
       Refined: 450423625
       Side View: -956847406788982419
       Thinker: -1255247574
+      Timid: 921931546
       Woe Is Me: -1182694698
       Yink: 1273477950
   mipmapLimitGroupName: 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: UpperArm
   m_EditorClassIdentifier: 
-  Position: {x: -0.08513442, y: 0.66698205, z: -0.2897634}
-  Rotation: {x: 4.6408553, y: 11.688943, z: 359.99243}
+  Position: {x: -0.08703978, y: 0.63873065, z: -0.298712}
+  Rotation: {x: 3.7814186, y: 11.860943, z: 359.99246}

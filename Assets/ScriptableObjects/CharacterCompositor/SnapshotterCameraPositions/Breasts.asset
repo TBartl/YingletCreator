@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: Breasts
   m_EditorClassIdentifier: 
-  Position: {x: 0.0974934, y: 0.73154753, z: -0.32851258}
-  Rotation: {x: 19.938984, y: 350.5444, z: 359.9923}
+  Position: {x: 0.12051685, y: 0.7087421, z: -0.35420966}
+  Rotation: {x: 17.188786, y: 347.4508, z: 359.99243}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: ChestFluff
   m_EditorClassIdentifier: 
-  Position: {x: 0.053596403, y: 0.7441894, z: -0.2420562}
-  Rotation: {x: 7.219341, y: 8.4222765, z: 359.9925}
+  Position: {x: 0.12335314, y: 0.76792246, z: -0.35948727}
+  Rotation: {x: 15.674171, y: 345.73233, z: 359.9923}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: Back
   m_EditorClassIdentifier: 
-  Position: {x: -0.2552086, y: 0.71762925, z: 0.02958573}
-  Rotation: {x: 21.658236, y: 107.600975, z: -0.0037470795}
+  Position: {x: -0.24881996, y: 0.7345085, z: 0.027557736}
+  Rotation: {x: 19.079924, y: 110.69511, z: -0.003693113}

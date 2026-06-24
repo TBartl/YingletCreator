@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: HandAndWrist
   m_EditorClassIdentifier: 
-  Position: {x: -0.0024926532, y: 0.4596254, z: -0.3206348}
-  Rotation: {x: 7.907594, y: 355.87494, z: 359.9924}
+  Position: {x: -0.0014982477, y: 0.46227133, z: -0.33186132}
+  Rotation: {x: 3.7822971, y: 353.29718, z: 359.99243}

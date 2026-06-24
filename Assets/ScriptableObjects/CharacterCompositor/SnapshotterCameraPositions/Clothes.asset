@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: Clothes
   m_EditorClassIdentifier: 
-  Position: {x: 0.025503827, y: 0.5993308, z: -0.6010366}
-  Rotation: {x: 6.531762, y: 358.4534, z: -0.0033833953}
+  Position: {x: 0.056322917, y: 0.6104205, z: -0.59754276}
+  Rotation: {x: 8.594414, y: 354.328, z: -0.0033996683}

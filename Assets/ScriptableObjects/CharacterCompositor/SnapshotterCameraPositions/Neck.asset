@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
   m_Name: Neck
   m_EditorClassIdentifier: 
-  Position: {x: 0.057915978, y: 0.80035293, z: -0.21987693}
-  Rotation: {x: 8.07875, y: 350.3744, z: -0.0031902494}
+  Position: {x: 0.010807391, y: 0.78970206, z: -0.27566695}
+  Rotation: {x: 21.657864, y: 9.453072, z: -0.003396614}
