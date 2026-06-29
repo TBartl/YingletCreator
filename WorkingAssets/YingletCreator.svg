@@ -27,9 +27,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="2"
-     inkscape:cx="-2304.25"
-     inkscape:cy="-135.25"
+     inkscape:zoom="1"
+     inkscape:cx="-2349.5"
+     inkscape:cy="-254.5"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -38,7 +38,7 @@
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:export-bgcolor="#00000000"
-     showguides="true" /><defs
+     showguides="false" /><defs
      id="defs1"><inkscape:path-effect
        effect="powerstroke"
        id="path-effect16"
@@ -21277,4 +21277,9 @@
          fill="#ffffff"
          fill-opacity="1"
          id="path2-6-9"
-         sodipodi:nodetypes="sccccccccscssccsscccccccssccssccccscccscscsscscss" /></g></g></svg>
+         sodipodi:nodetypes="sccccccccscssccsscccccccssccssccccscccscscsscscss" /></g><circle
+       style="fill:#ffffff;stroke-width:1.16284;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1"
+       id="path27"
+       cx="-651.44275"
+       cy="340.49811"
+       r="8.1383572" /></g></svg>

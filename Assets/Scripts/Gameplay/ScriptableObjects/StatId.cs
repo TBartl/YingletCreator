@@ -10,4 +10,9 @@ public class StatId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptableO
 	public int OrderIndex => _orderIndex;
 
 	public string DisplayName => name;
+
+	public string ShortName => name.Substring(0, Mathf.Min(3, name.Length)).ToUpper();
+
+	[SerializeField] Color _color;
+	public Color Color => _color;
 }

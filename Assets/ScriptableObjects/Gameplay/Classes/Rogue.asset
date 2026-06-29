@@ -19,8 +19,14 @@ MonoBehaviour:
   <Stats>k__BackingField:
   - Stat:
       m_AssetGUID: d6c79b72f3115bc48bc2cc6b159762f8
+    Value: 2
+  - Stat:
+      m_AssetGUID: 074af5bae3049b743929fab79c885e42
     Value: 5
   - Stat:
       m_AssetGUID: ceb6f64157e76d147ba8c978bc9e072d
     Value: 4
+  - Stat:
+      m_AssetGUID: a9bed3bf6f260dd4a895355f204d2d60
+    Value: 3
   _orderIndex: 100

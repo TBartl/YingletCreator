@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 741ec48a9e627e449a1818700d0b759f, type: 3}
-  m_Name: MIND
+  m_Name: STRENGTH
   m_EditorClassIdentifier: Assembly-CSharp::StatId
-  _uniqueAssetId: ceb6f64157e76d147ba8c978bc9e072d
-  _orderIndex: 100
+  _uniqueAssetId: d6c79b72f3115bc48bc2cc6b159762f8
+  _orderIndex: 0
+  _color: {r: 0.9450981, g: 0.5411765, b: 0.48627454, a: 1}
