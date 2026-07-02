@@ -21,7 +21,6 @@ public class ClassIconTooltip : Tooltip
 		{
 			sb.AppendLine($"<size=90%>{stat.Value} {stat.Stat.LoadSync().ShortName}</size>");
 		}
-		sb.AppendLine($"<color=#FFFFFF99><size=70%>Stats are used in\n{TMPUtils.DiceSprite} dice rolls.</size></color>");
 		return sb.ToString();
 	}
 

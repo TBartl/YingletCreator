@@ -66,7 +66,7 @@ public class TooltipPresenter : ReactiveBehaviour, ISelectable
 		foreach (var offset in candidateOffsets)
 		{
 			var candidatePosition = (Vector2)target.Position + offset;
-			var tooltipRect = new Rect(candidatePosition, tooltipSize);
+			var tooltipRect = new Rect(candidatePosition - tooltipSize / 2f, tooltipSize);
 			if (FitsOnScreen(tooltipRect))
 			{
 				return candidatePosition;
@@ -81,6 +81,7 @@ public class TooltipPresenter : ReactiveBehaviour, ISelectable
 	static bool FitsOnScreen(Rect rect)
 	{
 		var screenRect = new Rect(0, 0, Screen.width, Screen.height);
-		return screenRect.Overlaps(rect);
+		return rect.xMin >= screenRect.xMin && rect.xMax <= screenRect.xMax &&
+			   rect.yMin >= screenRect.yMin && rect.yMax <= screenRect.yMax;
 	}
 }

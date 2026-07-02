@@ -5020,6 +5020,30 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1214885376366405423, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214885376366405423, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214885376366405423, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214885376366405423, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214885376366405423, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214885376366405423, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1392514402781276923, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5103,6 +5127,18 @@ PrefabInstance:
     - target: {fileID: 1576194196858233552, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
       propertyPath: m_overflowMode
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588773519030311686, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588773519030311686, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588773519030311686, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1592193152198522603, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6283,6 +6319,14 @@ PrefabInstance:
     - target: {fileID: 7188315864954822874, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
       propertyPath: m_overflowMode
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196234913812314426, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196234913812314426, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7206032117661909095, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
       propertyPath: m_overflowMode
