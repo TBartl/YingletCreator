@@ -1576,10 +1576,12 @@ GameObject:
   - component: {fileID: 161898182547868386}
   - component: {fileID: 6239321374392324234}
   - component: {fileID: 38101852643726894}
+  - component: {fileID: 4248249364132079598}
   - component: {fileID: 7344815673196078727}
   - component: {fileID: 200398080046191755}
+  - component: {fileID: 1867872846444278195}
   m_Layer: 0
-  m_Name: Chubby-Neck
+  m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,6 +1653,24 @@ MonoBehaviour:
   _maxSize: {x: 1.08, y: 1, z: 1.08}
   _applyMode: 1
   _target: {fileID: 4492358670157863201}
+--- !u!114 &4248249364132079598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139896974918424443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb32ff45f38db7f4c8cb25ea9379095d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sliderReference:
+    m_AssetGUID: 7bc042cc1deaf0540a91e1c30b262311
+  _minSize: {x: 0.6, y: 1, z: 0.6}
+  _maxSize: {x: 1.5, y: 1, z: 1.5}
+  _applyMode: 1
+  _target: {fileID: 4492358670157863201}
 --- !u!114 &7344815673196078727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1685,6 +1705,24 @@ MonoBehaviour:
     m_AssetGUID: 9340d1881351c0f4c94809a00946a5d7
   _minSize: {x: 0.92, y: 1, z: 0.92}
   _maxSize: {x: 1.08, y: 1, z: 1.08}
+  _applyMode: 1
+  _target: {fileID: 1790092576762160158}
+--- !u!114 &1867872846444278195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139896974918424443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb32ff45f38db7f4c8cb25ea9379095d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sliderReference:
+    m_AssetGUID: 7bc042cc1deaf0540a91e1c30b262311
+  _minSize: {x: 0.6, y: 1, z: 0.6}
+  _maxSize: {x: 1.5, y: 1, z: 1.5}
   _applyMode: 1
   _target: {fileID: 1790092576762160158}
 --- !u!1 &3192563437372034910
