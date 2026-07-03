@@ -4,61 +4,99 @@ using System.Collections.Generic;
 public interface ICharacterStats
 {
 	int GetStat(StatId statId);
+	IEnumerable<CharacterStatRecord> GetStatRecords(StatId statId);
+}
+
+/// <summary>
+/// Store stats as a list of records so we can display their breakdown later
+/// </summary>
+public class CharacterStatRecord
+{
+	public string Source;
+	public int Delta;
 }
 
 public class CharacterStats : ReactiveBehaviour, ICharacterStats, IInitializable
 {
+	private ICompositeResourceLoader _resourceProvider;
 	private IClassReference _classReference;
 	private ICharacterStatuses _characterStatuses;
-	Computed<Dictionary<StatId, int>> _stats;
+	Dictionary<StatId, Computed<IEnumerable<CharacterStatRecord>>> _statRecords = new();
+	Dictionary<StatId, Computed<int>> _stats = new();
 
 	public void Initialize()
 	{
+		_resourceProvider = Singletons.GetSingleton<ICompositeResourceLoader>();
+
 		// Might make these providers eventually, but with only 2 expected sources maybe I just do it here
 		_classReference = this.GetCharacterRootComponent<IClassReference>();
 		_characterStatuses = this.GetCharacterRootComponent<ICharacterStatuses>();
 
-		_stats = CreateComputed(ComputeStats);
+
+		var stats = _resourceProvider.LoadStats();
+		foreach (var stat in stats)
+		{
+			_statRecords[stat] = ComputeStatRecord(stat);
+			_stats[stat] = ComputeStat(stat);
+		}
 	}
 
-	private Dictionary<StatId, int> ComputeStats()
+	Computed<IEnumerable<CharacterStatRecord>> ComputeStatRecord(StatId stat)
 	{
-		var dict = new Dictionary<StatId, int>();
-
-		var classStatsArray = _classReference.Class.Stats;
-		foreach (var stat in classStatsArray)
+		return this.CreateComputed<IEnumerable<CharacterStatRecord>>(() =>
 		{
-			dict[stat.Stat.LoadSync()] = stat.Value;
-		}
-
-		foreach (var status in _characterStatuses.Statuses)
-		{
-			var statusEffects = status.StatusEffects;
-			foreach (var statusEffect in statusEffects)
+			var records = new List<CharacterStatRecord>();
+			var classStatsArray = _classReference.Class.Stats;
+			foreach (var classStat in classStatsArray)
 			{
-				if (statusEffect is StatusEffect_ChangeStat changeStat)
+				if (classStat.Stat.LoadSync() == stat)
 				{
-					if (dict.TryGetValue(changeStat.Stat, out var currentValue))
+					records.Add(new CharacterStatRecord
 					{
-						dict[changeStat.Stat] = currentValue + changeStat.Delta;
-					}
-					else
+						Source = "Class",
+						Delta = classStat.Value
+					});
+				}
+			}
+			foreach (var status in _characterStatuses.Statuses)
+			{
+				var statusEffects = status.StatusEffects;
+				foreach (var statusEffect in statusEffects)
+				{
+					if (statusEffect is StatusEffect_ChangeStat changeStat && changeStat.Stat == stat)
 					{
-						dict[changeStat.Stat] = changeStat.Delta;
+						records.Add(new CharacterStatRecord
+						{
+							Source = status.DisplayName,
+							Delta = changeStat.Delta
+						});
 					}
 				}
 			}
-		}
+			return records;
+		});
+	}
 
-		return dict;
+	private Computed<int> ComputeStat(StatId stat)
+	{
+		return this.CreateComputed<int>(() =>
+		{
+			int total = 0;
+			foreach (var record in _statRecords[stat].Val)
+			{
+				total += record.Delta;
+			}
+			return total;
+		});
+	}
+
+	public IEnumerable<CharacterStatRecord> GetStatRecords(StatId statId)
+	{
+		return _statRecords[statId].Val;
 	}
 
 	public int GetStat(StatId statId)
 	{
-		if (_stats.Val.TryGetValue(statId, out var statValue))
-		{
-			return statValue;
-		}
-		return 0;
+		return _stats[statId].Val;
 	}
 }

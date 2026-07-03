@@ -12,4 +12,39 @@ public static class TMPUtils
 	public const string EnergySprite = "<sprite tint=\"1\" name=\"Energy\">";
 	public const string DiceSprite = "<sprite tint=\"1\" name=\"Dice\">";
 
+	public static string ColorizeNumber(int number, int baseline = 0)
+	{
+		int delta = number - baseline;
+		if (delta > 0)
+		{
+			return $"<color={TooltipGreen}>{number}</color>";
+		}
+		else if (delta < 0)
+		{
+			return $"<color={TooltipRed}>{number}</color>";
+		}
+		else
+		{
+			return number.ToString();
+		}
+	}
+
+	public static string ColorizeLabelWithNumber(string formattedLabel, int number)
+	{
+		string prefixedNumber = number > 0 ? $"+{number}" : number.ToString();
+		string label = string.Format(formattedLabel, prefixedNumber);
+		if (number > 0)
+		{
+			return $"<color={TooltipGreen}>{label}</color>";
+		}
+		else if (number < 0)
+		{
+			return $"<color={TooltipRed}>{label}</color>";
+		}
+		else
+		{
+			return label;
+		}
+	}
+
 }

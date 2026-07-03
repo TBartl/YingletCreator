@@ -1,4 +1,5 @@
 ﻿using Reactivity;
+using System.Linq;
 using TMPro;
 
 public class ReflectStatCount : ReactiveBehaviour
@@ -33,6 +34,10 @@ public class ReflectStatCount : ReactiveBehaviour
 			return;
 		}
 
-		_text.text = _stats.Val.GetStat(_reference.Stat).ToString();
+		var stat = _reference.Stat;
+		int statValue = _stats.Val.GetStat(stat);
+		var statRecords = _stats.Val.GetStatRecords(stat);
+		int defaultValue = statRecords.First().Delta; // Kind of a hacky way to assume the baseline value, but the class should always be first
+		_text.text = TMPUtils.ColorizeNumber(statValue, defaultValue);
 	}
 }

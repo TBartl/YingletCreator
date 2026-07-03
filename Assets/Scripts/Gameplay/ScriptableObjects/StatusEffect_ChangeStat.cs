@@ -13,10 +13,6 @@ public class StatusEffect_ChangeStat : StatusEffectId
 
 	public override void AppendTooltipText(StringBuilder sb)
 	{
-		if (Delta >= 0)
-		{
-			sb.Append('+');
-		}
-		sb.Append($"{Delta} {Stat.DisplayName}");
+		sb.Append(TMPUtils.ColorizeLabelWithNumber($"{Stat.ShortName}: {{0}}", Delta));
 	}
 }

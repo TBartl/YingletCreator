@@ -26,6 +26,8 @@ public abstract class Tooltip : ReactiveBehaviour, ITooltip, IPointerEnterHandle
 		_rectTransform = GetComponent<RectTransform>();
 	}
 
+	protected bool IsCurrentlyShowing => _tooltipManager.DesiredTooltip.Val == (ITooltip)this;
+
 	private new void OnDestroy()
 	{
 		base.OnDestroy();
