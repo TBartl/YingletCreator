@@ -15,30 +15,27 @@ public class VertexColorObjectSettingsApplier : IDisposable
 	public VertexColorObjectSettingsApplier(IEnumerable<Transform> objects)
 	{
 
-		var settings = objects
-			.Select(o => o.GetComponent<VertexColorObjectSettings>())
+		var dontObfuscate = objects
+			.Select(o => o.GetComponent<VertexColorObject_DontObfuscate>())
 			.Where(c => c != null)
 			.ToArray();
 
 		var disabledMeshRenders = new List<MeshRenderer>();
-		foreach (var setting in settings)
+		foreach (var setting in dontObfuscate)
 		{
-			if (setting.Obfuscate == false)
+			var meshRender = setting.GetComponent<MeshRenderer>();
+			if (meshRender == null)
 			{
-				var meshRender = setting.GetComponent<MeshRenderer>();
-				if (meshRender == null)
-				{
-					Debug.LogWarning("Settings called for no obfuscation, but the object didn't even have a MeshRenderer to begin with", setting.gameObject);
-					continue;
-				}
-				if (meshRender.enabled == false)
-				{
-					Debug.LogWarning("Settings called for no obfuscation, but the object didn't even have its mesh render enabled to begin with", setting.gameObject);
-					continue;
-				}
-				meshRender.enabled = false;
-				disabledMeshRenders.Add(meshRender);
+				Debug.LogWarning("Settings called for no obfuscation, but the object didn't even have a MeshRenderer to begin with", setting.gameObject);
+				continue;
 			}
+			if (meshRender.enabled == false)
+			{
+				Debug.LogWarning("Settings called for no obfuscation, but the object didn't even have its mesh render enabled to begin with", setting.gameObject);
+				continue;
+			}
+			meshRender.enabled = false;
+			disabledMeshRenders.Add(meshRender);
 		}
 		_disabledMeshRenderers = disabledMeshRenders;
 
