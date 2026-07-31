@@ -12,18 +12,22 @@ internal class RoomMeshVisibilityTransitioner : MonoBehaviour, IRoomMeshVisibili
 	private float _currentYCutoff;
 	private Coroutine _transitionCoroutine;
 	private MeshRenderer _mr;
-	private Material _originalMaterial;
-	private Material _cutOffMaterial;
+	private Material[] _originalMaterials;
+	private Material[] _cutOffMaterials;
 
 	public void Initialize()
 	{
 		_constants = Singletons.GetSingleton<RoomMeshVisibilityConstants>();
 
-
 		_mr = this.GetComponentSafe<MeshRenderer>();
-		_originalMaterial = _mr.sharedMaterial;
-		_cutOffMaterial = new Material(_originalMaterial);
-		_cutOffMaterial.shader = _constants.CUTOFF_FROM_TOP_SHADER;
+		_originalMaterials = _mr.sharedMaterials;
+		_cutOffMaterials = new Material[_originalMaterials.Length];
+
+		for (int i = 0; i < _originalMaterials.Length; i++)
+		{
+			_cutOffMaterials[i] = new Material(_originalMaterials[i]);
+			_cutOffMaterials[i].shader = _constants.CUTOFF_FROM_TOP_SHADER;
+		}
 	}
 
 	float MaxYCutoff => _constants.PassageRange.y;
@@ -41,18 +45,21 @@ internal class RoomMeshVisibilityTransitioner : MonoBehaviour, IRoomMeshVisibili
 		var fromY = _currentYCutoff;
 		var toY = active ? MaxYCutoff : MinYCutoff;
 		this.gameObject.SetActive(true);
-		_mr.sharedMaterial = _cutOffMaterial;
+		_mr.sharedMaterials = _cutOffMaterials;
 		this.StartEaseCoroutine(ref _transitionCoroutine, _constants.EaseSettings, Apply, OnComplete);
-
 
 		void Apply(float p)
 		{
 			_currentYCutoff = Mathf.Lerp(fromY, toY, p);
-			_cutOffMaterial.SetFloat(_constants.Y_CUTOFF_PROPERTY_ID, _currentYCutoff);
+			for (int i = 0; i < _cutOffMaterials.Length; i++)
+			{
+				_cutOffMaterials[i].SetFloat(_constants.Y_CUTOFF_PROPERTY_ID, _currentYCutoff);
+			}
 		}
+
 		void OnComplete()
 		{
-			_mr.sharedMaterial = _originalMaterial;
+			_mr.sharedMaterials = _originalMaterials;
 			this.gameObject.SetActive(active);
 		}
 	}

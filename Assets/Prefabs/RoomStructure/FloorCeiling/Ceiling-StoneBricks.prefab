@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 337730837031433490}
   - component: {fileID: 5140134201448732659}
   - component: {fileID: 7856201764063752694}
+  - component: {fileID: 3853117374533468363}
+  - component: {fileID: 2120563440262536184}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -135,3 +137,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39594e6f95707354299ac0424bf178f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VertexColorObject_DontObfuscate
+--- !u!114 &3853117374533468363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972187331053880435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc54e69424c0064180ea7e00b85261f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomMeshVisibilityTransitioner
+--- !u!114 &2120563440262536184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972187331053880435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3242c76acaa3b4c419ab0a9722ea254a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShowRoomMeshDuringEncounter

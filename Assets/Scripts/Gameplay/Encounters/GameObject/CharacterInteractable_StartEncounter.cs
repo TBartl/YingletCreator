@@ -73,7 +73,6 @@ public class CharacterInteractable_StartEncounter : MonoBehaviour, ICharacterInt
 		_encounterInstance.Val = null;
 	}
 
-
 	public void Interact(ICharacterInteraction character)
 	{
 		_eventBus.SendToAll(new Message_InteractWithEncounter(_netIdentity.NetId, character.Identity.NetId));

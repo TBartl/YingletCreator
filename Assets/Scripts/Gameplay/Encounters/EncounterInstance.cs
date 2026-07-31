@@ -40,6 +40,7 @@ public interface IEncounterInstance : IDisposable
 
 	GameObject EncounterSource { get; }
 	ICharacterRoot Character { get; }
+	IRoom Room { get; }
 
 	string FormattedCharacterName { get; }
 
@@ -68,6 +69,7 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public GameObject EncounterSource { get; }
 	public ICharacterRoot Character { get; }
+	public IRoom Room { get; }
 
 	public IReadOnlyObservable<IEncounterNode> CurrentNode => _currentNode;
 
@@ -90,6 +92,7 @@ public sealed class EncounterInstance : IEncounterInstance
 		_encounterGraph = encounterGraph;
 		Memory = encounterMemory;
 		EncounterSource = encounterSource;
+		Room = character.GetComponentInChildrenSafe<ICharacterRoomDetector>().CurrentRoom.Val;
 		Character = character;
 
 		_formattedCharacterName = new Lazy<string>(GetCharacterName);
