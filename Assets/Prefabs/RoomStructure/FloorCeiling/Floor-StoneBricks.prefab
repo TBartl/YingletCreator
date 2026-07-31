@@ -51,15 +51,23 @@ PrefabInstance:
     - target: {fileID: 1633202834147017400, guid: 4fe377a4261d0d24baed33505a4579e7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1f34f760fd547434f9fa5c386121d8f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b5828dec5810574d8c16941b1c05052, type: 2}
     - target: {fileID: 5475245481215971675, guid: 4fe377a4261d0d24baed33505a4579e7, type: 3}
       propertyPath: m_Name
-      value: Floor-Wood
+      value: Floor-StoneBricks
       objectReference: {fileID: 0}
     - target: {fileID: 5481002292324965327, guid: 4fe377a4261d0d24baed33505a4579e7, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: f59dfa1efd8fa25488b70fe96ad6aba5, type: 2}
+      objectReference: {fileID: 13400000, guid: 88e8e9ad86907e540873757ad956177b, type: 2}
+    - target: {fileID: 5506323510205136804, guid: 4fe377a4261d0d24baed33505a4579e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eb9715e8034a75f418d6708f1c64f130, type: 2}
+    - target: {fileID: 6845562251602063992, guid: 4fe377a4261d0d24baed33505a4579e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eb9715e8034a75f418d6708f1c64f130, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

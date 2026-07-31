@@ -63,6 +63,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,9 +86,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6006667184986905261
 GameObject:
@@ -99,7 +103,7 @@ GameObject:
   - component: {fileID: 8757834490851252341}
   - component: {fileID: 4033963192696188838}
   m_Layer: 0
-  m_Name: PassageLight
+  m_Name: Light
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,8 +151,9 @@ GameObject:
   - component: {fileID: 2120713838672699162}
   - component: {fileID: 2388009152393626601}
   - component: {fileID: 3194712390585540573}
+  - component: {fileID: 6696010090822203771}
   m_Layer: 0
-  m_Name: Passage
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,6 +202,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -218,9 +225,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3194712390585540573
 MonoBehaviour:
@@ -234,6 +243,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815976b111a74f4489b5c0ae3f65b637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minYCutoff: 1.2
-  _maxYCutoff: 1.97
-  _easeSettings: {fileID: 11400000, guid: b7c4e41d6d0b15f429c9f00caa92d59c, type: 2}
+--- !u!114 &6696010090822203771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006566150660463109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc54e69424c0064180ea7e00b85261f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomMeshVisibilityTransitioner

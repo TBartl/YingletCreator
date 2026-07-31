@@ -8,6 +8,7 @@ public interface IRoom
 	RoomOpeningsDefinition Openings { get; }
 
 	AudioClip Music { get; }
+	T GetComponentSafe<T>();
 }
 
 public class Room : MonoBehaviour, IRoom, IInitializable
@@ -34,5 +35,11 @@ public class Room : MonoBehaviour, IRoom, IInitializable
 	public static Vector2Int GetRoomPosFromWorldPos(Vector3 worldPos)
 	{
 		return new Vector2Int(Mathf.RoundToInt(worldPos.x / RoomManager.ROOM_SIZE), Mathf.RoundToInt(worldPos.z / RoomManager.ROOM_SIZE));
+	}
+
+	public T GetComponentSafe<T>()
+	{
+		// Optimization opportunity: Could cache this
+		return gameObject.GetComponentSafe<T>();
 	}
 }

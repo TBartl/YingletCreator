@@ -6020,6 +6020,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5448777445408875759, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
+      propertyPath: m_overflowMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5472272022995131501, guid: efd2f4fd4af88cc4db7369507780defe, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -19346,6 +19350,175 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1244177996196878060, guid: 482f862946294744a9db3eaa57c84af8, type: 3}
   m_PrefabInstance: {fileID: 4329803454189899730}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1872789073
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 959814101203516653, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058576454901394989, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260160453634901230, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423140670055052522, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568300158930249022, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759758284143004894, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891481726315914707, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296815861031566423, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366118299501029104, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584753688629655401, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_Name
+      value: Room-CornerTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584753688629655401, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607781326679265548, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719192898956135823, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736313419412760683, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348994179400445705, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515564180290436694, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865271217083353731, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971283631241286673, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509319427334548349, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104187927294395140, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358947564066466253, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574223580170220748, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107918770465719343, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272152799331676583, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476098074493240514, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457397597375191055, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530480020371560674, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090463258801484003, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285469788149088487, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185748697568367753, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
+      propertyPath: m_AdditionalVertexStreams
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e58437d9beebc0447adefb767dd6c949, type: 3}
 --- !u!1 &1878570676
 GameObject:
   m_ObjectHideFlags: 0
@@ -24297,6 +24470,7 @@ GameObject:
   - component: {fileID: 2142855970}
   - component: {fileID: 2142855971}
   - component: {fileID: 2142855972}
+  - component: {fileID: 2142855973}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -24466,6 +24640,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InsertRoundTransitionMenu
   _menuToInsert: {fileID: 11400000, guid: cc086d66b93421f47ad30e0f16d28da2, type: 2}
   _menuToInsertAfter: {fileID: 11400000, guid: 00c88cfc5996f6147a771f9e1fe2381a, type: 2}
+--- !u!114 &2142855973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142855960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb0b1b12268aea49a257a4e66c8851e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomMeshVisibilityConstants
+  <EaseSettings>k__BackingField: {fileID: 11400000, guid: b7c4e41d6d0b15f429c9f00caa92d59c, type: 2}
+  <PassageRange>k__BackingField: {x: 1.2, y: 1.97}
 --- !u!222 &143038863653030173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28465,7 +28653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366.00003
+      value: 366
       objectReference: {fileID: 0}
     - target: {fileID: 6748708911707019781, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Name
@@ -34274,3 +34462,4 @@ SceneRoots:
   - {fileID: 19183704}
   - {fileID: 1654406855}
   - {fileID: 1862618536}
+  - {fileID: 1872789073}
