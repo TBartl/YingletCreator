@@ -1722,7 +1722,7 @@ MonoBehaviour:
   _sliderReference:
     m_AssetGUID: 7bc042cc1deaf0540a91e1c30b262311
   _minSize: {x: 0.6, y: 1, z: 0.6}
-  _maxSize: {x: 1.5, y: 1, z: 1.5}
+  _maxSize: {x: 1.33, y: 1, z: 1.33}
   _applyMode: 1
   _target: {fileID: 1790092576762160158}
 --- !u!1 &3192563437372034910
