@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef325111c9647d499e7fe4af01b122d, type: 3}
+  m_Name: Quinglet-MeshWithMaterial
+  m_EditorClassIdentifier: 
+  _skinnedMeshRendererPrefab: {fileID: 22366310030310529, guid: 62d76e06f74d54e4ab4fa2431abfcc42, type: 3}
+  _materialWithDescriptionReference:
+    m_AssetGUID: 
+  _tagReferences: []
+  _boneToAttachToReference:
+    m_AssetGUID: 000c07413275646418d07ef6b13f2964

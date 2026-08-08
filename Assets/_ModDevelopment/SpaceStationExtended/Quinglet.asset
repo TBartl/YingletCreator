@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e535d3d5ddc9c604185ed216d51c8cfa, type: 3}
+  m_Name: Quinglet
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 37f242f0f128e6443903216e01a6e7fc
+  _clip: {fileID: -7304369512910211312, guid: 92015d942c66b3741bda249d08c55460, type: 3}
+  _overrideName: 
+  _propReferences:
+  - m_AssetGUID: 1948ccb7fff6418428a6ce5f2530e030
+  _preview:
+    _sprite: {fileID: 21300000, guid: 1de6ed497de0c9a4baf917d8ccad526e, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: f35bc209b490f2248821013111e29562
+  _order:
+    _groupReference:
+      m_AssetGUID: a93e9526d63404f4abb4c541b27d9b56
+    _index: 10001

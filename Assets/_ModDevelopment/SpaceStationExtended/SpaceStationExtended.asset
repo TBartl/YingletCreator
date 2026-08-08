@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120deaf7dc863c64580690e742f11134, type: 3}
+  m_Name: SpaceStationExtended
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 1959c495aa98837409fd3366fbcfd759
+  _title: Space Station (Extended)
+  _shortDescription: Using assets from the open source re:SS3D project
+  _author: Tabski
+  _icon: {fileID: 21300000, guid: fd9955e01448b4143afa438fb420df99, type: 3}
+  _table:
+    Resources:
+    - Guid: 1948ccb7fff6418428a6ce5f2530e030
+      Object: {fileID: 11400000, guid: 1948ccb7fff6418428a6ce5f2530e030, type: 2}
+    - Guid: 37f242f0f128e6443903216e01a6e7fc
+      Object: {fileID: 11400000, guid: 37f242f0f128e6443903216e01a6e7fc, type: 2}
+    - Guid: 1959c495aa98837409fd3366fbcfd759
+      Object: {fileID: 11400000}
+    - Guid: 822880da226a63845b516ca89568b8da
+      Object: {fileID: 11400000, guid: 822880da226a63845b516ca89568b8da, type: 2}
+  _presetYings: []
+  _steamWorkshopId: 3777891085
+  _steamWorkshopUniqueId: 1959c495aa98837409fd3366fbcfd759
