@@ -17,6 +17,7 @@ namespace Encounters.Editor
 				.Build();
 
 			context.AddInputPort<string>(TEXT_PORT_NAME)
+				.AsTextArea()
 				.Build();
 
 			context.AddOutputPort(EditorNodeUtils.EXECUTION_PORT_NAME)
