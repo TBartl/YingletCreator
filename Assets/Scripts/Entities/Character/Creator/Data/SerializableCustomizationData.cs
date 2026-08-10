@@ -41,6 +41,7 @@ namespace Character.Creator
 		public SerializableCustomizationToggleData ToggleData;
 		public SerializableCustomizationNumberData NumberData;
 		public SerializableCustomizationPortraitData PortraitData;
+		public SerializableCustomizationPronounData PronounData;
 		// Note: If adding anything else, make sure you implement it in SerializableCustomizationDataComparison
 
 		public static SerializableCustomizationData FromJSON(string dataBlob)
@@ -65,6 +66,7 @@ namespace Character.Creator
 			ToggleData = new SerializableCustomizationToggleData(data.ToggleData);
 			NumberData = new SerializableCustomizationNumberData(data.NumberData);
 			PortraitData = new SerializableCustomizationPortraitData(data.PortraitData);
+			PronounData = new SerializableCustomizationPronounData(data.PronounData);
 		}
 
 
@@ -189,5 +191,16 @@ namespace Character.Creator
 		public bool UseOverrideExpressions;
 		public int OverrideEyeExpression;
 		public int OverrideMouthExpression;
+	}
+
+	[System.Serializable]
+	public sealed class SerializableCustomizationPronounData
+	{
+		public SerializableCustomizationPronounData(ObservableCustomizationPronounData data)
+		{
+			Pronouns = data.Pronouns.Val;
+		}
+
+		public CharacterPronouns Pronouns = CharacterPronouns.TheyThem;
 	}
 }

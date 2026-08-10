@@ -6,8 +6,6 @@ using UnityEngine;
 
 namespace Character.Creator
 {
-
-
 	public sealed class ObservableCustomizationData
 	{
 		public Observable<string> Name { get; } = new();
@@ -16,6 +14,7 @@ namespace Character.Creator
 		public ObservableCustomizationToggleData ToggleData { get; }
 		public ObservableCustomizationNumberData NumberData { get; }
 		public ObservableCustomizationPortraitData PortraitData { get; }
+		public ObservableCustomizationPronounData PronounData { get; }
 		public DateTime CreationTime { get; }
 
 		public ObservableCustomizationData(SerializableCustomizationData serializableData, ICompositeResourceLoader resourceLoader)
@@ -27,6 +26,7 @@ namespace Character.Creator
 			ToggleData = new(serializableData.ToggleData, resourceLoader);
 			NumberData = new(serializableData.NumberData, resourceLoader);
 			PortraitData = new(serializableData.PortraitData, resourceLoader);
+			PronounData = new(serializableData.PronounData, resourceLoader);
 			CustomizationDataUpgradeUtils.UpgradeIfNeeded(this, serializableData.Version, resourceLoader);
 		}
 	}
@@ -137,5 +137,20 @@ namespace Character.Creator
 		public Observable<bool> UseOverrideExpressions { get; } = new();
 		public Observable<int> OverrideEyeExpression { get; } = new();
 		public Observable<int> OverrideMouthExpression { get; } = new();
+	}
+
+	public sealed class ObservableCustomizationPronounData
+	{
+		public ObservableCustomizationPronounData(SerializableCustomizationPronounData pronounData, ICompositeResourceLoader resourceLoader)
+		{
+			if (pronounData == null)
+			{
+				Pronouns.Val = CharacterPronouns.TheyThem;
+				return;
+			}
+			Pronouns.Val = pronounData.Pronouns;
+		}
+
+		public Observable<CharacterPronouns> Pronouns { get; } = new(CharacterPronouns.TheyThem);
 	}
 }
