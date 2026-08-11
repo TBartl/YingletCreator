@@ -18,7 +18,7 @@ namespace Networking
 	[DefaultExecutionOrder(-5000)] // Very early to supercede anything using this. Can't use IInitializable because it's lazy
 	public class NetIdentity : MonoBehaviour, IWriteableNetIdentity, IInitializable
 	{
-		public Observable<ulong> _networkId = new Observable<ulong>();
+		Observable<ulong> _networkId = new Observable<ulong>();
 		private INetIdentityProvider _idProvider;
 
 		public ulong NetId => _networkId.Val;

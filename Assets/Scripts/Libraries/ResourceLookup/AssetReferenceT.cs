@@ -58,6 +58,7 @@ public class AssetReferenceT<T> : AssetReference where T : UnityEngine.Object
 #endif
 }
 
+[Serializable]
 public class AssetReference
 {
 	// Using this naming convention for compatibility reasons after migrating off of Addressables
