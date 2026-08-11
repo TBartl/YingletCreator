@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7369465408202366201}
   - component: {fileID: 3882712737942195113}
   m_Layer: 0
-  m_Name: Wall-Open-WoodGrunge
+  m_Name: Wall-WoodGrunge-Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
