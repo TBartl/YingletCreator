@@ -3871,7 +3871,7 @@ MonoBehaviour:
     - rid: 3002418905680183396
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: '{CHARACTER} keeps their distance from the mimic.'
+        m_Value: '{CHARACTER} keeps {their} distance from the mimic.'
     - rid: 3002418905680183397
       type: {class: NarrationNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -7359,7 +7359,7 @@ MonoBehaviour:
           serializedVersion: 2
           Hash: 942be6bf45f38bc6f48c854fe74f069c
         m_Version: 2
-        m_Position: {x: -399.849, y: 170.45917}
+        m_Position: {x: -399.849, y: 130.23203}
         m_Title: 
         m_Tooltip: 
         m_NodePreviewModel:

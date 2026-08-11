@@ -14,7 +14,7 @@ namespace Character.Creator
 		public ObservableCustomizationToggleData ToggleData { get; }
 		public ObservableCustomizationNumberData NumberData { get; }
 		public ObservableCustomizationPortraitData PortraitData { get; }
-		public ObservableCustomizationPronounData PronounData { get; }
+		public ObservableCustomizationGenderData PronounData { get; }
 		public DateTime CreationTime { get; }
 
 		public ObservableCustomizationData(SerializableCustomizationData serializableData, ICompositeResourceLoader resourceLoader)
@@ -139,9 +139,9 @@ namespace Character.Creator
 		public Observable<int> OverrideMouthExpression { get; } = new();
 	}
 
-	public sealed class ObservableCustomizationPronounData
+	public sealed class ObservableCustomizationGenderData
 	{
-		public ObservableCustomizationPronounData(SerializableCustomizationPronounData pronounData, ICompositeResourceLoader resourceLoader)
+		public ObservableCustomizationGenderData(SerializableCustomizationGenderData pronounData, ICompositeResourceLoader resourceLoader)
 		{
 			if (pronounData == null)
 			{

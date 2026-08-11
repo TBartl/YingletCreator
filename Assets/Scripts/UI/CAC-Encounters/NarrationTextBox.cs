@@ -1,3 +1,4 @@
+using Character.Creator;
 using Encounters.Runtime;
 using UnityEngine;
 
@@ -11,14 +12,18 @@ public class NarrationTextBox : MonoBehaviour, INarrationTextBox
 	public void SetNode(IEncounterInstance encounter, NarrationNode node)
 	{
 		var text = this.GetComponentInChildrenSafe<TMPro.TMP_Text>();
-		var processedText = ProcessText(node.Text);
+		var characterData = encounter.Character.GetComponentInChildrenSafe<ICustomizationDataRepository>();
+		var pronouns = characterData.CustomizationData.PronounData.Pronouns.Val;
+		var processedText = ProcessText(node.Text, pronouns);
 		text.SetText(processedText);
 
 
-		string ProcessText(string text)
+		string ProcessText(string text, CharacterPronouns pronouns)
 		{
 			var characterName = encounter.FormattedCharacterName;
-			return text.Replace("{CHARACTER}", characterName, System.StringComparison.OrdinalIgnoreCase);
+			return text
+				.Replace("{CHARACTER}", characterName, System.StringComparison.OrdinalIgnoreCase)
+				.ReplacePronouns(pronouns); // Temp
 		}
 	}
 
