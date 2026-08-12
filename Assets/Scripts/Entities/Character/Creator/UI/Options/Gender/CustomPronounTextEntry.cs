@@ -11,11 +11,13 @@ namespace Character.Creator.UI
 		[SerializeField] int index;
 
 		private ICustomizationSelectedDataRepository _dataRepository;
+		private ICharacterCreatorUndoManager _undoManager;
 		private TMP_InputField _inputField;
 
 		private void Awake()
 		{
 			_dataRepository = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
+			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_inputField = this.GetComponent<TMP_InputField>();
 			_inputField.onValueChanged.AddListener(InputField_OnValueChanged);
 		}
@@ -50,6 +52,8 @@ namespace Character.Creator.UI
 		{
 			var customPronouns = CustomPronouns;
 			if (customPronouns == null) return;
+
+			_undoManager.RecordState("Changed pronouns");
 
 			bool hadToSetup = false;
 			while (customPronouns.Count <= index)
