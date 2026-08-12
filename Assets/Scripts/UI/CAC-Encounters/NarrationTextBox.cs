@@ -13,7 +13,7 @@ public class NarrationTextBox : MonoBehaviour, INarrationTextBox
 	{
 		var text = this.GetComponentInChildrenSafe<TMPro.TMP_Text>();
 		var characterData = encounter.Character.GetComponentInChildrenSafe<ICustomizationDataRepository>();
-		var pronouns = characterData.CustomizationData.PronounData.Pronouns.Val;
+		var pronouns = characterData.CustomizationData.GenderData.Pronouns.Val;
 		var processedText = ProcessText(node.Text, pronouns);
 		text.SetText(processedText);
 
@@ -23,7 +23,7 @@ public class NarrationTextBox : MonoBehaviour, INarrationTextBox
 			var characterName = encounter.FormattedCharacterName;
 			return text
 				.Replace("{CHARACTER}", characterName, System.StringComparison.OrdinalIgnoreCase)
-				.ReplacePronouns(pronouns); // Temp
+				.ReplacePronouns(pronouns);
 		}
 	}
 

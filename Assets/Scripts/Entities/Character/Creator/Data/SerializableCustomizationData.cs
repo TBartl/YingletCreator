@@ -41,7 +41,7 @@ namespace Character.Creator
 		public SerializableCustomizationToggleData ToggleData;
 		public SerializableCustomizationNumberData NumberData;
 		public SerializableCustomizationPortraitData PortraitData;
-		public SerializableCustomizationGenderData PronounData;
+		public SerializableCustomizationGenderData GenderData;
 		// Note: If adding anything else, make sure you implement it in SerializableCustomizationDataComparison
 
 		public static SerializableCustomizationData FromJSON(string dataBlob)
@@ -66,7 +66,7 @@ namespace Character.Creator
 			ToggleData = new SerializableCustomizationToggleData(data.ToggleData);
 			NumberData = new SerializableCustomizationNumberData(data.NumberData);
 			PortraitData = new SerializableCustomizationPortraitData(data.PortraitData);
-			PronounData = new SerializableCustomizationGenderData(data.PronounData);
+			GenderData = new SerializableCustomizationGenderData(data.GenderData);
 		}
 
 

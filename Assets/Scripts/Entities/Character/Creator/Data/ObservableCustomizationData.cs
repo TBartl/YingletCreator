@@ -14,7 +14,7 @@ namespace Character.Creator
 		public ObservableCustomizationToggleData ToggleData { get; }
 		public ObservableCustomizationNumberData NumberData { get; }
 		public ObservableCustomizationPortraitData PortraitData { get; }
-		public ObservableCustomizationGenderData PronounData { get; }
+		public ObservableCustomizationGenderData GenderData { get; }
 		public DateTime CreationTime { get; }
 
 		public ObservableCustomizationData(SerializableCustomizationData serializableData, ICompositeResourceLoader resourceLoader)
@@ -26,7 +26,7 @@ namespace Character.Creator
 			ToggleData = new(serializableData.ToggleData, resourceLoader);
 			NumberData = new(serializableData.NumberData, resourceLoader);
 			PortraitData = new(serializableData.PortraitData, resourceLoader);
-			PronounData = new(serializableData.PronounData, resourceLoader);
+			GenderData = new(serializableData.GenderData, resourceLoader);
 			CustomizationDataUpgradeUtils.UpgradeIfNeeded(this, serializableData.Version, resourceLoader);
 		}
 	}
