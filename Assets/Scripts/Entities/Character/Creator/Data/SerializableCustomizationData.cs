@@ -199,9 +199,11 @@ namespace Character.Creator
 		public SerializableCustomizationGenderData(ObservableCustomizationGenderData data)
 		{
 			Pronouns = data.Pronouns.Val;
+			CustomPronouns = data.CustomPronouns.ToArray() ?? new string[] { };
 		}
 
 		public CharacterPronouns Pronouns = CharacterPronouns.TheyThem;
+		public string[] CustomPronouns = new string[] { };
 		// Eventually add pitch here
 	}
 }

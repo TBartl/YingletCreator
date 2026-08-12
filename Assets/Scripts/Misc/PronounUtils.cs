@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Character.Creator;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 [System.Serializable]
 public enum CharacterPronouns
@@ -60,12 +63,31 @@ public static class PronounUtils
 	/// Supports: {They} {Them} {Their} {Theirs} {Themself}
 	/// and preserves capitalization.
 	/// </summary>
-	public static string ReplacePronouns(this string text, CharacterPronouns pronouns)
+	public static string ReplacePronouns(this string text, ObservableCustomizationGenderData genderData)
 	{
 		if (string.IsNullOrEmpty(text))
 			return text;
 
-		string[] set = PronounSets[pronouns];
+		var pronouns = genderData.Pronouns.Val;
+		string[] set;
+		if (pronouns == CharacterPronouns.Custom)
+		{
+			int count = 5;
+			set = new string[count];
+			for (int i = 0; i < count; i++)
+			{
+				set[i] = genderData.CustomPronouns.ElementAtOrDefault(i) ?? PronounSets[CharacterPronouns.TheyThem][i];
+			}
+		}
+		else
+		{
+			bool success = PronounSets.TryGetValue(pronouns, out set);
+			if (!success)
+			{
+				Debug.LogWarning($"Pronoun set for {pronouns} not found..");
+				return text;
+			}
+		}
 
 		return PronounRegex.Replace(text, match =>
 		{

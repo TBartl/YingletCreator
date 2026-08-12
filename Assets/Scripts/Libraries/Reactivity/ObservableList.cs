@@ -18,6 +18,11 @@ namespace Reactivity
 			list = new List<T>();
 		}
 
+		public ObservableList(IEnumerable<T> list)
+		{
+			this.list = new List<T>(list);
+		}
+
 
 		#region IList
 		public T this[int index]
@@ -27,7 +32,11 @@ namespace Reactivity
 				notifier.Track();
 				return list[index];
 			}
-			set => throw new NotImplementedException();
+			set
+			{
+				list[index] = value;
+				notifier.Dirty();
+			}
 		}
 
 		public int Count

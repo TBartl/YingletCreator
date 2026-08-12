@@ -13,17 +13,16 @@ public class NarrationTextBox : MonoBehaviour, INarrationTextBox
 	{
 		var text = this.GetComponentInChildrenSafe<TMPro.TMP_Text>();
 		var characterData = encounter.Character.GetComponentInChildrenSafe<ICustomizationDataRepository>();
-		var pronouns = characterData.CustomizationData.GenderData.Pronouns.Val;
-		var processedText = ProcessText(node.Text, pronouns);
+		var processedText = ProcessText(node.Text, characterData.CustomizationData.GenderData);
 		text.SetText(processedText);
 
 
-		string ProcessText(string text, CharacterPronouns pronouns)
+		string ProcessText(string text, ObservableCustomizationGenderData genderData)
 		{
 			var characterName = encounter.FormattedCharacterName;
 			return text
 				.Replace("{CHARACTER}", characterName, System.StringComparison.OrdinalIgnoreCase)
-				.ReplacePronouns(pronouns);
+				.ReplacePronouns(genderData);
 		}
 	}
 

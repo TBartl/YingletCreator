@@ -141,16 +141,13 @@ namespace Character.Creator
 
 	public sealed class ObservableCustomizationGenderData
 	{
-		public ObservableCustomizationGenderData(SerializableCustomizationGenderData pronounData, ICompositeResourceLoader resourceLoader)
+		public ObservableCustomizationGenderData(SerializableCustomizationGenderData genderData, ICompositeResourceLoader resourceLoader)
 		{
-			if (pronounData == null)
-			{
-				Pronouns.Val = CharacterPronouns.TheyThem;
-				return;
-			}
-			Pronouns.Val = pronounData.Pronouns;
+			Pronouns.Val = genderData.Pronouns;
+			CustomPronouns = new ObservableList<string>(genderData.CustomPronouns ?? new string[] { });
 		}
 
 		public Observable<CharacterPronouns> Pronouns { get; } = new(CharacterPronouns.TheyThem);
+		public ObservableList<string> CustomPronouns { get; } = new();
 	}
 }
