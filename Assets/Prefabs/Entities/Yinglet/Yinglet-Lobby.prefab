@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 8174688033611221490}
   - component: {fileID: 8930166431027010159}
   - component: {fileID: 8174458453448442466}
+  - component: {fileID: 7436618861805068538}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -445,6 +446,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_IMPACT_SPEED: 8
+--- !u!114 &7436618861805068538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124229929184896766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf282753061793a47ae4e9f5877cf02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayWehsOnInput
+  _soundEffect: {fileID: 11400000, guid: f7c9eba13017f4a45a8f82f2f77485b7, type: 2}
 --- !u!1 &6163225811245755832
 GameObject:
   m_ObjectHideFlags: 0
