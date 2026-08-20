@@ -1,27 +1,17 @@
-using Reactivity;
-using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
-class EyeExpressionWithTime
+public class EyeExpressionsMutator_Booped : MonoBehaviour, ICurrentEyeExpressionMutator, IInitializable
 {
-	public EyeExpression State = EyeExpression.Normal;
-	public float Time = 1;
-}
-
-public class EyeExpressionsMutator_Booped : MonoBehaviour, ICurrentEyeExpressionMutator
-{
-	[SerializeField] EyeExpressionWithTime[] _boopedStates;
+	[SerializeField] EyeExpressionSequence _sequence;
 
 	private IBoopManager _boopManager;
-	Observable<bool> _isBooped = new();
-	Observable<EyeExpression> _expression = new Observable<EyeExpression>();
-	private Coroutine _boopCoroutine;
+	private IEyeExpressionSequencePlayer _sequencePlayer;
 
-	void Awake()
+	public void Initialize()
 	{
 		_boopManager = this.GetComponentInParent<IBoopManager>();
 		_boopManager.OnBoop += OnBooped;
+		_sequencePlayer = _sequence.CreatePlayer();
 	}
 
 	void OnDestroy()
@@ -30,29 +20,18 @@ public class EyeExpressionsMutator_Booped : MonoBehaviour, ICurrentEyeExpression
 	}
 	private void OnEnable()
 	{
-		_isBooped.Val = false;
+		_sequencePlayer?.Stop();
 	}
 
 	private void OnBooped()
 	{
 		if (!this.isActiveAndEnabled) return;
-		this.StopAndStartCoroutine(ref _boopCoroutine, Booped());
-	}
-
-	IEnumerator Booped()
-	{
-		_isBooped.Val = true;
-		foreach (var state in _boopedStates)
-		{
-			_expression.Val = state.State;
-			yield return new WaitForSeconds(state.Time);
-		}
-		_isBooped.Val = false;
+		_sequencePlayer.Play();
 	}
 
 	public EyeExpression Mutate(EyeExpression input)
 	{
-		if (!_isBooped.Val) return input;
-		return _expression.Val;
+		if (!_sequencePlayer.IsActive) return input;
+		return _sequencePlayer.Expression;
 	}
 }

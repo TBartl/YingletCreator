@@ -1,47 +1,40 @@
-using Reactivity;
-using System.Collections;
 using UnityEngine;
 
-public class MouthExpressionsMutator_Booped : MonoBehaviour, IMouthExpressionsMutator
+public class MouthExpressionsMutator_Booped : MonoBehaviour, IMouthExpressionsMutator, IInitializable
 {
-    [SerializeField] float WaitTime = 2f;
+	[SerializeField] MouthExpressionSequence _sequence;
 
-    private IBoopManager _boopManager;
-    Observable<bool> _isBooped = new();
-    private Coroutine _boopCoroutine;
+	private IBoopManager _boopManager;
+	private IMouthExpressionSequencePlayer _sequencePlayer;
 
-    void Awake()
-    {
-        _boopManager = this.GetComponentInParent<IBoopManager>();
-        _boopManager.OnBoop += OnBooped;
-    }
+	public void Initialize()
+	{
+		_boopManager = this.GetComponentInParent<IBoopManager>();
+		_boopManager.OnBoop += OnBooped;
+		_sequencePlayer = _sequence.CreatePlayer();
+	}
 
-    void OnDestroy()
-    {
-        _boopManager.OnBoop -= OnBooped;
-    }
-    private void OnEnable()
-    {
-        _isBooped.Val = false;
-    }
+	void OnDestroy()
+	{
+		_boopManager.OnBoop -= OnBooped;
+	}
 
-    private void OnBooped()
-    {
-        if (!this.isActiveAndEnabled) return;
-        this.StopAndStartCoroutine(ref _boopCoroutine, Booped());
-    }
+	private void OnEnable()
+	{
+		_sequencePlayer?.Stop();
+	}
 
-    IEnumerator Booped()
-    {
-        _isBooped.Val = true;
-        yield return new WaitForSeconds(WaitTime);
-        _isBooped.Val = false;
-    }
-    public void Mutate(ref MouthExpression expression, ref MouthOpenAmount openAmount)
-    {
-        if (!_isBooped.Val) return;
+	private void OnBooped()
+	{
+		if (!this.isActiveAndEnabled) return;
+		_sequencePlayer.Play();
+	}
 
-        expression = MouthExpression.Muse;
-        openAmount = MouthOpenAmount.Closed;
-    }
+	public void Mutate(ref MouthExpression expression, ref MouthOpenAmount openAmount)
+	{
+		if (!_sequencePlayer.IsActive) return;
+
+		expression = _sequencePlayer.Expression;
+		openAmount = _sequencePlayer.OpenAmount;
+	}
 }

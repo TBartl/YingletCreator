@@ -39,6 +39,15 @@ public static class CoroutineUtils
 		existingCoroutine = monoBehaviour.StartCoroutine(routine);
 	}
 
+	public static void StopCoroutineIfRunning(this MonoBehaviour monoBehaviour, ref Coroutine existingCoroutine)
+	{
+		if (existingCoroutine != null)
+		{
+			monoBehaviour.StopCoroutine(existingCoroutine);
+			existingCoroutine = null;
+		}
+	}
+
 	public static void StartEaseCoroutine(this MonoBehaviour monoBehaviour, ref Coroutine existingCoroutine, IEaseSettings settings, Action<float> apply, Action onComplete = null)
 	{
 		if (!monoBehaviour.isActiveAndEnabled || !monoBehaviour.gameObject.activeInHierarchy)
