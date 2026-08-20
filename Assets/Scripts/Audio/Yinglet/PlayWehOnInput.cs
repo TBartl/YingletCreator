@@ -19,7 +19,7 @@ public class PlayWehOnInput : MonoBehaviour
 
 	void Update()
 	{
-		if (!Input.GetKeyDown(KeyCode.Q)) return;
+		if (!Input.GetKeyDown(KeyCode.V)) return;
 		if (!_playerIdentity.IsActiveAndMine) return;
 		float shift = _dataRepo.CustomizationData.GenderData.VoicePitchShift.Val;
 		var options = new AudioPlayOptions { Position = transform.position, PitchShift = shift };
