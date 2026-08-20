@@ -8,6 +8,7 @@ namespace Character.Creator.UI
 		private Button _button;
 		private ISelectedYingletDiskIO _diskIO;
 		private ICharacterCreatorUndoManager _undoManager;
+		private ScrollContentUpdater _scrollContentUpdater;
 
 		private void Awake()
 		{
@@ -16,6 +17,7 @@ namespace Character.Creator.UI
 
 			_diskIO = Singletons.GetSingleton<ISelectedYingletDiskIO>();
 			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
+			_scrollContentUpdater = new ScrollContentUpdater(this.transform);
 		}
 
 		private void OnDestroy()
@@ -26,7 +28,10 @@ namespace Character.Creator.UI
 		private void Button_OnClick()
 		{
 			_undoManager.RecordState("Created yinglet");
-			_diskIO.DuplicateSelected();
+			_scrollContentUpdater.ApplyAndRestoreScrollPosition(() =>
+			{
+				_diskIO.DuplicateSelected();
+			});
 		}
 	}
 }

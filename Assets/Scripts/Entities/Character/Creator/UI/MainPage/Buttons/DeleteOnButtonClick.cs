@@ -10,6 +10,7 @@ namespace Character.Creator.UI
 		private ISelectedYingletDiskIO _diskIO;
 		private ICharacterCreatorUndoManager _undoManager;
 		private IConfirmationManager _confirmationManager;
+		private ScrollContentUpdater _scrollContentUpdater;
 
 
 		public event Action OnDelete = delegate { };
@@ -22,6 +23,7 @@ namespace Character.Creator.UI
 			_diskIO = Singletons.GetSingleton<ISelectedYingletDiskIO>();
 			_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
 			_confirmationManager = Singletons.GetSingleton<IConfirmationManager>();
+			_scrollContentUpdater = new ScrollContentUpdater(this.transform.GetComponentInParentSafe<Page>().GetComponentInChildrenSafe<ScrollRect>().transform);
 		}
 
 		private void OnDestroy()
@@ -41,7 +43,11 @@ namespace Character.Creator.UI
 		void ExecuteDelete()
 		{
 			_undoManager.RecordState("Deleted yinglet");
-			_diskIO.DeleteSelected();
+			// This is seemingly not working for some reason
+			_scrollContentUpdater.ApplyAndRestoreScrollPosition(() =>
+			{
+				_diskIO.DeleteSelected();
+			});
 			OnDelete();
 		}
 	}

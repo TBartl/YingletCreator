@@ -16,11 +16,11 @@ public class ScrollContentUpdater
 
 	public void ApplyAndRestoreScrollPosition(Action action)
 	{
-		Vector2 originalPosition = _scrollView.normalizedPosition;
+		var originalPos = _scrollView.normalizedPosition.y; // For some reason, doing this on both axis causes the x to shift
 		action();
 		//LayoutRebuilder.ForceRebuildLayoutImmediate(_scrollView.content); I couldn't get this to work unfortunately, so I'm using a pretty heavy handed solution instead
 		Canvas.ForceUpdateCanvases();
 
-		_scrollView.normalizedPosition = originalPosition;
+		_scrollView.normalizedPosition = new Vector2(_scrollView.normalizedPosition.x, originalPos);
 	}
 }
