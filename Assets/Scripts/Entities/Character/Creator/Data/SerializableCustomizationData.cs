@@ -200,10 +200,11 @@ namespace Character.Creator
 		{
 			Pronouns = data.Pronouns.Val;
 			CustomPronouns = data.CustomPronouns.ToArray() ?? new string[] { };
+			VoicePitchShift = data.VoicePitchShift.Val;
 		}
 
 		public CharacterPronouns Pronouns = CharacterPronouns.TheyThem;
 		public string[] CustomPronouns = new string[] { };
-		// Eventually add pitch here
+		public float VoicePitchShift = 0f;
 	}
 }

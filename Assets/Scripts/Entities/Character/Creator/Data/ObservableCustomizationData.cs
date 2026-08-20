@@ -145,9 +145,11 @@ namespace Character.Creator
 		{
 			Pronouns.Val = genderData.Pronouns;
 			CustomPronouns = new ObservableList<string>(genderData.CustomPronouns ?? new string[] { });
+			VoicePitchShift.Val = genderData.VoicePitchShift;
 		}
 
 		public Observable<CharacterPronouns> Pronouns { get; } = new(CharacterPronouns.TheyThem);
 		public ObservableList<string> CustomPronouns { get; } = new();
+		public Observable<float> VoicePitchShift { get; } = new(0f);
 	}
 }

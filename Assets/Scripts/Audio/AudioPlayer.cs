@@ -43,7 +43,7 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer, IInitializable
 		source.clip = soundEffect.Clip;
 		source.loop = false;
 		source.volume = Mathf.Min(1, soundEffect.Volume * options.Volume);
-		source.pitch = Random.Range(soundEffect.RandomPitchRange.x, soundEffect.RandomPitchRange.y);
+		source.pitch = Random.Range(soundEffect.RandomPitchRange.x, soundEffect.RandomPitchRange.y) + options.PitchShift;
 		source.outputAudioMixerGroup = _mixerProvider.SoundEffectsGroup;
 
 		if (options.Position.HasValue)
@@ -80,4 +80,5 @@ public class AudioPlayOptions
 	public float Volume { get; set; } = 1f;
 
 	public Vector3? Position { get; set; } = null;
+	public float PitchShift { get; internal set; } = 0;
 }
