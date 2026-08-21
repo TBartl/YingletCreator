@@ -338,9 +338,6 @@ PrefabInstance:
       addedObject: {fileID: 3891358435595301476}
     - targetCorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 7088393783442014636}
-    - targetCorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
-      insertIndex: 4
       addedObject: {fileID: 4839121308005171604}
     - targetCorrespondingSourceObject: {fileID: 3977407187431825258, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: 6
@@ -470,18 +467,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4333190668233782009, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
   m_PrefabInstance: {fileID: 6916365060296164461}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7088393783442014636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7194861684085552788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4089326cfefdb644ba44253d40a67c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Entities.Animation.PointTracking.CombinedPointTrackingLocationProvider
 --- !u!114 &4839121308005171604
 MonoBehaviour:
   m_ObjectHideFlags: 0

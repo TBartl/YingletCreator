@@ -13,9 +13,11 @@ public class ModDefinitionEditor : Editor
 	SerializedProperty _authorProp;
 	SerializedProperty _iconProp;
 	private bool _showAdvancedSettings;
-
-	void OnEnable()
+	private void EnsureProperties()
 	{
+		if (_titleProp != null)
+			return;
+
 		_titleProp = serializedObject.FindProperty("_title");
 		_shortDescriptionProp = serializedObject.FindProperty("_shortDescription");
 		_authorProp = serializedObject.FindProperty("_author");
@@ -24,6 +26,8 @@ public class ModDefinitionEditor : Editor
 
 	public override void OnInspectorGUI()
 	{
+		EnsureProperties();
+
 		serializedObject.Update();
 		var modDefinition = (ModDefinition)target;
 

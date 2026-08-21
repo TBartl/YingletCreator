@@ -7,7 +7,7 @@ public class DebugVisualizeHeadTrackingPoint : MonoBehaviour
 
 	void Start()
 	{
-		_pointLocationProvider = FindAnyObjectByType<PointTrackingLocationProvider>();
+		_pointLocationProvider = FindAnyObjectByType<CharacterCreatorPointTrackingLocationProvider>();
 		_mr = this.GetComponent<MeshRenderer>();
 	}
 

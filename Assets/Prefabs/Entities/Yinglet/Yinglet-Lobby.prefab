@@ -966,7 +966,13 @@ PrefabInstance:
       addedObject: {fileID: 4993103173665084559}
     - targetCorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5023936290316104990}
+    - targetCorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5640438685887978018}
+    - targetCorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3242537602835494296}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 2
       addedObject: {fileID: 5524709333729599514}
@@ -1313,6 +1319,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5023936290316104990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333190668233782009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4089326cfefdb644ba44253d40a67c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Entities.Animation.PointTracking.CombinedPointTrackingLocationProvider
 --- !u!114 &5640438685887978018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,6 +1346,23 @@ MonoBehaviour:
   _head: {fileID: 4082146243317344486}
   _offsetFromHead: 0.5
   _minDotBetweenSpeedAndAcc: -0.2
+--- !u!114 &3242537602835494296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333190668233782009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c6fba09695b60429cb06662dae8c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headCenter: {fileID: 4082146243317344486}
+  _forwardProvider: {fileID: 460304451652016370}
+  MaxDistance: 0.45
+  OffsetMouseFromPlane: 0.15
+  MaxDotProduct: -0.5
 --- !u!4 &4916854464807995657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8194508176625653220, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
