@@ -55,6 +55,10 @@ public static class ResourceTablePopulationUtils
 			{
 				return;
 			}
+			if (guid == "00000000000000000000000000000000")
+			{
+				return; // If the field was set and then cleared, it will have a guid of all 0s
+			}
 			if (table.ContainsKey(guid))
 			{
 				return; // May have already added this if it was a reference from something else
