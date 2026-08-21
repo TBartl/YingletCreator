@@ -996,17 +996,23 @@ PrefabInstance:
       insertIndex: 7
       addedObject: {fileID: 8047346107515279530}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
-      insertIndex: 11
-      addedObject: {fileID: 4735135997240166268}
+      insertIndex: 8
+      addedObject: {fileID: 2978618801334841673}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 12
-      addedObject: {fileID: 6991381071230331270}
+      addedObject: {fileID: 4735135997240166268}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 13
+      addedObject: {fileID: 6991381071230331270}
+    - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: 14
       addedObject: {fileID: 3276836966141561519}
     - targetCorrespondingSourceObject: {fileID: 7440787321428845331, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 4
       addedObject: {fileID: 840279080954957981}
+    - targetCorrespondingSourceObject: {fileID: 7440787321428845331, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 2905148341098579524}
     - targetCorrespondingSourceObject: {fileID: 6267697708975092364, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5657070002957570858}
@@ -1134,6 +1140,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Booped
   _sequence: {fileID: 11400000, guid: f86cb829c286f8a48ae2ae40f470eea2, type: 2}
+--- !u!114 &2978618801334841673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977407187431825258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd908aed1c4a2146996f98fc3854642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Weh
+  _sequence: {fileID: 11400000, guid: af9ec88dbadc68d479299656fec18b06, type: 2}
 --- !u!114 &4735135997240166268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,6 +1428,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouthExpressionsMutator_Booped
   _sequence: {fileID: 11400000, guid: 2f8fea1d13448da4697c3a2192a1b51a, type: 2}
+--- !u!114 &2905148341098579524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964574009170198526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7f51ba698e24d4082d674efda4c143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouthExpressionsMutator_Weh
+  _sequence: {fileID: 11400000, guid: f6b3457957bd9b849a71693a117faf30, type: 2}
 --- !u!4 &6188452523712940596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6946059261300791001, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}

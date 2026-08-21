@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0368e50046531941be45bedaa78cd1d, type: 3}
+  m_Name: MouthExpressionSequence_Weh
+  m_EditorClassIdentifier: Assembly-CSharp::MouthExpressionSequence
+  _sequence:
+  - Expression: 2
+    OpenAmount: 0
+    Time: 0.005
+  - Expression: 2
+    OpenAmount: 1
+    Time: 0.02
+  - Expression: 0
+    OpenAmount: 1
+    Time: 0.03
+  - Expression: 0
+    OpenAmount: 2
+    Time: 0.1
+  - Expression: 0
+    OpenAmount: 1
+    Time: 0.03
+  - Expression: 0
+    OpenAmount: 0
+    Time: 0.38
