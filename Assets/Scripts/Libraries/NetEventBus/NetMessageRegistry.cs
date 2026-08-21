@@ -28,7 +28,7 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 		Register<Message_SendRigidbodySnapshot>();
 		Register<Message_Jump>();
 		Register<Message_ImpactedGround>();
-		Register<Message_PlayWehSound>();
+		Register<Message_Weh>();
 		Register<Message_Boop>();
 		Register<Message_UpdateCustomizationData>();
 

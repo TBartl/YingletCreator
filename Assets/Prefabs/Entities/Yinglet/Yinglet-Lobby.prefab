@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 5389703483872628197}
   - component: {fileID: 3068599080144606578}
   - component: {fileID: 1009506115511293532}
+  - component: {fileID: 3614427427382761007}
   m_Layer: 7
   m_Name: Yinglet-Lobby
   m_TagString: Untagged
@@ -407,6 +408,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79df4434dac9d484fbabb15b5545aee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoopManager
+--- !u!114 &3614427427382761007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624857999274262973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296a5c5ff4b43174f9b79b58b2bb176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WehManager
 --- !u!1 &2659544821333867346
 GameObject:
   m_ObjectHideFlags: 0
