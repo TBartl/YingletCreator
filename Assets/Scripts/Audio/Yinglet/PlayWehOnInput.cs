@@ -40,11 +40,6 @@ public class PlayWehOnInput : MonoBehaviour
 		_audioPlayer.Play(_soundEffect, options);
 
 		// Send message to other clients
-		SendPlayWehSoundMessage();
-	}
-
-	void SendPlayWehSoundMessage()
-	{
 		_eventBus.SendToAll(new Message_PlayWehSound(_playerIdentity.NetId, transform.position));
 	}
 
