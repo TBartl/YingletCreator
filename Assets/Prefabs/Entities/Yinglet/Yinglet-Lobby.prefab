@@ -974,6 +974,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 623219713251014871}
+    - targetCorrespondingSourceObject: {fileID: 2678632167958204198, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3931992772301560028}
     - targetCorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4993103173665084559}
@@ -1032,6 +1035,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4041256890071865057, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
   m_PrefabInstance: {fileID: 3856366408189533421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1200483161716790219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2678632167958204198, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+  m_PrefabInstance: {fileID: 3856366408189533421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3931992772301560028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200483161716790219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecb380ea73f87e48bed04904656e212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreateParticlesOnWeh
+  _particlePrefab: {fileID: 4124791784493087901, guid: 6376d72b61747af4eb842ddd7cbde1b8, type: 3}
 --- !u!4 &2215933794095080875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3117622182456392006, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
