@@ -1,7 +1,5 @@
-using Character.Creator;
 using Character.Data;
 using Reactivity;
-using System.Linq;
 using UnityEngine;
 
 
@@ -9,18 +7,18 @@ public class ApplyHatOffset : ReactiveBehaviour, IApplyableCustomization
 {
 	[SerializeField] Transform _target;
 
-	ICustomizationDataRepository _dataRepository;
+	private ICharacterToggleProvider _toggleProvider;
 	private Computed<float> _computeOffset;
 
 	private void Awake()
 	{
-		_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
+		_toggleProvider = this.GetComponentInParentSafe<ICharacterToggleProvider>();
 		_computeOffset = CreateComputed(ComputeOffset);
 	}
 
 	private float ComputeOffset()
 	{
-		var toggles = _dataRepository.CustomizationData.ToggleData.Toggles.ToArray();
+		var toggles = _toggleProvider.Toggles;
 		foreach (var toggle in toggles)
 		{
 			foreach (var component in toggle.Components)

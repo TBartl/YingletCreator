@@ -1,7 +1,5 @@
-using Character.Creator;
 using Reactivity;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Character.Compositor
 {
@@ -16,20 +14,20 @@ namespace Character.Compositor
 	public class YingletMaskedTagsProvider : ReactiveBehaviour, IYingletMaskedTagsProvider
 	{
 		EnumerableSetReflector<CharacterElementTag> _maskedTags = new();
-		private ICustomizationDataRepository _dataRepository;
+		private ICharacterToggleProvider _toggleProvider;
 
 		public IEnumerable<CharacterElementTag> MaskedTags => _maskedTags.Items;
 
 		void Awake()
 		{
-			_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
+			_toggleProvider = this.GetComponentInParentSafe<ICharacterToggleProvider>();
 			AddReflector(ComputeMaskedTags);
 		}
 
 		private void ComputeMaskedTags()
 		{
 			var set = new HashSet<CharacterElementTag>();
-			var toggles = _dataRepository.CustomizationData.ToggleData.Toggles.ToArray();
+			var toggles = _toggleProvider.Toggles;
 			foreach (var toggle in toggles)
 			{
 				foreach (var component in toggle.Components)

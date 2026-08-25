@@ -1,4 +1,3 @@
-using Character.Creator;
 using Reactivity;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ namespace Character.Compositor
 	public class TextureGatherer_EyeAdditions : ReactiveBehaviour, ITextureGathererMutator
 	{
 		[SerializeField] EyeMixTextureReferences _eyeMixTextureReferences;
-		private ICustomizationDataRepository _dataRepo;
+		private ICharacterToggleProvider _toggleProvider;
 
 		// If the reference ever changes (which it will) we'll need to make this observable
 		private Computed<EyeMixTextures> _computedEye;
@@ -17,15 +16,14 @@ namespace Character.Compositor
 
 		void Awake()
 		{
-			_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
+			_toggleProvider = this.GetComponentInParentSafe<ICharacterToggleProvider>();
 			_computedEye = CreateComputed(ComputeEye);
 			_computedTextures = CreateComputed(ComputeTextures);
 		}
 
 		private EyeMixTextures ComputeEye()
 		{
-
-			var toggles = _dataRepo.CustomizationData.ToggleData.Toggles.ToArray();
+			var toggles = _toggleProvider.Toggles;
 			foreach (var toggle in toggles)
 			{
 				if (toggle.EyeTextures)

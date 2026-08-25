@@ -1,20 +1,18 @@
-using Character.Creator;
 using Character.Data;
 using Reactivity;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Character.Compositor
 {
 	public class MeshGatherer_ReplacePerToggles : ReactiveBehaviour, IMeshGathererMutator
 	{
-		ICustomizationDataRepository _dataRepository;
+		private ICharacterToggleProvider _toggleProvider;
 		EnumerableSetReflector<IToggleReplacesMesh> _computedSet;
 
 
 		private void Awake()
 		{
-			_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
+			_toggleProvider = this.GetComponentInParentSafe<ICharacterToggleProvider>();
 			_computedSet = new EnumerableSetReflector<IToggleReplacesMesh>();
 			AddReflector(ReflectSet);
 		}
@@ -22,7 +20,7 @@ namespace Character.Compositor
 		private void ReflectSet()
 		{
 			var newSet = new HashSet<IToggleReplacesMesh>();
-			var toggles = _dataRepository.CustomizationData.ToggleData.Toggles.ToArray();
+			var toggles = _toggleProvider.Toggles;
 			foreach (var toggle in toggles)
 			{
 				foreach (var component in toggle.Components)
