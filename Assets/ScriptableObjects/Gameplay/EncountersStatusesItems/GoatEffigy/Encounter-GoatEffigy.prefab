@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7554745424673806705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3587944332407070528, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 135340652, guid: b7455afd3175a994f8aa299cfce411dc, type: 3}
+    - target: {fileID: 3797042008725145608, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: _encounter
+      value: 
+      objectReference: {fileID: 2841676755933307327, guid: c946093e96220794d8c0426b6a000f9b, type: 3}
+    - target: {fileID: 3797042008725145608, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: _tooltipName
+      value: Goat Effigy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056468882369474479, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_Name
+      value: Encounter-LambEffigy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9558722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9558722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9558722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231605183438311199, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.599
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752208220238719266, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054326086965296697, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0153384
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054326086965296697, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0153384
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054326086965296697, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0153384
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}

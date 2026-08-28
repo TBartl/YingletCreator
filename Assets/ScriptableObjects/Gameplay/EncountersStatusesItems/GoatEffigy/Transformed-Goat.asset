@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf3ef740eb62c247a3cfebd7d81804f, type: 3}
+  m_Name: Transformed-Goat
+  m_EditorClassIdentifier: Assembly-CSharp::StatusId
+  _uniqueAssetId: b3001568280c56946bd615a4725eb443
+  <Icon>k__BackingField: {fileID: 135340652, guid: b7455afd3175a994f8aa299cfce411dc, type: 3}
+  _overrideDisplayName: Goat Effigy's Curse
+  <Sentiment>k__BackingField: 1
+  _statusEffects:
+  - m_AssetGUID: 9165d03eec32e7745b2e416f7c305daf
+  - m_AssetGUID: fab9e7b7f448e4e4d962f19cc26f25b0

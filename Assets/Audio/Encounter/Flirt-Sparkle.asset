@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4db867ccc3b54a4ab308bb659da15df, type: 3}
-  m_Name: Sparkle
+  m_Name: Flirt-Sparkle
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 945ac9c68576f304e97d385aa204add4, type: 3}
   _volume: 1
