@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: _tooltipName
       value: Goat Effigy
       objectReference: {fileID: 0}
+    - target: {fileID: 3797042008725145608, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
+      propertyPath: _tooltipOffset
+      value: 0.88
+      objectReference: {fileID: 0}
     - target: {fileID: 4056468882369474479, guid: 5ae48f964a1970f42acae78d15c83b8a, type: 3}
       propertyPath: m_Name
       value: Encounter-GoatEffigy

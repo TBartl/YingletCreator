@@ -8,6 +8,7 @@ public class CharacterInteractable_StartEncounter : MonoBehaviour, ICharacterInt
 {
 	[SerializeField] EncounterGraph _encounter;
 	[SerializeField] string _tooltipName;
+	[SerializeField] float _tooltipOffset = .6f;
 
 	Observable<EncounterInstance> _encounterInstance = new Observable<EncounterInstance>();
 	private INetEventBus _eventBus;
@@ -18,7 +19,7 @@ public class CharacterInteractable_StartEncounter : MonoBehaviour, ICharacterInt
 
 	public string TooltipText { get; private set; }
 
-	public Vector3 TooltipOffset => Vector3.up * .6f;
+	public Vector3 TooltipOffset => Vector3.up * _tooltipOffset;
 
 
 	public void Initialize()
