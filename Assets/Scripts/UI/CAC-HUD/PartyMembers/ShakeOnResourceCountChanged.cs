@@ -21,7 +21,7 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 		_originalPos = _rectTransform.anchoredPosition3D;
 		_reference = this.GetComponentInParentSafe<IPartyMemberHUDReference>();
 		_characterResources = CreateComputed(ComputeCharacterResources);
-		_resourceCount = CreateComputed(() => _characterResources.Val?.GetResource(_resource.LoadSync()) ?? 0);
+		_resourceCount = CreateComputed(ComputeResourceCount);
 		_resourceCount.OnChanged += OnResourceCountChanged;
 	}
 
@@ -32,6 +32,22 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 			_resourceCount.OnChanged -= OnResourceCountChanged;
 	}
 
+	private void OnDisable()
+	{
+		if (_rectTransform == null) return;
+		_rectTransform.anchoredPosition3D = _originalPos;
+	}
+	private void OnEnable()
+	{
+		if (_rectTransform == null) return;
+		_rectTransform.anchoredPosition3D = _originalPos;
+	}
+
+	int ComputeResourceCount()
+	{
+		return _characterResources.Val?.GetResource(_resource.LoadSync()) ?? 0;
+	}
+
 	private void OnResourceCountChanged(int fromVal, int toVal)
 	{
 		var lastCharacter = _lastCharacter;
@@ -39,6 +55,7 @@ public class ShakeOnResourceCountChanged : ReactiveBehaviour
 		_lastCharacter = thisCharacter;
 		if (lastCharacter != null && thisCharacter != lastCharacter)
 		{
+			_rectTransform.anchoredPosition3D = _originalPos;
 			return;
 		}
 
