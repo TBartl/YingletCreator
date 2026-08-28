@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Transformed-Goat
   m_EditorClassIdentifier: Assembly-CSharp::StatusId
   _uniqueAssetId: b3001568280c56946bd615a4725eb443
-  <Icon>k__BackingField: {fileID: 135340652, guid: b7455afd3175a994f8aa299cfce411dc, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 34db431fb37e2f642bf2196fe2938841, type: 3}
   _overrideDisplayName: Goat Effigy's Curse
   <Sentiment>k__BackingField: 1
   _statusEffects:
