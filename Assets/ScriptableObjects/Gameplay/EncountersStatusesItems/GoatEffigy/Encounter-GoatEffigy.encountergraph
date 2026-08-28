@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12501, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Encounter-LambEffigy
+  m_Name: Encounter-GoatEffigy
   m_EditorClassIdentifier: UnityEditor.dll::Unity.GraphToolkit.Editor.Implementation.GraphObjectImp
   m_GraphModel:
     rid: 7360723072746520644
@@ -1215,7 +1215,7 @@ MonoBehaviour:
     - rid: 3002418905680183470
       type: {class: 'Constant`1[[Character.Data.PoseId, Assembly-CSharp]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: {fileID: 11400000, guid: 423981a007f896d40aa67f13aeee1fdd, type: 2}
+        m_Value: {fileID: 11400000, guid: 9fca9a2a80a6ecd4aba42004843ce0a7, type: 2}
     - rid: 3002418905680183471
       type: {class: 'Constant`1[[System.Boolean, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -2168,7 +2168,7 @@ MonoBehaviour:
     - rid: 5086306221962821680
       type: {class: 'Constant`1[[System.Boolean, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 1
+        m_Value: 0
     - rid: 5086306221962821681
       type: {class: SetCharacterPoseNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 

@@ -15,8 +15,8 @@ public class StatusHUD : Tooltip, IStatusHUD
 
 	public void SetStatus(StatusId status)
 	{
-		var image = this.GetComponentSafe<Image>();
-		image.sprite = status.Icon;
+		var image = this.GetComponentsInChildrenSafe<Image>();
+		image[1].sprite = status.Icon; // Hackily skip past this own image
 
 		var sb = new StringBuilder();
 		sb.Append(status.DisplayName);

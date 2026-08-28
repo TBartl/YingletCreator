@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wounded
   m_EditorClassIdentifier: Assembly-CSharp::StatusId
   _uniqueAssetId: 4fa6b49a5d9a2ea4985381804aba2dc7
-  <Icon>k__BackingField: {fileID: -1135121096, guid: 39e028cd131d9d845a7c9ef8a6ec9c52, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 515f1a84c77142d4c8c263f0b3cb1e43, type: 3}
   _overrideDisplayName: 
   <Sentiment>k__BackingField: 0
   _statusEffects:
