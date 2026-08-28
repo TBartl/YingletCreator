@@ -470,6 +470,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BookmarkIcons_Expression
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc0cc666a87c4f4d8bc3de04b2f2cf0
+      internalID: -1803005746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -494,6 +516,7 @@ TextureImporter:
       BookmarkIcons_Colors: 1912743498
       BookmarkIcons_CreativeCommons: 2143800817
       BookmarkIcons_Environment: -666579105
+      BookmarkIcons_Expression: -1803005746
       BookmarkIcons_Face: 1728486186
       BookmarkIcons_Hut: 148772921
       BookmarkIcons_Mods: -380745147
