@@ -4,14 +4,14 @@ public class PronounDropdown : ReactiveDropdown<CharacterPronouns>
 {
 	private ICustomizationSelectedDataRepository _dataRepo;
 	private ICharacterCreatorUndoManager _undoManager;
-	private ScrollContentUpdater _scrollContentUpdater;
+	//private ScrollContentUpdater _scrollContentUpdater;
 
 	protected override void Awake()
 	{
 		base.Awake();
 		_dataRepo = Singletons.GetSingleton<ICustomizationSelectedDataRepository>();
 		_undoManager = Singletons.GetSingleton<ICharacterCreatorUndoManager>();
-		_scrollContentUpdater = new ScrollContentUpdater(this.transform);
+		//_scrollContentUpdater = new ScrollContentUpdater(this.transform);
 	}
 
 	protected override MenuSettingsDropdownOption[] GetAllOptions()
@@ -34,10 +34,10 @@ public class PronounDropdown : ReactiveDropdown<CharacterPronouns>
 			if (pronouns == null) return;
 			_undoManager.RecordState("Changed pronouns");
 
-			_scrollContentUpdater.ApplyAndRestoreScrollPosition(() =>
-			{
-				pronouns.Val = value;
-			});
+			//_scrollContentUpdater.ApplyAndRestoreScrollPosition(() =>
+			//{
+			pronouns.Val = value;
+			//});
 		}
 	}
 }
