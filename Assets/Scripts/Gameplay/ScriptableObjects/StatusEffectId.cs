@@ -1,9 +1,8 @@
-﻿using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface IStatusEffectId
 {
-	void AppendTooltipText(StringBuilder sb);
+	string GetTooltipText();
 }
 
 public abstract class StatusEffectId : ScriptableObject, IHasUniqueAssetId, IStatusEffectId
@@ -11,5 +10,5 @@ public abstract class StatusEffectId : ScriptableObject, IHasUniqueAssetId, ISta
 	[SerializeField, HideInInspector] string _uniqueAssetId;
 	public string UniqueAssetID { get => _uniqueAssetId; set => _uniqueAssetId = value; }
 
-	public abstract void AppendTooltipText(StringBuilder sb);
+	public abstract string GetTooltipText();
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fbf6769f1c624cb37b94979adb7c4, type: 3}
+  m_Name: Transformed-Goat-ToggleHorns
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffect_AddCharacterToggle
+  _uniqueAssetId: 138b05e13d8312b44804ef7a11bb1c41
+  _toggle:
+    m_AssetGUID: ba444d2e9c5df2c419e2cc9651c3fe2b

@@ -25,6 +25,11 @@ public class StatusHUD : Tooltip, IStatusHUD
 
 		foreach (var effect in status.StatusEffects)
 		{
+			string text = effect.GetTooltipText();
+			if (string.IsNullOrEmpty(text))
+			{
+				continue;
+			}
 			if (firstEffect)
 			{
 				sb.Append("<line-height=130%>");
@@ -36,7 +41,7 @@ public class StatusHUD : Tooltip, IStatusHUD
 			{
 				sb.AppendLine();
 			}
-			effect.AppendTooltipText(sb);
+			sb.Append(text);
 		}
 		_text = sb.ToString();
 	}

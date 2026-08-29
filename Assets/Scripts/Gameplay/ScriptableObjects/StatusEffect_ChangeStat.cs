@@ -1,5 +1,4 @@
-﻿using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 /// <summary>
@@ -8,11 +7,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ChangeStat", menuName = "Scriptable Objects/Gameplay/StatusEffect/ChangeStat")]
 public class StatusEffect_ChangeStat : StatusEffectId
 {
-	[field: SerializeField] public StatId Stat { get; private set; }
-	[field: SerializeField] public int Delta { get; private set; }
+	[SerializeField] AssetReferenceT<StatId> _stat;
+	[SerializeField] int _delta;
 
-	public override void AppendTooltipText(StringBuilder sb)
+	public StatId Stat => _stat.LoadSync();
+	public int Delta => _delta;
+
+	public override string GetTooltipText()
 	{
-		sb.Append(TMPUtils.ColorizeLabelWithNumber($"{Stat.ShortName}: {{0}}", Delta));
+		return TMPUtils.ColorizeLabelWithNumber($"{Stat.ShortName}: {{0}}", Delta);
 	}
 }

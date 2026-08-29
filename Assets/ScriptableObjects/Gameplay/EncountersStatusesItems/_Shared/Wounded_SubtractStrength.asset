@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Wounded_SubtractStrength
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffect_ChangeStat
   _uniqueAssetId: 967c7e652f41f52418133ed61c06751c
-  <Stat>k__BackingField: {fileID: 11400000, guid: d6c79b72f3115bc48bc2cc6b159762f8, type: 2}
-  <Delta>k__BackingField: -1
+  _stat:
+    m_AssetGUID: d6c79b72f3115bc48bc2cc6b159762f8
+  _delta: -1

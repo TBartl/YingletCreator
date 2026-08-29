@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Transformed-Goat-SubtractFocus
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffect_ChangeStat
   _uniqueAssetId: fab9e7b7f448e4e4d962f19cc26f25b0
-  <Stat>k__BackingField: {fileID: 11400000, guid: a9bed3bf6f260dd4a895355f204d2d60, type: 2}
-  <Delta>k__BackingField: -1
+  _stat:
+    m_AssetGUID: a9bed3bf6f260dd4a895355f204d2d60
+  _delta: -1

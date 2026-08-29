@@ -327,6 +327,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2624857999274262973, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2015257988535939821}
+    - targetCorrespondingSourceObject: {fileID: 3574780899733520376, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 7051208936698645925}
     - targetCorrespondingSourceObject: {fileID: 6794495727578903111, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3929025820596562865}
@@ -508,6 +511,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81cbb9904194dc4280dd881603c51d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Sleeping
+--- !u!1 &7955592427142118293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3574780899733520376, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}
+  m_PrefabInstance: {fileID: 6916365060296164461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7051208936698645925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955592427142118293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f4404a0b065d14baaf75460955ca2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Entities.Character.Compositor.Toggles.CharacterToggleProvider_Statuses
 --- !u!1 &8403897164154397331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3124229929184896766, guid: 89b7072f215f4bc4e92e92ee21ef1abb, type: 3}

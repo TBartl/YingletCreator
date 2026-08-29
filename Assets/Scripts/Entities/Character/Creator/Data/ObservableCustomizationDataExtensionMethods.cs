@@ -1,5 +1,6 @@
 ﻿using Character.Data;
 using Reactivity;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,6 +8,50 @@ namespace Character.Creator
 {
 	public static class ObservableCustomizationDataExtensionMethods
 	{
+		public static bool FlipToggle(this ICollection<CharacterToggleId> toggles, CharacterToggleId id, bool allowDebugOverride = false)
+		{
+			bool exists = toggles.Contains(id);
+
+			if (allowDebugOverride && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftControl))
+			{
+				// Easter egg: Ignore rules if holding both down
+				if (exists) toggles.Remove(id);
+				else toggles.Add(id);
+				return !exists;
+			}
+
+			if (exists)
+			{
+				// Early return if there must be one toggle of this type
+				foreach (var group in id.Groups)
+				{
+					if (group.MustHaveOne)
+					{
+						bool anotherExists = toggles.Any(other => other != id && other.Groups.Contains(group));
+						if (!anotherExists) return false;
+					}
+				}
+				toggles.Remove(id);
+				return false;
+			}
+			else
+			{
+				toggles.Add(id);
+
+				foreach (var group in id.Groups)
+				{
+					var togglesToRemove = toggles
+						.Where(toggle => toggle != id && toggle.Groups.Contains(group))
+						.ToList();
+					foreach (var toggleToRemove in togglesToRemove)
+					{
+						toggles.Remove(toggleToRemove);
+					}
+				}
+				return true;
+			}
+		}
+
 
 		public static bool GetToggle(this ObservableCustomizationData data, CharacterToggleId id)
 		{
@@ -17,44 +62,7 @@ namespace Character.Creator
 		{
 
 			using var suspender = new ReactivityNotificationSuspender();
-			bool exists = data.GetToggle(id);
-
-			if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftControl))
-			{
-				// Easter egg: Ignore rules if holding both down
-				if (exists) data.ToggleData.Toggles.Remove(id);
-				else data.ToggleData.Toggles.Add(id);
-				return;
-			}
-
-			if (exists)
-			{
-				// Early return if there must be one toggle of this type
-				foreach (var group in id.Groups)
-				{
-					if (group.MustHaveOne)
-					{
-						bool anotherExists = data.ToggleData.Toggles.Any(other => other != id && other.Groups.Contains(group));
-						if (!anotherExists) return;
-					}
-				}
-				data.ToggleData.Toggles.Remove(id);
-			}
-			else
-			{
-				data.ToggleData.Toggles.Add(id);
-
-				foreach (var group in id.Groups)
-				{
-					var togglesToRemove = data.ToggleData.Toggles
-						.Where(toggle => toggle != id && toggle.Groups.Contains(group))
-						.ToList();
-					foreach (var toggleToRemove in togglesToRemove)
-					{
-						data.ToggleData.Toggles.Remove(toggleToRemove);
-					}
-				}
-			}
+			data.ToggleData.Toggles.FlipToggle(id, allowDebugOverride: true);
 
 			// For some colors, we want to default to another color in the same group if it has been specified
 			foreach (var mixTexture in id.AddedTextures)
