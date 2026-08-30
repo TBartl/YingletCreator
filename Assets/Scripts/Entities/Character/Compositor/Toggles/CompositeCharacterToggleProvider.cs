@@ -24,7 +24,7 @@ public class CompositeCharacterToggleProvider : ReactiveBehaviour, ICharacterTog
 
 	public void Initialize()
 	{
-		_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
+		_dataRepo = this.GetComponentInParentSafe<ICustomizationDataRepository>();
 
 		_otherToggleProviders = this.GetComponentsSafe<ICharacterToggleProvider>().Where(p => p != (ICharacterToggleProvider)this).ToList();
 

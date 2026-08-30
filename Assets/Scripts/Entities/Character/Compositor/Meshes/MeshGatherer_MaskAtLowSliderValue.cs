@@ -20,7 +20,7 @@ namespace Character.Compositor
 
 		private void Awake()
 		{
-			_dataRepository = GetComponentInParent<ICustomizationDataRepository>();
+			_dataRepository = this.GetComponentInParentSafe<ICustomizationDataRepository>();
 			_constrain = CreateComputed(ComputeConstrain);
 		}
 

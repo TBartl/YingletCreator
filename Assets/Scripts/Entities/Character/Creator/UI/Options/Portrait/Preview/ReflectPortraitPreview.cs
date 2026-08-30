@@ -4,6 +4,12 @@ using Snapshotter;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Reflects the portrait on the character creator portrait page
+/// This is the image that appears on the right
+/// Doesn't use the conventional cached mechanism
+/// Instead, declares its own render texture
+/// </summary>
 public class ReflectPortraitPreview : ReactiveBehaviour
 {
 	private RawImage _image;

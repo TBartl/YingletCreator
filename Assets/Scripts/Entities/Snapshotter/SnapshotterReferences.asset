@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ffe70c4e040e74489d27bfaddaae15, type: 3}
   m_Name: SnapshotterReferences
   m_EditorClassIdentifier: 
-  _yingletPrefab: {fileID: 8227471168708032141, guid: e97b0f0aa4d7d144e868cfd6b2760bc1, type: 3}
+  _yingletDataPrefab: {fileID: 8227471168708032141, guid: e97b0f0aa4d7d144e868cfd6b2760bc1, type: 3}
+  _yingletExpeditionPrefab: {fileID: 4366532413225837778, guid: f189ddf6c2dc40d42ac49212790f45c1, type: 3}
   _layerIndex: 6
   _sizeInPixels: 256
   _cleanupObject: 1

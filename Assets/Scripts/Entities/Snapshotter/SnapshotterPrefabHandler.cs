@@ -14,10 +14,26 @@ namespace Snapshotter
 		public SnapshotterPrefabHandler(ISnapshotterReferences references, SnapshotterParams sParams)
 		{
 			_references = references;
-			using (_references.YingletPrefab.TemporarilyDisable())
+
+			if (sParams.Character == null && sParams.Data == null)
 			{
-				_yingletInstance = GameObject.Instantiate(_references.YingletPrefab);
-				_yingletInstance.GetComponent<SnapshotterDataRepository>().Setup(sParams.Data);
+				throw new ArgumentException("Either Character or Data must be provided");
+			}
+
+			var prefab = sParams.Character != null ? _references.YingletExpeditionPrefab : _references.YingletDataPrefab;
+
+			using (prefab.TemporarilyDisable())
+			{
+				_yingletInstance = GameObject.Instantiate(prefab);
+
+				if (sParams.Character != null)
+				{
+					_yingletInstance.GetComponentSafe<ISnapshotterRelay>().RelayedCharacter = sParams.Character;
+				}
+				else
+				{
+					_yingletInstance.GetComponentSafe<SnapshotterDataRepository>().Setup(sParams.Data);
+				}
 
 				ApplyPoseIfPresent(_yingletInstance, sParams.Pose);
 				ApplyPortraitIfPresent(_yingletInstance, sParams.Portrait);
@@ -39,6 +55,10 @@ namespace Snapshotter
 		{
 			if (pose == null) return;
 			ApplyClipIfPresent(yingletInstance, pose.Clip);
+
+			// This is only really used for props
+			// And those should probably be added with some other mechanism instead (like toggles)
+			// Might try to remove this eventually
 			yingletInstance.GetComponentInChildren<SnapshotterDataRepository>().Pose = pose;
 		}
 
@@ -69,7 +89,8 @@ namespace Snapshotter
 
 		public void Dispose()
 		{
-			_references.YingletPrefab.SetActive(true);
+			_references.YingletDataPrefab.SetActive(true);
+			_references.YingletExpeditionPrefab.SetActive(true);
 			if (_yingletInstance != null && _references.CleanupObjects)
 			{
 				GameObject.DestroyImmediate(_yingletInstance);
