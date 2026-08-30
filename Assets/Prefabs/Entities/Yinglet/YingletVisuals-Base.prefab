@@ -2590,6 +2590,8 @@ MonoBehaviour:
   - m_AssetGUID: b7b0f6e99607ea14aa633b818fd92ffe
   - m_AssetGUID: 473b9969a620c564d91afe76473c376f
   - m_AssetGUID: 15ef4b591ca7e0648a7ac450cd7d1a1c
+  - m_AssetGUID: 1b689fa4f5d3f014282386631c8d3c6f
+  - m_AssetGUID: 35db7b00c66ae5d4292ef030bd679770
 --- !u!1 &7440787321428845331
 GameObject:
   m_ObjectHideFlags: 0

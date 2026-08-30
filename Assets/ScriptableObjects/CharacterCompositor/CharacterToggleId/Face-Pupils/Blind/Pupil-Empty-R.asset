@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a91751faed08bbf47ac2ecf4be364095, type: 3}
-  m_Name: Pupil-Normal-R
+  m_Name: Pupil-Empty-R
   m_EditorClassIdentifier: 
   _reColorIdReference:
     m_AssetGUID: ce9e6de331a18ba4689a478226448794
   _targetMaterialDescriptionReference:
     m_AssetGUID: 6670644f19802284f86ce15768550483
   _grayscaleReference:
-    m_AssetGUID: 7899963e75572c846898ba886df60df3
+    m_AssetGUID: eb43c7e77593547449fe8e63bcb3cf79
   _maskReference:
     m_AssetGUID: 
-  _tagReferences:
-  - m_AssetGUID: d0293ee5c8e7eaa4d8e3e43736072043
+  _tagReferences: []
   _order:
     _groupReference:
       m_AssetGUID: ca034d6ee336f5c41b723971839c08df
-    _index: 100
+    _index: 0
   _targetMatTexture: 2

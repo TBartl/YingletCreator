@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Pupils-Horizontal
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: bf087debb66653442a02c348b3b4855d
+  _displayName: Horizontal
+  _groupReferences:
+  - m_AssetGUID: 4f2bdebc2122f5a4986a759d2c55f78b
+  _addedMeshReferences: []
+  _addedTextureReferences:
+  - m_AssetGUID: e4650254c1ac68b42ae3de48b31c4db6
+  - m_AssetGUID: 402fc13bf8fbc0545b9e63f7195e2701
+  _eyeTextures: {fileID: 0}
+  _roomPrefab: {fileID: 0}
+  _componentReferences:
+  - m_AssetGUID: 24517280680fe894e930503c83455a2d
+  _preview:
+    _sprite: {fileID: 1240823767, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: c2ceee176d0cec94cb9f2ff9e36164f3
+  _order:
+    _groupReference:
+      m_AssetGUID: 8f3e531a246354c4a891da72c01c03e7
+    _index: 400

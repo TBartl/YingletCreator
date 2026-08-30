@@ -20,7 +20,8 @@ MonoBehaviour:
     m_AssetGUID: 7899963e75572c846898ba886df60df3
   _maskReference:
     m_AssetGUID: 
-  _tagReferences: []
+  _tagReferences:
+  - m_AssetGUID: d0293ee5c8e7eaa4d8e3e43736072043
   _order:
     _groupReference:
       m_AssetGUID: ca034d6ee336f5c41b723971839c08df
