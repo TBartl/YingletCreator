@@ -31,9 +31,15 @@ namespace YingSnapshotting
 
 		protected abstract void Snapshot();
 
+		bool _snapshotPending = false;
+
 		static Coroutine currentChain;
-		void RunThrottled(Action action)
+		protected void RunThrottled(Action action)
 		{
+			if (_snapshotPending) return;
+
+			_snapshotPending = true;
+
 			IEnumerator Chain()
 			{
 				// Wait until the current chain is done
@@ -43,6 +49,7 @@ namespace YingSnapshotting
 				yield return null;
 
 				action();
+				_snapshotPending = false;
 
 				currentChain = null;
 			}
@@ -103,6 +110,11 @@ namespace YingSnapshotting
 				_snapshotReferences.References,
 				parameters,
 				RenderTexture);
+		}
+
+		public void Regenerate()
+		{
+			RunThrottled(Snapshot);
 		}
 	}
 

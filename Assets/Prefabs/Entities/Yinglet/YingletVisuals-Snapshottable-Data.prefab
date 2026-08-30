@@ -54,7 +54,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 295193141807768341, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       propertyPath: m_Name
-      value: YingletVisuals-Snapshottable
+      value: YingletVisuals-Snapshottable-Data
       objectReference: {fileID: 0}
     - target: {fileID: 295193141807768341, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       propertyPath: m_IsActive

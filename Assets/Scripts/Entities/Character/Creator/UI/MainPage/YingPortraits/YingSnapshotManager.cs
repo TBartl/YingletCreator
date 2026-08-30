@@ -32,6 +32,8 @@ public interface IYingSnapshotManager
 
 	ISnapshotterReferences References { get; }
 	SnapshotterCameraPosition CameraPosition { get; }
+
+	void RegenerateCharacterSnapshot(ICharacterRoot characterRoot);
 }
 
 interface IYingSnapshotManagerReferences
@@ -120,5 +122,13 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 				_characterSnapshots.Remove(characterRoot);
 			}
 		});
+	}
+
+	public void RegenerateCharacterSnapshot(ICharacterRoot characterRoot)
+	{
+		if (_characterSnapshots.TryGetValue(characterRoot, out var cachedDictValue))
+		{
+			cachedDictValue.Regenerate();
+		}
 	}
 }
