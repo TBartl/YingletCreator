@@ -1,7 +1,10 @@
+using System;
+
 namespace Snapshotter
 {
 	public enum SnapshotOrder
 	{
+		BeforeAnimate,
 		Animate,
 		AfterAnimate,
 		CopyRig,
@@ -15,7 +18,10 @@ namespace Snapshotter
 	/// </summary>
 	public interface ISnapshottableComponent
 	{
-		void PrepareForSnapshot();
+		/// <summary>
+		/// Prepares the component for snapshotting, returning a nullable action that will be called after the snapshot is taken to clean up any state
+		/// </summary>
+		Action PrepareForSnapshot(ISnapshotterReferences references);
 
 		/// <summary>
 		/// 0 is default. Anything less will run earlier

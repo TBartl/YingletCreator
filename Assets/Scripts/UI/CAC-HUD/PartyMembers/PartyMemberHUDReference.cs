@@ -1,4 +1,3 @@
-using Character.Creator;
 using Reactivity;
 
 public interface IPartyMemberHUDReference
@@ -12,7 +11,7 @@ public interface IWriteablePartyMemberHUDReference : IPartyMemberHUDReference
 	void SetCharacter(ICharacterRoot character);
 }
 
-public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberHUDReference, ICachedYingletReference, IClassReference, IInitializable, ISelectable
+public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberHUDReference, IClassReference, IInitializable, ISelectable
 {
 	private IActiveCharacterProvider _activeCharacterProvider;
 	Observable<ICharacterRoot> _character = new Observable<ICharacterRoot>();
@@ -21,9 +20,6 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 
 	public ICharacterRoot Character => _character.Val;
 	public IReadOnlyObservable<ICharacterRoot> CharacterObservable => _character;
-
-	Computed<SerializableCustomizationData> _cachedData;
-	public SerializableCustomizationData CachedData => _cachedData.Val;
 
 	public ClassId Class => _class.Val;
 
@@ -40,7 +36,6 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 		_activeCharacterProvider = Singletons.GetSingleton<IActiveCharacterProvider>();
 		_selected = CreateComputed(ComputeSelected);
 		_class = CreateComputed(ComputeClass);
-		_cachedData = CreateComputed(ComputeCustomizationData);
 	}
 
 	private bool ComputeSelected()
@@ -54,13 +49,5 @@ public class PartyMemberHUDReference : ReactiveBehaviour, IWriteablePartyMemberH
 		if (character == null) return null;
 		var classRepo = character.GetComponentInChildrenSafe<IClassReference>();
 		return classRepo.Class;
-	}
-
-	private SerializableCustomizationData ComputeCustomizationData()
-	{
-		var character = Character;
-		if (character == null) return null;
-		var customizationDataRepo = character.GetComponentInChildrenSafe<IGameCharacterDataRepository>();
-		return customizationDataRepo.LastSerializedData.Val;
 	}
 }

@@ -11,9 +11,17 @@ namespace Snapshotter
 			CamPos = camPos; ;
 			Data = data;
 		}
+		public SnapshotterParams(SnapshotterCameraPosition camPos, ICharacterRoot characterRoot)
+		{
+			CamPos = camPos; ;
+			Character = characterRoot;
+		}
 
 		public SnapshotterCameraPosition CamPos { get; }
+
+		// Either the Data or Character must be set
 		public ObservableCustomizationData Data { get; }
+		public ICharacterRoot Character { get; }
 
 		/// <summary>
 		/// Optional override for the pose the animator will play the first frame of

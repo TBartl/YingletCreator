@@ -1,3 +1,4 @@
+using Character.Creator;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,7 @@ public interface IYingletAnimationBridge
 	public float? GetMovingAnimTime();
 
 	public void SetEncounterPose(AnimationClip clip);
+	public void SetSnapshotterClip(AnimationClip clip);
 }
 
 public enum YingletAnimState
@@ -56,6 +58,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
 	static readonly string FALL_IMPACT_LAYER_NAME = "FallImpact";
 	static readonly string ENCOUNTER_POSE_LAYER_NAME = "EncounterPose";
+	static readonly string SNAPSHOTTER_POSE_LAYER_NAME = "SnapshotterPose";
 
 	static readonly int MOVE_CYCLE_SPEED_PARAM = Animator.StringToHash("MoveCycleSpeed");
 	static readonly int MOVE_TYPE_PARAM = Animator.StringToHash("MoveType");
@@ -65,26 +68,30 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	static readonly int STATE_MOVING_ANIM = Animator.StringToHash("Moving");
 	static readonly int STATE_AIRBORNE_ANIM = Animator.StringToHash("Airborne");
 	static readonly int STATE_SLEEPING_ANIM = Animator.StringToHash("Sleeping");
-
 	private Animator _animator;
+	private ICustomizationDataRepository _dataRepo;
 
 	// The idle state is a bit special in that it has a few layers on top of it that we need to disable in addition to moving off the animation
 	// Keep track of those layers so we can transition them in and out
 	private YingLayer[] _idleLayers;
 	private YingLayer _fallImpactLayer;
 	private YingLayer _encounterPoseLayer;
+	private YingLayer _snapshotterPoseLayer;
 
 	YingletAnimState _currentState = YingletAnimState.Idle;
 	private Coroutine _idleBlendCoroutine;
 	private AnimatorOverrideController _overrideController;
 	private AnimationClip _originalEncounterClip;
+	private AnimationClip _originalSnapshotterClip;
 
 	private void Awake()
 	{
 		_animator = this.GetComponent<Animator>();
+		_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
 		_idleLayers = IDLE_LAYER_NAMES.Select(layerName => new YingLayer(layerName, _animator)).ToArray();
 		_fallImpactLayer = new YingLayer(FALL_IMPACT_LAYER_NAME, _animator);
 		_encounterPoseLayer = new YingLayer(ENCOUNTER_POSE_LAYER_NAME, _animator);
+		_snapshotterPoseLayer = new YingLayer(SNAPSHOTTER_POSE_LAYER_NAME, _animator);
 
 		_animator.SetLayerWeight(_fallImpactLayer.LayerIndex, 0); // Default to 0
 
@@ -93,6 +100,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		_overrideController = new AnimatorOverrideController(originalController);
 		_animator.runtimeAnimatorController = _overrideController;
 		_originalEncounterClip = _animator.GetCurrentAnimatorClipInfo(_encounterPoseLayer.LayerIndex).First().clip;
+		_originalSnapshotterClip = _animator.GetCurrentAnimatorClipInfo(_snapshotterPoseLayer.LayerIndex).First().clip;
 	}
 
 	public void SetAnimState(YingletAnimState state)
@@ -187,6 +195,12 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	{
 		_animator.SetLayerWeight(_encounterPoseLayer.LayerIndex, clip != null ? 1 : 0);
 		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_originalEncounterClip, clip) });
+	}
+
+	public void SetSnapshotterClip(AnimationClip clip)
+	{
+		_animator.SetLayerWeight(_snapshotterPoseLayer.LayerIndex, clip != null ? 1 : 0);
+		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_originalSnapshotterClip, clip) });
 	}
 
 	class YingLayer

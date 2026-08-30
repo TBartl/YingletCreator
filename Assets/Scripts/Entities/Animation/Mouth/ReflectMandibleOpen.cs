@@ -1,5 +1,6 @@
 using Reactivity;
 using Snapshotter;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,10 +60,11 @@ public class ReflectMandibleOpen : ReactiveBehaviour, ISnapshottableComponent
 	}
 
 	public SnapshotOrder SnapshotOrder => SnapshotOrder.AfterAnimate;
-	public void PrepareForSnapshot()
+	public Action PrepareForSnapshot(ISnapshotterReferences references)
 	{
 		// I tried to mask the mandible of the snapshot animator controller, but it didn't seem to work
 		// Doing it here seems like the only place to reliably set it
 		LateUpdate();
+		return null;
 	}
 }

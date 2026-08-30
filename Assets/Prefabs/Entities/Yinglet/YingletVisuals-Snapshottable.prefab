@@ -120,7 +120,7 @@ PrefabInstance:
       addedObject: {fileID: 6247854640963211476}
     - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7545229699818963361}
+      addedObject: {fileID: 7141947753914279382}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 5
       addedObject: {fileID: 2337352432713023915}
@@ -153,7 +153,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
   m_PrefabInstance: {fileID: 8517826381487887768}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7545229699818963361
+--- !u!114 &7141947753914279382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,9 +162,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3520589046506231786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4668155c828e46d4d837cb4f1963dae6, type: 3}
+  m_Script: {fileID: 11500000, guid: 02c259ec5fa38ce4087b4322c42371c0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::SnapshotterAnimatorOverrideController
 --- !u!4 &5203132945128745802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4467667786261249746, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}

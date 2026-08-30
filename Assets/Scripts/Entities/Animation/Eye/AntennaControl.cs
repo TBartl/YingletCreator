@@ -1,5 +1,6 @@
 using Reactivity;
 using Snapshotter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -117,8 +118,10 @@ public class AntennaControl : ReactiveBehaviour, ISnapshottableComponent
 	}
 
 	public SnapshotOrder SnapshotOrder => SnapshotOrder.AfterAnimate;
-	public void PrepareForSnapshot()
+	public Action PrepareForSnapshot(ISnapshotterReferences references)
 	{
+		// As above, animator may overwrite this
 		ApplyAngleToAntenna();
+		return null;
 	}
 }

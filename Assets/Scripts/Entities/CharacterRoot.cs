@@ -9,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public interface ICharacterRoot
 {
+	GameObject gameObject { get; }
 	Transform transform { get; }
 	T GetComponentSafe<T>();
 	T GetComponentInChildrenSafe<T>();

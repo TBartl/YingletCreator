@@ -2302,7 +2302,7 @@ GameObject:
   - component: {fileID: 1506355610297503205}
   - component: {fileID: 7509005197373304070}
   - component: {fileID: 7242499572706567085}
-  - component: {fileID: 8044485216619857665}
+  - component: {fileID: 3043453925105289380}
   - component: {fileID: 7244505318570673667}
   m_Layer: 5
   m_Name: Portrait
@@ -2365,7 +2365,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &8044485216619857665
+--- !u!114 &3043453925105289380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2374,9 +2374,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5926016182495147830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836060e3436fd2649b959a8e31e44fee, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ba19a08d71bc534eaaead33a22644aa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::YingPortraitSnapshotting_Character
 --- !u!114 &7244505318570673667
 MonoBehaviour:
   m_ObjectHideFlags: 0

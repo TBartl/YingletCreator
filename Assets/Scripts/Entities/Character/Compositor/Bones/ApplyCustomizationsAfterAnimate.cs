@@ -1,4 +1,5 @@
 using Snapshotter;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,8 +33,9 @@ public class ApplyCustomizationsAfterAnimate : MonoBehaviour, ISnapshottableComp
 	}
 
 	public SnapshotOrder SnapshotOrder => SnapshotOrder.ApplyBones;
-	public void PrepareForSnapshot()
+	public Action PrepareForSnapshot(ISnapshotterReferences references)
 	{
 		LateUpdate();
+		return null;
 	}
 }

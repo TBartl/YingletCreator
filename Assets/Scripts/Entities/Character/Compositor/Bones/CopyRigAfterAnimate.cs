@@ -1,4 +1,5 @@
 using Snapshotter;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -76,9 +77,10 @@ public class CopyRigAfterAnimate : MonoBehaviour, ISnapshottableComponent
 		}
 	}
 	public SnapshotOrder SnapshotOrder => SnapshotOrder.CopyRig;
-	public void PrepareForSnapshot()
+	public Action PrepareForSnapshot(ISnapshotterReferences references)
 	{
 		CopyBones();
+		return null;
 	}
 
 	sealed class CopyBone

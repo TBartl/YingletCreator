@@ -78,6 +78,16 @@ public static class SafeDependencyUtils
 		return result;
 	}
 
+	public static T[] GetComponentsInChildrenSafe<T>(this GameObject gameObject, bool includeInactive = false)
+	{
+		var results = gameObject.GetComponentsInChildren<T>(includeInactive);
+		foreach (var result in results)
+		{
+			InitializeIfNeeded(result);
+		}
+		return results;
+	}
+
 	public static T[] GetComponentsInChildrenSafe<T>(this Component component, bool includeInactive = false)
 	{
 		var results = component.GetComponentsInChildren<T>(includeInactive);
