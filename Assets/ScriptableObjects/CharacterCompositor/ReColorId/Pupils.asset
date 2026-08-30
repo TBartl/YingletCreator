@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91a97101bf56fc9409c1b7dcc5a40bdd, type: 3}
-  m_Name: Eyes
+  m_Script: {fileID: 11500000, guid: 90e93a1a2762c7745bd997e92a7f9845, type: 3}
+  m_Name: Pupils
   m_EditorClassIdentifier: 
-  Position: {x: -0.05492711, y: 0.9146905, z: -0.22898054}
-  Rotation: {x: 6.7038507, y: 33.68985, z: -0.0028718796}
+  _colorGroupReference:
+    m_AssetGUID: 6c3fdf9a41927e24aaa6450864b28bc2
+  _uniqueAssetId: ce9e6de331a18ba4689a478226448794
+  _overrideName: 
+  _cleanupIfUnused: 1

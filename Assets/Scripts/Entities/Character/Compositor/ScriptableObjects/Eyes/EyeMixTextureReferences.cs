@@ -14,7 +14,6 @@ namespace Character.Compositor
 
 		[SerializeField] TargetMaterialTexture _fillTarget;
 		[SerializeField] TargetMaterialTexture _eyelidTarget;
-		[SerializeField] TargetMaterialTexture _pupilTarget;
 		[SerializeField] AssetReferenceT<MaterialDescription> _leftMaterialDescriptionReference;
 		[SerializeField] AssetReferenceT<MaterialDescription> _rightMaterialDescriptionReference;
 		[SerializeField] AssetReferenceT<CharacterElementTag> _eyeElementTagReference;
@@ -25,7 +24,6 @@ namespace Character.Compositor
 
 		public TargetMaterialTexture FillTarget => _fillTarget;
 		public TargetMaterialTexture EyelidTarget => _eyelidTarget;
-		public TargetMaterialTexture PupilTarget => _pupilTarget;
 
 		public MaterialDescription LeftMaterialDescription => _leftMaterialDescriptionReference.LoadSync();
 		public MaterialDescription RightMaterialDescription => _rightMaterialDescriptionReference.LoadSync();

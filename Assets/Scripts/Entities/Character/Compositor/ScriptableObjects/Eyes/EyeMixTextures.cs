@@ -19,17 +19,15 @@ namespace Character.Compositor
 		// The following are public only because UpdateEyeAsset wants to set them
 		[SerializeField] Texture2D _fill;
 		[SerializeField] Texture2D _eyelid;
-		[SerializeField] Texture2D _pupil;
 		[SerializeField] bool _coloredEyelid;
 
 		public Texture2D Fill => _fill;
 		public Texture2D Eyelid => _eyelid;
 
-		public void EditorSetTextures(Texture2D fill, Texture2D eyelid, Texture2D pupil, bool coloredEyelid)
+		public void EditorSetTextures(Texture2D fill, Texture2D eyelid, bool coloredEyelid)
 		{
 			_fill = fill;
 			_eyelid = eyelid;
-			_pupil = pupil;
 			_coloredEyelid = coloredEyelid;
 		}
 
@@ -43,8 +41,6 @@ namespace Character.Compositor
 			mixtextures.Add(new EyeMixTexture(_eyelid, references, references.EyelidTarget, eyelidRecolorId, false));
 			mixtextures.Add(new EyeMixTexture(_fill, references, references.FillTarget, references.LeftFillReColorId, true));
 			mixtextures.Add(new EyeMixTexture(_fill, references, references.FillTarget, references.RightFillReColorId, false));
-			mixtextures.Add(new EyeMixTexture(_pupil, references, references.PupilTarget, null, true));
-			mixtextures.Add(new EyeMixTexture(_pupil, references, references.PupilTarget, null, false));
 			return mixtextures;
 		}
 	}

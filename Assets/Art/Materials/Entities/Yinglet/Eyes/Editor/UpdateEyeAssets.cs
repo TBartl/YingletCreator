@@ -17,9 +17,6 @@ public class UpdateEyeAssets
 	[MenuItem("Custom/Update Eye Assets")]
 	static void Apply()
 	{
-		// Might eventually allow this to be overwritten if an eye wants a specific pupil instead
-		var pupil = LoadTex(Path.Combine(RAW_TEXTURE_PATH, "Pupil.png"));
-
 		var eyeTextureFolders = Directory.GetDirectories(RAW_TEXTURE_PATH);
 
 		foreach (var eyeTextureFolder in eyeTextureFolders)
@@ -37,7 +34,7 @@ public class UpdateEyeAssets
 			var fill = LoadTex(Path.Combine(eyeTextureFolder, "Fill.png"));
 			var eyelid = LoadTex(Path.Combine(eyeTextureFolder, "Eyelid.png"));
 			bool eyelidContainsNonBlackPixel = ContainsNonBlackPixel(eyelid);
-			asset.EditorSetTextures(fill, eyelid, pupil, eyelidContainsNonBlackPixel);
+			asset.EditorSetTextures(fill, eyelid, eyelidContainsNonBlackPixel);
 
 			EditorUtility.SetDirty(asset);
 			AssetDatabase.SaveAssets();
