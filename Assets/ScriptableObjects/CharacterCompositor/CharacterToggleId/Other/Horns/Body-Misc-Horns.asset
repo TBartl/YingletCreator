@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Body-Misc-Horns
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 3fc7f52947f2a874a8cfa49cef484710
+  _displayName: Horns
+  _groupReferences: []
+  _addedMeshReferences:
+  - m_AssetGUID: f47a804c9eb5d3b45bcae7cbdb49fe8a
+  _addedTextureReferences:
+  - m_AssetGUID: 052316da0eb0f5a48886bacad1c1ff84
+  _eyeTextures: {fileID: 0}
+  _roomPrefab: {fileID: 0}
+  _componentReferences: []
+  _preview:
+    _sprite: {fileID: 1368008261, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: b3647963b772a104cb260e9bf9304ac4
+  _order:
+    _groupReference:
+      m_AssetGUID: fc3b12bfd0032d74cb23634d21b440d2
+    _index: 200

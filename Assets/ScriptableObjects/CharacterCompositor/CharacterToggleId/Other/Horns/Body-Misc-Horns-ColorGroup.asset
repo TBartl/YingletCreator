@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee45e03f2dc3e2f4a82b3713ad9c84ac, type: 3}
+  m_Name: Body-Misc-Horns-ColorGroup
+  m_EditorClassIdentifier: 
+  _defaultColors:
+    _base:
+      _hue: 0.11222707
+      _saturation: 0.19527711
+      _value: 0.92549026
+    _shade:
+      _hue: 0.07239263
+      _saturation: 0.69852203
+      _value: 0.7409803
+  _autoColorWithGroup: 0

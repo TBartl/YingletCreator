@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503c82202b52da46953cf1868a9b4a5, type: 3}
+  m_Name: Body-Misc-Horns-Texture
+  m_EditorClassIdentifier: 
+  _reColorIdReference:
+    m_AssetGUID: 20542308bc0603f4eaad591a1c1d7072
+  _targetMaterialDescriptionReference:
+    m_AssetGUID: 9744422b1a47f8f41b6c8a97ecfe56f9
+  _grayscaleReference:
+    m_AssetGUID: 892f0fd0bdab10847929b97230795262
+  _maskReference:
+    m_AssetGUID: 
+  _tagReferences: []
+  _order:
+    _groupReference:
+      m_AssetGUID: b3cb2885be737a9489449ff834665c10
+    _index: 500
