@@ -36,7 +36,7 @@ public class ClassId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptable
 		{
 			if (string.IsNullOrWhiteSpace(_cachedColorHtml))
 			{
-				return "#" + ColorUtility.ToHtmlStringRGB(TextColor);
+				_cachedColorHtml = "#" + ColorUtility.ToHtmlStringRGB(TextColor);
 			}
 			return _cachedColorHtml;
 		}
