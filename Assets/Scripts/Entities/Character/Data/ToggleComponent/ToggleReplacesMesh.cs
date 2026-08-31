@@ -9,7 +9,7 @@ namespace Character.Data
 		MeshWithMaterial ToReplace { get; }
 		MeshWithMaterial Replacement { get; }
 	}
-	[CreateAssetMenu(fileName = "ToggleReplacesMesh", menuName = "Scriptable Objects/Character Data/ToggleCompnents/ToggleReplacesMesh")]
+	[CreateAssetMenu(fileName = "ToggleReplacesMesh", menuName = "Scriptable Objects/Character Data/ToggleComponents/ToggleReplacesMesh")]
 	public class ToggleReplacesMesh : CharacterToggleComponent, IToggleReplacesMesh
 	{
 		[SerializeField] AssetReferenceT<MeshWithMaterial> _toReplaceReference;

@@ -1,6 +1,6 @@
 {
     "Name": "Lippie",
-    "CreationTimeString": "2025-05-14T22:48:52.1143718-04:00",
+    "CreationTimeString": "2026-08-30T20:43:19.3015268-04:00",
     "Version": 4,
     "SliderData": {
         "SliderValues": [
@@ -371,5 +371,10 @@
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 6,
         "OverrideMouthExpression": 6
+    },
+    "GenderData": {
+        "Pronouns": 0,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.36276841163635256
     }
 }

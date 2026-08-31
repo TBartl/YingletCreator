@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fbf6769f1c624cb37b94979adb7c4, type: 3}
+  m_Name: Transformed-Goat-ToggleBaahVoice
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffect_AddCharacterToggle
+  _uniqueAssetId: f8e7671bc7af7e44da93a2d27f288550
+  _toggle:
+    m_AssetGUID: bf087debb66653442a02c348b3b4855d

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbed86be067f306449f842d214ba2bdb, type: 3}
+  m_Name: Baah
+  m_EditorClassIdentifier: Assembly-CSharp::MultiSoundEffect
+  _clips:
+  - {fileID: 8300000, guid: 34686ae694eaa75419353fa49d473d45, type: 3}
+  - {fileID: 8300000, guid: 737b8ba9e269a7e4f957b62c72d2b64f, type: 3}
+  - {fileID: 8300000, guid: ef2c7f31425def347a9b7b158255f756, type: 3}
+  - {fileID: 8300000, guid: 256720cdc0998b14b8830d3d032e9f51, type: 3}
+  - {fileID: 8300000, guid: 0000e6370be740b489c3dd393ad3f421, type: 3}
+  _volume: 1
+  _randomPitchRange: {x: 0.95, y: 1.05}
