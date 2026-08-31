@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RotatePivotTowardsCamera : MonoBehaviour
 {
@@ -6,7 +7,8 @@ public class RotatePivotTowardsCamera : MonoBehaviour
 
 	private Camera _camera;
 
-	[SerializeField] AnimationCurve _realAngleToRestrictedAngle;
+	[FormerlySerializedAs("_realAngleToRestrictedAngle")]
+	[SerializeField] AnimationCurve _cameraTiltToRestrictedAngle;
 
 	void Start()
 	{
@@ -17,23 +19,21 @@ public class RotatePivotTowardsCamera : MonoBehaviour
 	{
 		if (_camera == null) return;
 
-		// Calculate direction from pivot to camera
-		Vector3 directionToCamera = _camera.transform.position - transform.position;
+		Vector3 forward = _camera.transform.forward;
+		float tilt = Mathf.Atan2(
+			-forward.y,
+			new Vector2(forward.x, forward.z).magnitude
+		) * Mathf.Rad2Deg;
 
-		// Calculate the angle we need to rotate around X-axis to face the camera
-		// We only care about the vertical component (Y) and depth (Z)
-		float verticalDistance = directionToCamera.y;
-		float depthDistance = directionToCamera.z;
-		float angleX = Mathf.Atan2(verticalDistance, -depthDistance) * Mathf.Rad2Deg;
-
-		angleX = _realAngleToRestrictedAngle.Evaluate(angleX);
+		tilt = _cameraTiltToRestrictedAngle.Evaluate(tilt);
+		Debug.Log($"Camera tilt: {tilt}");
 
 		// Apply rotation around X-axis
-		transform.localRotation = Quaternion.Euler(angleX, 0, 0);
+		transform.localRotation = Quaternion.Euler(tilt, 0, 0);
 
 		// Shift the sprite along Z to maintain its center position
 		// As the pivot rotates, the sprite's center moves, so we need to compensate
-		float zOffset = CHILD_RADIUS * Mathf.Sin(angleX * Mathf.Deg2Rad);
+		float zOffset = CHILD_RADIUS * Mathf.Sin(tilt * Mathf.Deg2Rad);
 		transform.localPosition = new Vector3(0, 0, -zOffset);
 	}
 }
