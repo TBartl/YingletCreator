@@ -14,7 +14,12 @@ public interface ICameraControlProvider
 	(Vector3, Quaternion) CalculateTransform();
 }
 
-public class CameraControl : ReactiveBehaviour
+public interface ICameraControl
+{
+	ICameraControlProvider CurrentProvider { get; }
+}
+
+public class CameraControl : ReactiveBehaviour, ICameraControl
 {
 	[SerializeField] SharedEaseSettings _swapBetweenProvidersEase;
 
@@ -25,6 +30,8 @@ public class CameraControl : ReactiveBehaviour
 	private ICameraControlProvider _lastProvider;
 	private Coroutine _easeCoroutine;
 	private float _providerInfluence;
+
+	public ICameraControlProvider CurrentProvider => _bestProvider.Val;
 
 	private void Start()
 	{

@@ -1,7 +1,9 @@
 using Character.Creator.UI;
 using UnityEngine;
 
-public class ZoomInOnScroll : MonoBehaviour
+// Note: I think this script is dead
+
+public class CharacterCreatorZoomInOnScroll : MonoBehaviour
 {
 	[SerializeField] Vector3 _zoomPos;
 	[SerializeField] Vector3 _zoomRot;
