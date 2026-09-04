@@ -89,21 +89,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b895d416c6e364ab20df1daf90938d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotatePivotTowardsCamera
-  _realAngleToRestrictedAngle:
+  _cameraTiltToRestrictedAngle:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.9904697
-      outSlope: 0.9904697
-      tangentMode: 34
+      inSlope: 1.0694762
+      outSlope: 1.0694762
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.16149406
     - serializedVersion: 3
-      time: 38.836212
-      value: 38.46609
+      time: 16.461077
+      value: 15.464531
       inSlope: 0.96040577
       outSlope: 0.96040577
       tangentMode: 0
@@ -111,13 +111,13 @@ MonoBehaviour:
       inWeight: 0.093828045
       outWeight: 0.24954058
     - serializedVersion: 3
-      time: 77
-      value: 51.84159
-      inSlope: 0.06498779
-      outSlope: 0.06498779
+      time: 63.916363
+      value: 29.694178
+      inSlope: 0.010395491
+      outSlope: 0.010395491
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.25965893
+      inWeight: 0.16560325
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactable_StartEncounter
   _encounter: {fileID: 0}
   _tooltipName: 
+  _tooltipOffset: 0.6
 --- !u!65 &6817790141405109929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -270,7 +271,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3587944332407070528
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -327,6 +328,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!1 &4905683516956927336
 GameObject:
   m_ObjectHideFlags: 0

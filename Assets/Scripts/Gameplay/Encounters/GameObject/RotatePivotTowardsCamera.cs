@@ -26,7 +26,6 @@ public class RotatePivotTowardsCamera : MonoBehaviour
 		) * Mathf.Rad2Deg;
 
 		tilt = _cameraTiltToRestrictedAngle.Evaluate(tilt);
-		Debug.Log($"Camera tilt: {tilt}");
 
 		// Apply rotation around X-axis
 		transform.localRotation = Quaternion.Euler(tilt, 0, 0);
