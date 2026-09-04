@@ -23617,6 +23617,7 @@ GameObject:
   - component: {fileID: 8876848477446591146}
   - component: {fileID: 3300139277433591896}
   - component: {fileID: 3242336523477793821}
+  - component: {fileID: 8876848477446591147}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -26181,7 +26182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366
+      value: 366.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6748708911707019781, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Name
@@ -31500,6 +31501,20 @@ MonoBehaviour:
   _references: {fileID: 11400000, guid: 860f06d43d9679a4389e727d0bc6b2f7, type: 2}
   _cameraPositionReference:
     m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+--- !u!114 &8876848477446591147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157752138470863346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d3b317e5b1f134c8d009c118e6a5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RenderDataManager
+  _sourceFogOfWarMaterial: {fileID: 2100000, guid: 0b2324894e2e369439ab8e917e687ec3, type: 2}
+  _rendererData: {fileID: 11400000, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
 --- !u!114 &8897224603141422211
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ namespace Snapshotter
 			//var stopWatch = new Stopwatch();
 			//stopWatch.Start();
 
+			using var renderFeatureHandler = new SnapshotterRenderFeatureHandler();
 			using var prefabHandler = new SnapshotterPrefabHandler(references, sParams);
 			using var cameraHandler = new SnapshotterCameraHandler(references, sParams);
 			cameraHandler.OffsetPosByScale(prefabHandler.GetYScale());

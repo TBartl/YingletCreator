@@ -1,7 +1,5 @@
 using Reactivity;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public interface IFogOfWar
 {
@@ -15,24 +13,21 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 	static readonly int SCALE_PROPERTY_ID = Shader.PropertyToID("_Scale");
 	static readonly int OFFSET_PROPERTY_ID = Shader.PropertyToID("_Offset");
 
-	[SerializeField] Material _sourceMaterial;
-	[SerializeField] UniversalRendererData _rendererData;
-
+	private IRenderDataManager _renderDataManager;
 	private IRoomManager _roomManager;
 	private IFogOfWarCarver _carver;
-	private FogOfWarRendererFeature _rendererFeature;
-	private Material _material; // TODO: Remove public 
+	private Material _material;
 	private DoubleBufferedRenderTexture _renderTextures;
 	ObservableHashSet<Vector2Int> _revealedRooms = new ObservableHashSet<Vector2Int>();
 
 	public void Initialize()
 	{
+		_renderDataManager = Singletons.GetSingleton<IRenderDataManager>();
 		_roomManager = this.GetExpeditionComponent<IRoomManager>();
 		_carver = this.GetComponentSafe<IFogOfWarCarver>();
-		_rendererFeature = _rendererData.rendererFeatures.OfType<FogOfWarRendererFeature>().First();
-		_material = new Material(_sourceMaterial);
+		_material = new Material(_renderDataManager.SourceFogOfWarMaterial);
 
-		_rendererFeature.Data.Material = _material;
+		_renderDataManager.FogOfWarRenderFeature.Data.Material = _material;
 
 		var range = _roomManager.Range;
 		Vector2Int totalSize = range.Max - range.Min + Vector2Int.one;
@@ -62,9 +57,9 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 	private new void OnDestroy()
 	{
 		base.OnDestroy();
-		if (_rendererFeature != null)
+		if (_renderDataManager.FogOfWarRenderFeature != null)
 		{
-			_rendererFeature.Data.Material = null;
+			_renderDataManager.FogOfWarRenderFeature.Data.Material = null;
 			Destroy(_material);
 		}
 		if (_renderTextures != null)

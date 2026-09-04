@@ -1,4 +1,5 @@
 using Character.Creator;
+using Reactivity;
 using Snapshotter;
 using System;
 using System.Collections;
@@ -34,6 +35,8 @@ public interface IYingSnapshotManager
 	SnapshotterCameraPosition CameraPosition { get; }
 
 	void RegenerateCharacterSnapshot(ICharacterRoot characterRoot);
+
+	bool Snapshotting { get; }
 }
 
 interface IYingSnapshotManagerReferences
@@ -59,9 +62,13 @@ public class YingSnapshotManager : MonoBehaviour, IYingSnapshotManager, IYingSna
 	Dictionary<ICharacterRoot, CharacterSnapshotDictValue> _characterSnapshots = new();
 	private ICompositeResourceLoader _resourceLoader;
 
+	Observable<bool> _snapshotting = new();
+
 	public ISnapshotterReferences References => _references;
 	public SnapshotterCameraPosition CameraPosition => _cameraPositionReference.LoadSync();
 	public ICompositeResourceLoader ResourceLoader => _resourceLoader;
+
+	public bool Snapshotting => _snapshotting.Val;
 
 	private void Awake()
 	{
