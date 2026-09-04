@@ -373,7 +373,7 @@
         "OverrideMouthExpression": 6
     },
     "GenderData": {
-        "Pronouns": 0,
+        "Pronouns": 2,
         "CustomPronouns": [],
         "VoicePitchShift": 0.36276841163635256
     }

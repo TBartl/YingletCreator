@@ -44,6 +44,13 @@ namespace Character.Creator
 				var defaultPortraitId = resourceLoader.Load<PortraitId>("62d51c0df9a0552419f8040e8bb0c347");
 				data.PortraitData.PortraitId.Val = defaultPortraitId;
 			}
+
+			if (version <= 4)
+			{
+				// Adding pupil
+				var pupilToggle = resourceLoader.Load<CharacterToggleId>("026fe71af2225d3448d4b23f0d751cdb");
+				data.ToggleData.Toggles.Add(pupilToggle);
+			}
 		}
 	}
 }

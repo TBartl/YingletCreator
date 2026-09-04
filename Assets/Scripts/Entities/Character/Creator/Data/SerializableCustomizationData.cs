@@ -14,7 +14,7 @@ namespace Character.Creator
 	public sealed class SerializableCustomizationData
 	{
 		// Used in <see cref="CustomizationDataUpgradeUtils"/>
-		const int CURRENT_VERSION = 4;
+		const int CURRENT_VERSION = 5;
 
 		public string Name;
 
