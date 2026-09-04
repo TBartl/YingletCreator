@@ -25,8 +25,8 @@ MonoBehaviour:
     Value: 2
   - Stat:
       m_AssetGUID: ceb6f64157e76d147ba8c978bc9e072d
-    Value: 5
+    Value: 4
   - Stat:
       m_AssetGUID: a9bed3bf6f260dd4a895355f204d2d60
-    Value: 4
+    Value: 5
   _orderIndex: 300
