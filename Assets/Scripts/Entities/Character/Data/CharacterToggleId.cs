@@ -28,9 +28,6 @@ namespace Character.Data
 		[SerializeField] EyeMixTextures _eyeTextures;
 		public EyeMixTextures EyeTextures => _eyeTextures;
 
-		[SerializeField] GameObject _roomPrefab;
-		public GameObject RoomPrefab => _roomPrefab;
-
 		[SerializeField] AssetReferenceT<CharacterToggleComponent>[] _componentReferences;
 		public IEnumerable<CharacterToggleComponent> Components => _componentReferences.Select(r => r.LoadSync());
 
