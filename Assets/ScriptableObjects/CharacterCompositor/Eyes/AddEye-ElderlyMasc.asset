@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fill: {fileID: 2800000, guid: e160cd36ca35d7b488a50c9de304ce9b, type: 3}
   _eyelid: {fileID: 2800000, guid: b0cab0bee2b5eec4289a2b146ec2339b, type: 3}
-  _pupil: {fileID: 2800000, guid: c9ef7f83c599d8f4b988c925e351d6f5, type: 3}
   _coloredEyelid: 0
