@@ -41,16 +41,9 @@ public class ReflectPortraitPreview : ReactiveBehaviour
 		var a = customizationData.PortraitData.UseOverrideExpressions.Val;
 		var b = customizationData.PortraitData.OverrideEyeExpression.Val;
 		var c = customizationData.PortraitData.OverrideMouthExpression.Val;
-		var d = customizationData.PortraitData.PortraitId.Val;
+		var d = customizationData.ToggleData.Toggles.GetEnumerator(); // portrait itself is stored under toggles
 
 		var parameters = new SnapshotterParams(_snapshotManager.CameraPosition, customizationData);
-
-		// Apply portrait if it exists
-		var portrait = customizationData.PortraitData.PortraitId.Val;
-		if (portrait != null)
-		{
-			parameters.Portrait = portrait;
-		}
 
 		_rt = SnapshotterUtils.Snapshot(
 				_snapshotManager.References,

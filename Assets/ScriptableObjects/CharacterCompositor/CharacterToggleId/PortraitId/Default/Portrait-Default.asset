@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Portrait-Default
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
+  _uniqueAssetId: 4f28cecb103ceb2479b54d6dcdce267f
+  _displayName: Default
+  _groupReferences: []
+  _addedMeshReferences: []
+  _addedTextureReferences: []
+  _componentReferences:
+  - m_AssetGUID: 62d51c0df9a0552419f8040e8bb0c347
+  _preview:
+    _sprite: {fileID: -1849837769, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+  _order:
+    _groupReference:
+      m_AssetGUID: 798c7c83d2325f04fa803a91171b9d25
+    _index: 0

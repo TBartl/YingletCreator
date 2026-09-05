@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Portrait-Fabulous
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
+  _uniqueAssetId: 476abb6dee2650c44a8159f6e43031a1
+  _displayName: Fabulous
+  _groupReferences: []
+  _addedMeshReferences: []
+  _addedTextureReferences: []
+  _componentReferences:
+  - m_AssetGUID: 5440cb48febc62b4ba0055cb1d857a83
+  _preview:
+    _sprite: {fileID: -215491358, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+  _order:
+    _groupReference:
+      m_AssetGUID: 798c7c83d2325f04fa803a91171b9d25
+    _index: 100

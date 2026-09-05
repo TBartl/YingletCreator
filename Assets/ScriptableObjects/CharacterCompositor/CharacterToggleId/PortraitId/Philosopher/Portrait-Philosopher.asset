@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Portrait-Philosopher
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
+  _uniqueAssetId: 69165be33793c6d45a91e4cba220d98c
+  _displayName: Philosopher
+  _groupReferences: []
+  _addedMeshReferences: []
+  _addedTextureReferences: []
+  _componentReferences:
+  - m_AssetGUID: f3b558d414574db41852833eb25fb808
+  _preview:
+    _sprite: {fileID: 325830936, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+  _order:
+    _groupReference:
+      m_AssetGUID: 798c7c83d2325f04fa803a91171b9d25
+    _index: 100

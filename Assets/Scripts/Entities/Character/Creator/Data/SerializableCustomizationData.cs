@@ -181,13 +181,11 @@ namespace Character.Creator
 	{
 		public SerializableCustomizationPortraitData(ObservableCustomizationPortraitData data)
 		{
-			PortraitId = data.PortraitId.Val?.UniqueAssetID;
 			UseOverrideExpressions = data.UseOverrideExpressions.Val;
 			OverrideEyeExpression = data.OverrideEyeExpression.Val;
 			OverrideMouthExpression = data.OverrideMouthExpression.Val;
 		}
 
-		public string PortraitId;
 		public bool UseOverrideExpressions;
 		public int OverrideEyeExpression;
 		public int OverrideMouthExpression;

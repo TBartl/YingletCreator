@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 5936742691922770110}
   - component: {fileID: 8255367876043292055}
   - component: {fileID: 3074247791157045607}
+  - component: {fileID: 4033177309670290377}
   m_Layer: 0
   m_Name: YingletVisuals-Base
   m_TagString: Untagged
@@ -385,6 +386,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74788e6bbd50fe4db1ba8de288e37c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterToggleProvider
+--- !u!114 &4033177309670290377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295193141807768341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f78c5b28e79fc44aef301e3ae92822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterPortraitProvider
+  _defaultPortrait: {fileID: 11400000, guid: 62d51c0df9a0552419f8040e8bb0c347, type: 2}
 --- !u!1 &525980725735257124
 GameObject:
   m_ObjectHideFlags: 0

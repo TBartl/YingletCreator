@@ -1,18 +1,17 @@
-﻿using Character.Creator;
-using UnityEngine;
+﻿using UnityEngine;
 
 internal sealed class PupilOffsetMutator_PortraitOverride : MonoBehaviour, IPupilOffsetMutator
 {
-	private ICustomizationDataRepository _dataRepo;
+	private ICharacterPortraitProvider _portraitProvider;
 
 	private void Awake()
 	{
-		_dataRepo = this.GetComponentInParent<ICustomizationDataRepository>();
+		_portraitProvider = this.GetComponentInParentSafe<ICharacterPortraitProvider>();
 	}
 
 	public PupilOffsets Mutate(PupilOffsets input)
 	{
-		var portrait = _dataRepo.CustomizationData.PortraitData.PortraitId.Val;
+		var portrait = _portraitProvider.Portrait;
 		if (portrait == null)
 		{
 			return input;

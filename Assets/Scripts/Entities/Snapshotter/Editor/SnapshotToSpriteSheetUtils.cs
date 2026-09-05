@@ -40,15 +40,6 @@ namespace Snapshotter
 			SnapshotToTexAndApply(poses, outputPath);
 		}
 
-		public static void GeneratePortraitIcons(ModDefinition modDefinition)
-		{
-			const string OutputName = "GeneratedPortraitIcons.png";
-			string outputFolder = modDefinition.GetParentFolder();
-			string outputPath = Path.Combine(outputFolder, OutputName);
-			var portraits = ObjectExtensionMethods.LoadAllAssets<PortraitId>(outputFolder).ToArray();
-			SnapshotToTexAndApply(portraits, outputPath);
-		}
-
 		static void SnapshotToTexAndApply(ISnapshottableScriptableObject[] snapshottables, string outputPath)
 		{
 			if (!EditorApplication.isPlaying)
@@ -112,11 +103,7 @@ namespace Snapshotter
 				{
 					sParams.Pose = pose;
 				}
-				if (snapshottable is PortraitId portrait)
-				{
-					sParams.Portrait = portrait;
-					observableData.PortraitData.PortraitId.Val = portrait;
-				}
+
 
 				var rt = SnapshotterUtils.Snapshot(references, sParams);
 

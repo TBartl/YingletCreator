@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Portrait-Refined
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
+  _uniqueAssetId: 942db4090b2ea3f41abb06a20ef6eed6
+  _displayName: Refined
+  _groupReferences: []
+  _addedMeshReferences: []
+  _addedTextureReferences: []
+  _componentReferences:
+  - m_AssetGUID: 49d250cb17bafd04ca18ab1ae37f7ac2
+  _preview:
+    _sprite: {fileID: -238642607, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+  _order:
+    _groupReference:
+      m_AssetGUID: 798c7c83d2325f04fa803a91171b9d25
+    _index: 100

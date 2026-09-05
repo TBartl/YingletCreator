@@ -20,8 +20,6 @@ MonoBehaviour:
   _addedTextureReferences:
   - m_AssetGUID: 8f359d5ee7fba094787ac5f8d4b9bbbd
   - m_AssetGUID: d42dc601e6d9813498a79cbb2b41d611
-  _eyeTextures: {fileID: 0}
-  _roomPrefab: {fileID: 0}
   _componentReferences: []
   _preview:
     _sprite: {fileID: -426705525, guid: 15341dd2853879d4694c63f593796b80, type: 3}

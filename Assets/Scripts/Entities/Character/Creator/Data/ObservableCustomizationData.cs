@@ -117,23 +117,14 @@ namespace Character.Creator
 	{
 		public ObservableCustomizationPortraitData(SerializableCustomizationPortraitData portraitData, ICompositeResourceLoader resourceLoader)
 		{
-			if (portraitData == null || string.IsNullOrWhiteSpace(portraitData.PortraitId))
+			if (portraitData == null)
 			{
 				return;
 			}
-			var portraitId = resourceLoader.Load<PortraitId>(portraitData.PortraitId);
-			if (portraitId == null)
-			{
-				Debug.LogWarning($"Skipping unknown portrait {portraitData.PortraitId}");
-				return;
-			}
-			PortraitId.Val = portraitId;
 			UseOverrideExpressions.Val = portraitData.UseOverrideExpressions;
 			OverrideEyeExpression.Val = portraitData.OverrideEyeExpression;
 			OverrideMouthExpression.Val = portraitData.OverrideMouthExpression;
 		}
-
-		public Observable<PortraitId> PortraitId { get; } = new();
 		public Observable<bool> UseOverrideExpressions { get; } = new();
 		public Observable<int> OverrideEyeExpression { get; } = new();
 		public Observable<int> OverrideMouthExpression { get; } = new();

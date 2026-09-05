@@ -23,8 +23,6 @@ MonoBehaviour:
   - m_AssetGUID: 67efebfe1a7c32e46bea6195694b6fe1
   - m_AssetGUID: 886da58f81a90d14bbf19b7823449b0b
   - m_AssetGUID: caf4def811ee2aa4aa931bc3ee184faf
-  _eyeTextures: {fileID: 0}
-  _roomPrefab: {fileID: 0}
   _componentReferences:
   - m_AssetGUID: 3960d8e88668e0540a7f990b457ce591
   - m_AssetGUID: b8ba4addb94bc2a47b423c3523f51d71

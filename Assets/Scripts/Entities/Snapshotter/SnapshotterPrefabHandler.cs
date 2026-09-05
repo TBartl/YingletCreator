@@ -21,6 +21,7 @@ namespace Snapshotter
 			}
 
 			var prefab = sParams.Character != null ? _references.YingletExpeditionPrefab : _references.YingletDataPrefab;
+			PortraitId portrait;
 
 			using (prefab.TemporarilyDisable())
 			{
@@ -29,14 +30,16 @@ namespace Snapshotter
 				if (sParams.Character != null)
 				{
 					_yingletInstance.GetComponentSafe<ISnapshotterRelay>().RelayedCharacter = sParams.Character;
+					portrait = sParams.Character.GetComponentInChildrenSafe<ICharacterPortraitProvider>().Portrait;
 				}
 				else
 				{
 					_yingletInstance.GetComponentSafe<SnapshotterDataRepository>().Setup(sParams.Data);
+					portrait = sParams.Data.ToggleData.Toggles.GetLastComponentOrDefault<PortraitId>();
 				}
 
 				ApplyPoseIfPresent(_yingletInstance, sParams.Pose);
-				ApplyPortraitIfPresent(_yingletInstance, sParams.Portrait);
+				ApplyPortraitIfPresent(_yingletInstance, portrait);
 
 				_yingletInstance.SetActive(true);
 			}
@@ -64,6 +67,7 @@ namespace Snapshotter
 
 		static void ApplyClipIfPresent(GameObject yingletInstance, AnimationClip clip)
 		{
+			if (clip == null) return;
 			var animator = yingletInstance.GetComponentInChildren<Animator>();
 			var originalController = animator.runtimeAnimatorController;
 			var overrideController = new AnimatorOverrideController(originalController);

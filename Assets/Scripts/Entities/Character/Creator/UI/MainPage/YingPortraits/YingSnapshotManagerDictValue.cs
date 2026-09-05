@@ -76,9 +76,6 @@ namespace YingSnapshotting
 			var observableData = new ObservableCustomizationData(_customizationData, _snapshotReferences.ResourceLoader);
 			var parameters = new SnapshotterParams(_snapshotReferences.CameraPosition, observableData);
 
-			// Apply portrait if it exists
-			parameters.Portrait = observableData.PortraitData.PortraitId.Val;
-
 			RenderTexture = SnapshotterUtils.Snapshot(
 				_snapshotReferences.References,
 				parameters,
@@ -102,9 +99,6 @@ namespace YingSnapshotting
 		protected override void Snapshot()
 		{
 			var parameters = new SnapshotterParams(_snapshotReferences.CameraPosition, _characterRoot);
-
-			// Apply portrait if it exists (it probably should)
-			parameters.Portrait = _characterRoot.GetComponentSafe<ICustomizationDataRepository>().CustomizationData.PortraitData.PortraitId.Val;
 
 			RenderTexture = SnapshotterUtils.Snapshot(
 				_snapshotReferences.References,
