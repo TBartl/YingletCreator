@@ -2,7 +2,7 @@
 
 namespace Snapshotter
 {
-	public sealed class SnaphotterGatherPortraitIcons
+	public sealed class SnapshotterGatherPortraitIcons
 	{
 
 		[MenuItem("Custom/Snapshotter/Generate Built-In Portrait Icons")]
