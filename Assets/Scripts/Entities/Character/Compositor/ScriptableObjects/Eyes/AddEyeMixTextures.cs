@@ -14,7 +14,7 @@ namespace Character.Compositor
 	}
 
 	[CreateAssetMenu(fileName = "EyeMixTextures", menuName = "Scriptable Objects/Character Compositor/EyeMixTextures")]
-	public class EyeMixTextures : ScriptableObject, IEyeMixTextures
+	public class AddEyeMixTextures : CharacterToggleComponent, IEyeMixTextures
 	{
 		// The following are public only because UpdateEyeAsset wants to set them
 		[SerializeField] Texture2D _fill;

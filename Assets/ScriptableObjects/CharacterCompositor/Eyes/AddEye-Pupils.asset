@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f73ebcfc55667f4088e845c4544d5dd, type: 3}
-  m_Name: Lopin
-  m_EditorClassIdentifier: 
-  _fill: {fileID: 2800000, guid: 05769e0dfcf3824479bc4598797a871a, type: 3}
-  _eyelid: {fileID: 2800000, guid: cb29b152dcca1f3489747e8ff82f66f3, type: 3}
-  _pupil: {fileID: 2800000, guid: c9ef7f83c599d8f4b988c925e351d6f5, type: 3}
-  _coloredEyelid: 1
+  m_Name: AddEye-Pupils
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Compositor.EyeMixTextures
+  _fill: {fileID: 0}
+  _eyelid: {fileID: 0}
+  _coloredEyelid: 0

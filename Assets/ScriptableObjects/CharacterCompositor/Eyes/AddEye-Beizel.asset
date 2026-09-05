@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f73ebcfc55667f4088e845c4544d5dd, type: 3}
-  m_Name: Round
+  m_Name: AddEye-Beizel
   m_EditorClassIdentifier: 
-  _fill: {fileID: 2800000, guid: 08daa0746dd226649893e784ac8b06f4, type: 3}
-  _eyelid: {fileID: 2800000, guid: 0dea659ed5e09dc46a35a0c2c8781fad, type: 3}
+  _fill: {fileID: 2800000, guid: 209707cc511c7754d9cc122bdad2c313, type: 3}
+  _eyelid: {fileID: 2800000, guid: a737347efc6294349b6de1d6b8f5e704, type: 3}
   _pupil: {fileID: 2800000, guid: c9ef7f83c599d8f4b988c925e351d6f5, type: 3}
   _coloredEyelid: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f73ebcfc55667f4088e845c4544d5dd, type: 3}
-  m_Name: Beizel
+  m_Name: AddEye-ElderlyFem
   m_EditorClassIdentifier: 
-  _fill: {fileID: 2800000, guid: 209707cc511c7754d9cc122bdad2c313, type: 3}
-  _eyelid: {fileID: 2800000, guid: a737347efc6294349b6de1d6b8f5e704, type: 3}
+  _fill: {fileID: 2800000, guid: b73537482ac1c8f4983b3bd9237cd2bc, type: 3}
+  _eyelid: {fileID: 2800000, guid: fc799c387a1d1bd47abd5bec02876535, type: 3}
   _pupil: {fileID: 2800000, guid: c9ef7f83c599d8f4b988c925e351d6f5, type: 3}
-  _coloredEyelid: 0
+  _coloredEyelid: 1

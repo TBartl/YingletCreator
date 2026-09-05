@@ -11,7 +11,7 @@ namespace Character.Compositor
 		private ICharacterToggleProvider _toggleProvider;
 
 		// If the reference ever changes (which it will) we'll need to make this observable
-		private Computed<EyeMixTextures> _computedEye;
+		private Computed<AddEyeMixTextures> _computedEye;
 		private Computed<IEnumerable<IMixTexture>> _computedTextures;
 
 		void Awake()
@@ -21,14 +21,17 @@ namespace Character.Compositor
 			_computedTextures = CreateComputed(ComputeTextures);
 		}
 
-		private EyeMixTextures ComputeEye()
+		private AddEyeMixTextures ComputeEye()
 		{
 			var toggles = _toggleProvider.Toggles;
-			foreach (var toggle in toggles)
+			foreach (var toggle in toggles.Reverse())
 			{
-				if (toggle.EyeTextures)
+				foreach (var component in toggle.Components)
 				{
-					return toggle.EyeTextures;
+					if (component is AddEyeMixTextures eyeComponent)
+					{
+						return eyeComponent;
+					}
 				}
 			}
 			return null;

@@ -18,9 +18,8 @@ MonoBehaviour:
   - m_AssetGUID: f884cbfef1452e344962a5b55f10edd9
   _addedMeshReferences: []
   _addedTextureReferences: []
-  _eyeTextures: {fileID: 11400000, guid: 77cc012f7c5e96d42b59a5b0478280b2, type: 2}
-  _roomPrefab: {fileID: 0}
-  _componentReferences: []
+  _componentReferences:
+  - m_AssetGUID: 77cc012f7c5e96d42b59a5b0478280b2
   _preview:
     _sprite: {fileID: 1906776177994786306, guid: b09bb929ac5ec004888b0ab617410c9f, type: 3}
     _cameraPositionReference:

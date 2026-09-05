@@ -25,9 +25,6 @@ namespace Character.Data
 		[SerializeField] AssetReferenceT<MixTexture>[] _addedTextureReferences;
 		public IEnumerable<MixTexture> AddedTextures => _addedTextureReferences.Select(r => r.LoadSync());
 
-		[SerializeField] EyeMixTextures _eyeTextures;
-		public EyeMixTextures EyeTextures => _eyeTextures;
-
 		[SerializeField] AssetReferenceT<CharacterToggleComponent>[] _componentReferences;
 		public IEnumerable<CharacterToggleComponent> Components => _componentReferences.Select(r => r.LoadSync());
 

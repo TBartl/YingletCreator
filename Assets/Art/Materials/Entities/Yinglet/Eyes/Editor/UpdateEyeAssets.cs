@@ -22,12 +22,12 @@ public class UpdateEyeAssets
 		foreach (var eyeTextureFolder in eyeTextureFolders)
 		{
 			var destinationName = Path.GetFileName(eyeTextureFolder);
-			var destinationPath = Path.Combine(SCRIPTABLE_OBJECT_OUTPUT_PATH, $"{destinationName}.asset");
-			var asset = AssetDatabase.LoadAssetAtPath<EyeMixTextures>(destinationPath);
+			var destinationPath = Path.Combine(SCRIPTABLE_OBJECT_OUTPUT_PATH, $"AddEye-{destinationName}.asset");
+			var asset = AssetDatabase.LoadAssetAtPath<AddEyeMixTextures>(destinationPath);
 
 			if (asset == null)
 			{
-				asset = ScriptableObject.CreateInstance<EyeMixTextures>();
+				asset = ScriptableObject.CreateInstance<AddEyeMixTextures>();
 				AssetDatabase.CreateAsset(asset, destinationPath);
 			}
 
