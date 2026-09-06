@@ -98,6 +98,11 @@ namespace Snapshotter
 					{
 						observableData.FlipToggle(toggle);
 					}
+					var stance = toggle.GetComponent<StanceId>();
+					if (stance != null)
+					{
+						sParams.ForcedClip = stance.IdleAnim;
+					}
 				}
 				if (snapshottable is PoseId pose)
 				{

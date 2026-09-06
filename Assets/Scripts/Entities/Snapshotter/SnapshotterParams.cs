@@ -1,5 +1,6 @@
 ﻿using Character.Creator;
 using Character.Data;
+using UnityEngine;
 
 namespace Snapshotter
 {
@@ -27,5 +28,7 @@ namespace Snapshotter
 		/// Optional override for the pose the animator will play the first frame of
 		/// </summary>
 		public PoseId Pose { get; set; } = null;
+
+		public AnimationClip ForcedClip { get; set; }
 	}
 }

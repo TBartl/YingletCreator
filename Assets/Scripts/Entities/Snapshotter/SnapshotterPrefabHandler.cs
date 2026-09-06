@@ -38,8 +38,9 @@ namespace Snapshotter
 					portrait = sParams.Data.ToggleData.Toggles.GetLastComponentOrDefault<PortraitId>();
 				}
 
-				ApplyPoseIfPresent(_yingletInstance, sParams.Pose);
 				ApplyPortraitIfPresent(_yingletInstance, portrait);
+				ApplyPoseIfPresent(_yingletInstance, sParams.Pose);
+				ApplyClipIfPresent(_yingletInstance, sParams.ForcedClip);
 
 				_yingletInstance.SetActive(true);
 			}
