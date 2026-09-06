@@ -399,6 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterPortraitProvider
   _defaultPortrait: {fileID: 11400000, guid: 62d51c0df9a0552419f8040e8bb0c347, type: 2}
+  _defaultStance: {fileID: 11400000, guid: e27e5a20899d1814f887167a12c69758, type: 2}
 --- !u!1 &525980725735257124
 GameObject:
   m_ObjectHideFlags: 0

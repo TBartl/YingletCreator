@@ -2,11 +2,11 @@
 
 internal sealed class PupilOffsetMutator_PortraitOverride : MonoBehaviour, IPupilOffsetMutator
 {
-	private ICharacterPortraitProvider _portraitProvider;
+	private ICharacterClipProvider _portraitProvider;
 
 	private void Awake()
 	{
-		_portraitProvider = this.GetComponentInParentSafe<ICharacterPortraitProvider>();
+		_portraitProvider = this.GetComponentInParentSafe<ICharacterClipProvider>();
 	}
 
 	public PupilOffsets Mutate(PupilOffsets input)

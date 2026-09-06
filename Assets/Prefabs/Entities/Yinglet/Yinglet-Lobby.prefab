@@ -974,6 +974,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 623219713251014871}
+    - targetCorrespondingSourceObject: {fileID: 5111234709680800370, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 167949465167646045}
     - targetCorrespondingSourceObject: {fileID: 2678632167958204198, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3931992772301560028}
@@ -1660,6 +1663,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870550748f7810a4ca20d905f7403281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimOnBooped
+--- !u!114 &167949465167646045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316547844715126431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e684e6830b80640a1873fb059c0a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStanceAnimation
 --- !u!4 &8321518981649591286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5115923959350966043, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}

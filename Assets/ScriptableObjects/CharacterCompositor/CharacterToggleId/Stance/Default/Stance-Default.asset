@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
-  m_Name: Portrait-Philosopher
+  m_Name: Stance-Default
   m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
-  _uniqueAssetId: 69165be33793c6d45a91e4cba220d98c
-  _displayName: Philosopher
+  _uniqueAssetId: aabb054995a24c949a88c0f1d9cb0c4f
+  _displayName: Default
   _groupReferences:
-  - m_AssetGUID: 3b347cdf335dae34ca8c0b3bac760b92
+  - m_AssetGUID: ed5e2ced5b8b22f46abf672cad523f0e
   _addedMeshReferences: []
   _addedTextureReferences: []
   _componentReferences:
-  - m_AssetGUID: f3b558d414574db41852833eb25fb808
+  - m_AssetGUID: e27e5a20899d1814f887167a12c69758
   _preview:
-    _sprite: {fileID: 325830936, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _sprite: {fileID: -1849837769, guid: 15341dd2853879d4694c63f593796b80, type: 3}
     _cameraPositionReference:
-      m_AssetGUID: 2c5ee40287e03ab42bb7cc5db8925f45
+      m_AssetGUID: f35bc209b490f2248821013111e29562
   _order:
     _groupReference:
-      m_AssetGUID: 798c7c83d2325f04fa803a91171b9d25
-    _index: 100
+      m_AssetGUID: 8d09c288671aba641985b2a6533bf7fb
+    _index: 0

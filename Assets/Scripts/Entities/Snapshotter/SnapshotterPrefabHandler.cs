@@ -30,7 +30,7 @@ namespace Snapshotter
 				if (sParams.Character != null)
 				{
 					_yingletInstance.GetComponentSafe<ISnapshotterRelay>().RelayedCharacter = sParams.Character;
-					portrait = sParams.Character.GetComponentInChildrenSafe<ICharacterPortraitProvider>().Portrait;
+					portrait = sParams.Character.GetComponentInChildrenSafe<ICharacterClipProvider>().Portrait;
 				}
 				else
 				{

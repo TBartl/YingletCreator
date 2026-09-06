@@ -38,6 +38,8 @@ public interface IYingletAnimationBridge
 	/// </summary>
 	public float? GetMovingAnimTime();
 
+	public void SetIdleAnim(AnimationClip clip);
+
 	public void SetEncounterPose(AnimationClip clip);
 }
 
@@ -53,6 +55,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 {
 	[SerializeField] float STATE_CHANGE_BLEND_TIME = 0.3f;
 
+	static readonly string BASE_LAYER_NAME = "Base Layer";
 	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
 	static readonly string FALL_IMPACT_LAYER_NAME = "FallImpact";
 	static readonly string ENCOUNTER_POSE_LAYER_NAME = "EncounterPose";
@@ -68,6 +71,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 
 	private Animator _animator;
 
+	private YingLayer _baseLayer;
 	// The idle state is a bit special in that it has a few layers on top of it that we need to disable in addition to moving off the animation
 	// Keep track of those layers so we can transition them in and out
 	private YingLayer[] _idleLayers;
@@ -77,11 +81,13 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	YingletAnimState _currentState = YingletAnimState.Idle;
 	private Coroutine _idleBlendCoroutine;
 	private AnimatorOverrideController _overrideController;
+	private AnimationClip _originalIdleClip;
 	private AnimationClip _originalEncounterClip;
 
 	private void Awake()
 	{
 		_animator = this.GetComponent<Animator>();
+		_baseLayer = new YingLayer(BASE_LAYER_NAME, _animator);
 		_idleLayers = IDLE_LAYER_NAMES.Select(layerName => new YingLayer(layerName, _animator)).ToArray();
 		_fallImpactLayer = new YingLayer(FALL_IMPACT_LAYER_NAME, _animator);
 		_encounterPoseLayer = new YingLayer(ENCOUNTER_POSE_LAYER_NAME, _animator);
@@ -92,6 +98,8 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		var originalController = _animator.runtimeAnimatorController;
 		_overrideController = new AnimatorOverrideController(originalController);
 		_animator.runtimeAnimatorController = _overrideController;
+
+		_originalIdleClip = _animator.GetCurrentAnimatorClipInfo(_baseLayer.LayerIndex).First().clip;
 		_originalEncounterClip = _animator.GetCurrentAnimatorClipInfo(_encounterPoseLayer.LayerIndex).First().clip;
 	}
 
@@ -181,6 +189,12 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 			return null;
 		}
 		return stateInfo.normalizedTime;
+	}
+
+	public void SetIdleAnim(AnimationClip clip)
+	{
+		_animator.SetLayerWeight(_baseLayer.LayerIndex, clip != null ? 1 : 0);
+		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_originalIdleClip, clip) });
 	}
 
 	public void SetEncounterPose(AnimationClip clip)

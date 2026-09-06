@@ -16,11 +16,5 @@ namespace Character.Data
 
 		[field: SerializeField]
 		public PupilOffsets PupilOffsets { get; private set; }
-
-		[SerializeField] CharacterTogglePreviewData _preview;
-		public CharacterTogglePreviewData Preview => _preview;
-
-		[SerializeField] int _orderIndex;
-		public int OrderIndex => _orderIndex;
 	}
 }
