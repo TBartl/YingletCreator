@@ -15,4 +15,4 @@ MonoBehaviour:
   _overrideName: 
   _idleAnim: {fileID: 2988420104087256805, guid: b8fdb92be24b31a4ba091b49c43c238d, type: 3}
   _pupilOffsetY: -0.06
-  _heightOffset: 0
+  _heightOffset: -0.034

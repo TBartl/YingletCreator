@@ -7,7 +7,8 @@ public class MyCharacterHeightProvider : ReactiveBehaviour, IYingletHeightProvid
 {
 	Computed<IYingletHeightProvider> _characterHeightProvider;
 
-	public float YScale => _characterHeightProvider.Val?.YScale ?? 1;
+	public float HeightBasedOnScale => _characterHeightProvider.Val?.HeightBasedOnScale ?? 1;
+	public float HeightBasedOnStance => _characterHeightProvider.Val?.HeightBasedOnStance ?? 1;
 
 	void Awake()
 	{

@@ -21,7 +21,7 @@ public class YingletHeightDisplay : ReactiveBehaviour
 
 	private void LateUpdate()
 	{
-		_rawHeight.Val = _heightProvider.YScale;
+		_rawHeight.Val = _heightProvider.HeightBasedOnScale;
 	}
 
 	const float UnitsToMeters = 1.04f;

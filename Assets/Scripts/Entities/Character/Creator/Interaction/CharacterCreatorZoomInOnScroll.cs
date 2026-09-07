@@ -56,7 +56,7 @@ public class CharacterCreatorZoomInOnScroll : MonoBehaviour
 	}
 	private void UpdatePos()
 	{
-		var zoomOffset = new Vector3(0, _heightProvider.YScale - 1, 0);
+		var zoomOffset = new Vector3(0, _heightProvider.HeightBasedOnStance - 1, 0);
 		Vector3 targetPosition = Vector3.Lerp(GetFromPosition(), _zoomPos + zoomOffset, _percent);
 		Quaternion targetRotation = Quaternion.Lerp(_startRot, _zoomRotQuaternion, _percent);
 		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _currentPosVel, _posSpringTime);
@@ -71,7 +71,7 @@ public class CharacterCreatorZoomInOnScroll : MonoBehaviour
 		}
 		else
 		{
-			return _startPos + _frameOffset * Mathf.Max(_heightProvider.YScale - 1, -.99f);
+			return _startPos + _frameOffset * Mathf.Max(_heightProvider.HeightBasedOnStance - 1, -.99f);
 		}
 	}
 

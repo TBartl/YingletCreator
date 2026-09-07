@@ -104,7 +104,7 @@ namespace Snapshotter
 
 		public float GetYScale()
 		{
-			return _yingletInstance.GetComponentInChildren<IYingletHeightProvider>().YScale;
+			return _yingletInstance.GetComponentInChildrenSafe<IYingletHeightProvider>().HeightBasedOnScale;
 		}
 	}
 }

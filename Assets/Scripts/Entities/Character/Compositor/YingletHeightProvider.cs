@@ -7,16 +7,27 @@ using UnityEngine;
 /// </summary>
 public interface IYingletHeightProvider
 {
-	float YScale { get; }
+	/// <summary>
+	/// Effectively just returns the scale based on sliders
+	/// </summary>
+	float HeightBasedOnScale { get; }
+
+	/// <summary>
+	/// Also accounts for the stance
+	/// </summary>
+	float HeightBasedOnStance { get; }
 }
 
-public class YingletHeightProvider : MonoBehaviour, IYingletHeightProvider
+public class YingletHeightProvider : MonoBehaviour, IYingletHeightProvider, IInitializable
 {
-	public float YScale => _compositedYingletRoot.lossyScale.y;
+	public float HeightBasedOnScale => _compositedYingletRoot.lossyScale.y;
+	public float HeightBasedOnStance => _compositedYingletRoot.lossyScale.y * (1 + _clipProvider.Stance.HeightOffset);
 	private Transform _compositedYingletRoot;
+	private ICharacterClipProvider _clipProvider;
 
-	void Awake()
+	public void Initialize()
 	{
 		_compositedYingletRoot = this.GetComponentInChildren<CompositedYingletRoot>().transform;
+		_clipProvider = this.GetComponentInParentSafe<ICharacterClipProvider>();
 	}
 }

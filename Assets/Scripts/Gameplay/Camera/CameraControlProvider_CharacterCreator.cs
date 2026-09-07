@@ -110,13 +110,13 @@ internal class CameraControlProvider_CharacterCreator : ReactiveBehaviour, ICame
 		}
 		else
 		{
-			return _startOffset + _frameOffset * Mathf.Max(_heightProvider.YScale - 1, -.99f);
+			return _startOffset + _frameOffset * Mathf.Max(_heightProvider.HeightBasedOnStance - 1, -.99f);
 		}
 	}
 
 	Vector3 GetMaxZoomOffset()
 	{
-		var zoomOffset = new Vector3(0, _heightProvider.YScale - 1, 0);
+		var zoomOffset = new Vector3(0, _heightProvider.HeightBasedOnStance - 1, 0);
 		return _zoomOffset + zoomOffset;
 	}
 }

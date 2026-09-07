@@ -104,7 +104,7 @@ internal class CameraControlProvider_FollowPlayer : ReactiveBehaviour, ICameraCo
 
 	float GetMinPivotOffset()
 	{
-		return OFFSET_PIVOT_UP_ZOOMED_IN + _heightProvider.YScale;
+		return OFFSET_PIVOT_UP_ZOOMED_IN + _heightProvider.HeightBasedOnStance;
 	}
 	float GetMaxPivotOffset()
 	{
