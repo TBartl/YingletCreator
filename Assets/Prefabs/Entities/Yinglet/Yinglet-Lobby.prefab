@@ -1006,13 +1006,16 @@ PrefabInstance:
       addedObject: {fileID: 2978618801334841673}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 12
-      addedObject: {fileID: 4735135997240166268}
+      addedObject: {fileID: 2083176970583036194}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 13
-      addedObject: {fileID: 6991381071230331270}
+      addedObject: {fileID: 3276836966141561519}
     - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 14
-      addedObject: {fileID: 3276836966141561519}
+      addedObject: {fileID: 4735135997240166268}
+    - targetCorrespondingSourceObject: {fileID: 195350314626794375, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
+      insertIndex: 15
+      addedObject: {fileID: 6991381071230331270}
     - targetCorrespondingSourceObject: {fileID: 7440787321428845331, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
       insertIndex: 4
       addedObject: {fileID: 840279080954957981}
@@ -1177,6 +1180,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EyeExpressionsMutator_Weh
   _sequence: {fileID: 11400000, guid: af9ec88dbadc68d479299656fec18b06, type: 2}
+--- !u!114 &2083176970583036194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977407187431825258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262c7d78b6f8fee46814c495ab678470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PupilOffsetMutator_StanceOffset
+--- !u!114 &3276836966141561519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977407187431825258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eceb345ed354d24e8e40b6d9658ddca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headBone: {fileID: 253963534368278212}
+  _degreesToOffsetMult: 0.01
 --- !u!114 &4735135997240166268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,20 +1348,6 @@ MonoBehaviour:
       m_RotationOrder: 4
     _duration: 0.8
   _lookAtWeight: 0.3
---- !u!114 &3276836966141561519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3977407187431825258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eceb345ed354d24e8e40b6d9658ddca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _headBone: {fileID: 253963534368278212}
-  _degreesToOffsetMult: 0.01
 --- !u!1 &4333190668233782009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 695248847470751252, guid: 0d9ff1f1a68f6df40859b8161b49c04f, type: 3}
@@ -1565,8 +1580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3edbf715ee0e641989eb6cc58688a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _idleAnimToReplace: {fileID: 7554586236303908089, guid: b8fdb92be24b31a4ba091b49c43c238d, type: 3}
+  _poseAnimToReplace: {fileID: 7098078161832309926, guid: b26dda2ac815ffe4ca1592935f6f262f, type: 3}
   STATE_CHANGE_BLEND_TIME: 0.14
-  MOVING_TO_IDLE_BLEND_TIME: 0.3
+  MOVING_TO_IDLE_BLEND_TIME: 0.35
 --- !u!114 &8971067727477735844
 MonoBehaviour:
   m_ObjectHideFlags: 0

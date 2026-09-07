@@ -1,11 +1,9 @@
-﻿using Character.Data;
-using Reactivity;
+﻿using Reactivity;
 
 internal class CharacterStanceAnimation : ReactiveBehaviour
 {
 	private IYingletAnimationBridge _animBridge;
 	private ICharacterClipProvider _clipProvider;
-	Computed<PoseId> _currentEncounterPose;
 
 	private void Start()
 	{

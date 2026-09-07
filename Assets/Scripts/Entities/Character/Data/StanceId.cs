@@ -13,5 +13,11 @@ namespace Character.Data
 
 		[SerializeField] AnimationClip _idleAnim;
 		public AnimationClip IdleAnim => _idleAnim;
+
+		[SerializeField] float _pupilOffsetY = 0f;
+		public float PupilOffsetY => _pupilOffsetY;
+
+		[SerializeField] float _heightOffset = 0f;
+		public float HeightOffset => _heightOffset;
 	}
 }

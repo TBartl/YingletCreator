@@ -21,6 +21,7 @@ public class YingletMovementAnimation : MonoBehaviour
 	private Rigidbody _rigidBody;
 	private ICharacterCollisionHandling _collisionHandling;
 	private ICharacterRoundState _roundState;
+	private ICharacterEncounterReference _encounterReference;
 	private IYingletAnimationBridge _animation;
 	private Coroutine _impactGroundCoroutine;
 
@@ -30,6 +31,9 @@ public class YingletMovementAnimation : MonoBehaviour
 		_rigidBody = this.GetComponentInParent<Rigidbody>();
 		_collisionHandling = this.GetComponentInParent<ICharacterCollisionHandling>();
 		_roundState = this.GetNullableComponentInParentSafe<ICharacterRoundState>();
+
+		// Intentionally not safe - this is used in both the lobby and in-game but only exists in-game
+		_encounterReference = this.GetComponentInParent<ICharacterEncounterReference>();
 
 		_collisionHandling.OnImpactedGround += OnImpactedGround;
 		_animation = this.GetComponent<IYingletAnimationBridge>();
@@ -65,6 +69,10 @@ public class YingletMovementAnimation : MonoBehaviour
 		if (_roundState?.IsAsleep?.Val ?? false)
 		{
 			state = YingletAnimState.Sleeping;
+		}
+		if (_encounterReference?.Encounter?.Val != null)
+		{
+			state = YingletAnimState.Posing;
 		}
 
 		_animation.SetAnimState(state);
