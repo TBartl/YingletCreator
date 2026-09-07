@@ -1,3 +1,4 @@
+using Character.Data;
 using Reactivity;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ public interface IYingletAnimationBridge
 	/// </summary>
 	public float? GetMovingAnimTime();
 
-	public void SetIdleAnim(AnimationClip clip);
+	public void SetStanceAnims(StanceId stance);
 
 	public void SetEncounterPose(AnimationClip clip);
 
@@ -58,13 +59,13 @@ public enum YingletAnimState
 public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 {
 	[SerializeField] AnimationClip _idleAnimToReplace;
+	[SerializeField] AnimationClip _sleepAnimToReplace;
 	[SerializeField] AnimationClip _poseAnimToReplace;
 
 	[SerializeField] float STATE_CHANGE_BLEND_TIME = 0.17f;
 	// When resolving from moving back to the idle, take a little more time
 	[SerializeField] float MOVING_TO_IDLE_BLEND_TIME = 0.3f;
 
-	static readonly string BASE_LAYER_NAME = "Base Layer";
 	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
 	static readonly string FALL_IMPACT_LAYER_NAME = "FallImpact";
 
@@ -80,7 +81,6 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 
 	private Animator _animator;
 
-	private YingLayer _baseLayer;
 	// The idle state is a bit special in that it has a few layers on top of it that we need to disable in addition to moving off the animation
 	// Keep track of those layers so we can transition them in and out
 	private YingLayer[] _idleLayers;
@@ -95,7 +95,6 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	private void Awake()
 	{
 		_animator = this.GetComponent<Animator>();
-		_baseLayer = new YingLayer(BASE_LAYER_NAME, _animator);
 		_idleLayers = IDLE_LAYER_NAMES.Select(layerName => new YingLayer(layerName, _animator)).ToArray();
 		_fallImpactLayer = new YingLayer(FALL_IMPACT_LAYER_NAME, _animator);
 
@@ -110,6 +109,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	public void SetAnimState(YingletAnimState state)
 	{
 		if (_currentState.Val == state) return;
+
 		var lastState = _currentState;
 		_currentState.Val = state;
 
@@ -120,7 +120,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		{
 			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(true));
 		}
-		else if (lastState.Val == YingletAnimState.Idle)
+		if (lastState.Val == YingletAnimState.Idle)
 		{
 			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(false));
 		}
@@ -205,9 +205,10 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		return stateInfo.normalizedTime;
 	}
 
-	public void SetIdleAnim(AnimationClip clip)
+	public void SetStanceAnims(StanceId stance)
 	{
-		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_idleAnimToReplace, clip) });
+		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_idleAnimToReplace, stance.IdleAnim) });
+		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_sleepAnimToReplace, stance.SleepAnim) });
 	}
 
 	public void SetEncounterPose(AnimationClip clip)

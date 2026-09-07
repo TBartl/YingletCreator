@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.Data.StanceId
   _overrideName: 
   _idleAnim: {fileID: -4936177860811231284, guid: b8fdb92be24b31a4ba091b49c43c238d, type: 3}
+  _sleepAnim: {fileID: -3903126072338665587, guid: b8fdb92be24b31a4ba091b49c43c238d, type: 3}
   _pupilOffsetY: 0
   _heightOffset: 0.008

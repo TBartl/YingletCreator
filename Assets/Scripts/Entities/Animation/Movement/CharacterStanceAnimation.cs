@@ -15,7 +15,6 @@ internal class CharacterStanceAnimation : ReactiveBehaviour
 
 	private void Reflect()
 	{
-		var idleAnim = _clipProvider.Stance.IdleAnim;
-		_animBridge.SetIdleAnim(idleAnim);
+		_animBridge.SetStanceAnims(_clipProvider.Stance);
 	}
 }

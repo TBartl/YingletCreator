@@ -19,7 +19,7 @@ public class YingletEncounterAnimation : ReactiveBehaviour
 		_encounterReference = this.GetCharacterRootComponent<ICharacterEncounterReference>();
 		_currentEncounterPose = CreateComputed(ComputeEncounterPose);
 		AddReflector(ReflectPose);
-		AddReflector(ReflectMirror);
+		// Pose mirroring handled in HameAnimMirrorer
 	}
 	private PoseId ComputeEncounterPose()
 	{
@@ -30,21 +30,9 @@ public class YingletEncounterAnimation : ReactiveBehaviour
 		return pose;
 	}
 
-	private bool ComputeMirror()
-	{
-		var currentEncounter = _encounterReference.Encounter.Val;
-		if (currentEncounter == null) return false;
-		return currentEncounter.Data.Mirror;
-	}
-
 	private void ReflectPose()
 	{
 		_animBridge.SetEncounterPose(_currentEncounterPose.Val?.Clip);
-	}
-
-	private void ReflectMirror()
-	{
-		_mirrorBinder.SetMirror(ComputeMirror());
 	}
 
 }
