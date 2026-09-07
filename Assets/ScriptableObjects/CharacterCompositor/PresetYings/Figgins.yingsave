@@ -1,7 +1,7 @@
 {
     "Name": "Figgins",
     "CreationTimeString": "2025-05-05T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -316,7 +316,10 @@
             "cf6177cba9e76204f990e3df8e9213be",
             "0a984f5d5cda39243ad2c737072f6b88",
             "93222d17d4cf0bc46b73fc42d52e8e38",
-            "87a9072ff131f4f499240c0d84e94de1"
+            "87a9072ff131f4f499240c0d84e94de1",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "8924dba41bb0ff5479637e3571eb653d",
+            "aabb054995a24c949a88c0f1d9cb0c4f"
         ]
     },
     "NumberData": {
@@ -328,9 +331,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "00728114037911a41b8a2f0d6564ede1",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 2,
         "OverrideMouthExpression": 9
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.2209452986717224
     }
 }

@@ -53,7 +53,11 @@ namespace Character.Creator
 				data.ToggleData.Toggles.Add(pupilToggle);
 			}
 
-			// TODO: Add new portrait toggle
+			if (version <= 5)
+			{
+				var portraitToggle = resourceLoader.Load<CharacterToggleId>("aabb054995a24c949a88c0f1d9cb0c4f");
+				data.ToggleData.Toggles.Add(portraitToggle);
+			}
 		}
 	}
 }

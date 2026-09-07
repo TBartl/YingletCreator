@@ -47,7 +47,7 @@ namespace Character.Creator
 	/// </summary>
 	public interface IYingletDiskIO
 	{
-		YingletDiskSaveResults Save(ObservableCustomizationData observableData, string lastFilePath);
+		YingletDiskSaveResults Save(ObservableCustomizationData observableData, string lastFilePath, bool debugSavePreset);
 
 		CachedYingletReference Duplicate(ObservableCustomizationData observableData);
 
@@ -100,7 +100,7 @@ namespace Character.Creator
 			_yingletRepository = this.GetComponent<ILocalYingletRepository>();
 		}
 
-		public YingletDiskSaveResults Save(ObservableCustomizationData observableData, string lastFilePath)
+		public YingletDiskSaveResults Save(ObservableCustomizationData observableData, string lastFilePath, bool debugSavePreset)
 		{
 			// Serialize the data
 			var serializedData = new SerializableCustomizationData(observableData);
@@ -109,6 +109,10 @@ namespace Character.Creator
 			string rootFolder = _locationProvider.CustomFolderRoot;
 			string newYingletName = observableData.Name.Val;
 			var newFilePath = GetUniqueAlphanumericFilePath(newYingletName, lastFilePath, rootFolder);
+			if (debugSavePreset)
+			{
+				newFilePath = lastFilePath;
+			}
 			WriteToDisk(newFilePath, serializedData);
 
 			// Clean up the old path (if applicable)

@@ -1,7 +1,7 @@
 {
     "Name": "Feeeena",
     "CreationTimeString": "2025-05-07T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -480,7 +480,10 @@
             "c21438bc5461c814fbb01d4e3101a00f",
             "d25500facecf69c4eb8a52d3d6b6653a",
             "909f2f2b8fb54aa449d633bf4c926b2d",
-            "a5dd6b23af79cc749bb0280c13ee5452"
+            "a5dd6b23af79cc749bb0280c13ee5452",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "476abb6dee2650c44a8159f6e43031a1",
+            "2af942972d6c0ad42b8a2d2e9528f96f"
         ]
     },
     "NumberData": {
@@ -496,6 +499,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "5440cb48febc62b4ba0055cb1d857a83"
+        "UseOverrideExpressions": false,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 0
+    },
+    "GenderData": {
+        "Pronouns": 2,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.12444591522216797
     }
 }

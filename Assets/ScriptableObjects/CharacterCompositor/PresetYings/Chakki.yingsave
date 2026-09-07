@@ -1,7 +1,7 @@
 {
     "Name": "Chakki",
     "CreationTimeString": "2025-05-12T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -389,7 +389,10 @@
             "74bd7ae86a71084459761900085b9f3d",
             "9a0c5c639a494634b97eb958fada52c1",
             "77c42603fc042474988630e91215625a",
-            "fe3269453c3ba5341b9994c677dbd1ad"
+            "fe3269453c3ba5341b9994c677dbd1ad",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "c853ee4f901d9bf47933aabe2bd10088",
+            "3dd13c84f3bf57d4e88c12fc58a913da"
         ]
     },
     "NumberData": {
@@ -401,9 +404,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "3ec0875a0b5a693438794f48645ae6db",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 0,
         "OverrideMouthExpression": 1
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.01971536874771118
     }
 }

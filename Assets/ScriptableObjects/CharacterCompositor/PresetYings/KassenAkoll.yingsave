@@ -1,7 +1,7 @@
 {
     "Name": "Kassen Akoll",
     "CreationTimeString": "2025-05-01T22:48:52.1143718-04:00",
-    "Version": 2,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -247,7 +247,9 @@
             "2c339ce06c814414fa9e03a3af603d2c",
             "78983db888646bf40b1061c5d4c85d3b",
             "6e3ca150b62f6fa42a433fc7c3d6a970",
-            "8cba46f50096a834fb85f242c51bb822"
+            "8cba46f50096a834fb85f242c51bb822",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "aabb054995a24c949a88c0f1d9cb0c4f"
         ]
     },
     "NumberData": {
@@ -257,5 +259,15 @@
                 "Value": 4
             }
         ]
+    },
+    "PortraitData": {
+        "UseOverrideExpressions": false,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 0
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.14475369453430177
     }
 }

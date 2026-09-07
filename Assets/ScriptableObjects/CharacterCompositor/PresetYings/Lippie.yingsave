@@ -1,7 +1,7 @@
 {
     "Name": "Lippie",
     "CreationTimeString": "2025-05-14T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -355,7 +355,9 @@
             "b9c017fe7c2f1e54ebca17861ae4fc65",
             "0b904ed71cd73b3469f440b4805e2bf2",
             "e7c925e7a23086c45937ba87bb8d1c64",
-            "8cba46f50096a834fb85f242c51bb822"
+            "8cba46f50096a834fb85f242c51bb822",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "7f281e48266e9b2499948245800787cd"
         ]
     },
     "NumberData": {
@@ -367,7 +369,6 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "8876ebd501be83d40b33051bbf8f0f9b",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 6,
         "OverrideMouthExpression": 6
@@ -375,6 +376,6 @@
     "GenderData": {
         "Pronouns": 2,
         "CustomPronouns": [],
-        "VoicePitchShift": 0.36276841163635256
+        "VoicePitchShift": 0.44928640127182009
     }
 }

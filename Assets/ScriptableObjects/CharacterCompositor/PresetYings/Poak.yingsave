@@ -1,7 +1,7 @@
 {
     "Name": "Poak",
     "CreationTimeString": "2025-05-13T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -75,6 +75,10 @@
             {
                 "Id": "1f612937ab0366842a23029931da624a",
                 "Value": 0.19632484018802644
+            },
+            {
+                "Id": "7bc042cc1deaf0540a91e1c30b262311",
+                "Value": 0.6714206337928772
             }
         ]
     },
@@ -396,7 +400,10 @@
             "122e4f8944499404f9173364d33bc996",
             "935c5cfa74ed2fb42851b760ccb970ee",
             "a5a914c283c212f4e92796cd17dbf4aa",
-            "87a9072ff131f4f499240c0d84e94de1"
+            "87a9072ff131f4f499240c0d84e94de1",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "174ca48b6d59eaa42972d91230f7eba8",
+            "322ede8d5d1994845840b4c1bb43c4bf"
         ]
     },
     "NumberData": {
@@ -408,9 +415,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "3be03107d441d6548b05ef76eee39e5f",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 2,
         "OverrideMouthExpression": 0
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.4127092957496643
     }
 }

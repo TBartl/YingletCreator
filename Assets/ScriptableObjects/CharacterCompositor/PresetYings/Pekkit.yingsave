@@ -1,7 +1,7 @@
 {
     "Name": "Pekkit",
     "CreationTimeString": "2025-05-11T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -360,16 +360,23 @@
             "67335fedf8c1d5b45b5e5d7f6781a70f",
             "8cba46f50096a834fb85f242c51bb822",
             "f42a63a344d7aff44bc6d7fb261e7cab",
-            "ba444d2e9c5df2c419e2cc9651c3fe2b"
+            "ba444d2e9c5df2c419e2cc9651c3fe2b",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "69165be33793c6d45a91e4cba220d98c",
+            "306744ee3d05a1c4d8f0c192db02b17a"
         ]
     },
     "NumberData": {
         "IntValues": []
     },
     "PortraitData": {
-        "PortraitId": "f3b558d414574db41852833eb25fb808",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 0,
         "OverrideMouthExpression": 1
+    },
+    "GenderData": {
+        "Pronouns": 2,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.2206057906150818
     }
 }

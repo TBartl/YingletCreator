@@ -1,7 +1,7 @@
 {
     "Name": "Beizel",
     "CreationTimeString": "2025-05-06T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -319,16 +319,23 @@
             "c74d0633be51f3c428d8d3dece43c8b6",
             "0849ef392d340e948870ef11651cb026",
             "05d365683989f5c45aef176e975de08c",
-            "16132a48fcb6cd74e9b61b5ec363ecc9"
+            "16132a48fcb6cd74e9b61b5ec363ecc9",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "c718b16a0d809b049bb0de925137cf02",
+            "2af942972d6c0ad42b8a2d2e9528f96f"
         ]
     },
     "NumberData": {
         "IntValues": []
     },
     "PortraitData": {
-        "PortraitId": "8b0571b168bfdc34391eb182ea0b8028",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 0,
         "OverrideMouthExpression": 0
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.29729291796684267
     }
 }

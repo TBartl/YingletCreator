@@ -1,7 +1,7 @@
 {
     "Name": "Zally",
     "CreationTimeString": "2025-05-10T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -378,16 +378,23 @@
             "a8c69ab0a8649e542834d6b2b989669f",
             "bdaf8ccd6c16ad54282cfe2812386a0f",
             "8cba46f50096a834fb85f242c51bb822",
-            "2f3e5332575fc65488b78dde01209659"
+            "2f3e5332575fc65488b78dde01209659",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "c0ee62dc195373a47800dab784ed72ae",
+            "20d544051d9cb294c868fdaab316e6c4"
         ]
     },
     "NumberData": {
         "IntValues": []
     },
     "PortraitData": {
-        "PortraitId": "269968fb03d30e148a7d7a51e6d3614b",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 5,
         "OverrideMouthExpression": 2
+    },
+    "GenderData": {
+        "Pronouns": 2,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.09225517511367798
     }
 }

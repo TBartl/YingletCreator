@@ -1,7 +1,7 @@
 {
     "Name": "Vesaria",
     "CreationTimeString": "2025-05-08T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -409,7 +409,10 @@
             "2f3e5332575fc65488b78dde01209659",
             "aedc504cb59ea384294bbff128f44693",
             "04e3fd220c4208e468fa9d9704ba5b44",
-            "6f8466203aee36a47922858ec5f8d6e5"
+            "6f8466203aee36a47922858ec5f8d6e5",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "b3e06fc2192b11d4cbc139eab30624a8",
+            "3dd13c84f3bf57d4e88c12fc58a913da"
         ]
     },
     "NumberData": {
@@ -421,9 +424,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "d7f5f1eeb6e8ac44590f0a514f06644f",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 3,
         "OverrideMouthExpression": 2
+    },
+    "GenderData": {
+        "Pronouns": 2,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.22348225116729737
     }
 }

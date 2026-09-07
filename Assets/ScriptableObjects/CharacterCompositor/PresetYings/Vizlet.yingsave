@@ -1,7 +1,7 @@
 {
     "Name": "Vizlet",
     "CreationTimeString": "2025-05-03T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -338,16 +338,23 @@
             "ba34ff2f204a7044d927022c326264b0",
             "67335fedf8c1d5b45b5e5d7f6781a70f",
             "61a00b47e229a854c8915d27befb3778",
-            "8cba46f50096a834fb85f242c51bb822"
+            "8cba46f50096a834fb85f242c51bb822",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "290c709c610aa0042b67e0cdc3c4c361",
+            "3353106840696fb498c8ad3349531573"
         ]
     },
     "NumberData": {
         "IntValues": []
     },
     "PortraitData": {
-        "PortraitId": "6c0f5db190a7e8645ae03e358cf92ddc",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 0,
         "OverrideMouthExpression": 4
+    },
+    "GenderData": {
+        "Pronouns": 2,
+        "CustomPronouns": [],
+        "VoicePitchShift": 0.12394988536834717
     }
 }

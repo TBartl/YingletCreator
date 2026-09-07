@@ -1,7 +1,7 @@
 {
     "Name": "Kattajak",
     "CreationTimeString": "2025-05-09T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -388,7 +388,10 @@
             "46d8da9c1ac6e3443a5e62aad8592859",
             "3bdde1dba2b7824409d5929c32d7d2b1",
             "c03995f4d574f11499850e173725e544",
-            "fe3269453c3ba5341b9994c677dbd1ad"
+            "fe3269453c3ba5341b9994c677dbd1ad",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "3353106840696fb498c8ad3349531573",
+            "60d33d845cdc710499fd5897a94166c0"
         ]
     },
     "NumberData": {
@@ -404,6 +407,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "4c78112893771b540b31defc48339616"
+        "UseOverrideExpressions": false,
+        "OverrideEyeExpression": 0,
+        "OverrideMouthExpression": 0
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.26275771856307986
     }
 }

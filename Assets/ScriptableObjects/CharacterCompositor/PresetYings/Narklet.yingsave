@@ -1,7 +1,7 @@
 {
     "Name": "Narklet",
     "CreationTimeString": "2025-05-04T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -313,7 +313,10 @@
             "fa666c8136251f244b48901dd2f080f5",
             "bad26b3c8960a054db757532b4bd7170",
             "a0ee429966dac324fa0ac9a26d8e2d27",
-            "87a9072ff131f4f499240c0d84e94de1"
+            "87a9072ff131f4f499240c0d84e94de1",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "36bff104947c106438f1f5940c04b5da",
+            "322ede8d5d1994845840b4c1bb43c4bf"
         ]
     },
     "NumberData": {
@@ -329,9 +332,13 @@
         ]
     },
     "PortraitData": {
-        "PortraitId": "5ef5652883483b74da390b1675c81004",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 3,
         "OverrideMouthExpression": 0
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.16179844737052918
     }
 }

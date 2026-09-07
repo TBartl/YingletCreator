@@ -34,13 +34,19 @@ namespace Character.Creator
 		public bool SaveSelected()
 		{
 			if (_selectionReference.Selected.Val == null) return false;
+
+
 			var isPreset = _selectionReference.Selected.Val.Group == LocalYingletGroup.Preset;
-			if (isPreset) return false;
+
+			// Backdoor to make saving presets easier
+			bool debugSave = Application.isEditor && isPreset && Input.GetKey(KeyCode.LeftShift);
+
+			if (isPreset && !debugSave) return false;
 
 			var data = _selectionData.CustomizationData;
 
 			var lastFilePath = _selectionReference.Selected.Val.Path;
-			var saveResults = _yingletDiskIO.Save(data, lastFilePath);
+			var saveResults = _yingletDiskIO.Save(data, lastFilePath, debugSave);
 
 
 			// Update our own reference

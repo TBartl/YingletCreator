@@ -1,7 +1,7 @@
 {
     "Name": "Lopin",
     "CreationTimeString": "2025-05-02T22:48:52.1143718-04:00",
-    "Version": 4,
+    "Version": 6,
     "SliderData": {
         "SliderValues": [
             {
@@ -313,16 +313,23 @@
             "8cba46f50096a834fb85f242c51bb822",
             "f42a63a344d7aff44bc6d7fb261e7cab",
             "8194a1a397904a5439b31fe493eec2ce",
-            "0849ef392d340e948870ef11651cb026"
+            "0849ef392d340e948870ef11651cb026",
+            "026fe71af2225d3448d4b23f0d751cdb",
+            "54adf1f6ca670574f8650416df0c28c0",
+            "7f281e48266e9b2499948245800787cd"
         ]
     },
     "NumberData": {
         "IntValues": []
     },
     "PortraitData": {
-        "PortraitId": "fa70d331e98d40b44bee685f75327a29",
         "UseOverrideExpressions": true,
         "OverrideEyeExpression": 0,
         "OverrideMouthExpression": 1
+    },
+    "GenderData": {
+        "Pronouns": 1,
+        "CustomPronouns": [],
+        "VoicePitchShift": -0.04684126377105713
     }
 }

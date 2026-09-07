@@ -19,7 +19,7 @@ MonoBehaviour:
   _addedMeshReferences: []
   _addedTextureReferences: []
   _componentReferences:
-  - m_AssetGUID: 
+  - m_AssetGUID: d7f5f1eeb6e8ac44590f0a514f06644f
   _preview:
     _sprite: {fileID: -701828968, guid: 15341dd2853879d4694c63f593796b80, type: 3}
     _cameraPositionReference:
