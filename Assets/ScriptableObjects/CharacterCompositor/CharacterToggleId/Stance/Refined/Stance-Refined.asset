@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
-  m_Name: Stance-Default
+  m_Name: Stance-Refined
   m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
-  _uniqueAssetId: aabb054995a24c949a88c0f1d9cb0c4f
-  _displayName: Default
+  _uniqueAssetId: 2af942972d6c0ad42b8a2d2e9528f96f
+  _displayName: Refined
   _groupReferences:
   - m_AssetGUID: ed5e2ced5b8b22f46abf672cad523f0e
   _addedMeshReferences: []
   _addedTextureReferences: []
   _componentReferences:
-  - m_AssetGUID: e27e5a20899d1814f887167a12c69758
+  - m_AssetGUID: 1ff81bfea7e80d544a3f8e91cbb14495
   _preview:
-    _sprite: {fileID: 1221405517, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _sprite: {fileID: 98659516, guid: 15341dd2853879d4694c63f593796b80, type: 3}
     _cameraPositionReference:
       m_AssetGUID: f35bc209b490f2248821013111e29562
   _order:
     _groupReference:
       m_AssetGUID: 8d09c288671aba641985b2a6533bf7fb
-    _index: 0
+    _index: 200

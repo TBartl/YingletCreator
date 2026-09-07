@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
-  m_Name: Stance-Default
+  m_Name: Stance-Aloof
   m_EditorClassIdentifier: Assembly-CSharp::Character.Data.CharacterToggleId
-  _uniqueAssetId: aabb054995a24c949a88c0f1d9cb0c4f
-  _displayName: Default
+  _uniqueAssetId: 3dd13c84f3bf57d4e88c12fc58a913da
+  _displayName: Aloof
   _groupReferences:
   - m_AssetGUID: ed5e2ced5b8b22f46abf672cad523f0e
   _addedMeshReferences: []
   _addedTextureReferences: []
   _componentReferences:
-  - m_AssetGUID: e27e5a20899d1814f887167a12c69758
+  - m_AssetGUID: 51b37131ef79940499f2122590408bda
   _preview:
-    _sprite: {fileID: 1221405517, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _sprite: {fileID: 1078958215, guid: 15341dd2853879d4694c63f593796b80, type: 3}
     _cameraPositionReference:
       m_AssetGUID: f35bc209b490f2248821013111e29562
   _order:
     _groupReference:
       m_AssetGUID: 8d09c288671aba641985b2a6533bf7fb
-    _index: 0
+    _index: 700

@@ -1566,6 +1566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   STATE_CHANGE_BLEND_TIME: 0.14
+  MOVING_TO_IDLE_BLEND_TIME: 0.3
 --- !u!114 &8971067727477735844
 MonoBehaviour:
   m_ObjectHideFlags: 0

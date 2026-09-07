@@ -53,7 +53,9 @@ public enum YingletAnimState
 
 public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 {
-	[SerializeField] float STATE_CHANGE_BLEND_TIME = 0.3f;
+	[SerializeField] float STATE_CHANGE_BLEND_TIME = 0.17f;
+	// When resolving from moving back to the idle, take a little more time
+	[SerializeField] float MOVING_TO_IDLE_BLEND_TIME = 0.3f;
 
 	static readonly string BASE_LAYER_NAME = "Base Layer";
 	static readonly string[] IDLE_LAYER_NAMES = new string[] { "TailWagging", "LookAround", "EarWiggle" };
@@ -109,7 +111,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		var lastState = _currentState;
 		_currentState = state;
 
-		_animator.CrossFadeInFixedTime(GetAnimForState(state), STATE_CHANGE_BLEND_TIME);
+		_animator.CrossFadeInFixedTime(GetAnimForState(state), GetBlendTime(lastState, state));
 
 		// Idle state has some extra layers that need to be blended in and out, so handle that with a coroutine
 		if (state == YingletAnimState.Idle)
@@ -120,6 +122,15 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		{
 			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(false));
 		}
+	}
+
+	float GetBlendTime(YingletAnimState from, YingletAnimState to)
+	{
+		if (from == YingletAnimState.Moving && to == YingletAnimState.Idle)
+		{
+			return MOVING_TO_IDLE_BLEND_TIME;
+		}
+		return STATE_CHANGE_BLEND_TIME;
 	}
 
 	private int GetAnimForState(YingletAnimState state)

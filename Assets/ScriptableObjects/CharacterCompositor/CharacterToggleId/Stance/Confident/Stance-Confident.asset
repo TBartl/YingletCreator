@@ -21,7 +21,7 @@ MonoBehaviour:
   _componentReferences:
   - m_AssetGUID: 9de655fba707bc34eb758c5633e65b84
   _preview:
-    _sprite: {fileID: -1849837769, guid: 15341dd2853879d4694c63f593796b80, type: 3}
+    _sprite: {fileID: -2124772375, guid: 15341dd2853879d4694c63f593796b80, type: 3}
     _cameraPositionReference:
       m_AssetGUID: f35bc209b490f2248821013111e29562
   _order:

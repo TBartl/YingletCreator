@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uniqueAssetId: 078ab2e658eecc74792b5a42bdef5479
   _clip: {fileID: 2506277352659036536, guid: b26dda2ac815ffe4ca1592935f6f262f, type: 3}
-  _overrideName: 
+  _overrideName: Stand Tall
   _propReferences: []
   _preview:
     _sprite: {fileID: 259260911, guid: 880e4e772a208474d861e10bccd0103d, type: 3}

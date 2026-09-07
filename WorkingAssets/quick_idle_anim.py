@@ -19,52 +19,72 @@ BONE_OFFSETS = {
     "thumb.01.R": 12,
     "thumb.02.R": 12,
     
-    "hand_ik.L": 12,
-    "f_ring.01.L": 15,
-    "f_middle.01.L": 15,
-    "f_index.01.L": 15,
-    "thumb.01.L": 15,
-    "thumb.02.L": 15,
-    
-    
+    # previously 12, 15
+    "hand_ik.L": 10,
+    "f_ring.01.L": 13,
+    "f_middle.01.L": 13,
+    "f_index.01.L": 13,
+    "thumb.01.L": 13,
+    "thumb.02.L": 13,
 }
 
-armature = bpy.context.object
+def ensure_mirrored():
+    obj = bpy.context.object
+    action = obj.animation_data.action
 
-if armature is None or armature.type != 'ARMATURE':
-    raise RuntimeError("Select an armature object.")
+    for layer in action.layers:
+        for strip in layer.strips:
+            for channelbag in strip.channelbags:
+                for fcurve in channelbag.fcurves:
 
-if not armature.animation_data or not armature.animation_data.action:
-    raise RuntimeError("Armature has no active action.")
+                    # Remove existing Cycles modifiers
+                    for modifier in list(fcurve.modifiers):
+                        if modifier.type == 'CYCLES':
+                            fcurve.modifiers.remove(modifier)
 
-action = armature.animation_data.action
+                    # Add mirrored cycle
+                    modifier = fcurve.modifiers.new('CYCLES')
+                    modifier.mode_before = 'MIRROR'
+                    modifier.mode_after = 'MIRROR'
 
-for layer in action.layers:
-    for strip in layer.strips:
-        for channelbag in strip.channelbags:
-            for fcurve in channelbag.fcurves:
+def offset_bones():
+    armature = bpy.context.object
 
-                if not fcurve.data_path.startswith('pose.bones["'):
-                    continue
+    if armature is None or armature.type != 'ARMATURE':
+        raise RuntimeError("Select an armature object.")
 
-                try:
-                    bone_name = fcurve.data_path.split('"')[1]
-                except IndexError:
-                    continue
+    if not armature.animation_data or not armature.animation_data.action:
+        raise RuntimeError("Armature has no active action.")
 
-                if bone_name not in BONE_OFFSETS:
-                    continue
+    action = armature.animation_data.action
 
-                offset = BONE_OFFSETS[bone_name]
-                
-                if reverse:
-                    offset = -offset
+    for layer in action.layers:
+        for strip in layer.strips:
+            for channelbag in strip.channelbags:
+                for fcurve in channelbag.fcurves:
 
-                for keyframe in fcurve.keyframe_points:
-                    keyframe.co.x += offset
-                    keyframe.handle_left.x += offset
-                    keyframe.handle_right.x += offset
+                    if not fcurve.data_path.startswith('pose.bones["'):
+                        continue
 
-                fcurve.keyframe_points.sort()
+                    try:
+                        bone_name = fcurve.data_path.split('"')[1]
+                    except IndexError:
+                        continue
 
-print("Bone keyframe offsets applied.")
+                    if bone_name not in BONE_OFFSETS:
+                        continue
+
+                    offset = BONE_OFFSETS[bone_name]
+                    
+                    if reverse:
+                        offset = -offset
+
+                    for keyframe in fcurve.keyframe_points:
+                        keyframe.co.x += offset
+                        keyframe.handle_left.x += offset
+                        keyframe.handle_right.x += offset
+
+                    fcurve.keyframe_points.sort()
+
+ensure_mirrored()
+offset_bones()
