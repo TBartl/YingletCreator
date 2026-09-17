@@ -47,7 +47,7 @@ public class ExpeditionRoundTransitioner : ReactiveBehaviour
 
 	bool ComputeAllCharactersAsleep()
 	{
-		return _roundManager.CharacterRoundStates.All(c => c.IsAsleep.Val) && false;
+		return _roundManager.CharacterRoundStates.All(c => c.IsAsleep.Val);
 	}
 
 
