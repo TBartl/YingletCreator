@@ -22,4 +22,5 @@ namespace Encounters.Runtime
 			encounterInstance.ProgressToNode(_next);
 		}
 	}
+
 }

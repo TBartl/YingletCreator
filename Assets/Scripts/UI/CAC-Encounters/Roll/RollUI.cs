@@ -2,6 +2,7 @@ using Encounters.Runtime;
 using TMPro;
 using UnityEngine;
 
+// TTODO
 public interface IRollUI
 {
 	void SetNode(IEncounterInstance encounter, RollNode node, RollBlockNode blockNode, object nodeResultData);

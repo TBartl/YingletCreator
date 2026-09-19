@@ -58,7 +58,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		}
 	}
 
-	private void OnEncounterNodeChanged(IEncounterNode from, IEncounterNode to)
+	private void OnEncounterNodeChanged(EncounterNodeVisitRecord from, EncounterNodeVisitRecord to)
 	{
 		if (to == null) return;
 		int indexInHistory = _activeEncounterProvider.ActiveEncounter.Val.NodeHistory.Count - 1;
@@ -67,59 +67,50 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 
 
 
-	void CreateObjectForNode(IEncounterNode node, int indexInHistory)
+	void CreateObjectForNode(EncounterNodeVisitRecord record, int indexInHistory)
 	{
 		var encounter = _activeEncounterProvider.ActiveEncounter.Val;
+		var node = record.Node;
 
-		if (node is NarrationNode narrationNode)
-		{
-			GameObject narrationObject = Instantiate(_narrationPrefab, transform);
-			SetReferenceUI(narrationObject);
-			narrationObject.GetComponentInChildrenSafe<INarrationTextBox>().SetNode(encounter, narrationNode);
-			_positioner.ObjectAdded(false);
-		}
-		else if (node is PromptContinueNode)
-		{
-			var go = Instantiate(_promptContinuePrefab, transform);
-			SetReferenceUI(go);
-			_positioner.ObjectAdded(false);
-		}
-		else if (node is PromptChoiceNode promptChoiceNode)
-		{
-			GameObject promptChoicesObject = Instantiate(_promptChoicesPrefab, transform);
-			SetReferenceUI(promptChoicesObject);
-			promptChoicesObject.GetComponentInChildrenSafe<IPromptChoicesUI>().SetNode(encounter, promptChoiceNode);
-			_positioner.ObjectAdded(true);
-		}
-		else if (node is RollBlockNode rollBlockNode)
-		{
-			// We create the UI when the block has been selected since that's when all the data is available
-			// Figure out the note that originated it
-			var rollNode = (RollNode)(encounter.NodeHistory[indexInHistory - 1]);
-			GameObject rollObject = Instantiate(_rollPrefab, transform);
-			SetReferenceUI(rollObject);
-			rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
-			_positioner.ObjectAdded(false);
-		}
-		else if (node is ChangeCharacterResourceNode changeCharacterResourceNode)
-		{
-			GameObject resourceChangeObject = Instantiate(_resourceChangedPrefab, transform);
-			SetReferenceUI(resourceChangeObject);
-			resourceChangeObject.GetComponentInChildrenSafe<IResourceChangeBox>().SetNode(encounter, changeCharacterResourceNode);
-			_positioner.ObjectAdded(false);
-		}
-		else if (node is AddStatusToCharacterNode addStatusToCharacterNode)
-		{
-			GameObject statusAddedObject = Instantiate(_statusAddedPrefab, transform);
-			SetReferenceUI(statusAddedObject);
-			statusAddedObject.GetComponentInChildrenSafe<IStatusAddedBox>().SetNode(encounter, addStatusToCharacterNode);
-			_positioner.ObjectAdded(false);
-		}
+		var prefab = GetPrefabForNode(node);
+		if (prefab == null) return; // Not every node has a UI representation
+		var obj = Instantiate(prefab, transform);
+		obj.GetComponentSafe<IEncounterNodeReferenceUI>().SetReference(encounter, record, indexInHistory);
+		bool closerToTheBottom = IsCloserToBottom(node);
+		_positioner.ObjectAdded(closerToTheBottom);
 
-		void SetReferenceUI(GameObject obj)
+
+		// TTODO
+		//else if (node is RollBlockNode rollBlockNode)
+		//{
+		//	// We create the UI when the block has been selected since that's when all the data is available
+		//	// Figure out the note that originated it
+		//	var rollNode = (RollNode)(encounter.NodeHistory[indexInHistory - 1]);
+		//	GameObject rollObject = Instantiate(_rollPrefab, transform);
+		//	SetReferenceUI(rollObject);
+		//	rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
+		//	_positioner.ObjectAdded(false);
+		//}
+	}
+
+	GameObject GetPrefabForNode(IEncounterNode node)
+	{
+		if (node is NarrationNode) return _narrationPrefab;
+		if (node is PromptContinueNode) return _promptContinuePrefab;
+		if (node is PromptChoiceNode) return _promptChoicesPrefab;
+		if (node is RollBlockNode) return _rollPrefab;
+		if (node is ChangeCharacterResourceNode) return _resourceChangedPrefab;
+		if (node is AddStatusToCharacterNode) return _statusAddedPrefab;
+		return null;
+	}
+
+	public bool IsCloserToBottom(IEncounterNode node)
+	{
+		if (node is PromptChoiceNode)
 		{
-			obj.GetComponentSafe<IEncounterNodeReferenceUI>().SetReference(encounter, indexInHistory);
+			return true;
 		}
+		return false;
 	}
 
 	object GetNextData(IEncounterInstance encounter)

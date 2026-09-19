@@ -7,15 +7,17 @@ using Reactivity;
 /// </summary>
 public interface IEncounterNodeReferenceUI
 {
-	void SetReference(IEncounterInstance encounterInstance, int indexInHistory);
+	void SetReference(IEncounterInstance encounterInstance, EncounterNodeVisitRecord record, int indexInHistory);
 
 	IEncounterInstance EncounterInstance { get; }
+	EncounterNodeVisitRecord Record { get; }
 	int IndexInHistory { get; }
 }
 
 public class EncounterNodeReferenceUI : ReactiveBehaviour, IEncounterNodeReferenceUI, IUIInteractable
 {
 	private IEncounterInstance _encounterInstance;
+	private EncounterNodeVisitRecord _record;
 	private int _indexInHistory;
 	private Computed<bool> _interactable;
 
@@ -23,10 +25,12 @@ public class EncounterNodeReferenceUI : ReactiveBehaviour, IEncounterNodeReferen
 
 	public IEncounterInstance EncounterInstance => _encounterInstance;
 	public int IndexInHistory => _indexInHistory;
+	public EncounterNodeVisitRecord Record => _record;
 
-	public void SetReference(IEncounterInstance encounterInstance, int indexInHistory)
+	public void SetReference(IEncounterInstance encounterInstance, EncounterNodeVisitRecord record, int indexInHistory)
 	{
 		_encounterInstance = encounterInstance;
+		_record = record;
 		_indexInHistory = indexInHistory;
 		_interactable = CreateComputed(ComputeInteractable);
 	}

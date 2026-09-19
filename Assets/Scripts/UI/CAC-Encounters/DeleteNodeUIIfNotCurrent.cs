@@ -1,4 +1,4 @@
-using Encounters.Runtime;
+using System;
 using UnityEngine;
 
 public class DeleteNodeUIIfNotCurrent : MonoBehaviour
@@ -21,10 +21,9 @@ public class DeleteNodeUIIfNotCurrent : MonoBehaviour
 		_reference.EncounterInstance.CurrentNode.OnChanged -= CurrentNode_OnChanged;
 	}
 
-
-	private void CurrentNode_OnChanged(IEncounterNode from, IEncounterNode to)
+	private void CurrentNode_OnChanged(EncounterNodeVisitRecord from, EncounterNodeVisitRecord to)
 	{
-		DestroyIfNotLatest();
+		throw new NotImplementedException();
 	}
 
 	void DestroyIfNotLatest()

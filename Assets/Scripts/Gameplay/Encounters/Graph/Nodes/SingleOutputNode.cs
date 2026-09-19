@@ -24,5 +24,9 @@ namespace Encounters.Runtime
 
 		public abstract void Run(IEncounterInstance encounterInstance);
 
+		public virtual IEncounterVisitData GenerateVisitData(IEncounterInstance encounterInstance)
+		{
+			return null;
+		}
 	}
 }

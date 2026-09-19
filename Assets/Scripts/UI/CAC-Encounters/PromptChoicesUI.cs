@@ -1,17 +1,17 @@
 using Encounters.Runtime;
 using UnityEngine;
 
-public interface IPromptChoicesUI
-{
-	void SetNode(IEncounterInstance encounter, PromptChoiceNode node);
-}
 
-public class PromptChoicesUI : MonoBehaviour, IPromptChoicesUI
+public class PromptChoicesUI : MonoBehaviour
 {
 	[SerializeField] GameObject _choicePrefab;
 
-	public void SetNode(IEncounterInstance encounter, PromptChoiceNode node)
+	public void Start()
 	{
+		var reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
+		var encounter = reference.EncounterInstance;
+		var node = reference.Record.Node as PromptChoiceNode;
+
 		foreach (Transform child in transform)
 		{
 			Destroy(child.gameObject);
@@ -21,8 +21,8 @@ public class PromptChoicesUI : MonoBehaviour, IPromptChoicesUI
 		{
 			var choice = node.Choices[i];
 			var choiceGO = Instantiate(_choicePrefab, transform);
-			var choiceUI = choiceGO.GetComponent<IPromptChoiceUI>();
-			choiceUI.SetChoice(encounter, choice, i);
+			var choiceUI = choiceGO.GetComponentSafe<IPromptChoiceUI>();
+			choiceUI.SetChoice(choice, i);
 		}
 	}
 }

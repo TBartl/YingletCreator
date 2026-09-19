@@ -6,6 +6,7 @@ namespace Encounters.Runtime
 	{
 		void EditorSetConnections(IList<IEncounterNode> connections);
 
+		IEncounterVisitData GenerateVisitData(IEncounterInstance encounterInstance);
 		void Run(IEncounterInstance encounterInstance);
 
 		/// <summary>
@@ -15,4 +16,10 @@ namespace Encounters.Runtime
 		/// </summary>
 		bool Blocking { get; }
 	}
+
+	/// <summary>
+	/// Some nodes may want to store arbitrary data about their execution
+	/// For example, a Roll may want to store the results
+	/// </summary>
+	public interface IEncounterVisitData { }
 }

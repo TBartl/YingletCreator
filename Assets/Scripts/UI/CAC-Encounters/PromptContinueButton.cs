@@ -1,14 +1,15 @@
+using Encounters.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PromptContinueButton : MonoBehaviour
 {
-	private IActiveEncounterProvider _encounterProvider;
+	private IEncounterNodeReferenceUI _reference;
 	private Button _button;
 
 	void Start()
 	{
-		_encounterProvider = Singletons.GetSingleton<IActiveEncounterProvider>();
+		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
 		_button = GetComponent<Button>();
 
 		_button.onClick.AddListener(OnClick);
@@ -22,6 +23,7 @@ public class PromptContinueButton : MonoBehaviour
 
 	private void OnClick()
 	{
-		_encounterProvider.ActiveEncounter.Val.Networking.SendMessage_Continue();
+		var data = _reference.Record.VisitData as PromptContinueNodeVisitData;
+		data.SendMessage_Continue();
 	}
 }

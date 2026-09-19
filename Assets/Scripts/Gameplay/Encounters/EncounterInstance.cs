@@ -27,7 +27,7 @@ public interface IEncounterInstance : IDisposable
 	void Start();
 	void ProgressToNode(IEncounterNode next);
 
-	IReadOnlyObservable<IEncounterNode> CurrentNode { get; }
+	IReadOnlyObservable<EncounterNodeVisitRecord> CurrentNode { get; }
 
 	/// <summary>
 	/// Nodes can put arbitrary data here relating to their execution. For example:
@@ -52,16 +52,17 @@ public interface IEncounterInstance : IDisposable
 
 	/// <summary>
 	/// A history of all nodes visited during this encounter, in order
+	/// Not reactive
 	/// </summary>
-	IList<IEncounterNode> NodeHistory { get; }
+	IList<EncounterNodeVisitRecord> NodeHistory { get; }
 
 	int LastBlockingNode { get; }
 }
 
 public sealed class EncounterInstance : IEncounterInstance
 {
-	Observable<IEncounterNode> _currentNode = new();
-	IList<IEncounterNode> _nodeHistory = new ObservableList<IEncounterNode>();
+	Observable<EncounterNodeVisitRecord> _currentNode = new();
+	IList<EncounterNodeVisitRecord> _nodeHistory = new ObservableList<EncounterNodeVisitRecord>();
 	IList<object> _nodeResultData = new List<object>();
 	private EncounterGraph _encounterGraph;
 	Lazy<string> _formattedCharacterName;
@@ -71,7 +72,7 @@ public sealed class EncounterInstance : IEncounterInstance
 	public ICharacterRoot Character { get; }
 	public IRoom Room { get; }
 
-	public IReadOnlyObservable<IEncounterNode> CurrentNode => _currentNode;
+	public IReadOnlyObservable<EncounterNodeVisitRecord> CurrentNode => _currentNode;
 
 	public string FormattedCharacterName => _formattedCharacterName.Value;
 
@@ -81,7 +82,7 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public IList<object> NodeResultData => _nodeResultData;
 
-	public IList<IEncounterNode> NodeHistory => _nodeHistory;
+	public IList<EncounterNodeVisitRecord> NodeHistory => _nodeHistory;
 
 	public int LastBlockingNode => _lastBlockingNode.Val;
 
@@ -103,7 +104,11 @@ public sealed class EncounterInstance : IEncounterInstance
 
 	public void Dispose()
 	{
-		Networking.Dispose();
+		foreach (var record in _nodeHistory)
+		{
+			var disposable = record.VisitData as IDisposable;
+			disposable?.Dispose();
+		}
 		_lastBlockingNode.Destroy();
 	}
 
@@ -119,9 +124,12 @@ public sealed class EncounterInstance : IEncounterInstance
 			OnFinished?.Invoke();
 			return;
 		}
-		_nodeHistory.Add(next);
-		_currentNode.Val = next;
-		_currentNode.Val.Run(this);
+		var visitData = next.GenerateVisitData(this);
+		var record = new EncounterNodeVisitRecord(next, visitData);
+		_nodeHistory.Add(record);
+
+		_currentNode.Val = record;
+		next.Run(this);
 	}
 
 
@@ -141,9 +149,21 @@ public sealed class EncounterInstance : IEncounterInstance
 	{
 		for (int i = _nodeHistory.Count - 2; i >= 0; i--)
 		{
-			if (_nodeHistory[i].Blocking)
+			if (_nodeHistory[i].Node.Blocking)
 				return i;
 		}
 		return -1;
 	}
+}
+
+
+public sealed class EncounterNodeVisitRecord
+{
+	public EncounterNodeVisitRecord(IEncounterNode node, IEncounterVisitData visitData)
+	{
+		Node = node;
+		VisitData = visitData;
+	}
+	public IEncounterNode Node { get; }
+	public IEncounterVisitData VisitData { get; }
 }

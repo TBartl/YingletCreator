@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public interface IPromptChoiceUI
 {
-	void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice, int choiceIndex);
+	void SetChoice(ChoiceBlockNode choice, int choiceIndex);
 }
 public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractable
 {
@@ -18,7 +18,6 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	private IHoverable _hoverable;
 	private Button _button;
 	private IEncounterNodeReferenceUI _reference;
-	private IEncounterInstance _encounter;
 	private ChoiceBlockNode _choice;
 	private int _choiceIndex;
 	private Observable<bool> _requirementsMet = new Observable<bool>(); // We don't want to actually keep this reflective, but the interface demands it.
@@ -26,16 +25,15 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	public IReadOnlyObservable<bool> Interactable => _requirementsMet;
 	Computed<bool> _showAsSelected;
 
-	public void SetChoice(IEncounterInstance encounter, ChoiceBlockNode choice, int choiceIndex)
+	public void SetChoice(ChoiceBlockNode choice, int choiceIndex)
 	{
-		_encounter = encounter;
+		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
 		_choice = choice;
 		_choiceIndex = choiceIndex;
 		_backgroundImage = this.GetComponentSafe<Image>();
 		_text = this.GetComponentInChildrenSafe<TMP_Text>();
 		_hoverable = this.GetComponentSafe<IHoverable>();
 		_button = this.GetComponentSafe<Button>();
-		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
 
 		SetRequirementsMet();
 		_text.text = GetText();
@@ -50,7 +48,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		bool requirementsMet = true;
 		foreach (var requirement in _choice.Requirements)
 		{
-			if (!requirement.RequirementsMet(_encounter))
+			if (!requirement.RequirementsMet(_reference.EncounterInstance))
 			{
 				requirementsMet = false;
 				break;
@@ -67,7 +65,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 
 		foreach (var requirement in _choice.Requirements)
 		{
-			bool requirementMet = requirement.RequirementsMet(_encounter);
+			bool requirementMet = requirement.RequirementsMet(_reference.EncounterInstance);
 
 			if (!requirementMet)
 			{
@@ -105,7 +103,8 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 
 	private void OnClicked()
 	{
-		_encounter.Networking.SendMessage_SelectChoice(_choiceIndex);
+		var data = _reference.Record.VisitData as PromptChoiceNodeVisitData;
+		data.SendMessage_SelectChoice(_choiceIndex);
 	}
 
 	private bool ComputeShowAsSelected()
@@ -121,7 +120,7 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		{
 			// In this conditional, we know we're not the latest node
 			var selectedBlockNode = history[indexInHistory + 1];
-			if (selectedBlockNode == _choice)
+			if (selectedBlockNode.Node == _choice)
 			{
 				return true;
 			}

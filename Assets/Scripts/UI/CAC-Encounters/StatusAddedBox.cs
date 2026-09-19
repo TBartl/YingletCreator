@@ -2,12 +2,7 @@ using Encounters.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-public interface IStatusAddedBox
-{
-	void SetNode(IEncounterInstance encounter, AddStatusToCharacterNode node);
-}
-
-public class StatusAddedBox : MonoBehaviour, IStatusAddedBox
+public class StatusAddedBox : MonoBehaviour
 {
 	[SerializeField] TMPro.TMP_Text _statusNameText;
 	[SerializeField] Image _background;
@@ -15,8 +10,11 @@ public class StatusAddedBox : MonoBehaviour, IStatusAddedBox
 	[SerializeField] Color _negativeColor;
 	[SerializeField] Color _positiveColor;
 
-	public void SetNode(IEncounterInstance encounter, AddStatusToCharacterNode node)
+	public void Start()
 	{
+		var reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
+		var node = reference.Record.Node as AddStatusToCharacterNode;
+
 		var status = node.Status;
 		_statusNameText.text = status.DisplayName;
 

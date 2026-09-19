@@ -32,5 +32,7 @@ namespace Encounters.Runtime
 			}
 			encounterInstance.ProgressToNode(branch); // Ok to be null
 		}
+
+		public IEncounterVisitData GenerateVisitData(IEncounterInstance encounterInstance) => null;
 	}
 }

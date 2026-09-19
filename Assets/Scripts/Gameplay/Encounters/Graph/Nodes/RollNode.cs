@@ -50,5 +50,11 @@ namespace Encounters.Runtime
 			var branch = Branches.FirstOrDefault(branch => rollResult <= branch.MaxValueInclusive);
 			encounterInstance.ProgressToNode(branch); // Ok to be null
 		}
+
+		public IEncounterVisitData GenerateVisitData(IEncounterInstance encounterInstance)
+		{
+			// TTODO
+			throw new System.NotImplementedException();
+		}
 	}
 }
