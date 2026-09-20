@@ -104,6 +104,24 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 		var originalController = _animator.runtimeAnimatorController;
 		_overrideController = new AnimatorOverrideController(originalController);
 		_animator.runtimeAnimatorController = _overrideController;
+
+		RandomizePlaybackStart();
+	}
+
+	void RandomizePlaybackStart()
+	{
+		// It looks ugly when all the yings are animated the same
+		// Randomize it a bit
+		for (int layer = 0; layer < _animator.layerCount; layer++)
+		{
+			var stateInfo = _animator.GetCurrentAnimatorStateInfo(layer);
+
+			_animator.Play(
+				stateInfo.fullPathHash,
+				layer,
+				Random.value
+			);
+		}
 	}
 
 	public void SetAnimState(YingletAnimState state)
