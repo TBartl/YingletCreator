@@ -47,6 +47,7 @@ public sealed class NetMessageRegistry : INetMessageRegistry
 
 		Register<Message_EncounterContinue>();
 		Register<Message_EncounterSelectChoice>();
+		Register<Message_EncounterRoll>();
 
 		Register<Message_CharacterGoToSleep>();
 		Register<Message_CharacterWakeBackUp>();

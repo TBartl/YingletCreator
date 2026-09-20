@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Encounters.Runtime
@@ -117,6 +118,14 @@ namespace Encounters.Runtime
 
 			_statValue = new Computed<int>(ComputeStat);
 			_expectedSum = new Computed<int>(ComputeExpectedSum);
+
+			_encounter.Networking.EventBus.Subscribe<Message_EncounterRoll>(OnMessage);
+		}
+
+		public void Dispose()
+		{
+			_statValue.Destroy();
+			_encounter.Networking.EventBus.Unsubscribe<Message_EncounterRoll>(OnMessage);
 		}
 
 		private int ComputeStat()
@@ -131,9 +140,17 @@ namespace Encounters.Runtime
 			return 7 + _statValue.Val;
 		}
 
-		public void Dispose()
+		public void SendMessage_Roll()
 		{
-			_statValue.Destroy();
+			_encounter.Networking.EventBus.SendToAll(new Message_EncounterRoll(_netId));
+		}
+
+		private void OnMessage(Message_EncounterRoll message, ulong senderClientId)
+		{
+			if (message.NetId != _netId) return;
+			if (_state.Val == RollState.Rolling) return;
+
+			_state.Val = RollState.Rolling;
 		}
 	}
 
@@ -143,5 +160,20 @@ namespace Encounters.Runtime
 		{
 			return branches.LastOrDefault(branch => rollResult <= branch.MaxValueInclusive);
 		}
+	}
+}
+
+public struct Message_EncounterRoll : INetMessage
+{
+	public ulong NetId;
+
+	public Message_EncounterRoll(ulong netId)
+	{
+		NetId = netId;
+	}
+
+	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+	{
+		serializer.SerializeValue(ref NetId);
 	}
 }
