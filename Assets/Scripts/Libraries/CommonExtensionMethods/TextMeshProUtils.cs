@@ -47,4 +47,19 @@ public static class TMPUtils
 		}
 	}
 
+	public static string WithArticle(string text, string unformattedText, bool capitalizeArticle = false)
+	{
+		if (string.IsNullOrWhiteSpace(unformattedText))
+		{
+			return text;
+		}
+		string article = capitalizeArticle ? "A" : "a";
+		char firstChar = char.ToLower(unformattedText[0]);
+		if ("aeiou".IndexOf(firstChar) >= 0)
+		{
+			article = capitalizeArticle ? "An" : "an";
+		}
+		return $"{article} {text}";
+	}
+
 }

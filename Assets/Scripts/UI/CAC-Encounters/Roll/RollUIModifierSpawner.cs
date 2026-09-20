@@ -1,5 +1,6 @@
 using Encounters.Runtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RollUIModifierSpawner : MonoBehaviour
 {
@@ -16,5 +17,9 @@ public class RollUIModifierSpawner : MonoBehaviour
 		{
 			Destroy(transform.GetChild(i).gameObject);
 		}
+
+		int totalChildren = transform.childCount;
+		var grid = this.GetComponentSafe<GridLayoutGroup>();
+		grid.constraintCount = (totalChildren + 3) / 4; // Kind of hacky to do this here but w/e
 	}
 }

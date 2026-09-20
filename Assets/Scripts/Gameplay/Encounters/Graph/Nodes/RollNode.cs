@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reactivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -69,8 +70,7 @@ namespace Encounters.Runtime
 
 		public IEncounterVisitData GenerateVisitData(IEncounterInstance encounterInstance)
 		{
-			// TTODO
-			return null;
+			return new RollNodeVisitData(encounterInstance, this);
 		}
 	}
 
@@ -94,15 +94,32 @@ namespace Encounters.Runtime
 
 	sealed class RollNodeVisitData : IEncounterVisitData, IDisposable
 	{
-
+		Computed<int> _statValue; // It's unlikely that anything changes this between when the encounter starts and when the roll is done, but just in case
+		private IEncounterInstance _encounter;
+		private RollNode _node;
 		private ulong _netId;
+
+		public int StatValue => _statValue.Val;
+
 		public RollNodeVisitData(IEncounterInstance encounter, RollNode rollNode)
 		{
+			_encounter = encounter;
+			_node = rollNode;
 			_netId = encounter.Networking.IdentityProvider.GetNextId();
+
+			_statValue = new Computed<int>(ComputeStat);
+		}
+
+		private int ComputeStat()
+		{
+			var stat = _node.RollInstructions.Stat;
+			if (stat == null) return 0;
+			return _encounter.Character.GetComponentInChildrenSafe<ICharacterStats>().GetStat(stat);
 		}
 
 		public void Dispose()
 		{
+			_statValue.Destroy();
 		}
 	}
 }

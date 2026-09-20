@@ -15,3 +15,5 @@ MonoBehaviour:
   _uniqueAssetId: 074af5bae3049b743929fab79c885e42
   _orderIndex: 100
   _color: {r: 0.5137255, g: 0.9176471, b: 0.49411768, a: 1}
+  _outlinedIcon: {fileID: -1229979747, guid: d8d74d4e700a6e345ad098cf8ddacb8b, type: 3}
+  _solidIcon: {fileID: -1345014517, guid: 5204ec8ed90b70a438f6471932baca49, type: 3}

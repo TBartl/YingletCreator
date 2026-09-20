@@ -15,4 +15,10 @@ public class StatId : ScriptableObject, IHasUniqueAssetId, IOrderableScriptableO
 
 	[SerializeField] Color _color;
 	public Color Color => _color;
+
+	[SerializeField] Sprite _outlinedIcon;
+	public Sprite OutlinedIcon => _outlinedIcon;
+
+	[SerializeField] Sprite _solidIcon;
+	public Sprite SolidIcon => _solidIcon;
 }

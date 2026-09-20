@@ -949,7 +949,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
@@ -1475,7 +1475,6 @@ GameObject:
   - component: {fileID: 7165167022457704922}
   - component: {fileID: 8185488247537055106}
   - component: {fileID: 3457023646917009692}
-  - component: {fileID: 6839320344667889518}
   - component: {fileID: 4341912583535361055}
   m_Layer: 0
   m_Name: Modifiers
@@ -1537,28 +1536,8 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 64, y: 86}
   m_Spacing: {x: 8, y: 8}
-  m_Constraint: 0
-  m_ConstraintCount: 2
---- !u!114 &6839320344667889518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370123840007978959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: 100000
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!114 &4341912583535361055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,13 +2056,57 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8243653819013776579, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2429852968961943720}
   m_SourcePrefab: {fileID: 100100000, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
 --- !u!224 &1177567707506756708 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4485269968073433743, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
   m_PrefabInstance: {fileID: 3344326050419568363}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2669397422257304608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 820486487889582795, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+  m_PrefabInstance: {fileID: 3344326050419568363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &4795359105864825425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7846932332846388410, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+  m_PrefabInstance: {fileID: 3344326050419568363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6633302704909986344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8243653819013776579, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+  m_PrefabInstance: {fileID: 3344326050419568363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2429852968961943720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633302704909986344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daddcaa78070ad64d8c82942cc56f0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollUIStatModifier
+  _icon: {fileID: 2669397422257304608}
+  _modifierText: {fileID: 4795359105864825425}
 --- !u!1001 &5272230837155218716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2341,6 +2364,10 @@ PrefabInstance:
     - target: {fileID: 8243653819013776579, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
       propertyPath: m_Name
       value: Roll-Modifier (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243653819013776579, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
