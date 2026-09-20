@@ -4,13 +4,9 @@ public class SetActiveOnSelected : ReactiveBehaviour
 {
 	ISelectable _selection;
 
-	private void Awake()
-	{
-		_selection = this.GetComponentInParentSafe<ISelectable>();
-	}
-
 	private void Start()
 	{
+		_selection = this.GetComponentInParentSafe<ISelectable>();
 		AddReflector(ReflectSelection);
 	}
 

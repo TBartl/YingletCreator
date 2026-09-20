@@ -136,4 +136,12 @@ namespace Encounters.Runtime
 			_statValue.Destroy();
 		}
 	}
+
+	public static class RollNodeExtensionMethods
+	{
+		public static RollBlockNode GetBranch(this RollBlockNode[] branches, int rollResult)
+		{
+			return branches.LastOrDefault(branch => rollResult <= branch.MaxValueInclusive);
+		}
+	}
 }

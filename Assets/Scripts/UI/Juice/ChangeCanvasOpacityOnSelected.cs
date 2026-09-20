@@ -9,14 +9,10 @@ public class ChangeCanvasOpacityOnSelected : ReactiveBehaviour
 	private CanvasGroup _canvasGroup;
 	private Coroutine _transitionCoroutine;
 
-	private void Awake()
+	void Start()
 	{
 		_selectable = this.GetComponentInParentSafe<ISelectable>();
 		_canvasGroup = this.GetComponent<CanvasGroup>();
-	}
-
-	void Start()
-	{
 		_canvasGroup.alpha = _selectable.Selected.Val ? 1 : 0;
 		AddReflector(Reflect);
 	}
