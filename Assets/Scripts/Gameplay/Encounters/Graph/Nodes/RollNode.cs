@@ -42,14 +42,14 @@ namespace Encounters.Runtime
 
 		public void Run(IEncounterInstance encounterInstance)
 		{
-			var rollProvider = encounterInstance.EncounterSource.GetComponentInParentSafe<IRollProvider>();
-			int rollResult = rollProvider.GetRoll(encounterInstance.Character, RollInstructions);
+			//var rollProvider = encounterInstance.EncounterSource.GetComponentInParentSafe<IRollProvider>();
+			//int rollResult = rollProvider.GetRoll(encounterInstance.Character, RollInstructions);
 
-			// Write this to the instance so the UI can read it
-			encounterInstance.NodeResultData.Add(rollResult);
+			//// Write this to the instance so the UI can read it
+			//encounterInstance.NodeResultData.Add(rollResult);
 
-			var branch = Branches.FirstOrDefault(branch => rollResult <= branch.MaxValueInclusive);
-			encounterInstance.ProgressToNode(branch); // Ok to be null
+			//var branch = Branches.FirstOrDefault(branch => rollResult <= branch.MaxValueInclusive);
+			//encounterInstance.ProgressToNode(branch); // Ok to be null
 
 
 

@@ -402,6 +402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7009335085817006775}
     m_Modifications:
+    - target: {fileID: 1032394534031737371, guid: 58a66fccc4d304b44a28e3db11a41e3f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 2171743516772032580, guid: 58a66fccc4d304b44a28e3db11a41e3f, type: 3}
       propertyPath: m_Name
       value: Choice

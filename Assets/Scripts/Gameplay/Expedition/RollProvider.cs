@@ -13,6 +13,8 @@ public interface IRollProvider
 
 internal class RollProvider : MonoBehaviour, IRollProvider, IInitializable
 {
+	public const int MaxRollValue = 9999;
+
 	private IDeterministicRandomProvider _random;
 
 	Queue<int> _forcedRolls = new Queue<int>();

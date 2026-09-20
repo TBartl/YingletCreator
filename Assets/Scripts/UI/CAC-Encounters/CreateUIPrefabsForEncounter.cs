@@ -82,7 +82,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		if (node is NarrationNode) return _narrationPrefab;
 		if (node is PromptContinueNode) return _promptContinuePrefab;
 		if (node is PromptChoiceNode) return _promptChoicesPrefab;
-		if (node is RollBlockNode) return _rollPrefab;
+		if (node is RollNode) return _rollPrefab;
 		if (node is ChangeCharacterResourceNode) return _resourceChangedPrefab;
 		if (node is AddStatusToCharacterNode) return _statusAddedPrefab;
 		return null;
