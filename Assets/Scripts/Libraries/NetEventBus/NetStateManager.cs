@@ -367,3 +367,8 @@ public class NetStateManager : ReactiveBehaviour, INetStateWriter
 		_netManager.StartClient();
 	}
 }
+
+public static class INetStateExtensionMethods
+{
+	public static bool IsClient(this INetStateReader state) => state.IsAttemptingClient || state.IsConnectedClient;
+}

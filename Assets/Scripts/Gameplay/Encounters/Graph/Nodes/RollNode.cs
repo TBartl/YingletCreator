@@ -1,5 +1,7 @@
-﻿using Reactivity;
+﻿using Encounters.Runtime;
+using Reactivity;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -88,13 +90,21 @@ namespace Encounters.Runtime
 		Rolling,
 
 		/// <summary>
-		/// Roll occurred and this is no longer shown
+		/// The roll finished - stay on it for a moment for the user
+		/// </summary>
+		ShowingResult,
+
+		/// <summary>
+		/// This roll has wrapped up and we've moved on
 		/// </summary>
 		Finished
 	}
 
 	sealed class RollNodeVisitData : IEncounterVisitData, IDisposable
 	{
+		const float TIME_TO_ROLL = 1f;
+		const float TIME_TO_SHOW_RESULT = 1f;
+
 		Computed<int> _statValue; // It's unlikely that anything changes this between when the encounter starts and when the roll is done, but just in case
 		Computed<int> _expectedSum;
 
@@ -109,6 +119,8 @@ namespace Encounters.Runtime
 		public int ExpectedSum => _expectedSum.Val;
 		public int RealSum => _realSum.Val;
 		public RollState State => _state.Val;
+		public RollBlockNode ExpectedBranch => _node.Branches.GetBranch(ExpectedSum);
+		public RollBlockNode RealBranch => _node.Branches.GetBranch(RealSum);
 
 		public RollNodeVisitData(IEncounterInstance encounter, RollNode rollNode)
 		{
@@ -140,17 +152,74 @@ namespace Encounters.Runtime
 			return 7 + _statValue.Val;
 		}
 
-		public void SendMessage_Roll()
+		public void SendMessage_Roll(RollState newState)
 		{
-			_encounter.Networking.EventBus.SendToAll(new Message_EncounterRoll(_netId));
+			_encounter.Networking.EventBus.SendToAll(new Message_EncounterRoll(_netId, newState));
 		}
 
 		private void OnMessage(Message_EncounterRoll message, ulong senderClientId)
 		{
 			if (message.NetId != _netId) return;
-			if (_state.Val == RollState.Rolling) return;
 
-			_state.Val = RollState.Rolling;
+			var newState = message.NewState;
+
+			// Ensure we're coming from the previous state
+			if (_state.Val != (newState - 1)) return;
+
+			bool isClient = _encounter.Networking.NetState.IsClient();
+			if (newState == RollState.Rolling)
+			{
+				if (!isClient)
+				{
+					CoroutineRunner.S.StartCoroutine(MoveToStateAfterTime(RollState.ShowingResult, TIME_TO_ROLL));
+				}
+			}
+			else if (newState == RollState.ShowingResult && !isClient)
+			{
+				_realSum.Val = CalculateResult();
+				if (!isClient)
+				{
+					CoroutineRunner.S.StartCoroutine(MoveToStateAfterTime(RollState.Finished, TIME_TO_SHOW_RESULT));
+				}
+			}
+			else if (newState == RollState.Finished)
+			{
+				_encounter.ProgressToNode(RealBranch);
+			}
+
+			_state.Val = newState;
+		}
+
+		int CalculateResult()
+		{
+			var rollProvider = _encounter.EncounterSource.GetComponentInParentSafe<IRollProvider>();
+
+			// TODO: Save these to observable
+			int dice1 = rollProvider.RollD6();
+			int dice2 = rollProvider.RollD6();
+
+			if (dice1 == dice2)
+			{
+				if (dice1 == 1)
+				{
+					// Double ones, always fail
+					return 0;
+				}
+				else if (dice1 == 6)
+				{
+					// Double sixes, always succeed
+					return RollProvider.MaxRollValue;
+				}
+			}
+
+			// Eventually add modifiers here
+			return dice1 + dice2 + _statValue.Val;
+		}
+
+		IEnumerator MoveToStateAfterTime(RollState newState, float time)
+		{
+			yield return new WaitForSeconds(time);
+			SendMessage_Roll(newState);
 		}
 	}
 
@@ -166,14 +235,17 @@ namespace Encounters.Runtime
 public struct Message_EncounterRoll : INetMessage
 {
 	public ulong NetId;
+	public RollState NewState;
 
-	public Message_EncounterRoll(ulong netId)
+	public Message_EncounterRoll(ulong netId, RollState newState)
 	{
 		NetId = netId;
+		NewState = newState;
 	}
 
 	public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
 	{
 		serializer.SerializeValue(ref NetId);
+		serializer.SerializeValue(ref NewState);
 	}
 }

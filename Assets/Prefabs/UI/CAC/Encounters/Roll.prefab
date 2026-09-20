@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.98039216}
+  m_Color: {r: 0.26415092, g: 0.16347285, b: 0.09344962, a: 0.98039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1891,9 +1891,12 @@ GameObject:
   - component: {fileID: 8148397834508936971}
   - component: {fileID: 8503099043302562882}
   - component: {fileID: 1739665465906051958}
+  - component: {fileID: 7332988048150091429}
   - component: {fileID: 4080001924301399039}
   - component: {fileID: 923527584124926039}
   - component: {fileID: 2938093021086102213}
+  - component: {fileID: 161032775469209322}
+  - component: {fileID: 434172357447130606}
   m_Layer: 5
   m_Name: CharacterCreatorInstructions
   m_TagString: Untagged
@@ -1997,6 +2000,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeCanvasOpacityOnSelected
   _easeSettings: {fileID: 11400000, guid: b7c4e41d6d0b15f429c9f00caa92d59c, type: 2}
+--- !u!114 &7332988048150091429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071136433945490660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f4294fe6c6584b8495468fd87b48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetCanvasGroupInteractableOnSelected
 --- !u!114 &4080001924301399039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,6 +2080,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cf0970bcd51d04c97c839d1867d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollOnClicked
+--- !u!114 &161032775469209322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071136433945490660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597a9cee9cc2a3f4db32aa57b8292d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnHover
+  _soundEffect: {fileID: 11400000, guid: 508bf4032cf09064f92b0aee9be30176, type: 2}
+--- !u!114 &434172357447130606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071136433945490660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e6669a11675f743bbb6e489ef69d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySoundOnButtonClicked
+  _soundEffect: {fileID: 11400000, guid: 66f9c6c60fe90fd4bb4a8aa7d90d09a8, type: 2}
 --- !u!1 &6515091106626968076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,7 +2669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac836552699e4741b2d9b1a9e5e43d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedOnRollUIState
-  _selectedStates: 02000000
+  _selectedStates: 0200000003000000
 --- !u!114 &5346040645085143088
 MonoBehaviour:
   m_ObjectHideFlags: 0

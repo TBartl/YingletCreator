@@ -24,6 +24,6 @@ public class RollOnClicked : MonoBehaviour
 
 	private void Button_OnClick()
 	{
-		_data.SendMessage_Roll();
+		_data.SendMessage_Roll(RollState.Rolling);
 	}
 }

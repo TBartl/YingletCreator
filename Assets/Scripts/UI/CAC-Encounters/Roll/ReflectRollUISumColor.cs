@@ -36,8 +36,7 @@ public class ReflectRollUISumColor : ReactiveBehaviour
 	}
 	void Reflect()
 	{
-		var sum = _sumType == RollUISumType.Expected ? _data.ExpectedSum : _data.RealSum;
-		var branch = _node.Branches.GetBranch(sum);
+		var branch = _sumType == RollUISumType.Expected ? _data.ExpectedBranch : _data.RealBranch;
 
 		var colorSettings = _settings.RollClassificationColorMap[branch.Classification];
 		var color = _colorType == RollUISumColor.Light ? colorSettings.BackgroundColor : colorSettings.TextColor;
