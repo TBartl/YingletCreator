@@ -19,7 +19,7 @@ MonoBehaviour:
   m_enableExtraPadding: 0
   m_enableTintAllSprites: 0
   m_enableParseEscapeCharacters: 1
-  m_EnableRaycastTarget: 1
+  m_EnableRaycastTarget: 0
   m_GetFontFeaturesAtRuntime: 1
   m_missingGlyphCharacter: 0
   m_ClearDynamicDataOnBuild: 1

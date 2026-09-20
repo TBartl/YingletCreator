@@ -95,11 +95,19 @@ namespace Encounters.Runtime
 	sealed class RollNodeVisitData : IEncounterVisitData, IDisposable
 	{
 		Computed<int> _statValue; // It's unlikely that anything changes this between when the encounter starts and when the roll is done, but just in case
+		Computed<int> _expectedSum;
+
+		Observable<int> _realSum = new Observable<int>(0);
+
+		Observable<RollState> _state = new Observable<RollState>(RollState.Prepare);
 		private IEncounterInstance _encounter;
 		private RollNode _node;
 		private ulong _netId;
 
 		public int StatValue => _statValue.Val;
+		public int ExpectedSum => _expectedSum.Val;
+		public int RealSum => _realSum.Val;
+		public RollState State => _state.Val;
 
 		public RollNodeVisitData(IEncounterInstance encounter, RollNode rollNode)
 		{
@@ -108,6 +116,7 @@ namespace Encounters.Runtime
 			_netId = encounter.Networking.IdentityProvider.GetNextId();
 
 			_statValue = new Computed<int>(ComputeStat);
+			_expectedSum = new Computed<int>(ComputeExpectedSum);
 		}
 
 		private int ComputeStat()
@@ -115,6 +124,11 @@ namespace Encounters.Runtime
 			var stat = _node.RollInstructions.Stat;
 			if (stat == null) return 0;
 			return _encounter.Character.GetComponentInChildrenSafe<ICharacterStats>().GetStat(stat);
+		}
+
+		private int ComputeExpectedSum()
+		{
+			return 7 + _statValue.Val;
 		}
 
 		public void Dispose()
