@@ -110,17 +110,17 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	{
 		if (_currentState.Val == state) return;
 
-		var lastState = _currentState;
+		var lastState = _currentState.Val;
 		_currentState.Val = state;
 
-		_animator.CrossFadeInFixedTime(GetAnimForState(state), GetBlendTime(lastState.Val, state));
+		_animator.CrossFadeInFixedTime(GetAnimForState(state), GetBlendTime(lastState, state));
 
 		// Idle state has some extra layers that need to be blended in and out, so handle that with a coroutine
 		if (state == YingletAnimState.Idle)
 		{
 			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(true));
 		}
-		if (lastState.Val == YingletAnimState.Idle)
+		if (lastState == YingletAnimState.Idle)
 		{
 			this.StopAndStartCoroutine(ref _idleBlendCoroutine, CrossFadeIdleLayers(false));
 		}
