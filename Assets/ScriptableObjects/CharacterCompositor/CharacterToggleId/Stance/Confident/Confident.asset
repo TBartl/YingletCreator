@@ -17,3 +17,4 @@ MonoBehaviour:
   _sleepAnim: {fileID: 4079104693837098561, guid: b8fdb92be24b31a4ba091b49c43c238d, type: 3}
   _pupilOffsetY: -0.09
   _heightOffset: -0.005
+  _idleAnimSpeedMultiplier: 1.1

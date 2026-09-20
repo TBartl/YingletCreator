@@ -72,6 +72,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	static readonly int MOVE_CYCLE_SPEED_PARAM = Animator.StringToHash("MoveCycleSpeed");
 	static readonly int MOVE_TYPE_PARAM = Animator.StringToHash("MoveType");
 	static readonly int RISING_PARAM = Animator.StringToHash("Rising");
+	static readonly int IDLE_SPEED_MULTIPLIER_PARAM = Animator.StringToHash("IdleSpeedMultiplier");
 
 	static readonly int STATE_IDLE_ANIM = Animator.StringToHash("Idle");
 	static readonly int STATE_MOVING_ANIM = Animator.StringToHash("Moving");
@@ -227,6 +228,7 @@ public class YingletAnimationBridge : MonoBehaviour, IYingletAnimationBridge
 	{
 		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_idleAnimToReplace, stance.IdleAnim) });
 		_overrideController.ApplyOverrides(new List<KeyValuePair<AnimationClip, AnimationClip>>() { new(_sleepAnimToReplace, stance.SleepAnim) });
+		_animator.SetFloat(IDLE_SPEED_MULTIPLIER_PARAM, stance.IdleAnimSpeedMultiplier);
 	}
 
 	public void SetEncounterPose(AnimationClip clip)

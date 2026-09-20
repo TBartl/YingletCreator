@@ -22,5 +22,8 @@ namespace Character.Data
 
 		[SerializeField] float _heightOffset = 0f;
 		public float HeightOffset => _heightOffset;
+
+		[SerializeField] float _idleAnimSpeedMultiplier = 1;
+		public float IdleAnimSpeedMultiplier => _idleAnimSpeedMultiplier;
 	}
 }
