@@ -628,6 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e69fbdd40a75f542b10e56ad7867cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReflectRollUIExpectedSum
+  _sumType: 0
 --- !u!114 &5108801511322344228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5325045728885791054}
   - component: {fileID: 8623897436624237121}
-  - component: {fileID: 6681068717390451947}
   - component: {fileID: 8680593365970089214}
   - component: {fileID: 2031178481059663305}
   - component: {fileID: 2100279955510850381}
@@ -1197,18 +1197,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3840223828525201545}
   m_CullTransparentMesh: 1
---- !u!114 &6681068717390451947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3840223828525201545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435b8d27b0b160c4686c85adaa71746f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RollUI
 --- !u!114 &8680593365970089214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,6 +2238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8305347439150510942}
   - component: {fileID: 2976853893099256}
+  - component: {fileID: 3722765164192618818}
   - component: {fileID: 3014785191252009871}
   m_Layer: 5
   m_Name: Text-Post-Number
@@ -2285,6 +2274,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7317338394652152246}
   m_CullTransparentMesh: 1
+--- !u!114 &3722765164192618818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7317338394652152246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e69fbdd40a75f542b10e56ad7867cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReflectRollUISumText
+  _sumType: 1
 --- !u!114 &3014785191252009871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2305,7 +2307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7
+  m_text: <sprite name="Star">
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31289117d6afe2c449a86f120137f0d5, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 033de7fa443d3184dafbb22e0aeb5f70, type: 2}

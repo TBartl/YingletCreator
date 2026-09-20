@@ -4882,7 +4882,7 @@ MonoBehaviour:
     - rid: 3002418927067988038
       type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 99999
+        m_Value: 9999
     - rid: 3002418927067988039
       type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:

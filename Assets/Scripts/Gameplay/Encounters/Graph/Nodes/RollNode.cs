@@ -227,7 +227,18 @@ namespace Encounters.Runtime
 	{
 		public static RollBlockNode GetBranch(this RollBlockNode[] branches, int rollResult)
 		{
-			return branches.LastOrDefault(branch => rollResult <= branch.MaxValueInclusive);
+			rollResult = Mathf.Min(rollResult, 999); // Just in case someone mis-inputted the number
+			RollBlockNode bestBranch = null;
+			foreach (var branch in branches.Reverse())
+			{
+				if (rollResult > branch.MaxValueInclusive) break;
+				bestBranch = branch;
+			}
+			if (bestBranch == null)
+			{
+				Debug.LogError($"No branch found for roll result {rollResult}");
+			}
+			return bestBranch;
 		}
 	}
 }

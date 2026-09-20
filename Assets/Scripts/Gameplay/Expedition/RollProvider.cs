@@ -19,8 +19,10 @@ internal class RollProvider : MonoBehaviour, IRollProvider, IInitializable
 	{
 		_random = this.GetComponentSafe<IDeterministicRandomProvider>();
 
-		//_forcedRolls.Enqueue(2);
-		//_forcedRolls.Enqueue(0);
+		_forcedRolls.Enqueue(1);
+		_forcedRolls.Enqueue(1);
+		_forcedRolls.Enqueue(6);
+		_forcedRolls.Enqueue(6);
 	}
 	public int RollD6()
 	{
