@@ -1,47 +1,21 @@
-using Reactivity;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ChangeColorOnHoverAndSelected : ReactiveBehaviour
+public class ChangeColorOnHoverAndSelected : ChangeColorOnBool
 {
-	[SerializeField] Color _hoverColor;
 	[SerializeField] Color _selectColor;
-	[SerializeField] Graphic[] _targets;
-	[SerializeField] SharedEaseSettings _easeSettings;
+	[SerializeField] Color _hoverColor;
+
 	private IHoverable _hoverable;
 	private ISelectable _selectable;
-	private Color _originalColor;
-	private Coroutine _transitionCoroutine;
 
-	private void Awake()
+	protected override void Awake()
 	{
-		_hoverable = this.GetComponentInParent<IHoverable>();
+		_hoverable = this.GetComponentInParentSafe<IHoverable>();
 		_selectable = this.GetComponentInParentSafe<ISelectable>();
-		_originalColor = _targets.First().color;
-		UpdateColors(_originalColor);
+		base.Awake();
 	}
 
-	void Start()
-	{
-		AddReflector(Reflect);
-	}
-
-	private void Reflect()
-	{
-		Color from = _targets.First().color;
-		Color to = GetTargetColor();
-		if (this.isActiveAndEnabled)
-		{
-			this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, p => UpdateColors(Color.LerpUnclamped(from, to, p)));
-		}
-		else
-		{
-			UpdateColors(to);
-		}
-	}
-
-	Color GetTargetColor()
+	protected override Color GetTargetColor()
 	{
 		if (_selectable.Selected.Val)
 		{
@@ -52,14 +26,6 @@ public class ChangeColorOnHoverAndSelected : ReactiveBehaviour
 			return _hoverColor;
 		}
 		return _originalColor;
-	}
-
-	void UpdateColors(Color c)
-	{
-		foreach (var target in _targets)
-		{
-			target.color = c;
-		}
 	}
 }
 

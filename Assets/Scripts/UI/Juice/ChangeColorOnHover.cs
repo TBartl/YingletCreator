@@ -1,42 +1,19 @@
-using Reactivity;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ChangeColorOnHover : ReactiveBehaviour
+public class ChangeColorOnHover : ChangeColorOnBool
 {
-	[SerializeField] Color _targetColor;
-	[SerializeField] Graphic[] _targets;
-	[SerializeField] SharedEaseSettings _easeSettings;
+	[SerializeField] protected Color _targetColor;
 	private IHoverable _hoverable;
-	private Color _originalColor;
-	private Coroutine _transitionCoroutine;
 
-	private void Awake()
+	protected override void Awake()
 	{
-		_hoverable = this.GetComponentInParent<IHoverable>();
-		_originalColor = _targets.First().color;
-		UpdateColors(_originalColor);
+		_hoverable = this.GetComponentInParentSafe<IHoverable>();
+		base.Awake();
 	}
 
-	void Start()
+	protected override Color GetTargetColor()
 	{
-		AddReflector(Reflect);
-	}
-
-	private void Reflect()
-	{
-		Color from = _targets.First().color;
-		Color to = _hoverable.Hovered.Val ? _targetColor : _originalColor;
-		this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, p => UpdateColors(Color.LerpUnclamped(from, to, p)));
-	}
-
-	void UpdateColors(Color c)
-	{
-		foreach (var target in _targets)
-		{
-			target.color = c;
-		}
+		return _hoverable.Hovered.Val ? _targetColor : _originalColor;
 	}
 }
 
