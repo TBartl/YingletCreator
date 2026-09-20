@@ -786,9 +786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435b8d27b0b160c4686c85adaa71746f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollUI
-  _rollNumberText: {fileID: 0}
-  _rollTypeText: {fileID: 0}
-  _rollClassificationText: {fileID: 0}
 --- !u!114 &8680593365970089214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2610,7 +2607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92853d98fed596748b66486394098bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicTooltip
-  _text: 'Roll contribution from lady luck.
+  _text: 'Contribution from lady luck.
 
     Double-ones always loses.
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -49,12 +50,59 @@ namespace Encounters.Runtime
 
 			var branch = Branches.FirstOrDefault(branch => rollResult <= branch.MaxValueInclusive);
 			encounterInstance.ProgressToNode(branch); // Ok to be null
+
+
+
+
+			// TTODO
+			//else if (node is RollBlockNode rollBlockNode)
+			//{
+			//	// We create the UI when the block has been selected since that's when all the data is available
+			//	// Figure out the note that originated it
+			//	var rollNode = (RollNode)(encounter.NodeHistory[indexInHistory - 1]);
+			//	GameObject rollObject = Instantiate(_rollPrefab, transform);
+			//	SetReferenceUI(rollObject);
+			//	rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
+			//	_positioner.ObjectAdded(false);
+			//}
 		}
 
 		public IEncounterVisitData GenerateVisitData(IEncounterInstance encounterInstance)
 		{
 			// TTODO
-			throw new System.NotImplementedException();
+			return null;
+		}
+	}
+
+	public enum RollState
+	{
+		/// <summary>
+		/// Dialogue initially shown
+		/// </summary>
+		Prepare,
+
+		/// <summary>
+		/// User hit a button to roll and the roll is being animated
+		/// </summary>
+		Rolling,
+
+		/// <summary>
+		/// Roll occurred and this is no longer shown
+		/// </summary>
+		Finished
+	}
+
+	sealed class RollNodeVisitData : IEncounterVisitData, IDisposable
+	{
+
+		private ulong _netId;
+		public RollNodeVisitData(IEncounterInstance encounter, RollNode rollNode)
+		{
+			_netId = encounter.Networking.IdentityProvider.GetNextId();
+		}
+
+		public void Dispose()
+		{
 		}
 	}
 }

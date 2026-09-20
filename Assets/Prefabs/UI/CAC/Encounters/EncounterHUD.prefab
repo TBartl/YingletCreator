@@ -101,7 +101,7 @@ MonoBehaviour:
   _narrationPrefab: {fileID: 3887970609144080224, guid: 20a55f9425eadd94799717c29e39a921, type: 3}
   _promptContinuePrefab: {fileID: 8040868057715753591, guid: ec10b556df96bf54a9a1fee3ee2e94d0, type: 3}
   _promptChoicesPrefab: {fileID: 8284093574424852559, guid: dcec0181a0785d14da0365ce0d0ffad3, type: 3}
-  _rollPrefab: {fileID: 8933138812806280265}
+  _rollPrefab: {fileID: 3840223828525201545, guid: cfbc1dd0d36ebe74aac43a2ed7b63ec9, type: 3}
   _resourceChangedPrefab: {fileID: 8067064354162654249, guid: 6cf9e73303c308244ba563a714c54326, type: 3}
   _statusAddedPrefab: {fileID: 9178000657141709917, guid: b4af79b5e6d04a04d9208ab6818c00fb, type: 3}
 --- !u!114 &7704220805789957698
@@ -1653,11 +1653,6 @@ PrefabInstance:
 --- !u!224 &528479932865336718 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5325045728885791054, guid: cfbc1dd0d36ebe74aac43a2ed7b63ec9, type: 3}
-  m_PrefabInstance: {fileID: 5671110905693113536}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8933138812806280265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3840223828525201545, guid: cfbc1dd0d36ebe74aac43a2ed7b63ec9, type: 3}
   m_PrefabInstance: {fileID: 5671110905693113536}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6726268395264906600

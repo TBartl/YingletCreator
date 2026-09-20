@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class DeleteNodeUIIfNotCurrent : MonoBehaviour
@@ -23,7 +22,7 @@ public class DeleteNodeUIIfNotCurrent : MonoBehaviour
 
 	private void CurrentNode_OnChanged(EncounterNodeVisitRecord from, EncounterNodeVisitRecord to)
 	{
-		throw new NotImplementedException();
+		DestroyIfNotLatest();
 	}
 
 	void DestroyIfNotLatest()

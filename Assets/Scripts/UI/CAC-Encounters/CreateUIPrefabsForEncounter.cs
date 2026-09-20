@@ -11,8 +11,6 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 	[SerializeField] GameObject _resourceChangedPrefab;
 	[SerializeField] GameObject _statusAddedPrefab;
 
-	int _nodeResultDataIndex;
-
 	IActiveEncounterProvider _activeEncounterProvider;
 	private IEncounterLogPositioner _positioner;
 
@@ -45,7 +43,6 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		if (to != null)
 		{
 			DestroyAllChildren(); // We don't want to always do this - when we're transitioning out we want to leave the UI on screen
-			_nodeResultDataIndex = 0;
 			_positioner.ResetPosition();
 			to.CurrentNode.OnChanged += OnEncounterNodeChanged;
 
@@ -78,19 +75,6 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 		obj.GetComponentSafe<IEncounterNodeReferenceUI>().SetReference(encounter, record, indexInHistory);
 		bool closerToTheBottom = IsCloserToBottom(node);
 		_positioner.ObjectAdded(closerToTheBottom);
-
-
-		// TTODO
-		//else if (node is RollBlockNode rollBlockNode)
-		//{
-		//	// We create the UI when the block has been selected since that's when all the data is available
-		//	// Figure out the note that originated it
-		//	var rollNode = (RollNode)(encounter.NodeHistory[indexInHistory - 1]);
-		//	GameObject rollObject = Instantiate(_rollPrefab, transform);
-		//	SetReferenceUI(rollObject);
-		//	rollObject.GetComponentInChildrenSafe<IRollUI>().SetNode(encounter, rollNode, rollBlockNode, GetNextData(encounter));
-		//	_positioner.ObjectAdded(false);
-		//}
 	}
 
 	GameObject GetPrefabForNode(IEncounterNode node)
@@ -111,13 +95,6 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 			return true;
 		}
 		return false;
-	}
-
-	object GetNextData(IEncounterInstance encounter)
-	{
-		var data = encounter.NodeResultData[_nodeResultDataIndex];
-		_nodeResultDataIndex++;
-		return data;
 	}
 
 	void DestroyAllChildren()
