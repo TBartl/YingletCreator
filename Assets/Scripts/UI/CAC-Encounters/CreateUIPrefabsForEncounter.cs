@@ -90,7 +90,7 @@ public class CreateUIPrefabsForEncounter : ReactiveBehaviour
 
 	public bool IsCloserToBottom(IEncounterNode node)
 	{
-		if (node is PromptChoiceNode)
+		if (node is PromptChoiceNode || node is RollNode)
 		{
 			return true;
 		}

@@ -1683,6 +1683,7 @@ GameObject:
   - component: {fileID: 611964983992136319}
   - component: {fileID: 6063011972803205525}
   - component: {fileID: 1991734641703881427}
+  - component: {fileID: 3716133538551297374}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1750,6 +1751,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3716133538551297374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395111660738254088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06f5d5243dbc2d41a1d8dd09ab85172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollUIDiceFaces
+  _diceFaceSprites:
+  - {fileID: -834424319, guid: 6eeaf348877c8c6438d6114d1f354c74, type: 3}
+  - {fileID: -425884817, guid: 6eeaf348877c8c6438d6114d1f354c74, type: 3}
+  - {fileID: -66768043, guid: 6eeaf348877c8c6438d6114d1f354c74, type: 3}
+  - {fileID: 1648691591, guid: 6eeaf348877c8c6438d6114d1f354c74, type: 3}
+  - {fileID: -221996968, guid: 6eeaf348877c8c6438d6114d1f354c74, type: 3}
+  - {fileID: -777427161, guid: 6eeaf348877c8c6438d6114d1f354c74, type: 3}
+  _dice:
+  - {fileID: 6504827444313697349}
+  - {fileID: 6284772574214255113}
+  _rollDuration: 0.7
+  _faceChangeInterval: 0.1
 --- !u!1 &5407234997484727718
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 881747520076edc41ab231ce37e393d8, type: 3}
   _volume: 1
-  _randomPitchRange: {x: 0.95, y: 1.05}
+  _randomPitchRange: {x: 1, y: 1}

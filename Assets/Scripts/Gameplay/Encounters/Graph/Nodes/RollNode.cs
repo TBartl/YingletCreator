@@ -110,6 +110,8 @@ namespace Encounters.Runtime
 
 		Observable<int> _realSum = new Observable<int>(0);
 
+		Observable<int[]> _diceRolls = new Observable<int[]>(null);
+
 		Observable<RollState> _state = new Observable<RollState>(RollState.Prepare);
 		private IEncounterInstance _encounter;
 		private RollNode _node;
@@ -118,6 +120,7 @@ namespace Encounters.Runtime
 		public int StatValue => _statValue.Val;
 		public int ExpectedSum => _expectedSum.Val;
 		public int RealSum => _realSum.Val;
+		public int[] DiceRolls => _diceRolls.Val;
 		public RollState State => _state.Val;
 		public IReadOnlyObservable<RollState> StateObservable => _state;
 		public RollBlockNode ExpectedBranch => _node.Branches.GetBranch(ExpectedSum);
@@ -170,6 +173,8 @@ namespace Encounters.Runtime
 			bool isClient = _encounter.Networking.NetState.IsClient();
 			if (newState == RollState.Rolling)
 			{
+				// Calculate it here so the roll can show it a little early
+				_realSum.Val = CalculateResult();
 				if (!isClient)
 				{
 					CoroutineRunner.S.StartCoroutine(MoveToStateAfterTime(RollState.ShowingResult, TIME_TO_ROLL));
@@ -177,7 +182,6 @@ namespace Encounters.Runtime
 			}
 			else if (newState == RollState.ShowingResult && !isClient)
 			{
-				_realSum.Val = CalculateResult();
 				if (!isClient)
 				{
 					CoroutineRunner.S.StartCoroutine(MoveToStateAfterTime(RollState.Finished, TIME_TO_SHOW_RESULT));
@@ -195,9 +199,9 @@ namespace Encounters.Runtime
 		{
 			var rollProvider = _encounter.EncounterSource.GetComponentInParentSafe<IRollProvider>();
 
-			// TODO: Save these to observable
 			int dice1 = rollProvider.RollD6();
 			int dice2 = rollProvider.RollD6();
+			_diceRolls.Val = new int[] { dice1, dice2 };
 
 			if (dice1 == dice2)
 			{
