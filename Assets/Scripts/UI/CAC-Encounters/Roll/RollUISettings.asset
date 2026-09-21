@@ -18,16 +18,16 @@ MonoBehaviour:
     BackgroundColor: {r: 0.8588236, g: 0.68235296, b: 0.63529414, a: 1}
     Text: Crit. Failure
   - Classification: 1
-    TextColor: {r: 0.39607847, g: 0.28235295, b: 0.19215688, a: 1}
-    BackgroundColor: {r: 0.8588236, g: 0.70980394, b: 0.63529414, a: 1}
+    TextColor: {r: 0.39607847, g: 0.24705884, b: 0.19215688, a: 1}
+    BackgroundColor: {r: 0.8588236, g: 0.6901961, b: 0.63529414, a: 1}
     Text: Failure
   - Classification: 2
     TextColor: {r: 0.46274513, g: 0.38823533, b: 0.3254902, a: 1}
     BackgroundColor: {r: 0.8431373, g: 0.7960785, b: 0.70980394, a: 1}
     Text: Neutral
   - Classification: 3
-    TextColor: {r: 0.33333334, g: 0.39607847, b: 0.19215688, a: 1}
-    BackgroundColor: {r: 0.7372549, g: 0.7725491, b: 0.6509804, a: 1}
+    TextColor: {r: 0.27450982, g: 0.39607847, b: 0.19215688, a: 1}
+    BackgroundColor: {r: 0.69411767, g: 0.7725491, b: 0.6509804, a: 1}
     Text: Success
   - Classification: 4
     TextColor: {r: 0.23529413, g: 0.39607847, b: 0.19215688, a: 1}

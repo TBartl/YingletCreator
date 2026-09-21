@@ -103,7 +103,7 @@ namespace Encounters.Runtime
 	sealed class RollNodeVisitData : IEncounterVisitData, IDisposable
 	{
 		const float TIME_TO_ROLL = 1f;
-		const float TIME_TO_SHOW_RESULT = 1f;
+		const float TIME_TO_SHOW_RESULT = .6f;
 
 		Computed<int> _statValue; // It's unlikely that anything changes this between when the encounter starts and when the roll is done, but just in case
 		Computed<int> _expectedSum;
@@ -119,6 +119,7 @@ namespace Encounters.Runtime
 		public int ExpectedSum => _expectedSum.Val;
 		public int RealSum => _realSum.Val;
 		public RollState State => _state.Val;
+		public IReadOnlyObservable<RollState> StateObservable => _state;
 		public RollBlockNode ExpectedBranch => _node.Branches.GetBranch(ExpectedSum);
 		public RollBlockNode RealBranch => _node.Branches.GetBranch(RealSum);
 
