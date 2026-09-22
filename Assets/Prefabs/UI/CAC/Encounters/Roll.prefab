@@ -476,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReflectRollUISumColor
   _settings: {fileID: 11400000, guid: 220a750e376dd434c9ea04b27e76717e, type: 2}
   _sumType: 1
-  _colorType: 0
+  _colorType: 2
 --- !u!1 &974273385204346234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,8 +2766,9 @@ GameObject:
   - component: {fileID: 5119318291989256437}
   - component: {fileID: 6445350343868976968}
   - component: {fileID: 281673873291843601}
-  - component: {fileID: 5346040645085143088}
   - component: {fileID: 3085489970404397402}
+  - component: {fileID: 4578042178212053136}
+  - component: {fileID: 4755054995601489322}
   m_Layer: 0
   m_Name: Sum-Post
   m_TagString: Untagged
@@ -2847,18 +2848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedOnRollUIState
   _selectedStates: 0200000003000000
---- !u!114 &5346040645085143088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8371321057816403823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d54a1b5e0a4336428ad191a24827268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SetActiveOnSelected
 --- !u!114 &3085489970404397402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2873,7 +2862,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReflectRollUISumColor
   _settings: {fileID: 11400000, guid: 220a750e376dd434c9ea04b27e76717e, type: 2}
   _sumType: 1
-  _colorType: 1
+  _colorType: 3
+--- !u!225 &4578042178212053136
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371321057816403823}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4755054995601489322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371321057816403823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e18b1f5fd44e44abddb4777ed63bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeCanvasOpacityOnSelected
+  _easeSettings: {fileID: 11400000, guid: fc0ea6152860f7b49bcebbd156b64313, type: 2}
 --- !u!1 &8995809328223376485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,31 +2977,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4417219433328926529, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.19215688
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4417219433328926529, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.24705884
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4417219433328926529, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.39607847
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4417219433328926529, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4281417573
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5910369086642916065, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_Color.b
-      value: 0.63529414
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5910369086642916065, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_Color.g
-      value: 0.6901961
+      value: 0.07273722
       objectReference: {fileID: 0}
     - target: {fileID: 5910369086642916065, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_Color.r
-      value: 0.8588236
+      value: 0.7924528
       objectReference: {fileID: 0}
     - target: {fileID: 6766188745449096733, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_text
@@ -2999,19 +3013,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6766188745449096733, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.19215688
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6766188745449096733, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.24705884
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6766188745449096733, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.39607847
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6766188745449096733, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4281417573
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8805177594009828217, guid: f7dbbd75622e97347b23086297e5f00f, type: 3}
       propertyPath: m_Pivot.x

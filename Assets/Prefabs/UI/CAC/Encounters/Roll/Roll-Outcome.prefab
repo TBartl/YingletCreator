@@ -252,6 +252,7 @@ MonoBehaviour:
   _descriptionText: {fileID: 4417219433328926529}
   _background: {fileID: 5910369086642916065}
   _settings: {fileID: 11400000, guid: 220a750e376dd434c9ea04b27e76717e, type: 2}
+  _easeSettings: {fileID: 11400000, guid: fc0ea6152860f7b49bcebbd156b64313, type: 2}
 --- !u!1 &7529146355560378558
 GameObject:
   m_ObjectHideFlags: 0

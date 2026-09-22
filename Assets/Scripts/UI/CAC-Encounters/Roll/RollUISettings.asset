@@ -16,20 +16,25 @@ MonoBehaviour:
   - Classification: 0
     TextColor: {r: 0.39607847, g: 0.227451, b: 0.19215688, a: 1}
     BackgroundColor: {r: 0.8588236, g: 0.68235296, b: 0.63529414, a: 1}
+    JuicyColor: {r: 0.9433962, g: 0.098075844, b: 0, a: 1}
     Text: Crit. Failure
   - Classification: 1
     TextColor: {r: 0.39607847, g: 0.24705884, b: 0.19215688, a: 1}
     BackgroundColor: {r: 0.8588236, g: 0.6901961, b: 0.63529414, a: 1}
+    JuicyColor: {r: 0.764151, g: 0.079441436, b: 0, a: 1}
     Text: Failure
   - Classification: 2
     TextColor: {r: 0.46274513, g: 0.38823533, b: 0.3254902, a: 1}
     BackgroundColor: {r: 0.8431373, g: 0.7960785, b: 0.70980394, a: 1}
+    JuicyColor: {r: 0.6132076, g: 0.483545, b: 0.34420612, a: 1}
     Text: Neutral
   - Classification: 3
     TextColor: {r: 0.27450982, g: 0.39607847, b: 0.19215688, a: 1}
     BackgroundColor: {r: 0.69411767, g: 0.7725491, b: 0.6509804, a: 1}
+    JuicyColor: {r: 0.09242612, g: 0.6320754, b: 0.13042486, a: 1}
     Text: Success
   - Classification: 4
     TextColor: {r: 0.23529413, g: 0.39607847, b: 0.19215688, a: 1}
     BackgroundColor: {r: 0.6666667, g: 0.7725491, b: 0.6509804, a: 1}
+    JuicyColor: {r: 0.099368125, g: 0.7264151, b: 0.14117117, a: 1}
     Text: Crit. Success

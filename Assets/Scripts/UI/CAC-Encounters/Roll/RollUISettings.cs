@@ -25,5 +25,6 @@ public class RollClassificationColors
 	public RollClassification Classification;
 	public Color TextColor;
 	public Color BackgroundColor;
+	public Color JuicyColor;
 	public string Text;
 }

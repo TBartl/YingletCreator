@@ -15,22 +15,72 @@ public class RollUIOutcome : MonoBehaviour, IRollUIOutcome
 	[SerializeField] Image _background;
 
 	[SerializeField] RollUISettings _settings;
+	[SerializeField] SharedEaseSettings _easeSettings;
+
+	private RollNodeVisitData _data;
+	private RollClassificationColors _classificationSettings;
+	private RollBlockNode _branch;
+	protected Coroutine _transitionCoroutine;
 
 	public void SetResult(RollBlockNode branch)
 	{
+		_branch = branch;
+
 		var reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
 		var node = reference.Record.Node as RollNode;
+		_data = reference.Record.VisitData as RollNodeVisitData;
 
-		var settings = _settings.RollClassificationColorMap[branch.Classification];
+		_classificationSettings = _settings.RollClassificationColorMap[branch.Classification];
 		int minValue = CalculateMinValue(node, branch);
 
 		_numberText.text = GetNumberText(minValue, branch.MaxValueInclusive);
-		_numberText.color = settings.TextColor;
+		_descriptionText.text = _classificationSettings.Text;
 
-		_descriptionText.text = settings.Text;
-		_descriptionText.color = settings.TextColor;
+		bool alreadyOnFinalStates = _data.State == RollState.ShowingResult || _data.State == RollState.Finished;
+		if (alreadyOnFinalStates && _data.RealBranch == _branch)
+		{
+			_numberText.color = Color.white;
+			_descriptionText.color = Color.white;
+			_background.color = _classificationSettings.JuicyColor;
+		}
+		else
+		{
+			_numberText.color = _classificationSettings.TextColor;
+			_descriptionText.color = _classificationSettings.TextColor;
+			_background.color = _classificationSettings.BackgroundColor;
+		}
 
-		_background.color = settings.BackgroundColor;
+		_data.StateObservable.OnChanged += OnRollStateChanged;
+	}
+
+	private void OnDestroy()
+	{
+		if (_data != null)
+		{
+			_data.StateObservable.OnChanged -= OnRollStateChanged;
+		}
+	}
+	private void OnRollStateChanged(RollState from, RollState to)
+	{
+		if (to != RollState.ShowingResult) return;
+		if (_data.RealBranch != _branch) return;
+
+		Color fromTextColor = _classificationSettings.TextColor;
+		Color toTextColor = Color.white;
+
+		Color fromBackgroundColor = _classificationSettings.BackgroundColor;
+		Color toBackgroundColor = _classificationSettings.JuicyColor;
+
+		this.StartEaseCoroutine(ref _transitionCoroutine, _easeSettings, UpdateColors);
+
+		void UpdateColors(float p)
+		{
+			Color textColor = Color.LerpUnclamped(fromTextColor, toTextColor, p);
+			Color backgroundColor = Color.LerpUnclamped(fromBackgroundColor, toBackgroundColor, p);
+			_numberText.color = textColor;
+			_descriptionText.color = textColor;
+			_background.color = backgroundColor;
+		}
 	}
 
 	private int CalculateMinValue(RollNode node, RollBlockNode myBranch)
