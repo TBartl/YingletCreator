@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4204817835630626250}
   - component: {fileID: 3016404325386755036}
+  - component: {fileID: 4430796976516013379}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -48,6 +49,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619122138381107359}
   m_CullTransparentMesh: 1
+--- !u!114 &4430796976516013379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619122138381107359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ed9140f19d2647a51f1226c44253c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScaleOnHover
+  _hoverScale: 1.1
+  _easeSettings: {fileID: 11400000, guid: ad3eb6458a4db3b4ea509fc752842a97, type: 2}
 --- !u!1 &4565578752609488311
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +224,7 @@ GameObject:
   - component: {fileID: 4485269968073433743}
   - component: {fileID: 8738232701133158262}
   - component: {fileID: 3598009878593445387}
+  - component: {fileID: 8207362920782237961}
   m_Layer: 0
   m_Name: Roll-Modifier
   m_TagString: Untagged
@@ -274,6 +290,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8207362920782237961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243653819013776579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1f1f7ff1b5cda46bd79014f44d30a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiHoverable
 --- !u!1 &8902586361454027163
 GameObject:
   m_ObjectHideFlags: 0
