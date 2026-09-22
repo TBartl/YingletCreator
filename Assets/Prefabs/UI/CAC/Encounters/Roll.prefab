@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 2031178481059663305}
   - component: {fileID: 4657500533825560773}
   - component: {fileID: 1867865240146756715}
+  - component: {fileID: 5649363099418065911}
   m_Layer: 5
   m_Name: Roll
   m_TagString: Untagged
@@ -1267,6 +1268,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5649363099418065911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840223828525201545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3dda4b2eb17e342ae2192d8277c829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollUIFlashVignetteOnResult
+  _settings: {fileID: 11400000, guid: 220a750e376dd434c9ea04b27e76717e, type: 2}
 --- !u!1 &4573790708350338909
 GameObject:
   m_ObjectHideFlags: 0
