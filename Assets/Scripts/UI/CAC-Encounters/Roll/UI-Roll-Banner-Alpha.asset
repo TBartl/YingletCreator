@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5b2e5748cc52243a2b3ece64edfce2, type: 3}
+  m_Name: UI-Roll-Banner-Alpha
+  m_EditorClassIdentifier: Assembly-CSharp::SharedEaseSettings
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 8.241994
+      outSlope: 8.241994
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.069650225
+    - serializedVersion: 3
+      time: 0.1997559
+      value: 0.98210984
+      inSlope: 0.09896719
+      outSlope: 0.09896719
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10873165
+    - serializedVersion: 3
+      time: 0.80052936
+      value: 0.9826471
+      inSlope: -0.11838821
+      outSlope: -0.11838821
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13744509
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -5.1240616
+      outSlope: -5.1240616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.095905885
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.6
