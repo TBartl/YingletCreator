@@ -4499,7 +4499,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8243653819013776579, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4450470858846791244}
+    - targetCorrespondingSourceObject: {fileID: 8985269750687590024, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3801844533629643042}
   m_SourcePrefab: {fileID: 100100000, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+--- !u!1 &1558599475263744446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8985269750687590024, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}
+  m_PrefabInstance: {fileID: 7571490834642587446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3801844533629643042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558599475263744446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e39ad5a9d3d14582544516ae9fe54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollUIDiceModifierText
 --- !u!1 &1978208012407704565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8243653819013776579, guid: 889d1f6a153ea104dadee1c56724ec31, type: 3}

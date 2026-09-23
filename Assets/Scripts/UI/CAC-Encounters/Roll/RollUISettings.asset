@@ -37,14 +37,14 @@ MonoBehaviour:
   - Classification: 3
     TextColor: {r: 0.27450982, g: 0.39607847, b: 0.19215688, a: 1}
     BackgroundColor: {r: 0.69411767, g: 0.7725491, b: 0.6509804, a: 1}
-    JuicyColor: {r: 0.09242612, g: 0.6320754, b: 0.13042486, a: 1}
+    JuicyColor: {r: 0.05513528, g: 0.5566038, b: 0.08807847, a: 1}
     BannerColor: {r: 0.04335922, g: 0.254717, b: 0, a: 0.98039216}
     Text: Success
     BannerText: Success
   - Classification: 4
     TextColor: {r: 0.23529413, g: 0.39607847, b: 0.19215688, a: 1}
     BackgroundColor: {r: 0.6666667, g: 0.7725491, b: 0.6509804, a: 1}
-    JuicyColor: {r: 0.099368125, g: 0.7264151, b: 0.14117117, a: 1}
+    JuicyColor: {r: 0.06448024, g: 0.6509434, b: 0.104799524, a: 1}
     BannerColor: {r: 0.057474636, g: 0.33962262, b: 0, a: 0.98039216}
     Text: Crit. Success
     BannerText: Critical Success

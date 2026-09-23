@@ -33,6 +33,8 @@ public class RollUIStatModifier : Tooltip
 
 	void Reflect()
 	{
-		_modifierText.text = _data.StatValue.ToString();
+		var statValue = _data.StatValue;
+		var sign = statValue >= 0 ? "+" : "-";
+		_modifierText.text = $"{sign}{statValue.ToString()}";
 	}
 }
