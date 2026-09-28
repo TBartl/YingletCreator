@@ -1,8 +1,20 @@
+using Encounters;
 using Encounters.Runtime;
 using Reactivity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+sealed class DifficultyCheckClassification
+{
+	public DifficultyCheckClassification(string text, int maxValueInclusive)
+	{
+		Text = text;
+		MaxValueInclusive = maxValueInclusive;
+	}
+	public string Text;
+	public int MaxValueInclusive;
+}
 
 public interface IPromptChoiceUI
 {
@@ -25,6 +37,19 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 	public IReadOnlyObservable<bool> Interactable => _requirementsMet;
 	Computed<bool> _showAsSelected;
 
+	static DifficultyCheckClassification[] DifficultyCheckClassifications =
+	{
+		new("Trivial",      7),
+		new("Easy",         9),
+		new("Medium",       11),
+		new("Challenging",  12),
+		new("Formidable",   13),
+		new("Legendary",    14),
+		new("Heroic",       15),
+		new("Godly",        16),
+		new("Impossible",   RollProvider.MaxRollValue),
+	};
+
 	public void SetChoice(ChoiceBlockNode choice, int choiceIndex)
 	{
 		_reference = this.GetComponentInParentSafe<IEncounterNodeReferenceUI>(true);
@@ -41,6 +66,14 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		_button.onClick.AddListener(OnClicked);
 		_showAsSelected = CreateComputed(ComputeShowAsSelected);
 		AddReflector(ReflectHovering);
+	}
+	private new void OnDestroy()
+	{
+		base.OnDestroy();
+		if (_button != null)
+		{
+			_button.onClick.RemoveListener(OnClicked);
+		}
 	}
 
 	void SetRequirementsMet()
@@ -84,21 +117,45 @@ public class PromptChoiceUI : ReactiveBehaviour, IPromptChoiceUI, IUIInteractabl
 		if (_choice.Next is RollNode rollNode)
 		{
 			// Next node we're rolling, so let's display that in this text
-			sb.Append($"[{TMPUtils.DiceSprite}{rollNode.RollInstructionsName}] ");
+			sb.Append($"[{TMPUtils.DiceSprite}{rollNode.RollInstructionsName}{GetClassification(rollNode)}] ");
 		}
 
 		sb.Append(_choice.Text);
 		return sb.ToString();
 	}
 
-
-	private new void OnDestroy()
+	string GetClassification(RollNode rollNode)
 	{
-		base.OnDestroy();
-		if (_button != null)
+		var branchBeforeSuccess = GetBranchBeforeSuccess(rollNode);
+		if (branchBeforeSuccess == null)
 		{
-			_button.onClick.RemoveListener(OnClicked);
+			return "";
 		}
+
+		int dc = branchBeforeSuccess.MaxValueInclusive + 1;
+
+		string classification = null;
+		foreach (var check in DifficultyCheckClassifications)
+		{
+			classification = check.Text;
+			if (dc <= check.MaxValueInclusive) break;
+		}
+		return $" - {classification} {dc}";
+
+	}
+
+	RollBlockNode GetBranchBeforeSuccess(RollNode rollNode)
+	{
+		RollBlockNode previousBranch = null;
+		foreach (var branch in rollNode.Branches)
+		{
+			if (branch.Classification == RollClassification.Success || branch.Classification == RollClassification.CriticalSuccess)
+			{
+				return previousBranch;
+			}
+			previousBranch = branch;
+		}
+		return null;
 	}
 
 	private void OnClicked()

@@ -762,7 +762,7 @@ MonoBehaviour:
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
         m_Value: '{CHARACTER} manages to drive their claws into the mimic''s eye.\n\nAfter
-          a bit more flailing, {CHARACTER} emerges victorious.'
+          a bit more flailing, {they} emerge victorious.'
     - rid: 3002418882154856527
       type: {class: NarrationNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
       data: 
@@ -4824,7 +4824,7 @@ MonoBehaviour:
     - rid: 3002418927067988034
       type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 3
+        m_Value: 11
     - rid: 3002418927067988035
       type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -5659,10 +5659,16 @@ MonoBehaviour:
           m_Color: {r: 0, g: 0, b: 0, a: 0}
           m_HasUserColor: 0
         m_Blocks:
+        - rid: 7882709444951277643
         - rid: 3002418993290543256
+        - rid: 7882709444951277639
         m_BlockGuids:
         - serializedVersion: 2
+          Hash: e7402c51619f430620102d46ce2e13bf
+        - serializedVersion: 2
           Hash: 6e23d474b12b1785079c085b0eb02396
+        - serializedVersion: 2
+          Hash: 25e190da9b37d6612f6ff36f35cf5cac
         m_Subtitle: 
         m_Node:
           rid: 3002418993290543255
@@ -5716,7 +5722,7 @@ MonoBehaviour:
     - rid: 3002418993290543257
       type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 99999
+        m_Value: 10
     - rid: 3002418993290543258
       type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -5724,7 +5730,7 @@ MonoBehaviour:
           m_EnumType:
             m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
-          m_Value: 3
+          m_Value: 1
         m_EnumType:
           m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -5759,38 +5765,6 @@ MonoBehaviour:
           m_NodeModelHashGuid:
             serializedVersion: 2
             Hash: b2261dac624c6bbac204e01be39ac578
-          m_UniqueId: ExecutionPort
-          m_PortDirection: 1
-          m_PortOrientation: 0
-          m_Title: 
-    - rid: 3002418993290543261
-      type: {class: WireModel, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
-      data:
-        m_Guid:
-          m_Value0: 15843775811196512273
-          m_Value1: 7529918220692088740
-        m_HashGuid:
-          serializedVersion: 2
-          Hash: 11684b072866e0dba4e717fcb9a47f68
-        m_Version: 2
-        m_FromPortReference:
-          m_NodeModelGuid:
-            m_Value0: 9590181972678026094
-            m_Value1: 10818684305577384967
-          m_NodeModelHashGuid:
-            serializedVersion: 2
-            Hash: 6e23d474b12b1785079c085b0eb02396
-          m_UniqueId: ExecutionPort
-          m_PortDirection: 2
-          m_PortOrientation: 0
-          m_Title: 
-        m_ToPortReference:
-          m_NodeModelGuid:
-            m_Value0: 5221798160787827247
-            m_Value1: 10267631592710182226
-          m_NodeModelHashGuid:
-            serializedVersion: 2
-            Hash: 2fea8bcec28d77485295118888f47d8e
           m_UniqueId: ExecutionPort
           m_PortDirection: 1
           m_PortOrientation: 0
@@ -5831,9 +5805,12 @@ MonoBehaviour:
           m_HasUserColor: 0
         m_Blocks:
         - rid: 3002418993290543271
+        - rid: 7882709444951277635
         m_BlockGuids:
         - serializedVersion: 2
           Hash: 6e23d474b12b1785079c085b0eb02396
+        - serializedVersion: 2
+          Hash: a3cbdff8de11a2658f1c212b17901ba1
         m_Subtitle: 
         m_Node:
           rid: 3002418993290543272
@@ -5887,7 +5864,7 @@ MonoBehaviour:
     - rid: 3002418993290543273
       type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
-        m_Value: 99999
+        m_Value: 12
     - rid: 3002418993290543274
       type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
@@ -6235,10 +6212,10 @@ MonoBehaviour:
         - rid: 3002418993290543251
         - rid: 3002418993290543252
         - rid: 3002418993290543260
-        - rid: 3002418993290543261
         - rid: 3002418993290543276
         - rid: 3002418993290543277
         - rid: 3002418993290543289
+        - rid: 7882709444951277648
         m_GraphStickyNoteModels: []
         m_GraphPlacematModels: []
         m_GraphVariableModels: []
@@ -7246,14 +7223,6 @@ MonoBehaviour:
           m_Category: 2
           m_Index: 62
         - m_Guid:
-            m_Value0: 15843775811196512273
-            m_Value1: 7529918220692088740
-          m_HashGuid:
-            serializedVersion: 2
-            Hash: 11684b072866e0dba4e717fcb9a47f68
-          m_Category: 2
-          m_Index: 63
-        - m_Guid:
             m_Value0: 14673925847539121204
             m_Value1: 1293920809268596106
           m_HashGuid:
@@ -7268,7 +7237,7 @@ MonoBehaviour:
             serializedVersion: 2
             Hash: 1338f0a393c59a19708db346702ddb77
           m_Category: 2
-          m_Index: 64
+          m_Index: 63
         - m_Guid:
             m_Value0: 16995309972801623225
             m_Value1: 17555399504841677066
@@ -7276,7 +7245,7 @@ MonoBehaviour:
             serializedVersion: 2
             Hash: b9947e106078dbeb0a192850d64ea1f3
           m_Category: 2
-          m_Index: 65
+          m_Index: 64
         - m_Guid:
             m_Value0: 856468479439585186
             m_Value1: 5121716129380988215
@@ -7291,6 +7260,14 @@ MonoBehaviour:
           m_HashGuid:
             serializedVersion: 2
             Hash: 4e2ca46e5b8adbf8d6a988bd0b41e482
+          m_Category: 2
+          m_Index: 65
+        - m_Guid:
+            m_Value0: 4885296052749758786
+            m_Value1: 11867212217369958647
+          m_HashGuid:
+            serializedVersion: 2
+            Hash: 4271c466e00ecc43f71883f2a2ceb0a4
           m_Category: 2
           m_Index: 66
         m_EntryPoint:
@@ -7392,3 +7369,209 @@ MonoBehaviour:
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
       data:
         m_Value: Wood creaks from the chest as {CHARACTER} approaches.
+    - rid: 7882709444951277635
+      type: {class: UserBlockNodeModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Guid:
+          m_Value0: 7323435593413675939
+          m_Value1: 11609030893659823247
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: a3cbdff8de11a2658f1c212b17901ba1
+        m_Version: 2
+        m_Position: {x: 0, y: 0}
+        m_Title: 
+        m_Tooltip: 
+        m_NodePreviewModel:
+          rid: -2
+        m_State: 0
+        m_InputConstantsById:
+          m_KeyList:
+          - Max Value (Inclusive)
+          - Classification
+          m_ValueList:
+          - rid: 7882709444951277636
+          - rid: 7882709444951277637
+        m_InputPortInfos:
+          expandedPortsById:
+            m_KeyList: []
+            m_ValueList: 
+        m_OutputPortInfos:
+          expandedPortsById:
+            m_KeyList: []
+            m_ValueList: 
+        m_Collapsed: 0
+        m_CurrentModeIndex: 0
+        m_ElementColor:
+          m_Color: {r: 0, g: 0, b: 0, a: 0}
+          m_HasUserColor: 0
+        m_ContextNodeModel:
+          rid: 3002418993290543269
+        m_Node:
+          rid: 7882709444951277638
+    - rid: 7882709444951277636
+      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value: 9999
+    - rid: 7882709444951277637
+      type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value:
+          m_EnumType:
+            m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_Value: 3
+        m_EnumType:
+          m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+    - rid: 7882709444951277638
+      type: {class: RollBlockNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
+      data: 
+    - rid: 7882709444951277639
+      type: {class: UserBlockNodeModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Guid:
+          m_Value0: 7049883409221476645
+          m_Value1: 12420029700799426351
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: 25e190da9b37d6612f6ff36f35cf5cac
+        m_Version: 2
+        m_Position: {x: 0, y: 0}
+        m_Title: 
+        m_Tooltip: 
+        m_NodePreviewModel:
+          rid: -2
+        m_State: 0
+        m_InputConstantsById:
+          m_KeyList:
+          - Max Value (Inclusive)
+          - Classification
+          m_ValueList:
+          - rid: 7882709444951277640
+          - rid: 7882709444951277641
+        m_InputPortInfos:
+          expandedPortsById:
+            m_KeyList: []
+            m_ValueList: 
+        m_OutputPortInfos:
+          expandedPortsById:
+            m_KeyList: []
+            m_ValueList: 
+        m_Collapsed: 0
+        m_CurrentModeIndex: 0
+        m_ElementColor:
+          m_Color: {r: 0, g: 0, b: 0, a: 0}
+          m_HasUserColor: 0
+        m_ContextNodeModel:
+          rid: 3002418993290543253
+        m_Node:
+          rid: 7882709444951277642
+    - rid: 7882709444951277640
+      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value: 9999
+    - rid: 7882709444951277641
+      type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value:
+          m_EnumType:
+            m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_Value: 3
+        m_EnumType:
+          m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+    - rid: 7882709444951277642
+      type: {class: RollBlockNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
+      data: 
+    - rid: 7882709444951277643
+      type: {class: UserBlockNodeModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Guid:
+          m_Value0: 451379627989680359
+          m_Value1: 13768399949277237280
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: e7402c51619f430620102d46ce2e13bf
+        m_Version: 2
+        m_Position: {x: 0, y: 0}
+        m_Title: 
+        m_Tooltip: 
+        m_NodePreviewModel:
+          rid: -2
+        m_State: 0
+        m_InputConstantsById:
+          m_KeyList:
+          - Max Value (Inclusive)
+          - Classification
+          m_ValueList:
+          - rid: 7882709444951277644
+          - rid: 7882709444951277645
+        m_InputPortInfos:
+          expandedPortsById:
+            m_KeyList: []
+            m_ValueList: 
+        m_OutputPortInfos:
+          expandedPortsById:
+            m_KeyList: []
+            m_ValueList: 
+        m_Collapsed: 0
+        m_CurrentModeIndex: 0
+        m_ElementColor:
+          m_Color: {r: 0, g: 0, b: 0, a: 0}
+          m_HasUserColor: 0
+        m_ContextNodeModel:
+          rid: 3002418993290543253
+        m_Node:
+          rid: 7882709444951277646
+    - rid: 7882709444951277644
+      type: {class: 'Constant`1[[System.Int32, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value: 8
+    - rid: 7882709444951277645
+      type: {class: EnumConstant, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Value:
+          m_EnumType:
+            m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          m_Value: 0
+        m_EnumType:
+          m_Identification: Encounters.RollClassification, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+    - rid: 7882709444951277646
+      type: {class: RollBlockNode, ns: Encounters.Editor, asm: Assembly-CSharp-Editor}
+      data: 
+    - rid: 7882709444951277648
+      type: {class: WireModel, ns: Unity.GraphToolkit.Editor, asm: UnityEditor.GraphToolkitModule}
+      data:
+        m_Guid:
+          m_Value0: 4885296052749758786
+          m_Value1: 11867212217369958647
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: 4271c466e00ecc43f71883f2a2ceb0a4
+        m_Version: 2
+        m_FromPortReference:
+          m_NodeModelGuid:
+            m_Value0: 7049883409221476645
+            m_Value1: 12420029700799426351
+          m_NodeModelHashGuid:
+            serializedVersion: 2
+            Hash: 25e190da9b37d6612f6ff36f35cf5cac
+          m_UniqueId: ExecutionPort
+          m_PortDirection: 2
+          m_PortOrientation: 0
+          m_Title: 
+        m_ToPortReference:
+          m_NodeModelGuid:
+            m_Value0: 5221798160787827247
+            m_Value1: 10267631592710182226
+          m_NodeModelHashGuid:
+            serializedVersion: 2
+            Hash: 2fea8bcec28d77485295118888f47d8e
+          m_UniqueId: ExecutionPort
+          m_PortDirection: 1
+          m_PortOrientation: 0
+          m_Title: 
