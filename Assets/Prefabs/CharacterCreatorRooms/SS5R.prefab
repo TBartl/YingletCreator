@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba6a280485f6c49a2421674607e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 43a2facd547754847ad676bd5abf9bd9, type: 2}
   _settings:
     SamplingDistance: 1.2
     SamplingCameraFOV: 135
@@ -405,7 +406,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ShowEvenInEditor: 0
 --- !u!1 &6934105138248709140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,7 +2069,6 @@ MonoBehaviour:
   - {r: 0.6759156, g: 0.96828645, b: 1.3574822, a: 1}
   - {r: 0.68559337, g: 0.9845514, b: 1.3789299, a: 1}
   - {r: 0.6854689, g: 0.9844449, b: 1.3792596, a: 1}
-  _originalMesh: {fileID: 2321565101558384384, guid: bc4ca8ee4cd25064abd058f9d7283f9e, type: 3}
 --- !u!4 &6870073637434636198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 5f96483d934e5d845b31dc3d4ada8e27, type: 3}
@@ -2165,7 +2164,6 @@ MonoBehaviour:
   - {r: 0.288639, g: 0.28819332, b: 0.49249992, a: 1}
   - {r: 0.45329368, g: 0.45135176, b: 0.825567, a: 1}
   - {r: 0.528557, g: 0.6151738, b: 1.0141721, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &6864759824214838940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -2261,7 +2259,6 @@ MonoBehaviour:
   - {r: 0.23870006, g: 0.2483169, b: 0.39927292, a: 1}
   - {r: 0.376067, g: 0.39368373, b: 0.6831855, a: 1}
   - {r: 0.45329368, g: 0.4513518, b: 0.82556707, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &6744155304844029983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -2927,7 +2924,6 @@ MonoBehaviour:
   - {r: 0.35953653, g: 0.50749916, b: 0.5441416, a: 1}
   - {r: 0.36956695, g: 0.5307641, b: 0.5643447, a: 1}
   - {r: 0.32765475, g: 0.43866444, b: 0.47875452, a: 1}
-  _originalMesh: {fileID: -1927856332792191901, guid: bf6002e06bb9b574e93c386fbed94905, type: 3}
 --- !u!4 &6733515845065994471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 38c74362c93e60c49810e5c0c065d1a4, type: 3}
@@ -3242,7 +3238,6 @@ MonoBehaviour:
   - {r: 0.20909892, g: 0.32154644, b: 0.4031942, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20623794, g: 0.3141115, b: 0.3953172, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &388234471600553853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3552,7 +3547,6 @@ MonoBehaviour:
   - {r: 0.29037282, g: 0.25769478, b: 0.47116, a: 1}
   - {r: 0.31759387, g: 0.31942898, b: 0.54886085, a: 1}
   - {r: 0.4032461, g: 0.40529278, b: 0.7268719, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &516363161541346691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3862,7 +3856,6 @@ MonoBehaviour:
   - {r: 0.20989196, g: 0.32360736, b: 0.40537763, a: 1}
   - {r: 0.20676497, g: 0.3154811, b: 0.3967682, a: 1}
   - {r: 0.20811075, g: 0.31897846, b: 0.40047354, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &609623658539072585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3953,7 +3946,6 @@ MonoBehaviour:
   - {r: 0.29271677, g: 0.38636342, b: 0.44927004, a: 1}
   - {r: 0.41917992, g: 0.60883236, b: 0.687012, a: 1}
   - {r: 0.25966713, g: 0.39587536, b: 0.3886219, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &6243798648344709614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -4363,7 +4355,6 @@ MonoBehaviour:
   - {r: 0.7638633, g: 1.0172039, b: 1.4056002, a: 1}
   - {r: 0.7189457, g: 0.89912635, b: 1.2720968, a: 1}
   - {r: 0.6543867, g: 0.7626835, b: 1.10343, a: 1}
-  _originalMesh: {fileID: -4793436661886018548, guid: b55654c892de9de4c8246a0b72e255e5, type: 3}
 --- !u!4 &6219886630737127554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 440ca02a5f629004aa47b73495734f79, type: 3}
@@ -4678,7 +4669,6 @@ MonoBehaviour:
   - {r: 0.21964039, g: 0.29501876, b: 0.4120129, a: 1}
   - {r: 0.24241954, g: 0.36851338, b: 0.48474902, a: 1}
   - {r: 0.32446703, g: 0.44802704, b: 0.655884, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &882966642240969806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4773,7 +4763,6 @@ MonoBehaviour:
   - {r: 0.89621246, g: 1.2774858, b: 1.7454847, a: 1}
   - {r: 0.92548907, g: 1.4272926, b: 1.8196588, a: 1}
   - {r: 0.50112736, g: 0.79298633, b: 0.8522016, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &5950189474889165289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -4869,7 +4858,6 @@ MonoBehaviour:
   - {r: 0.4495551, g: 0.5148002, b: 0.8660129, a: 1}
   - {r: 0.42028043, g: 0.5280841, b: 0.8601925, a: 1}
   - {r: 0.8111568, g: 1.0348027, b: 1.7149907, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &5861537033973984960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -4985,7 +4973,6 @@ MonoBehaviour:
   - {r: 0.30505404, g: 0.4380837, b: 0.41686317, a: 1}
   - {r: 0.31276545, g: 0.446865, b: 0.43030015, a: 1}
   - {r: 0.29698417, g: 0.4286339, b: 0.40301582, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &2957686094426167135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -5300,7 +5287,6 @@ MonoBehaviour:
   - {r: 0.21085127, g: 0.32610035, b: 0.40801886, a: 1}
   - {r: 0.20940572, g: 0.32234374, b: 0.4040389, a: 1}
   - {r: 0.20909892, g: 0.32154644, b: 0.4031942, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &1347965982490827637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5610,7 +5596,6 @@ MonoBehaviour:
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20022988, g: 0.29849806, b: 0.37877554, a: 1}
   - {r: 0.21418642, g: 0.28705797, b: 0.39932463, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &1614884055291048234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5701,7 +5686,6 @@ MonoBehaviour:
   - {r: 0.34749454, g: 0.5005223, b: 0.58476317, a: 1}
   - {r: 0.2689791, g: 0.42282674, b: 0.48530474, a: 1}
   - {r: 0.22238725, g: 0.34962153, b: 0.37913802, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &5240647114875405453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -6012,7 +5996,6 @@ MonoBehaviour:
   - {r: 0.29061377, g: 0.4756882, b: 0.4476518, a: 1}
   - {r: 0.24972302, g: 0.35668197, b: 0.35391963, a: 1}
   - {r: 0.31792167, g: 0.5263394, b: 0.5007672, a: 1}
-  _originalMesh: {fileID: -3879760250175121906, guid: b5fafe5add54a7d48a14bd4a4955fff3, type: 3}
 --- !u!1 &4893247720928194734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6157863583667158869, guid: a69aaaa4a4ec4d741b5cbb74201028f2, type: 3}
@@ -6081,7 +6064,6 @@ MonoBehaviour:
   - {r: 0.275025, g: 0.42833892, b: 0.37473586, a: 1}
   - {r: 0.311832, g: 0.48354986, b: 0.463803, a: 1}
   - {r: 0.25883064, g: 0.3930993, b: 0.34663725, a: 1}
-  _originalMesh: {fileID: -2869495914551231331, guid: fcfa531727436014ab969acf1b382dc8, type: 3}
 --- !u!4 &5770464240063011672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5082769623270397091, guid: a69aaaa4a4ec4d741b5cbb74201028f2, type: 3}
@@ -6177,7 +6159,6 @@ MonoBehaviour:
   - {r: 0.36492065, g: 0.4894205, b: 0.73481673, a: 1}
   - {r: 0.35084638, g: 0.49214068, b: 0.71736085, a: 1}
   - {r: 0.44955504, g: 0.51480013, b: 0.8660128, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &5080524984971803249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -6273,7 +6254,6 @@ MonoBehaviour:
   - {r: 0.3850073, g: 0.5912894, b: 0.8494349, a: 1}
   - {r: 0.37372786, g: 0.600469, b: 0.82301104, a: 1}
   - {r: 0.28330126, g: 0.39047745, b: 0.5719138, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &5068419810563582138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -6369,7 +6349,6 @@ MonoBehaviour:
   - {r: 1.1855469, g: 1.7618898, b: 2.5638232, a: 1}
   - {r: 0.64271855, g: 0.90126497, b: 1.2505974, a: 1}
   - {r: 0.5275182, g: 0.749371, b: 0.9143834, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &4989779361706181673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -6684,7 +6663,6 @@ MonoBehaviour:
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20022988, g: 0.29849806, b: 0.37877554, a: 1}
   - {r: 0.20642544, g: 0.2757298, b: 0.38126934, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &2046693536946607914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6994,7 +6972,6 @@ MonoBehaviour:
   - {r: 0.3542574, g: 0.5752174, b: 0.5955598, a: 1}
   - {r: 0.30887443, g: 0.44536197, b: 0.4831175, a: 1}
   - {r: 0.5157389, g: 0.85103196, b: 0.9745256, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &2344625646928165407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7105,7 +7082,6 @@ MonoBehaviour:
   - {r: 0.22725895, g: 0.34312686, b: 0.29102623, a: 1}
   - {r: 0.22808717, g: 0.34532735, b: 0.2921548, a: 1}
   - {r: 0.22704035, g: 0.34268865, b: 0.29124668, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &1805398984351054226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -7201,7 +7177,6 @@ MonoBehaviour:
   - {r: 0.4592275, g: 0.64472765, b: 0.9693939, a: 1}
   - {r: 0.4592275, g: 0.64472765, b: 0.9693939, a: 1}
   - {r: 0.5116459, g: 0.83227843, b: 1.1728772, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8936924453188741489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -7297,7 +7272,6 @@ MonoBehaviour:
   - {r: 0.4009706, g: 0.48453596, b: 0.7089278, a: 1}
   - {r: 0.53959537, g: 0.6907985, b: 0.957997, a: 1}
   - {r: 0.2927169, g: 0.38636363, b: 0.44927025, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8805569085890335525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -7393,7 +7367,6 @@ MonoBehaviour:
   - {r: 0.2606532, g: 0.37596032, b: 0.40329114, a: 1}
   - {r: 0.25966713, g: 0.39587536, b: 0.3886219, a: 1}
   - {r: 0.24219228, g: 0.3972005, b: 0.3834222, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8912947969199388870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -7493,7 +7466,6 @@ MonoBehaviour:
   - {r: 0.92548907, g: 1.4272923, b: 1.8196585, a: 1}
   - {r: 0.5275182, g: 0.749371, b: 0.9143834, a: 1}
   - {r: 0.41466936, g: 0.60844153, b: 0.68033797, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8702438574476929579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -7589,7 +7561,6 @@ MonoBehaviour:
   - {r: 0.35084644, g: 0.49214077, b: 0.717361, a: 1}
   - {r: 0.38500726, g: 0.5912893, b: 0.8494348, a: 1}
   - {r: 0.42028046, g: 0.52808416, b: 0.8601926, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8691908609952224206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -7685,7 +7656,6 @@ MonoBehaviour:
   - {r: 0.2597551, g: 0.30389485, b: 0.45495093, a: 1}
   - {r: 0.40097064, g: 0.484536, b: 0.70892787, a: 1}
   - {r: 0.26903838, g: 0.34093985, b: 0.43042305, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8695202682054759342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -8041,7 +8011,6 @@ MonoBehaviour:
   - {r: 0.40165356, g: 0.41644445, b: 0.6243867, a: 1}
   - {r: 0.3898157, g: 0.42752308, b: 0.6011336, a: 1}
   - {r: 0.39595503, g: 0.40613097, b: 0.6105361, a: 1}
-  _originalMesh: {fileID: -4761363251635094410, guid: 59786cbdaefa7c14c9aade648f798256, type: 3}
 --- !u!4 &8652200172130810294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: eaefce7bbdf3dc849a6e51fff9fa3743, type: 3}
@@ -8137,7 +8106,6 @@ MonoBehaviour:
   - {r: 0.4670184, g: 0.50523394, b: 0.88215727, a: 1}
   - {r: 0.44955504, g: 0.51480013, b: 0.8660128, a: 1}
   - {r: 0.8116564, g: 0.93595505, b: 1.643038, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8779602680848954890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -8233,7 +8201,6 @@ MonoBehaviour:
   - {r: 0.41421404, g: 0.59121597, b: 0.7869462, a: 1}
   - {r: 0.31621197, g: 0.4907864, b: 0.64219666, a: 1}
   - {r: 0.32583916, g: 0.5120673, b: 0.6309557, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8752188858602783823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -8349,7 +8316,6 @@ MonoBehaviour:
   - {r: 0.34180906, g: 0.5363018, b: 0.73604137, a: 1}
   - {r: 0.34448504, g: 0.5407686, b: 0.74278706, a: 1}
   - {r: 0.33842227, g: 0.530347, b: 0.7273321, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &2180442259639819091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -8664,7 +8630,6 @@ MonoBehaviour:
   - {r: 0.2093047, g: 0.32208124, b: 0.4037608, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20623794, g: 0.3141115, b: 0.3953172, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &2893297336552447373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8776,7 +8741,6 @@ MonoBehaviour:
   - {r: 0.69953763, g: 0.78232753, b: 1.3270798, a: 1}
   - {r: 0.92773056, g: 1.1233867, b: 1.9008428, a: 1}
   - {r: 0.9286093, g: 1.1370695, b: 1.9187878, a: 1}
-  _originalMesh: {fileID: 8148188476708289613, guid: e7cecefd1b4c3474dbc33e964ed93a11, type: 3}
 --- !u!4 &5216899927998324156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6935869161768943665, guid: c4d9ffe5457bb164d9dfb3356be14a1c, type: 3}
@@ -8917,7 +8881,6 @@ MonoBehaviour:
   - {r: 0.66086334, g: 0.71592426, b: 1.2314837, a: 1}
   - {r: 0.71395177, g: 0.8210991, b: 1.3791398, a: 1}
   - {r: 0.70541984, g: 0.8131951, b: 1.3612401, a: 1}
-  _originalMesh: {fileID: -4333554691678069108, guid: de33ed4fdd4ea9e4781cef8ce9f4f8ec, type: 3}
 --- !u!1001 &2924704580256584302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9227,7 +9190,6 @@ MonoBehaviour:
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20022988, g: 0.29849806, b: 0.37877554, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &2957605084711058080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9343,7 +9305,6 @@ MonoBehaviour:
   - {r: 0.20077008, g: 0.2999019, b: 0.38026282, a: 1}
   - {r: 0.20077008, g: 0.2999019, b: 0.38026282, a: 1}
   - {r: 0.20077008, g: 0.2999019, b: 0.38026282, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &3068133500515225334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9653,7 +9614,6 @@ MonoBehaviour:
   - {r: 0.2782726, g: 0.38060018, b: 0.5484162, a: 1}
   - {r: 0.31596172, g: 0.49055937, b: 0.6694749, a: 1}
   - {r: 0.4185948, g: 0.5854189, b: 0.87486506, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &3145879681576339400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9744,7 +9704,6 @@ MonoBehaviour:
   - {r: 0.5395953, g: 0.69079846, b: 0.9579969, a: 1}
   - {r: 0.8962125, g: 1.2774861, b: 1.7454851, a: 1}
   - {r: 0.41917992, g: 0.60883236, b: 0.687012, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8465593372960731759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -10067,7 +10026,6 @@ MonoBehaviour:
   - {r: 0.41778183, g: 0.4548624, b: 0.78447944, a: 1}
   - {r: 0.35210764, g: 0.33027634, b: 0.60527253, a: 1}
   - {r: 0.45279285, g: 0.49551553, b: 0.8622, a: 1}
-  _originalMesh: {fileID: 2798981220651086858, guid: d19c2c1966e5652458b97c00308d70b0, type: 3}
 --- !u!4 &7885809688660016384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5082769623270397091, guid: ea728d6041e59304bbae3992815f64c3, type: 3}
@@ -10107,7 +10065,6 @@ MonoBehaviour:
   - {r: 0.8204511, g: 0.8994255, b: 1.5946138, a: 1}
   - {r: 0.50304455, g: 0.54289013, b: 0.9562773, a: 1}
   - {r: 0.52566004, g: 0.5304621, b: 0.97735846, a: 1}
-  _originalMesh: {fileID: -494726765421913130, guid: 72ae4c21cfff5f84989caa4c79e89d7f, type: 3}
 --- !u!1001 &3170835755703467779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10419,7 +10376,6 @@ MonoBehaviour:
   - {r: 0.35504895, g: 0.36984247, b: 0.6358578, a: 1}
   - {r: 0.2926492, g: 0.26060966, b: 0.47630703, a: 1}
   - {r: 0.38775358, g: 0.40793765, b: 0.70871454, a: 1}
-  _originalMesh: {fileID: 4170461421835378636, guid: 451ec3cb456b19c47a3852d6cc127f09, type: 3}
 --- !u!4 &7676581668863503264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5082769623270397091, guid: 5e470095d88cf314ebc23a97ef3cd4ff, type: 3}
@@ -10477,7 +10433,6 @@ MonoBehaviour:
   - {r: 0.45139098, g: 0.44106928, b: 0.81564087, a: 1}
   - {r: 0.5200925, g: 0.48548704, b: 0.93792635, a: 1}
   - {r: 0.60382277, g: 0.58926094, b: 1.0808543, a: 1}
-  _originalMesh: {fileID: 2735995821438463589, guid: 3ecce816085a9a04995457319323fd45, type: 3}
 --- !u!1001 &3263795332652235342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10787,7 +10742,6 @@ MonoBehaviour:
   - {r: 0.20909892, g: 0.32154644, b: 0.4031942, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20623794, g: 0.3141115, b: 0.3953172, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &3272150142493342795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10878,7 +10832,6 @@ MonoBehaviour:
   - {r: 0.8116565, g: 0.93595505, b: 1.643038, a: 1}
   - {r: 0.8111569, g: 1.0348028, b: 1.7149911, a: 1}
   - {r: 1.185547, g: 1.7618899, b: 2.5638235, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8339188221360245228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -11193,7 +11146,6 @@ MonoBehaviour:
   - {r: 0.20108785, g: 0.2589615, b: 0.3453505, a: 1}
   - {r: 0.2129064, g: 0.28535083, b: 0.3762172, a: 1}
   - {r: 0.35010833, g: 0.5001448, b: 0.73922926, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &3295015285002806736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11309,7 +11261,6 @@ MonoBehaviour:
   - {r: 0.2021554, g: 0.303502, b: 0.38407695, a: 1}
   - {r: 0.2021554, g: 0.303502, b: 0.38407695, a: 1}
   - {r: 0.2021554, g: 0.303502, b: 0.38407695, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &3324396175506346660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11425,7 +11376,6 @@ MonoBehaviour:
   - {r: 0.34238282, g: 0.537862, b: 0.73783314, a: 1}
   - {r: 0.33927828, g: 0.5326734, b: 0.7300013, a: 1}
   - {r: 0.34506327, g: 0.5423418, b: 0.7445953, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &3332052339621409985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11541,7 +11491,6 @@ MonoBehaviour:
   - {r: 0.2004112, g: 0.29896927, b: 0.37927476, a: 1}
   - {r: 0.2004112, g: 0.29896927, b: 0.37927476, a: 1}
   - {r: 0.20022988, g: 0.29849806, b: 0.37877554, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &3358718065034029966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11632,7 +11581,6 @@ MonoBehaviour:
   - {r: 0.20650396, g: 0.3148028, b: 0.39604962, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &8092736524863004201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -11753,7 +11701,6 @@ MonoBehaviour:
   - {r: 0.20641223, g: 0.31137505, b: 0.3694887, a: 1}
   - {r: 0.20603503, g: 0.31056866, b: 0.36988416, a: 1}
   - {r: 0.20677559, g: 0.31215188, b: 0.36910772, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &3622601553087100538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11844,7 +11791,6 @@ MonoBehaviour:
   - {r: 0.3611775, g: 0.50161076, b: 0.7412881, a: 1}
   - {r: 0.4592275, g: 0.64472765, b: 0.9693939, a: 1}
   - {r: 0.51294, g: 0.8358687, b: 1.1771373, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7824349445755716573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -11940,7 +11886,6 @@ MonoBehaviour:
   - {r: 0.5116459, g: 0.83227843, b: 1.1728772, a: 1}
   - {r: 0.39918455, g: 0.6401359, b: 0.8857121, a: 1}
   - {r: 0.30084383, g: 0.47687158, b: 0.63725996, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7894247699382382524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -12036,7 +11981,6 @@ MonoBehaviour:
   - {r: 0.26117048, g: 0.39580736, b: 0.52716345, a: 1}
   - {r: 0.3997202, g: 0.6416043, b: 0.88742125, a: 1}
   - {r: 0.3850072, g: 0.5912893, b: 0.8494348, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7591181180873133535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -12132,7 +12076,6 @@ MonoBehaviour:
   - {r: 0.3991846, g: 0.640136, b: 0.88571227, a: 1}
   - {r: 0.25897348, g: 0.40548632, b: 0.5303264, a: 1}
   - {r: 0.1735782, g: 0.22923718, b: 0.30539688, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7591041457312544687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -12252,7 +12195,6 @@ MonoBehaviour:
   - {r: 0.5644018, g: 0.7851387, b: 1.1872264, a: 1}
   - {r: 0.2654615, g: 0.32020763, b: 0.43261456, a: 1}
   - {r: 0.57497853, g: 0.77784276, b: 1.1986471, a: 1}
-  _originalMesh: {fileID: 7168925848266955592, guid: ffb5b7ed3d7ef764999e1ddc3f1220e1, type: 3}
 --- !u!4 &1041565194031400313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 3d6f1a91f7ff94d4fae190c3e8bb582d, type: 3}
@@ -12348,7 +12290,6 @@ MonoBehaviour:
   - {r: 0.37560925, g: 0.6056043, b: 0.82894605, a: 1}
   - {r: 0.30084383, g: 0.47687158, b: 0.63725996, a: 1}
   - {r: 0.20650396, g: 0.3148028, b: 0.39604962, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7357986607861325941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -12604,7 +12545,6 @@ MonoBehaviour:
   - {r: 0.50047064, g: 0.8160509, b: 0.9725907, a: 1}
   - {r: 0.43838617, g: 0.6344983, b: 0.7925837, a: 1}
   - {r: 0.51299393, g: 0.836481, b: 1.028674, a: 1}
-  _originalMesh: {fileID: 5575985040723181610, guid: 4fec7e8342329784a846a2312832f1f1, type: 3}
 --- !u!4 &9187728785731614043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5082769623270397091, guid: 8661b3b413aa0b04b84eac8ca461461f, type: 3}
@@ -12700,7 +12640,6 @@ MonoBehaviour:
   - {r: 0.42840293, g: 0.61966634, b: 0.77061003, a: 1}
   - {r: 0.32583916, g: 0.5120673, b: 0.6309557, a: 1}
   - {r: 0.2689791, g: 0.42282674, b: 0.48530474, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7452798754136769722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -13015,7 +12954,6 @@ MonoBehaviour:
   - {r: 0.2763695, g: 0.3778224, b: 0.5439889, a: 1}
   - {r: 0.30987433, g: 0.48045713, b: 0.6541844, a: 1}
   - {r: 0.4150037, g: 0.5801772, b: 0.86651057, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!1001 &4200123596897145605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13221,7 +13159,6 @@ MonoBehaviour:
   - {r: 0.28124356, g: 0.3908126, b: 0.348156, a: 1}
   - {r: 0.2835616, g: 0.3871861, b: 0.35164073, a: 1}
   - {r: 0.27458236, g: 0.37501514, b: 0.3365759, a: 1}
-  _originalMesh: {fileID: -1635215017453511893, guid: 6a6249ad11a6c854cbf782657742de08, type: 3}
 --- !u!4 &7249223779518899874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 517970bda769d2a40b57bcce116c4a73, type: 3}
@@ -13551,7 +13488,6 @@ MonoBehaviour:
   - {r: 0.272913, g: 0.3743106, b: 0.33494025, a: 1}
   - {r: 0.25847456, g: 0.33708462, b: 0.31011492, a: 1}
   - {r: 0.23938635, g: 0.29068393, b: 0.27492428, a: 1}
-  _originalMesh: {fileID: -9189756223136016955, guid: e7cc746b26b30244da5bc4df21aee9e8, type: 3}
 --- !u!1001 &4247118926174311952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13642,7 +13578,6 @@ MonoBehaviour:
   - {r: 0.1735782, g: 0.22923718, b: 0.30539688, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.2181924, g: 0.31216565, b: 0.4086751, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7215734859119387575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -13738,7 +13673,6 @@ MonoBehaviour:
   - {r: 0.23834248, g: 0.3318064, b: 0.42625085, a: 1}
   - {r: 0.25295925, g: 0.35350877, b: 0.41621196, a: 1}
   - {r: 0.23144433, g: 0.35992855, b: 0.40425682, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7346987599158253593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -13834,7 +13768,6 @@ MonoBehaviour:
   - {r: 0.25071046, g: 0.38272324, b: 0.50576496, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!4 &7157416078223887512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833012553518658983, guid: 1aafb3568192fb84e8714400e2767de0, type: 3}
@@ -13950,7 +13883,6 @@ MonoBehaviour:
   - {r: 0.38488153, g: 0.36071932, b: 0.6705731, a: 1}
   - {r: 0.3748224, g: 0.35085875, b: 0.6493814, a: 1}
   - {r: 0.39816558, g: 0.37539247, b: 0.6871603, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &8771789826323826922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -14051,7 +13983,6 @@ MonoBehaviour:
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.2319345, g: 0.31296363, b: 0.4406142, a: 1}
   - {r: 0.2611705, g: 0.39580742, b: 0.5271635, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &4714569134306442960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14356,7 +14287,6 @@ MonoBehaviour:
   - {r: 0.24350789, g: 0.39555177, b: 0.35464495, a: 1}
   - {r: 0.20432605, g: 0.28630358, b: 0.2707387, a: 1}
   - {r: 0.2630205, g: 0.42688698, b: 0.42316988, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!4 &7065841368303459660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: a92050f4b9bdd5d4aa168a840eb8a73d, type: 3}
@@ -14457,7 +14387,6 @@ MonoBehaviour:
   - {r: 0.37606707, g: 0.3936838, b: 0.6831856, a: 1}
   - {r: 0.4670184, g: 0.50523394, b: 0.88215727, a: 1}
   - {r: 0.57382995, g: 0.59465456, b: 1.0643921, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &4884716407227024214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14762,7 +14691,6 @@ MonoBehaviour:
   - {r: 0.20909892, g: 0.32154644, b: 0.4031942, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20623794, g: 0.3141115, b: 0.3953172, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!4 &6965544006837985482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: a92050f4b9bdd5d4aa168a840eb8a73d, type: 3}
@@ -14863,7 +14791,6 @@ MonoBehaviour:
   - {r: 0.6427186, g: 0.90126497, b: 1.2505974, a: 1}
   - {r: 0.414214, g: 0.5912159, b: 0.7869462, a: 1}
   - {r: 0.42840293, g: 0.6196663, b: 0.77061003, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &4912994448820977743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14978,7 +14905,6 @@ MonoBehaviour:
   - {r: 0.39409244, g: 0.6361421, b: 0.84226793, a: 1}
   - {r: 0.26210836, g: 0.41183558, b: 0.48898584, a: 1}
   - {r: 0.4056433, g: 0.6567453, b: 0.86518854, a: 1}
-  _originalMesh: {fileID: 7168925848266955592, guid: ffb5b7ed3d7ef764999e1ddc3f1220e1, type: 3}
 --- !u!4 &9054960110824375234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 3d6f1a91f7ff94d4fae190c3e8bb582d, type: 3}
@@ -15079,7 +15005,6 @@ MonoBehaviour:
   - {r: 0.23193446, g: 0.31296358, b: 0.4406141, a: 1}
   - {r: 0.3611775, g: 0.5016108, b: 0.7412881, a: 1}
   - {r: 0.39972022, g: 0.64160436, b: 0.88742125, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5101606470733358898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15384,7 +15309,6 @@ MonoBehaviour:
   - {r: 0.20920244, g: 0.3218155, b: 0.40347922, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.20637158, g: 0.3144588, b: 0.39568514, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!4 &7327328975284503726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: a92050f4b9bdd5d4aa168a840eb8a73d, type: 3}
@@ -15500,7 +15424,6 @@ MonoBehaviour:
   - {r: 0.27474612, g: 0.42482182, b: 0.56720394, a: 1}
   - {r: 0.26741683, g: 0.41257247, b: 0.5487141, a: 1}
   - {r: 0.28183258, g: 0.43666527, b: 0.5850811, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &9103566780333428757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -17071,7 +16994,6 @@ MonoBehaviour:
   - {r: 0.30984312, g: 0.44383883, b: 0.3731277, a: 1}
   - {r: 0.28699407, g: 0.41231936, b: 0.36463177, a: 1}
   - {r: 0.31425646, g: 0.44882193, b: 0.37932378, a: 1}
-  _originalMesh: {fileID: 6662504031202152807, guid: 76e41d52a0db2cd4485c3b708ab6046f, type: 3}
 --- !u!1 &6718414455646406956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1476855350501495463, guid: ea8c5f8375cb2164eb9b167f34d3b341, type: 3}
@@ -17110,7 +17032,6 @@ MonoBehaviour:
   - {r: 0.28473276, g: 0.401739, b: 0.34444934, a: 1}
   - {r: 0.27486244, g: 0.39003158, b: 0.32803297, a: 1}
   - {r: 0.3208614, g: 0.44921312, b: 0.3892294, a: 1}
-  _originalMesh: {fileID: 6212020695970130714, guid: fb2b11f8beb081246b8284e38c2f1c6e, type: 3}
 --- !u!1 &7639974180970402472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2541409311620598051, guid: ea8c5f8375cb2164eb9b167f34d3b341, type: 3}
@@ -17173,7 +17094,6 @@ MonoBehaviour:
   - {r: 0.510192, g: 0.7147651, b: 0.73065853, a: 1}
   - {r: 0.49864858, g: 0.74465716, b: 0.749522, a: 1}
   - {r: 0.3894958, g: 0.5214096, b: 0.5364821, a: 1}
-  _originalMesh: {fileID: -3473749130227177213, guid: 7ac52a3c5b3d19c439e1cbe037d62419, type: 3}
 --- !u!4 &7647438346255759383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: ea8c5f8375cb2164eb9b167f34d3b341, type: 3}
@@ -17274,7 +17194,6 @@ MonoBehaviour:
   - {r: 0.25295925, g: 0.35350877, b: 0.41621196, a: 1}
   - {r: 0.2606532, g: 0.37596035, b: 0.4032911, a: 1}
   - {r: 0.23829477, g: 0.38145605, b: 0.39269313, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5438439964879785476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17374,7 +17293,6 @@ MonoBehaviour:
   - {r: 0.5011273, g: 0.7929862, b: 0.8522014, a: 1}
   - {r: 0.41466936, g: 0.60844153, b: 0.68033797, a: 1}
   - {r: 0.26769847, g: 0.38235992, b: 0.40289524, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5454920540117398370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17470,7 +17388,6 @@ MonoBehaviour:
   - {r: 0.26903835, g: 0.34093985, b: 0.43042305, a: 1}
   - {r: 0.2927169, g: 0.38636363, b: 0.44927025, a: 1}
   - {r: 0.2606532, g: 0.37596035, b: 0.4032911, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5458840653126008859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17586,7 +17503,6 @@ MonoBehaviour:
   - {r: 0.38181502, g: 0.4464453, b: 0.6516151, a: 1}
   - {r: 0.39018878, g: 0.45485383, b: 0.6671027, a: 1}
   - {r: 0.37296295, g: 0.4378195, b: 0.63532454, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &5496038270533519804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17682,7 +17598,6 @@ MonoBehaviour:
   - {r: 0.31519565, g: 0.4365443, b: 0.6207779, a: 1}
   - {r: 0.2507104, g: 0.38272315, b: 0.50576484, a: 1}
   - {r: 0.31621197, g: 0.4907864, b: 0.64219666, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5507666401528530991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17778,7 +17693,6 @@ MonoBehaviour:
   - {r: 0.2120207, g: 0.28601384, b: 0.39640263, a: 1}
   - {r: 0.20650396, g: 0.3148028, b: 0.39604962, a: 1}
   - {r: 0.2507104, g: 0.38272315, b: 0.50576484, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5509462085357976928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17894,7 +17808,6 @@ MonoBehaviour:
   - {r: 0.20423526, g: 0.308907, b: 0.38980332, a: 1}
   - {r: 0.20423526, g: 0.308907, b: 0.38980332, a: 1}
   - {r: 0.20423526, g: 0.308907, b: 0.38980332, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &5598061546825786842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17990,7 +17903,6 @@ MonoBehaviour:
   - {r: 0.57382995, g: 0.59465456, b: 1.0643921, a: 1}
   - {r: 0.8116564, g: 0.93595505, b: 1.643038, a: 1}
   - {r: 1.1882976, g: 1.6263475, b: 2.5192888, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5634859576287699801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18086,7 +17998,6 @@ MonoBehaviour:
   - {r: 0.42028052, g: 0.5280842, b: 0.8601927, a: 1}
   - {r: 0.28330126, g: 0.39047745, b: 0.5719138, a: 1}
   - {r: 0.5190522, g: 0.71681297, b: 1.0792115, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5648281459672356915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18182,7 +18093,6 @@ MonoBehaviour:
   - {r: 0.51293993, g: 0.8358686, b: 1.177137, a: 1}
   - {r: 0.5116459, g: 0.83227843, b: 1.1728772, a: 1}
   - {r: 0.37560925, g: 0.6056043, b: 0.82894605, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5678870124395703745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18311,7 +18221,6 @@ MonoBehaviour:
   - {r: 0.8662282, g: 1.0369241, b: 1.7586727, a: 1}
   - {r: 0.5415557, g: 0.6410236, b: 1.0980585, a: 1}
   - {r: 0.5030445, g: 0.54289013, b: 0.9562772, a: 1}
-  _originalMesh: {fileID: 2735995821438463589, guid: 3ecce816085a9a04995457319323fd45, type: 3}
 --- !u!1 &5299389160311214321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 523631518020074800, guid: 5e470095d88cf314ebc23a97ef3cd4ff, type: 3}
@@ -18552,7 +18461,6 @@ MonoBehaviour:
   - {r: 0.43611982, g: 0.488815, b: 0.74586457, a: 1}
   - {r: 0.40246692, g: 0.4488433, b: 0.68143696, a: 1}
   - {r: 0.51380545, g: 0.583754, b: 0.90887314, a: 1}
-  _originalMesh: {fileID: 4170461421835378636, guid: 451ec3cb456b19c47a3852d6cc127f09, type: 3}
 --- !u!1001 &5691492885949830911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18652,7 +18560,6 @@ MonoBehaviour:
   - {r: 0.41917968, g: 0.608832, b: 0.6870115, a: 1}
   - {r: 0.50112736, g: 0.79298633, b: 0.8522016, a: 1}
   - {r: 0.30591422, g: 0.5133699, b: 0.49008518, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5768405097956225631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18748,7 +18655,6 @@ MonoBehaviour:
   - {r: 0.45329368, g: 0.4513518, b: 0.82556707, a: 1}
   - {r: 0.57382995, g: 0.59465456, b: 1.0643921, a: 1}
   - {r: 0.72317964, g: 0.8880089, b: 1.3896183, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5833641196261675814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18844,7 +18750,6 @@ MonoBehaviour:
   - {r: 0.3611777, g: 0.50161105, b: 0.7412886, a: 1}
   - {r: 0.23193462, g: 0.3129638, b: 0.4406145, a: 1}
   - {r: 0.25897348, g: 0.40548632, b: 0.5303264, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5904135949716124204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18940,7 +18845,6 @@ MonoBehaviour:
   - {r: 0.26897916, g: 0.42282677, b: 0.48530477, a: 1}
   - {r: 0.17626311, g: 0.23339035, b: 0.29803514, a: 1}
   - {r: 0.17814252, g: 0.23790535, b: 0.3009386, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5906336314853954611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19036,7 +18940,6 @@ MonoBehaviour:
   - {r: 1.1882975, g: 1.6263474, b: 2.5192885, a: 1}
   - {r: 1.185547, g: 1.7618899, b: 2.5638232, a: 1}
   - {r: 0.92548907, g: 1.4272926, b: 1.8196588, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &5961122078221320624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19132,7 +19035,6 @@ MonoBehaviour:
   - {r: 0.22376876, g: 0.31875488, b: 0.41946414, a: 1}
   - {r: 0.2181924, g: 0.31216565, b: 0.4086751, a: 1}
   - {r: 0.36492053, g: 0.48942035, b: 0.73481655, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &6000994236012962604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19228,7 +19130,6 @@ MonoBehaviour:
   - {r: 0.37372783, g: 0.60046893, b: 0.823011, a: 1}
   - {r: 0.37560925, g: 0.6056043, b: 0.82894605, a: 1}
   - {r: 0.2120207, g: 0.28601384, b: 0.39640263, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &6111700975161120865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19324,7 +19225,6 @@ MonoBehaviour:
   - {r: 0.4592275, g: 0.64472765, b: 0.9693939, a: 1}
   - {r: 0.36117765, g: 0.501611, b: 0.7412885, a: 1}
   - {r: 0.39918455, g: 0.6401359, b: 0.8857121, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &6276972381297856570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19420,7 +19320,6 @@ MonoBehaviour:
   - {r: 0.32957485, g: 0.3799686, b: 0.606738, a: 1}
   - {r: 0.528557, g: 0.6151738, b: 1.0141721, a: 1}
   - {r: 0.40097064, g: 0.484536, b: 0.70892787, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &6449285477714514178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19627,7 +19526,6 @@ MonoBehaviour:
   - {r: 0.49647042, g: 0.74835795, b: 1.0929347, a: 1}
   - {r: 0.5378871, g: 0.86360204, b: 1.2303208, a: 1}
   - {r: 0.54141873, g: 0.87342906, b: 1.2420359, a: 1}
-  _originalMesh: {fileID: -4333554691678069108, guid: de33ed4fdd4ea9e4781cef8ce9f4f8ec, type: 3}
 --- !u!1 &3561875113550703124 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7561020903681440534, guid: c4d9ffe5457bb164d9dfb3356be14a1c, type: 3}
@@ -19668,7 +19566,6 @@ MonoBehaviour:
   - {r: 0.52759814, g: 0.8349725, b: 1.1961907, a: 1}
   - {r: 0.52654135, g: 0.8320318, b: 1.1926849, a: 1}
   - {r: 0.52812153, g: 0.8364289, b: 1.1979269, a: 1}
-  _originalMesh: {fileID: 8148188476708289613, guid: e7cecefd1b4c3474dbc33e964ed93a11, type: 3}
 --- !u!4 &4161711682979189043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6935869161768943665, guid: c4d9ffe5457bb164d9dfb3356be14a1c, type: 3}
@@ -19978,7 +19875,6 @@ MonoBehaviour:
   - {r: 0.27267945, g: 0.42253128, b: 0.5099683, a: 1}
   - {r: 0.2329999, g: 0.31993222, b: 0.40455094, a: 1}
   - {r: 0.39648584, g: 0.6287974, b: 0.82947576, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!4 &8754925933296664680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: a92050f4b9bdd5d4aa168a840eb8a73d, type: 3}
@@ -20079,7 +19975,6 @@ MonoBehaviour:
   - {r: 0.31621206, g: 0.4907866, b: 0.64219683, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
   - {r: 0.17352135, g: 0.2282207, b: 0.30070204, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &6775429274132633122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20400,7 +20295,6 @@ MonoBehaviour:
   - {r: 0.23079936, g: 0.36351135, b: 0.34392026, a: 1}
   - {r: 0.32220414, g: 0.50850874, b: 0.45222762, a: 1}
   - {r: 0.260795, g: 0.39854723, b: 0.3193431, a: 1}
-  _originalMesh: {fileID: -784554849405012075, guid: 77319013b6853ad40a637e04c584ecd5, type: 3}
 --- !u!4 &9035421421606712766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: 60bd5e8954ee576419d728100004f967, type: 3}
@@ -20521,7 +20415,6 @@ MonoBehaviour:
   - {r: 0.19986346, g: 0.29754588, b: 0.37776673, a: 1}
   - {r: 0.19986346, g: 0.29754588, b: 0.37776673, a: 1}
   - {r: 0.20149301, g: 0.30103448, b: 0.3760568, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!1001 &6962764550544446356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20617,7 +20510,6 @@ MonoBehaviour:
   - {r: 0.2982024, g: 0.38903782, b: 0.57125133, a: 1}
   - {r: 0.36492053, g: 0.48942035, b: 0.73481655, a: 1}
   - {r: 0.4670184, g: 0.50523394, b: 0.88215727, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &7180400696128773468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20728,7 +20620,6 @@ MonoBehaviour:
   - {r: 0.20314167, g: 0.3060651, b: 0.38679242, a: 1}
   - {r: 0.20330167, g: 0.30648088, b: 0.38723293, a: 1}
   - {r: 0.20298043, g: 0.30564606, b: 0.3863485, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &6494806624627924689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -20829,7 +20720,6 @@ MonoBehaviour:
   - {r: 0.30084383, g: 0.47687158, b: 0.63725996, a: 1}
   - {r: 0.1735782, g: 0.22923718, b: 0.30539688, a: 1}
   - {r: 0.1723033, g: 0.22592406, b: 0.3018868, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &7810232179862775279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20925,7 +20815,6 @@ MonoBehaviour:
   - {r: 0.8111569, g: 1.0348028, b: 1.7149912, a: 1}
   - {r: 0.5190522, g: 0.71681297, b: 1.0792115, a: 1}
   - {r: 0.64271855, g: 0.90126497, b: 1.2505974, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &7964305027557533052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21021,7 +20910,6 @@ MonoBehaviour:
   - {r: 0.3258392, g: 0.51206744, b: 0.63095576, a: 1}
   - {r: 0.17352135, g: 0.2282207, b: 0.30070204, a: 1}
   - {r: 0.17626311, g: 0.23339035, b: 0.29803514, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &7981164401772419187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21117,7 +21005,6 @@ MonoBehaviour:
   - {r: 0.39972016, g: 0.64160424, b: 0.8874212, a: 1}
   - {r: 0.51294, g: 0.8358687, b: 1.1771373, a: 1}
   - {r: 0.37372786, g: 0.600469, b: 0.82301104, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8015885978933310151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21217,7 +21104,6 @@ MonoBehaviour:
   - {r: 0.30591413, g: 0.51336974, b: 0.49008498, a: 1}
   - {r: 0.26769847, g: 0.38235992, b: 0.40289524, a: 1}
   - {r: 0.19731748, g: 0.27432087, b: 0.2822091, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8118949465117505414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21328,7 +21214,6 @@ MonoBehaviour:
   - {r: 0.21146852, g: 0.3229774, b: 0.3696846, a: 1}
   - {r: 0.21091384, g: 0.3215959, b: 0.36892077, a: 1}
   - {r: 0.21181706, g: 0.32382062, b: 0.36998436, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &5272472512940815371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -21444,7 +21329,6 @@ MonoBehaviour:
   - {r: 0.2754242, g: 0.42663652, b: 0.5692325, a: 1}
   - {r: 0.28229803, g: 0.4379135, b: 0.5864814, a: 1}
   - {r: 0.26829338, g: 0.4149132, b: 0.5513205, a: 1}
-  _originalMesh: {fileID: -3597894214893499496, guid: fefb41441cba912429c02760e67150e0, type: 3}
 --- !u!4 &5293683442967419927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4145519841944798093, guid: 99ee26acd5ee3df43b2ab9df0bbacaae, type: 3}
@@ -21754,7 +21638,6 @@ MonoBehaviour:
   - {r: 0.1991156, g: 0.29560235, b: 0.37570766, a: 1}
   - {r: 0.1991156, g: 0.29560235, b: 0.37570766, a: 1}
   - {r: 0.2552648, g: 0.39029142, b: 0.51721406, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!4 &5959637108059573267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: a92050f4b9bdd5d4aa168a840eb8a73d, type: 3}
@@ -21978,7 +21861,6 @@ MonoBehaviour:
   - {r: 0.73608637, g: 1.0858922, b: 1.418067, a: 1}
   - {r: 0.7916725, g: 1.229941, b: 1.5759768, a: 1}
   - {r: 0.7775369, g: 1.1764615, b: 1.537752, a: 1}
-  _originalMesh: {fileID: -4333554691678069108, guid: de33ed4fdd4ea9e4781cef8ce9f4f8ec, type: 3}
 --- !u!4 &1315315337872561500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6935869161768943665, guid: c4d9ffe5457bb164d9dfb3356be14a1c, type: 3}
@@ -22024,7 +21906,6 @@ MonoBehaviour:
   - {r: 0.77211636, g: 1.17069, b: 1.5074457, a: 1}
   - {r: 0.64970213, g: 0.9709327, b: 1.164542, a: 1}
   - {r: 0.65743774, g: 0.9995313, b: 1.1956424, a: 1}
-  _originalMesh: {fileID: 8148188476708289613, guid: e7cecefd1b4c3474dbc33e964ed93a11, type: 3}
 --- !u!1001 &8234721226012665505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22120,7 +22001,6 @@ MonoBehaviour:
   - {r: 0.25318605, g: 0.3206471, b: 0.44015, a: 1}
   - {r: 0.26903838, g: 0.34093985, b: 0.43042305, a: 1}
   - {r: 0.25295925, g: 0.35350877, b: 0.41621196, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8456129694735019333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22216,7 +22096,6 @@ MonoBehaviour:
   - {r: 0.528557, g: 0.6151738, b: 1.0141721, a: 1}
   - {r: 0.7231794, g: 0.88800865, b: 1.3896178, a: 1}
   - {r: 0.5395954, g: 0.69079864, b: 0.9579972, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8483784127522908546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22312,7 +22191,6 @@ MonoBehaviour:
   - {r: 0.72317934, g: 0.8880086, b: 1.3896177, a: 1}
   - {r: 1.1882975, g: 1.6263474, b: 2.5192885, a: 1}
   - {r: 0.8962126, g: 1.277486, b: 1.745485, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8580438279760829735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22412,7 +22290,6 @@ MonoBehaviour:
   - {r: 0.25966713, g: 0.3958754, b: 0.3886219, a: 1}
   - {r: 0.3059142, g: 0.51336986, b: 0.4900851, a: 1}
   - {r: 0.24359225, g: 0.39975986, b: 0.37814665, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8681555518477992863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22508,7 +22385,6 @@ MonoBehaviour:
   - {r: 0.2181924, g: 0.31216565, b: 0.4086751, a: 1}
   - {r: 0.2611705, g: 0.39580742, b: 0.5271635, a: 1}
   - {r: 0.35084638, g: 0.49214068, b: 0.71736085, a: 1}
-  _originalMesh: {fileID: 1453043773871479701, guid: f0dfdda3afd2df84eb41944b4d161201, type: 3}
 --- !u!1001 &8766075491904035487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22813,7 +22689,6 @@ MonoBehaviour:
   - {r: 0.224453, g: 0.30204338, b: 0.42320904, a: 1}
   - {r: 0.2579329, g: 0.39425838, b: 0.52371603, a: 1}
   - {r: 0.33134896, g: 0.4580721, b: 0.6718943, a: 1}
-  _originalMesh: {fileID: 8733429697405204941, guid: bf35b4d50e9f5e54b8fdfec64677e15b, type: 3}
 --- !u!4 &6540407365627640067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549999391631467420, guid: a92050f4b9bdd5d4aa168a840eb8a73d, type: 3}
@@ -23122,7 +22997,6 @@ MonoBehaviour:
   - {r: 0.30752102, g: 0.36504817, b: 0.4067857, a: 1}
   - {r: 0.3050554, g: 0.36900184, b: 0.40170676, a: 1}
   - {r: 0.3068294, g: 0.36052006, b: 0.4081453, a: 1}
-  _originalMesh: {fileID: -3924772783094106400, guid: 68c70cb24694baf4099008b3140cd767, type: 3}
 --- !u!1001 &8924993859685397840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23532,4 +23406,3 @@ MonoBehaviour:
   - {r: 0.6680403, g: 0.86833274, b: 1.2683998, a: 1}
   - {r: 0.6505722, g: 0.8491658, b: 1.2378067, a: 1}
   - {r: 0.5656226, g: 0.65039754, b: 1.002363, a: 1}
-  _originalMesh: {fileID: -4793436661886018548, guid: b55654c892de9de4c8246a0b72e255e5, type: 3}

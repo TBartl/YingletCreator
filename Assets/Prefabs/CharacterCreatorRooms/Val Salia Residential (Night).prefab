@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 254766446457454040, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 19f0d2bee5c70c24c90ec0e2f518603c, type: 2}
+    - target: {fileID: 254766446457454040, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
       propertyPath: _settings.SkyColor.b
       value: 0.4536157
       objectReference: {fileID: 0}
@@ -647,7 +651,6 @@ MonoBehaviour:
   - {r: 0.33602983, g: 0.33663043, b: 0.55036515, a: 1}
   - {r: 0.32589045, g: 0.30109993, b: 0.48859048, a: 1}
   - {r: 0.25352928, g: 0.22192882, b: 0.35844782, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!1 &73589979577055602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6601603682468774150, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1066,7 +1069,6 @@ MonoBehaviour:
   - {r: 0.2010064, g: 0.18165392, b: 0.27620476, a: 1}
   - {r: 0.19420046, g: 0.17395727, b: 0.26643077, a: 1}
   - {r: 0.18761846, g: 0.16657917, b: 0.25685653, a: 1}
-  _originalMesh: {fileID: 2619086233303812490, guid: ad033e5c8b1a9474dbda6915f9be5b6d, type: 3}
 --- !u!1 &89330545766641337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6603886226552559309, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1109,7 +1111,6 @@ MonoBehaviour:
   - {r: 0.18696193, g: 0.1945328, b: 0.27221358, a: 1}
   - {r: 0.17711276, g: 0.18099196, b: 0.2531143, a: 1}
   - {r: 0.17684491, g: 0.18188807, b: 0.25666156, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &171495666290203202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6411344963795067446, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1204,7 +1205,6 @@ MonoBehaviour:
   - {r: 0.094014436, g: 0.09147956, b: 0.14243846, a: 1}
   - {r: 0.11588636, g: 0.11614075, b: 0.17690709, a: 1}
   - {r: 0.10006659, g: 0.098837875, b: 0.15289775, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &243257285417288006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6483163757468154162, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1247,7 +1247,6 @@ MonoBehaviour:
   - {r: 0.33844087, g: 0.3744356, b: 0.4470675, a: 1}
   - {r: 0.33909017, g: 0.37426236, b: 0.44777027, a: 1}
   - {r: 0.33874795, g: 0.37435368, b: 0.44739985, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &315836341494902372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6844056750484084240, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1290,7 +1289,6 @@ MonoBehaviour:
   - {r: 0.16608107, g: 0.15843967, b: 0.20807052, a: 1}
   - {r: 0.16248797, g: 0.15412211, b: 0.20312534, a: 1}
   - {r: 0.16004318, g: 0.1511844, b: 0.19976059, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &338873396217063673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6785519111265357965, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1394,7 +1392,6 @@ MonoBehaviour:
   - {r: 0.20705159, g: 0.20767084, b: 0.2644581, a: 1}
   - {r: 0.16955903, g: 0.16261888, b: 0.21285723, a: 1}
   - {r: 0.2005258, g: 0.19982931, b: 0.25547668, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &344199069243461099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6799939669531784607, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1489,7 +1486,6 @@ MonoBehaviour:
   - {r: 0.11260315, g: 0.105366446, b: 0.1507177, a: 1}
   - {r: 0.14614812, g: 0.13766222, b: 0.20231476, a: 1}
   - {r: 0.13159223, g: 0.12299465, b: 0.17907341, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &429433372483697276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6876237144467636744, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1532,7 +1528,6 @@ MonoBehaviour:
   - {r: 0.17287715, g: 0.18521182, b: 0.22175305, a: 1}
   - {r: 0.1651917, g: 0.17446375, b: 0.2108839, a: 1}
   - {r: 0.16232418, g: 0.16874766, b: 0.20642982, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &798232039252927089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5875801064069929477, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1575,7 +1570,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &828049553962350026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5901185070996721086, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1609,7 +1603,6 @@ MonoBehaviour:
   - {r: 0.16974474, g: 0.17227502, b: 0.23843488, a: 1}
   - {r: 0.16974474, g: 0.17227502, b: 0.23843488, a: 1}
   - {r: 0.1846201, g: 0.18958317, b: 0.26182225, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &833372893323293589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5839011594628549601, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -1643,7 +1636,6 @@ MonoBehaviour:
   - {r: 0.19468996, g: 0.20651565, b: 0.26320598, a: 1}
   - {r: 0.19468996, g: 0.20651565, b: 0.26320598, a: 1}
   - {r: 0.21164095, g: 0.22847883, b: 0.28688008, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &905342841420641336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6199352929096322124, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2186,7 +2178,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: -3997124684957195950, guid: f634f3fe602825743aafa21097a70655, type: 3}
 --- !u!1 &958283481835219432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6328801707646521756, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2229,7 +2220,6 @@ MonoBehaviour:
   - {r: 0.17110744, g: 0.18460263, b: 0.2796472, a: 1}
   - {r: 0.1641018, g: 0.1738182, b: 0.26231256, a: 1}
   - {r: 0.15996774, g: 0.16842763, b: 0.25521788, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &966277452198213194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6336566985907752510, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2648,7 +2638,6 @@ MonoBehaviour:
   - {r: 0.25946847, g: 0.2935974, b: 0.33573142, a: 1}
   - {r: 0.25866634, g: 0.2936705, b: 0.3350195, a: 1}
   - {r: 0.23678896, g: 0.26555485, b: 0.30511782, a: 1}
-  _originalMesh: {fileID: 2619086233303812490, guid: ad033e5c8b1a9474dbda6915f9be5b6d, type: 3}
 --- !u!1 &974604468404738379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6277621753187688767, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2691,7 +2680,6 @@ MonoBehaviour:
   - {r: 0.18576877, g: 0.1820969, b: 0.23516662, a: 1}
   - {r: 0.17705703, g: 0.17162865, b: 0.22317669, a: 1}
   - {r: 0.17262396, g: 0.16630179, b: 0.21707548, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &1018222941019532803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6105085035950298743, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2714,7 +2702,6 @@ MonoBehaviour:
   - {r: 0.13135672, g: 0.13673063, b: 0.20374933, a: 1}
   - {r: 0.15728109, g: 0.1690141, b: 0.24958587, a: 1}
   - {r: 0.15410954, g: 0.16169424, b: 0.24098808, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1146661930866988065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6156747055181851733, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2737,7 +2724,6 @@ MonoBehaviour:
   - {r: 0.11338671, g: 0.12528323, b: 0.18399711, a: 1}
   - {r: 0.13442089, g: 0.14767405, b: 0.21793568, a: 1}
   - {r: 0.13809149, g: 0.1537089, b: 0.2260812, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1347548617286284250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5200424412228832174, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2841,7 +2827,6 @@ MonoBehaviour:
   - {r: 0.16285606, g: 0.16489477, b: 0.23672946, a: 1}
   - {r: 0.16635741, g: 0.15990338, b: 0.21207409, a: 1}
   - {r: 0.18201454, g: 0.1863381, b: 0.25813496, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &1356206146778178005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5209218287537985953, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2875,7 +2860,6 @@ MonoBehaviour:
   - {r: 0.111052476, g: 0.113322586, b: 0.1724032, a: 1}
   - {r: 0.111052476, g: 0.113322586, b: 0.1724032, a: 1}
   - {r: 0.103096105, g: 0.10647444, b: 0.16246483, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &1411117884864651752 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5264046185656572316, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -2898,7 +2882,6 @@ MonoBehaviour:
   - {r: 0.10379246, g: 0.11640885, b: 0.13280314, a: 1}
   - {r: 0.13775702, g: 0.14976327, b: 0.17434968, a: 1}
   - {r: 0.12638478, g: 0.1415166, b: 0.16151036, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1494153485096710282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5630808560282126590, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -3002,7 +2985,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &1521753813683527479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5730462357657904963, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -3545,7 +3527,6 @@ MonoBehaviour:
   - {r: 0.3232245, g: 0.37683442, b: 0.5207282, a: 1}
   - {r: 0.3307433, g: 0.3740167, b: 0.51732534, a: 1}
   - {r: 0.3317016, g: 0.37523487, b: 0.4939764, a: 1}
-  _originalMesh: {fileID: -3997124684957195950, guid: f634f3fe602825743aafa21097a70655, type: 3}
 --- !u!1 &1607517853588731013 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5537148083596463345, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -3588,7 +3569,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2271763372214973772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4980425800959151416, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -3683,7 +3663,6 @@ MonoBehaviour:
   - {r: 0.07938812, g: 0.08133516, b: 0.12717335, a: 1}
   - {r: 0.115098745, g: 0.11789734, b: 0.18428534, a: 1}
   - {r: 0.09585162, g: 0.098031655, b: 0.15288799, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &2284009939761081469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4983941969281160201, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -3706,7 +3685,6 @@ MonoBehaviour:
   - {r: 0.11002599, g: 0.10569298, b: 0.14455137, a: 1}
   - {r: 0.1349331, g: 0.12907904, b: 0.17317142, a: 1}
   - {r: 0.13927034, g: 0.13294725, b: 0.1832078, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2305895691808261026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8834028144111680470, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4153,7 +4131,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: -5321714129059587791, guid: b12489813f98d5e4787bb6621e9bd2c2, type: 3}
 --- !u!1 &2387944664604489371 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8915795914737290991, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4196,7 +4173,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2431420454751048051 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8874006777307310343, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4300,7 +4276,6 @@ MonoBehaviour:
   - {r: 0.2106468, g: 0.16250193, b: 0.24937841, a: 1}
   - {r: 0.25128976, g: 0.1998712, b: 0.32192734, a: 1}
   - {r: 0.23886187, g: 0.18974844, b: 0.30163252, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &2531059352953755016 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8770983692076887548, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4343,7 +4318,6 @@ MonoBehaviour:
   - {r: 0.3810089, g: 0.3572956, b: 0.47505105, a: 1}
   - {r: 0.379277, g: 0.35803193, b: 0.47403443, a: 1}
   - {r: 0.37671104, g: 0.3591229, b: 0.47252825, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2615805768721627292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9139456605196140776, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4377,7 +4351,6 @@ MonoBehaviour:
   - {r: 0.18370587, g: 0.19586416, b: 0.27008402, a: 1}
   - {r: 0.18370587, g: 0.19586416, b: 0.27008402, a: 1}
   - {r: 0.2753384, g: 0.31817025, b: 0.4159941, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &2630799354280378326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9086733743635613602, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4420,7 +4393,6 @@ MonoBehaviour:
   - {r: 0.33806908, g: 0.3474647, b: 0.47336566, a: 1}
   - {r: 0.34117693, g: 0.35158148, b: 0.47577718, a: 1}
   - {r: 0.33516157, g: 0.346669, b: 0.46136114, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2714051690347544728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9165622942753061100, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4463,7 +4435,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2732109953817853890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9183558342090327990, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4506,7 +4477,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2808066459249396355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8962352039057060599, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4549,7 +4519,6 @@ MonoBehaviour:
   - {r: 0.16881411, g: 0.15223335, b: 0.2068956, a: 1}
   - {r: 0.16557989, g: 0.14912967, b: 0.20284122, a: 1}
   - {r: 0.16744031, g: 0.15227672, b: 0.2058851, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2865198503978928231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9033043254721163283, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4592,7 +4561,6 @@ MonoBehaviour:
   - {r: 0.17633742, g: 0.17547272, b: 0.23730025, a: 1}
   - {r: 0.16995615, g: 0.1667499, b: 0.22511555, a: 1}
   - {r: 0.17336641, g: 0.1722524, b: 0.23432553, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2895129332918993923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8265647840000408695, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -4975,7 +4943,6 @@ MonoBehaviour:
   - {r: 0.1366521, g: 0.13730673, b: 0.21022502, a: 1}
   - {r: 0.12791526, g: 0.12675817, b: 0.19814865, a: 1}
   - {r: 0.12877476, g: 0.12731557, b: 0.19833271, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &2977009080752231852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8343094079790837208, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5018,7 +4985,6 @@ MonoBehaviour:
   - {r: 0.34078252, g: 0.37381092, b: 0.44960186, a: 1}
   - {r: 0.3414145, g: 0.37364233, b: 0.45028588, a: 1}
   - {r: 0.34072578, g: 0.37382606, b: 0.44954044, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3088149304789578472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8089491112590019228, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5122,7 +5088,6 @@ MonoBehaviour:
   - {r: 0.20382082, g: 0.24292038, b: 0.3809607, a: 1}
   - {r: 0.24927178, g: 0.313434, b: 0.50137913, a: 1}
   - {r: 0.2455039, g: 0.30100262, b: 0.47173518, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &3119529693685872356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8201654819869183632, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5226,7 +5191,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &3122115955252950719 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8199667112997801675, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5269,7 +5233,6 @@ MonoBehaviour:
   - {r: 0.31183934, g: 0.33358636, b: 0.40867713, a: 1}
   - {r: 0.3237601, g: 0.3479106, b: 0.4250836, a: 1}
   - {r: 0.3254273, g: 0.34991395, b: 0.42737815, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3227047700633614758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8525363478066643410, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5330,7 +5293,6 @@ MonoBehaviour:
   - {r: 0.17365764, g: 0.17841324, b: 0.22391765, a: 1}
   - {r: 0.26254532, g: 0.27435344, b: 0.3408339, a: 1}
   - {r: 0.17365766, g: 0.17841327, b: 0.22391768, a: 1}
-  _originalMesh: {fileID: -2493083393972963878, guid: 9ed7ddbd998b10447b45117ddbc5ec28, type: 3}
 --- !u!1 &3238546541746986209 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8532433205165794453, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5373,7 +5335,6 @@ MonoBehaviour:
   - {r: 0.40106466, g: 0.35359344, b: 0.48915932, a: 1}
   - {r: 0.39747474, g: 0.3538587, b: 0.48644155, a: 1}
   - {r: 0.39371616, g: 0.35189295, b: 0.48251, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3353494618444043178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8364006626076339166, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5756,7 +5717,6 @@ MonoBehaviour:
   - {r: 0.16936728, g: 0.15914837, b: 0.235639, a: 1}
   - {r: 0.15247507, g: 0.14141665, b: 0.20806079, a: 1}
   - {r: 0.15197393, g: 0.1415581, b: 0.20741408, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &3353945218678041012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8364153490459398592, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5799,7 +5759,6 @@ MonoBehaviour:
   - {r: 0.14379402, g: 0.16759148, b: 0.1856495, a: 1}
   - {r: 0.14167462, g: 0.16339444, b: 0.1824136, a: 1}
   - {r: 0.14417599, g: 0.16554545, b: 0.18565466, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3521465232380511490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7657856424951446902, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5842,7 +5801,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3612142007194931990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7545783530507168610, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5946,7 +5904,6 @@ MonoBehaviour:
   - {r: 0.28895307, g: 0.3999567, b: 0.39564854, a: 1}
   - {r: 0.31228852, g: 0.40512082, b: 0.42288396, a: 1}
   - {r: 0.2970303, g: 0.39812157, b: 0.40444607, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &3728678102684274764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7576750958190241848, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -5989,7 +5946,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3787624763742025497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7928783438747881325, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6032,7 +5988,6 @@ MonoBehaviour:
   - {r: 0.3489052, g: 0.35133582, b: 0.51154655, a: 1}
   - {r: 0.35187912, g: 0.35537547, b: 0.5135513, a: 1}
   - {r: 0.35409218, g: 0.35988697, b: 0.5120062, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3833673655635593356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8046555670846075128, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6075,7 +6030,6 @@ MonoBehaviour:
   - {r: 0.21181466, g: 0.18659316, b: 0.2573728, a: 1}
   - {r: 0.19919002, g: 0.17395763, b: 0.24120542, a: 1}
   - {r: 0.19728419, g: 0.17372467, b: 0.23963197, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3854331626464969833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8063057492151516189, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6118,7 +6072,6 @@ MonoBehaviour:
   - {r: 0.3096626, g: 0.32274756, b: 0.4089744, a: 1}
   - {r: 0.3252232, g: 0.34147352, b: 0.42883605, a: 1}
   - {r: 0.3255899, g: 0.34441584, b: 0.42482746, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3875974666855230221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8021702914333479801, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6501,7 +6454,6 @@ MonoBehaviour:
   - {r: 0.13042633, g: 0.13371313, b: 0.20924813, a: 1}
   - {r: 0.11615722, g: 0.11876847, b: 0.1846719, a: 1}
   - {r: 0.11633446, g: 0.11906184, b: 0.1858522, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &3938782307141602447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7796214203458876667, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6544,7 +6496,6 @@ MonoBehaviour:
   - {r: 0.16720164, g: 0.17625615, b: 0.2624717, a: 1}
   - {r: 0.16194504, g: 0.1680955, b: 0.24925882, a: 1}
   - {r: 0.16695416, g: 0.17333612, b: 0.25369596, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3954598350719764322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7816388715357339414, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6648,7 +6599,6 @@ MonoBehaviour:
   - {r: 0.211391, g: 0.25335115, b: 0.27920356, a: 1}
   - {r: 0.27977258, g: 0.3416144, b: 0.37345505, a: 1}
   - {r: 0.2327812, g: 0.2855813, b: 0.30948618, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &4005796805407729451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7858667929514631007, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6691,7 +6641,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4023381149390403850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7875953481220833662, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6734,7 +6683,6 @@ MonoBehaviour:
   - {r: 0.1689289, g: 0.14376268, b: 0.23181124, a: 1}
   - {r: 0.1669837, g: 0.1420887, b: 0.22781661, a: 1}
   - {r: 0.17058285, g: 0.1438237, b: 0.22812212, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4046942325382781763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7111547452342051639, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6777,7 +6725,6 @@ MonoBehaviour:
   - {r: 0.18621328, g: 0.19466211, b: 0.27449426, a: 1}
   - {r: 0.17642835, g: 0.18110865, b: 0.25518888, a: 1}
   - {r: 0.17745219, g: 0.18093409, b: 0.25208545, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4083950130397357621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7076827514667998785, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6820,7 +6767,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4108555868755437525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7177734964178460577, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6863,7 +6809,6 @@ MonoBehaviour:
   - {r: 0.1841481, g: 0.19619568, b: 0.28457946, a: 1}
   - {r: 0.1744029, g: 0.18230478, b: 0.26406595, a: 1}
   - {r: 0.17373647, g: 0.18241851, b: 0.26608658, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4172973279758930242 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7165661547979335990, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6924,7 +6869,6 @@ MonoBehaviour:
   - {r: 0.1591795, g: 0.1868469, b: 0.27340978, a: 1}
   - {r: 0.19785866, g: 0.21769522, b: 0.3197861, a: 1}
   - {r: 0.16161695, g: 0.18057024, b: 0.26112658, a: 1}
-  _originalMesh: {fileID: -2493083393972963878, guid: 9ed7ddbd998b10447b45117ddbc5ec28, type: 3}
 --- !u!1 &4387493804425581614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7384610905549581402, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -6967,7 +6911,6 @@ MonoBehaviour:
   - {r: 0.40636215, g: 0.36569908, b: 0.5296199, a: 1}
   - {r: 0.40349233, g: 0.36573112, b: 0.52360123, a: 1}
   - {r: 0.40364072, g: 0.36265934, b: 0.5126761, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4399608678146959198 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7464266581672812330, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7010,7 +6953,6 @@ MonoBehaviour:
   - {r: 0.39085212, g: 0.35311064, b: 0.48082885, a: 1}
   - {r: 0.38867956, g: 0.35403433, b: 0.47955358, a: 1}
   - {r: 0.38664758, g: 0.35489824, b: 0.47836086, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4413575025068452795 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7482943231978378191, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7053,7 +6995,6 @@ MonoBehaviour:
   - {r: 0.18878452, g: 0.21676, b: 0.24541785, a: 1}
   - {r: 0.17802128, g: 0.20093793, b: 0.2301165, a: 1}
   - {r: 0.17544731, g: 0.19926192, b: 0.22697777, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4502257450326688193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7269884488662235573, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7096,7 +7037,6 @@ MonoBehaviour:
   - {r: 0.15287778, g: 0.15599535, b: 0.24280058, a: 1}
   - {r: 0.15046774, g: 0.15274695, b: 0.23502114, a: 1}
   - {r: 0.14985596, g: 0.14975488, b: 0.23152769, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4586407350725351997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7295509304964555337, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7139,7 +7079,6 @@ MonoBehaviour:
   - {r: 0.18946885, g: 0.15368454, b: 0.24360402, a: 1}
   - {r: 0.18581177, g: 0.15102312, b: 0.23734231, a: 1}
   - {r: 0.18908694, g: 0.15490186, b: 0.24009585, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4623106914650256252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1923170212130114312, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7234,7 +7173,6 @@ MonoBehaviour:
   - {r: 0.07166945, g: 0.08501054, b: 0.09245161, a: 1}
   - {r: 0.07252145, g: 0.085176036, b: 0.09338968, a: 1}
   - {r: 0.0696121, g: 0.08202441, b: 0.08969372, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &4753846454923192413 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1973108839753699369, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7277,7 +7215,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4874138034156832674 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1818469735694745558, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7320,7 +7257,6 @@ MonoBehaviour:
   - {r: 0.21823287, g: 0.21175778, b: 0.2699751, a: 1}
   - {r: 0.20468381, g: 0.19654506, b: 0.25235206, a: 1}
   - {r: 0.20254594, g: 0.19853948, b: 0.25118652, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5004653588947667616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2300481569994683092, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7363,7 +7299,6 @@ MonoBehaviour:
   - {r: 0.18706262, g: 0.18365161, b: 0.23694736, a: 1}
   - {r: 0.19114006, g: 0.18855116, b: 0.24255912, a: 1}
   - {r: 0.27478725, g: 0.28906366, b: 0.35768244, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!1 &5075371184896731543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2087344841708294627, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7406,7 +7341,6 @@ MonoBehaviour:
   - {r: 0.258127, g: 0.2598821, b: 0.4432028, a: 1}
   - {r: 0.20409368, g: 0.18013759, b: 0.31442234, a: 1}
   - {r: 0.16417885, g: 0.13415681, b: 0.23609793, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!1 &5114721818386024319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2045705455045934859, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7449,7 +7383,6 @@ MonoBehaviour:
   - {r: 0.15972565, g: 0.15993418, b: 0.20152612, a: 1}
   - {r: 0.15660417, g: 0.15549777, b: 0.19707981, a: 1}
   - {r: 0.15544794, g: 0.1522544, b: 0.19504632, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5146647350348223335 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2158484674076715795, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7492,7 +7425,6 @@ MonoBehaviour:
   - {r: 0.18200035, g: 0.18274096, b: 0.24659953, a: 1}
   - {r: 0.17411585, g: 0.17212574, b: 0.23206156, a: 1}
   - {r: 0.17079812, g: 0.16660847, b: 0.22257808, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5162933154257462212 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2107269532931054512, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7535,7 +7467,6 @@ MonoBehaviour:
   - {r: 0.19617493, g: 0.17808959, b: 0.24103895, a: 1}
   - {r: 0.18650064, g: 0.16803244, b: 0.22848296, a: 1}
   - {r: 0.18049513, g: 0.1633228, b: 0.22148779, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5187189120687954319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2117944329663275515, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7722,7 +7653,6 @@ MonoBehaviour:
   - {r: 0.14944232, g: 0.16631886, b: 0.19069229, a: 1}
   - {r: 0.14940284, g: 0.16610187, b: 0.19060896, a: 1}
   - {r: 0.14886278, g: 0.16588588, b: 0.18999316, a: 1}
-  _originalMesh: {fileID: 3548557373508379753, guid: a55d9fc9ac9726f4795fd8a2bfdfa4e7, type: 3}
 --- !u!1 &5237749835148632794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1308528348731054766, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7765,7 +7695,6 @@ MonoBehaviour:
   - {r: 0.31941223, g: 0.38810357, b: 0.51187557, a: 1}
   - {r: 0.32316723, g: 0.40684962, b: 0.52050173, a: 1}
   - {r: 0.3217638, g: 0.40886155, b: 0.56547403, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!1 &5411324726096044951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1261017835191114723, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -7869,7 +7798,6 @@ MonoBehaviour:
   - {r: 0.17705703, g: 0.17162865, b: 0.22317669, a: 1}
   - {r: 0.25738844, g: 0.26815686, b: 0.33373657, a: 1}
   - {r: 0.18576877, g: 0.1820969, b: 0.23516662, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &5420734364822356658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1270783722169105094, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -8252,7 +8180,6 @@ MonoBehaviour:
   - {r: 0.13635175, g: 0.15629283, b: 0.1748556, a: 1}
   - {r: 0.124484725, g: 0.14311972, b: 0.16005537, a: 1}
   - {r: 0.12093405, g: 0.13798028, b: 0.15496227, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &5465030525824590997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1247315051047640289, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -8295,7 +8222,6 @@ MonoBehaviour:
   - {r: 0.21977271, g: 0.18349594, b: 0.2618821, a: 1}
   - {r: 0.20649205, g: 0.17115219, b: 0.24532238, a: 1}
   - {r: 0.20669712, g: 0.17204858, b: 0.24594466, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5659052878825104456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1445678282254326844, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -8338,7 +8264,6 @@ MonoBehaviour:
   - {r: 0.16608107, g: 0.15843967, b: 0.20807052, a: 1}
   - {r: 0.16248797, g: 0.15412211, b: 0.20312534, a: 1}
   - {r: 0.16004318, g: 0.1511844, b: 0.19976059, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5752704898836267251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1534984755480148103, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -8381,7 +8306,6 @@ MonoBehaviour:
   - {r: 0.1712498, g: 0.19993393, b: 0.22270337, a: 1}
   - {r: 0.16337827, g: 0.18770601, b: 0.2113846, a: 1}
   - {r: 0.15742908, g: 0.18071729, b: 0.2033856, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5769501225195541711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 759288555426524347, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -8424,7 +8348,6 @@ MonoBehaviour:
   - {r: 0.19531137, g: 0.1658991, b: 0.29030702, a: 1}
   - {r: 0.24449377, g: 0.19921716, b: 0.3337079, a: 1}
   - {r: 0.20615986, g: 0.16513743, b: 0.27459964, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!1 &5829874251516342565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 756382217828190545, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -9123,7 +9046,6 @@ MonoBehaviour:
   - {r: 0.1182197, g: 0.12805128, b: 0.21610343, a: 1}
   - {r: 0.11798387, g: 0.127896, b: 0.2160669, a: 1}
   - {r: 0.11815059, g: 0.12788759, b: 0.21563065, a: 1}
-  _originalMesh: {fileID: 8260512910192245420, guid: 1a10cbecaa3fd6b4fbb491bb8fdf526b, type: 3}
 --- !u!1 &5895518278807783620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 813458848393769136, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -9506,7 +9428,6 @@ MonoBehaviour:
   - {r: 0.15202, g: 0.14154355, b: 0.18871832, a: 1}
   - {r: 0.15791814, g: 0.15099853, b: 0.1980164, a: 1}
   - {r: 0.14334977, g: 0.13347083, b: 0.17795505, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &6062815200015494072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1061609733661823948, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -9540,7 +9461,6 @@ MonoBehaviour:
   - {r: 0.11106527, g: 0.13069853, b: 0.14427514, a: 1}
   - {r: 0.11106527, g: 0.13069853, b: 0.14427514, a: 1}
   - {r: 0.08780238, g: 0.099073246, b: 0.11234022, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &6113139408353992094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1030992021497587178, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -9583,7 +9503,6 @@ MonoBehaviour:
   - {r: 0.3712541, g: 0.36144298, b: 0.46932513, a: 1}
   - {r: 0.3698139, g: 0.3620553, b: 0.46847975, a: 1}
   - {r: 0.36843216, g: 0.36264274, b: 0.46766868, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6307128654901245484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 945622024310672984, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -10030,7 +9949,6 @@ MonoBehaviour:
   - {r: 0.32503435, g: 0.37801203, b: 0.43255773, a: 1}
   - {r: 0.32801855, g: 0.37721592, b: 0.43578753, a: 1}
   - {r: 0.31757107, g: 0.38000298, b: 0.42448032, a: 1}
-  _originalMesh: {fileID: 1485894082095146346, guid: bf7b1cc914cd4954fa72e60ec9052334, type: 3}
 --- !u!1 &6573806992345992877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 117709873256511193, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -10413,7 +10331,6 @@ MonoBehaviour:
   - {r: 0.111458264, g: 0.11183052, b: 0.16942097, a: 1}
   - {r: 0.11436593, g: 0.11577007, b: 0.17751293, a: 1}
   - {r: 0.1154584, g: 0.116603814, b: 0.17843132, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &6675989542068223657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 449527902446503645, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -10456,7 +10373,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6914352407522579739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 390789254768340335, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -10903,7 +10819,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: -5321714129059587791, guid: b12489813f98d5e4787bb6621e9bd2c2, type: 3}
 --- !u!1 &7022949667422936307 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4318509642443433095, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -10998,7 +10913,6 @@ MonoBehaviour:
   - {r: 0.085069574, g: 0.09695855, b: 0.108985685, a: 1}
   - {r: 0.12100094, g: 0.13850203, b: 0.1551311, a: 1}
   - {r: 0.10140174, g: 0.11558895, b: 0.12991239, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &7041683741724228755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4260963993626871015, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11041,7 +10955,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7100755092992112804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4040319314167234768, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11460,7 +11373,6 @@ MonoBehaviour:
   - {r: 0.18192424, g: 0.2058969, b: 0.3467529, a: 1}
   - {r: 0.1767873, g: 0.19842513, b: 0.33572757, a: 1}
   - {r: 0.16522321, g: 0.18242994, b: 0.31172654, a: 1}
-  _originalMesh: {fileID: 2619086233303812490, guid: ad033e5c8b1a9474dbda6915f9be5b6d, type: 3}
 --- !u!1 &7303164882684584316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4594489538965149960, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11503,7 +11415,6 @@ MonoBehaviour:
   - {r: 0.20807274, g: 0.18572877, b: 0.26221347, a: 1}
   - {r: 0.19900188, g: 0.17615436, b: 0.24845985, a: 1}
   - {r: 0.2029641, g: 0.18333346, b: 0.25177202, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7436297022947617155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4443894627842904567, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11546,7 +11457,6 @@ MonoBehaviour:
   - {r: 0.35486245, g: 0.36841208, b: 0.45970348, a: 1}
   - {r: 0.35374126, g: 0.36888877, b: 0.45904535, a: 1}
   - {r: 0.35139203, g: 0.3698876, b: 0.4576664, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7454390424891791065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4461865157064011437, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11589,7 +11499,6 @@ MonoBehaviour:
   - {r: 0.3638571, g: 0.3645879, b: 0.4649832, a: 1}
   - {r: 0.36258054, g: 0.36513063, b: 0.46423388, a: 1}
   - {r: 0.36060897, g: 0.36596888, b: 0.4630766, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7521228003228920542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3672737335468855978, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11612,7 +11521,6 @@ MonoBehaviour:
   - {r: 0.10843046, g: 0.11974724, b: 0.1765817, a: 1}
   - {r: 0.1282949, g: 0.14455561, b: 0.21754164, a: 1}
   - {r: 0.14873655, g: 0.16975738, b: 0.24677514, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &7666328962425761085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3529889387232662857, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -11995,7 +11903,6 @@ MonoBehaviour:
   - {r: 0.10425251, g: 0.12263502, b: 0.1342893, a: 1}
   - {r: 0.111912824, g: 0.13449249, b: 0.14528187, a: 1}
   - {r: 0.10319968, g: 0.121833794, b: 0.13301498, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &7766812578717236407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3553807136741409987, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12038,7 +11945,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7787476335786197167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3930030966282500315, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12081,7 +11987,6 @@ MonoBehaviour:
   - {r: 0.15096505, g: 0.15549646, b: 0.24564989, a: 1}
   - {r: 0.14898273, g: 0.15265691, b: 0.23816712, a: 1}
   - {r: 0.15038972, g: 0.1561229, b: 0.23937133, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7866054883098935883 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4013055940748606015, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12124,7 +12029,6 @@ MonoBehaviour:
   - {r: 0.1950385, g: 0.16222923, b: 0.24556816, a: 1}
   - {r: 0.1879317, g: 0.15555018, b: 0.23499314, a: 1}
   - {r: 0.1937779, g: 0.1599857, b: 0.23767368, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7955775817744037370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3814687236814212494, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12167,7 +12071,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7998545089690138094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3861942513836051866, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12210,7 +12113,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8016638540903680692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3879913096923624128, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12253,7 +12155,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8071759479114597151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3070412996326275947, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12700,7 +12601,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 1485894082095146346, guid: bf7b1cc914cd4954fa72e60ec9052334, type: 3}
 --- !u!1 &8153727427380951383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3152292990096441635, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12743,7 +12643,6 @@ MonoBehaviour:
   - {r: 0.40078327, g: 0.37825593, b: 0.569399, a: 1}
   - {r: 0.39833438, g: 0.37795547, b: 0.56259066, a: 1}
   - {r: 0.40029368, g: 0.37490067, b: 0.5534324, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8175735424016142572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3165720672673392792, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12838,7 +12737,6 @@ MonoBehaviour:
   - {r: 0.11243305, g: 0.11350388, b: 0.17360422, a: 1}
   - {r: 0.0796458, g: 0.07972362, b: 0.12035329, a: 1}
   - {r: 0.09344561, g: 0.09407795, b: 0.14329274, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &8234821915950017561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2945104325938828397, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12881,7 +12779,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8269538539522019695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2908101998620272923, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -12924,7 +12821,6 @@ MonoBehaviour:
   - {r: 0.19496727, g: 0.19315004, b: 0.2478265, a: 1}
   - {r: 0.18388784, g: 0.17983672, b: 0.23257792, a: 1}
   - {r: 0.18388784, g: 0.17983672, b: 0.23257792, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8316111934128511917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3021961111044645849, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13028,7 +12924,6 @@ MonoBehaviour:
   - {r: 0.31011823, g: 0.38199115, b: 0.41641414, a: 1}
   - {r: 0.29818463, g: 0.38517466, b: 0.4034985, a: 1}
   - {r: 0.30751517, g: 0.38268557, b: 0.4135969, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &8353728905520115193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2987718396188153229, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13071,7 +12966,6 @@ MonoBehaviour:
   - {r: 0.21762899, g: 0.18568242, b: 0.26136407, a: 1}
   - {r: 0.20435347, g: 0.1729497, b: 0.2446229, a: 1}
   - {r: 0.20339668, g: 0.17331758, b: 0.2440833, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8372309064862164372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3362078532391263712, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13114,7 +13008,6 @@ MonoBehaviour:
   - {r: 0.16013603, g: 0.1845467, b: 0.2074586, a: 1}
   - {r: 0.15398039, g: 0.1748965, b: 0.19858298, a: 1}
   - {r: 0.1581278, g: 0.17905566, b: 0.20410502, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8399730808279518189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3317249165459092377, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13157,7 +13050,6 @@ MonoBehaviour:
   - {r: 0.16674894, g: 0.15348096, b: 0.20599377, a: 1}
   - {r: 0.16352576, g: 0.15028605, b: 0.20190431, a: 1}
   - {r: 0.16008666, g: 0.14829138, b: 0.19828264, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8434756011433676336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3429121439588546116, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13200,7 +13092,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8588041557758786707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3293873415068353767, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13304,7 +13195,6 @@ MonoBehaviour:
   - {r: 0.3110252, g: 0.3609819, b: 0.41328302, a: 1}
   - {r: 0.23054467, g: 0.27505058, b: 0.30512825, a: 1}
   - {r: 0.27675796, g: 0.32745144, b: 0.3677997, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &8742613997246077536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2579695333616673300, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13347,7 +13237,6 @@ MonoBehaviour:
   - {r: 0.31734022, g: 0.30884656, b: 0.477388, a: 1}
   - {r: 0.3279753, g: 0.3213834, b: 0.49159724, a: 1}
   - {r: 0.33778876, g: 0.3339972, b: 0.5038437, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8840732669417337432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2317240156107442732, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13390,7 +13279,6 @@ MonoBehaviour:
   - {r: 0.17550926, g: 0.19790167, b: 0.22749737, a: 1}
   - {r: 0.16605347, g: 0.18413597, b: 0.21403801, a: 1}
   - {r: 0.16736102, g: 0.18382077, b: 0.21539728, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8907472265120255694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2379405783531173562, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13433,7 +13321,6 @@ MonoBehaviour:
   - {r: 0.20536548, g: 0.21701837, b: 0.2603713, a: 1}
   - {r: 0.19262828, g: 0.20112613, b: 0.24328515, a: 1}
   - {r: 0.18923385, g: 0.20158406, b: 0.2404258, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8907486812187219589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2379354359875301105, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13528,7 +13415,6 @@ MonoBehaviour:
   - {r: 0.10794998, g: 0.10050516, b: 0.13400687, a: 1}
   - {r: 0.14868794, g: 0.1384336, b: 0.18457814, a: 1}
   - {r: 0.12828642, g: 0.11943908, b: 0.1592521, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &8931791908996945297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2408567407971479013, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -13975,7 +13861,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 1485894082095146346, guid: bf7b1cc914cd4954fa72e60ec9052334, type: 3}
 --- !u!1 &8954194296063854243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2799930985804119767, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14018,7 +13903,6 @@ MonoBehaviour:
   - {r: 0.18310976, g: 0.17361437, b: 0.22879085, a: 1}
   - {r: 0.17544395, g: 0.16523452, b: 0.21865626, a: 1}
   - {r: 0.1789936, g: 0.1708912, b: 0.22426483, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8971666528513496907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2745270582555619135, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14052,7 +13936,6 @@ MonoBehaviour:
   - {r: 0.08967043, g: 0.087210625, b: 0.11479671, a: 1}
   - {r: 0.08967043, g: 0.087210625, b: 0.11479671, a: 1}
   - {r: 0.097087495, g: 0.09327928, b: 0.12560241, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &8991870433879646315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2761094304104077343, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14075,7 +13958,6 @@ MonoBehaviour:
   - {r: 0.09700496, g: 0.10719139, b: 0.15965013, a: 1}
   - {r: 0.13611788, g: 0.15005714, b: 0.22418465, a: 1}
   - {r: 0.1431842, g: 0.16104485, b: 0.23884557, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8998768559118395610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2772781904090697902, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14118,7 +14000,6 @@ MonoBehaviour:
   - {r: 0.14317226, g: 0.1650347, b: 0.18452114, a: 1}
   - {r: 0.14099483, g: 0.16088462, b: 0.18122876, a: 1}
   - {r: 0.13765156, g: 0.15695971, b: 0.17677823, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9024938982560576294 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2857512046245219154, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14161,7 +14042,6 @@ MonoBehaviour:
   - {r: 0.16029407, g: 0.15148588, b: 0.2001059, a: 1}
   - {r: 0.15821257, g: 0.14898469, b: 0.19724113, a: 1}
   - {r: 0.16029407, g: 0.15148588, b: 0.2001059, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9042558578544291079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2874832849918924147, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14204,7 +14084,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9113796087707286837 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2657791604577961281, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14247,7 +14126,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9193493358508693497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2669846919879290765, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14281,7 +14159,6 @@ MonoBehaviour:
   - {r: 0.121909074, g: 0.1271775, b: 0.15558025, a: 1}
   - {r: 0.121909074, g: 0.1271775, b: 0.15558025, a: 1}
   - {r: 0.116146594, g: 0.12086372, b: 0.14797199, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1 &9194023700210142789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2670443225978631729, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14324,7 +14201,6 @@ MonoBehaviour:
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
   - {r: 0.34449115, g: 0.37282157, b: 0.4536157, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9212425326445789856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2684697498514930388, guid: c5429d1cea9b32342b5e8667e398ac17, type: 3}
@@ -14367,4 +14243,3 @@ MonoBehaviour:
   - {r: 0.18074472, g: 0.19560668, b: 0.2911534, a: 1}
   - {r: 0.17147417, g: 0.18195342, b: 0.27020583, a: 1}
   - {r: 0.17052408, g: 0.18127508, b: 0.27038044, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}

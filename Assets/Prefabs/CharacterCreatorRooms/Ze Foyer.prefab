@@ -62,6 +62,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,9 +85,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7477134749544034281
 MonoBehaviour:
@@ -338,7 +342,6 @@ MonoBehaviour:
   - {r: 1.7667292, g: 1.3144377, b: 0.9035055, a: 1}
   - {r: 2.407942, g: 1.7693946, b: 1.2061417, a: 1}
   - {r: 2.3852327, g: 1.7499691, b: 1.1922958, a: 1}
-  _originalMesh: {fileID: 3244747659887756738, guid: 746904b5033f17b4ab25b786b4597564, type: 3}
 --- !u!1 &396484171129985569
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +499,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -517,9 +522,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6745232004462930555
 MonoBehaviour:
@@ -538,7 +545,6 @@ MonoBehaviour:
   - {r: 0.34776607, g: 0.25444695, b: 0.17693385, a: 1}
   - {r: 1.5145439, g: 1.5778598, b: 1.1213123, a: 1}
   - {r: 1.8470378, g: 1.2937651, b: 0.8878868, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &887756637252290381
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +607,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -622,9 +630,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3332963020759471281
 MonoBehaviour:
@@ -819,7 +829,6 @@ MonoBehaviour:
   - {r: 0.33518785, g: 0.3106327, b: 0.23430316, a: 1}
   - {r: 1.7289169, g: 1.2797165, b: 0.88557225, a: 1}
   - {r: 0.3178742, g: 0.2982349, b: 0.22599113, a: 1}
-  _originalMesh: {fileID: -7387465547078678399, guid: 3affeacfe8195674993a3fc62d7da4ff, type: 3}
 --- !u!1 &1218476480751944190
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +979,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -991,9 +1002,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &79604697026063601
 MonoBehaviour:
@@ -1035,7 +1048,6 @@ MonoBehaviour:
   - {r: 0.21851896, g: 0.16861857, b: 0.13343945, a: 1}
   - {r: 0.42191312, g: 0.324758, b: 0.22566612, a: 1}
   - {r: 0.24081689, g: 0.18489838, b: 0.14610937, a: 1}
-  _originalMesh: {fileID: 1135631012458800527, guid: 549224d38db2fcb4c8fc809aab268940, type: 3}
 --- !u!1 &2064135885817153745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1147,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1156,9 +1170,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6276374440080343531
 MonoBehaviour:
@@ -1177,7 +1193,6 @@ MonoBehaviour:
   - {r: 0.75904226, g: 0.44678319, b: 0.3109276, a: 1}
   - {r: 1.7756116, g: 1.259334, b: 0.8659165, a: 1}
   - {r: 1.8678418, g: 1.0674669, b: 0.74239993, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2422108516564965399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1349,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1355,9 +1372,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3133032926492350580
 GameObject:
@@ -1421,6 +1440,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1442,9 +1463,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4644421902147487106
 MonoBehaviour:
@@ -1544,7 +1567,6 @@ MonoBehaviour:
   - {r: 1.4970927, g: 1.256556, b: 1.0129266, a: 1}
   - {r: 1.6947777, g: 1.056774, b: 0.7899169, a: 1}
   - {r: 1.6186699, g: 1.2349098, b: 0.9743994, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &3550266906446228933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1723,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1722,9 +1746,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2424569761899608219
 MonoBehaviour:
@@ -1743,7 +1769,6 @@ MonoBehaviour:
   - {r: 1.1110411, g: 1.1630594, b: 0.81648487, a: 1}
   - {r: 0.67111045, g: 0.81898135, b: 0.61487514, a: 1}
   - {r: 1.428087, g: 1.4546765, b: 1.0332073, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4371887388474453541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,6 +1973,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1969,9 +1996,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &108898086009043078
 MonoBehaviour:
@@ -2071,7 +2100,6 @@ MonoBehaviour:
   - {r: 1.4419686, g: 1.2848656, b: 1.0278023, a: 1}
   - {r: 1.2469919, g: 1.1406721, b: 0.89440626, a: 1}
   - {r: 1.4336376, g: 1.2440283, b: 0.99902725, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &5694787740843087983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2162,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2155,9 +2185,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1216169202090113017
 MonoBehaviour:
@@ -2188,7 +2220,6 @@ MonoBehaviour:
   - {r: 2.419293, g: 2.0106654, b: 1.29796, a: 1}
   - {r: 2.3962398, g: 1.3205214, b: 0.82414764, a: 1}
   - {r: 1.8782612, g: 1.0321791, b: 0.67009175, a: 1}
-  _originalMesh: {fileID: -582816223571098269, guid: 64ae3091b5bc05a42b3f1ec7af5c05f6, type: 3}
 --- !u!1 &6126642407492616805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,6 +2282,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2272,9 +2305,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5865283621095218919
 MonoBehaviour:
@@ -2473,7 +2508,6 @@ MonoBehaviour:
   - {r: 0.34761667, g: 0.39771926, b: 0.30212575, a: 1}
   - {r: 0.35024798, g: 0.4028542, b: 0.3058316, a: 1}
   - {r: 0.33833855, g: 0.38852346, b: 0.2956841, a: 1}
-  _originalMesh: {fileID: 1055325846790361637, guid: f005e9c5d112faf488ee955983cff89e, type: 3}
 --- !u!1 &6146968944383968336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,6 +2604,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2592,9 +2628,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7556905502995692309
 MonoBehaviour:
@@ -2608,7 +2646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39594e6f95707354299ac0424bf178f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obfuscate: 0
 --- !u!114 &3472605405784568594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,7 +2717,6 @@ MonoBehaviour:
   - {r: 0.7494642, g: 1.0215768, b: 0.7519966, a: 1}
   - {r: 0.63431984, g: 0.8983309, b: 0.6704075, a: 1}
   - {r: 0.3837682, g: 0.56864226, b: 0.4475936, a: 1}
-  _originalMesh: {fileID: 2173575550842627689, guid: 0d0ebe2edb0b9e14e8827840f9b899ff, type: 3}
 --- !u!1 &6496945321717079891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,6 +2910,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2896,9 +2934,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5233174249823316087
 MonoBehaviour:
@@ -2912,7 +2952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39594e6f95707354299ac0424bf178f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obfuscate: 0
 --- !u!114 &4342594882710293238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2984,7 +3023,6 @@ MonoBehaviour:
   - {r: 0.9994536, g: 0.69100237, b: 0.47696695, a: 1}
   - {r: 1.2006023, g: 0.7834546, b: 0.52444655, a: 1}
   - {r: 0.68904227, g: 0.48935786, b: 0.3548149, a: 1}
-  _originalMesh: {fileID: 2173575550842627689, guid: 0d0ebe2edb0b9e14e8827840f9b899ff, type: 3}
 --- !u!1 &8105297104117432513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,6 +3167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba6a280485f6c49a2421674607e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 2faecbf72a9d4814a8b93771850f0a19, type: 2}
   _settings:
     SamplingDistance: 1.7
     SamplingCameraFOV: 130
@@ -3182,7 +3221,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ShowEvenInEditor: 0
 --- !u!1 &8938982273873960029
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,7 +4227,6 @@ MonoBehaviour:
   - {r: 0.9769302, g: 0.8963403, b: 0.6807825, a: 1}
   - {r: 1.337096, g: 1.1274873, b: 0.91082996, a: 1}
   - {r: 1.2442605, g: 1.0592507, b: 0.83135945, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!1001 &2336063389782418184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5101,7 +5138,6 @@ MonoBehaviour:
   - {r: 0.576509, g: 0.5874451, b: 0.46238866, a: 1}
   - {r: 1.0209881, g: 1.1233469, b: 0.8345403, a: 1}
   - {r: 0.9278292, g: 0.9642555, b: 0.7263326, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!1001 &3198096006636032824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6013,7 +6049,6 @@ MonoBehaviour:
   - {r: 2.8343296, g: 1.6823977, b: 1.1551987, a: 1}
   - {r: 1.4474301, g: 0.9198686, b: 0.6512767, a: 1}
   - {r: 3.3625147, g: 2.011916, b: 1.3739746, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!1001 &3988702307324328970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6333,7 +6368,6 @@ MonoBehaviour:
   - {r: 0.6998263, g: 0.44072962, b: 0.30042046, a: 1}
   - {r: 0.26635152, g: 0.19043517, b: 0.13741457, a: 1}
   - {r: 0.20334522, g: 0.14900392, b: 0.10946955, a: 1}
-  _originalMesh: {fileID: -6260563404509019582, guid: 4992b30e522e41540873f7cd90f1cb59, type: 3}
 --- !u!1001 &4132437873026276791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7245,7 +7279,6 @@ MonoBehaviour:
   - {r: 1.3546121, g: 0.86583304, b: 0.6145419, a: 1}
   - {r: 1.3098022, g: 0.8461003, b: 0.639684, a: 1}
   - {r: 1.1992197, g: 0.75869435, b: 0.55292356, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!1001 &4275745220918058802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8157,7 +8190,6 @@ MonoBehaviour:
   - {r: 2.1176121, g: 2.2107143, b: 1.6072054, a: 1}
   - {r: 0.976943, g: 0.8963984, b: 0.6808074, a: 1}
   - {r: 2.1193278, g: 2.0506275, b: 1.5037857, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!1001 &4826443539091796638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9064,7 +9096,6 @@ MonoBehaviour:
   - {r: 1.2591454, g: 0.73023695, b: 0.534391, a: 1}
   - {r: 2.8851912, g: 1.7104453, b: 1.173828, a: 1}
   - {r: 2.82495, g: 1.6148297, b: 1.1271577, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!4 &8115976065963511267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3628570790017400701, guid: 32c5fdd1ecef11548bf8631ba7f7606d, type: 3}
@@ -9305,7 +9336,6 @@ MonoBehaviour:
   - {r: 0.30727735, g: 0.2117091, b: 0.1511393, a: 1}
   - {r: 0.29319865, g: 0.1997242, b: 0.14310786, a: 1}
   - {r: 0.28540644, g: 0.19547449, b: 0.14059986, a: 1}
-  _originalMesh: {fileID: 7065439566198968859, guid: 5f340bedaac054c4c80f2077620ccc56, type: 3}
 --- !u!1001 &7427423504532715162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10212,7 +10242,6 @@ MonoBehaviour:
   - {r: 1.0524422, g: 0.76599264, b: 0.60036546, a: 1}
   - {r: 1.2590679, g: 0.7302479, b: 0.53441334, a: 1}
   - {r: 1.5141526, g: 0.960386, b: 0.72234017, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!4 &6145381301099121127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3628570790017400701, guid: 32c5fdd1ecef11548bf8631ba7f7606d, type: 3}
@@ -10508,7 +10537,6 @@ MonoBehaviour:
   - {r: 0.13980496, g: 0.22073999, b: 0.17442594, a: 1}
   - {r: 0.14193332, g: 0.22644112, b: 0.17942193, a: 1}
   - {r: 0.1408669, g: 0.22679214, b: 0.17975017, a: 1}
-  _originalMesh: {fileID: -2305915094419277177, guid: 9e82640902e87244095f45a444aca8e4, type: 3}
 --- !u!4 &480474328740347348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7936191366831892347, guid: d5618977a804041439ed9128e56f1b9a, type: 3}
@@ -11420,7 +11448,6 @@ MonoBehaviour:
   - {r: 1.1157067, g: 1.2193124, b: 0.9031905, a: 1}
   - {r: 2.0992174, g: 2.1929402, b: 1.5947018, a: 1}
   - {r: 2.4378407, g: 2.609955, b: 1.8859017, a: 1}
-  _originalMesh: {fileID: 2576826082724221167, guid: a6096737d2c48ed4b952858800c43a34, type: 3}
 --- !u!4 &6567475069938954176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3628570790017400701, guid: 32c5fdd1ecef11548bf8631ba7f7606d, type: 3}

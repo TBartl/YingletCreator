@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba6a280485f6c49a2421674607e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 8d74b5578a08e804ab5a6984531334f6, type: 2}
   _settings:
     SamplingDistance: 10
     SamplingCameraFOV: 135

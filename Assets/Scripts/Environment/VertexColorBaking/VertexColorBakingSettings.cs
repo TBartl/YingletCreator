@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[System.Serializable]
-public class VertexColorBakingSettings
+[CreateAssetMenu(fileName = "VertexColorBakingSettings", menuName = "Scriptable Objects/Misc/Vertex Color Baking Settings")]
+public class VertexColorBakingSettings : ScriptableObject
 {
 	public const int SamplingTextureSize = 16;
 

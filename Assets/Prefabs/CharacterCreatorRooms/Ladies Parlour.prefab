@@ -333,6 +333,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -354,9 +356,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6418782064900243641
 MonoBehaviour:
@@ -819,7 +823,6 @@ MonoBehaviour:
   - {r: 0.025693247, g: 0.010875185, b: 0.026155485, a: 1}
   - {r: 0.2216132, g: 0.13744229, b: 0.094436, a: 1}
   - {r: 0.15495077, g: 0.08963044, b: 0.069262095, a: 1}
-  _originalMesh: {fileID: -1955063880843991041, guid: 7792d6c8805051045a2316103f477611, type: 3}
 --- !u!1 &3730797999825063926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba6a280485f6c49a2421674607e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 43dd6ddbfbf8ccd46ac37f2b78a226da, type: 2}
   _settings:
     SamplingDistance: 1.2
     SamplingCameraFOV: 135
@@ -1475,7 +1479,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ShowEvenInEditor: 0
 --- !u!1 &8374855572961183854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1544,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1565,9 +1570,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &916046260904852512
 MonoBehaviour:
@@ -6394,7 +6401,6 @@ MonoBehaviour:
   - {r: 0.13390568, g: 0.052558206, b: 0.17287727, a: 1}
   - {r: 0.13230397, g: 0.0528488, b: 0.17137855, a: 1}
   - {r: 0.13385154, g: 0.05251445, b: 0.17329723, a: 1}
-  _originalMesh: {fileID: -1250799956761653513, guid: 391cff1569b03f24e8e5aeb700677106, type: 3}
 --- !u!1 &8691625426264020279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,4 +6643,3 @@ MonoBehaviour:
   - {r: 0.7882625, g: 0.3840745, b: 0.5110797, a: 1}
   - {r: 0.7128554, g: 0.46301246, b: 0.5877321, a: 1}
   - {r: 0.8070439, g: 0.41359332, b: 0.45320603, a: 1}
-  _originalMesh: {fileID: 1834792723216290269, guid: 185911f2f6529804a9180b14d6183364, type: 3}

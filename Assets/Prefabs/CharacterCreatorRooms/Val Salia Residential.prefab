@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,9 +84,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1233160083296425759
 GameObject:
@@ -196,6 +200,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -217,9 +223,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5888995440284144199
 MonoBehaviour:
@@ -319,7 +327,6 @@ MonoBehaviour:
   - {r: 0.56770766, g: 0.47384003, b: 0.5178067, a: 1}
   - {r: 1.024138, g: 0.7434825, b: 0.62208277, a: 1}
   - {r: 0.6124846, g: 0.50029266, b: 0.5280364, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &1377171765870780879
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba6a280485f6c49a2421674607e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: b848728ace9226d44b616773659b2fdc, type: 2}
   _settings:
     SamplingDistance: 0.6
     SamplingCameraFOV: 145
@@ -541,7 +549,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ShowEvenInEditor: 0
 --- !u!1 &1830339210639319006
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +610,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -624,9 +633,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2121050031957391943
 GameObject:
@@ -862,6 +873,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -883,9 +896,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8823235008015314136
 MonoBehaviour:
@@ -1328,7 +1343,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 1485894082095146346, guid: bf7b1cc914cd4954fa72e60ec9052334, type: 3}
 --- !u!1 &2761094304104077343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1406,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1413,9 +1429,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &353041095375451880
 MeshCollider:
@@ -1456,7 +1474,6 @@ MonoBehaviour:
   - {r: 0.267358, g: 0.2888245, b: 0.40244672, a: 1}
   - {r: 0.37609264, g: 0.40453967, b: 0.5645447, a: 1}
   - {r: 0.4199329, g: 0.43978956, b: 0.5862235, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2975113300183164315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1583,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1587,9 +1606,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8204654427000064109
 MonoBehaviour:
@@ -1689,7 +1710,6 @@ MonoBehaviour:
   - {r: 1.5490963, g: 1.1834507, b: 0.71717066, a: 1}
   - {r: 1.4894859, g: 1.1933135, b: 0.6949266, a: 1}
   - {r: 1.5360937, g: 1.1856021, b: 0.7123186, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &3070412996326275947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1772,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1773,9 +1795,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1237350398146079969
 MonoBehaviour:
@@ -2218,7 +2242,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 1485894082095146346, guid: bf7b1cc914cd4954fa72e60ec9052334, type: 3}
 --- !u!1 &3293873415068353767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,6 +2304,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2302,9 +2327,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8223615632274036373
 MonoBehaviour:
@@ -2404,7 +2431,6 @@ MonoBehaviour:
   - {r: 1.6200595, g: 1.1717095, b: 0.7436509, a: 1}
   - {r: 0.91732776, g: 0.7625958, b: 0.568757, a: 1}
   - {r: 1.243483, g: 0.9572432, b: 0.65065044, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &3672737335468855978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2494,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2489,9 +2517,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &425353516830979573
 MeshCollider:
@@ -2532,7 +2562,6 @@ MonoBehaviour:
   - {r: 0.30120108, g: 0.32319665, b: 0.443682, a: 1}
   - {r: 0.38082322, g: 0.3958018, b: 0.53104657, a: 1}
   - {r: 0.4736031, g: 0.47211254, b: 0.5826332, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &3747831475810700382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2707,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2699,9 +2730,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &6229718408923458068
 MeshCollider:
@@ -2742,7 +2775,6 @@ MonoBehaviour:
   - {r: 0.3056331, g: 0.2852643, b: 0.363202, a: 1}
   - {r: 0.368311, g: 0.3470848, b: 0.43826795, a: 1}
   - {r: 0.3735938, g: 0.3561725, b: 0.46693286, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5029263229355136952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +2885,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2874,9 +2908,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3375438988160830611
 MonoBehaviour:
@@ -2976,7 +3012,6 @@ MonoBehaviour:
   - {r: 0.50644594, g: 0.4549972, b: 0.5632074, a: 1}
   - {r: 0.48694283, g: 0.42792615, b: 0.5058353, a: 1}
   - {r: 0.5917606, g: 0.5032441, b: 0.57085544, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &5264046185656572316
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3075,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3061,9 +3098,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &8667680428031558037
 MeshCollider:
@@ -3104,7 +3143,6 @@ MonoBehaviour:
   - {r: 0.28831753, g: 0.31418636, b: 0.33368328, a: 1}
   - {r: 0.37533346, g: 0.4025472, b: 0.44157803, a: 1}
   - {r: 0.3426983, g: 0.3799939, b: 0.40985754, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5418585812455326457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,6 +3241,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3224,9 +3264,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7853101688641121045
 MonoBehaviour:
@@ -3326,7 +3368,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &6086628589453253136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3469,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3449,9 +3492,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &7425477710812839703
 MeshCollider:
@@ -3492,7 +3537,6 @@ MonoBehaviour:
   - {r: 0.3648863, g: 0.36903465, b: 0.51194394, a: 1}
   - {r: 0.4668643, g: 0.4627707, b: 0.6092707, a: 1}
   - {r: 0.4422366, g: 0.43947586, b: 0.597188, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &6156747055181851733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,6 +3600,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3577,9 +3623,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &8078264524162738755
 MeshCollider:
@@ -3620,7 +3668,6 @@ MonoBehaviour:
   - {r: 0.31496876, g: 0.33813828, b: 0.4623141, a: 1}
   - {r: 0.36726373, g: 0.3971661, b: 0.5513438, a: 1}
   - {r: 0.3883244, g: 0.4159503, b: 0.5651375, a: 1}
-  _originalMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &6199352929096322124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,6 +3730,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3704,9 +3753,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2299242922531300413
 MonoBehaviour:
@@ -4245,7 +4296,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: -3997124684957195950, guid: f634f3fe602825743aafa21097a70655, type: 3}
 --- !u!1 &6405545082973514770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4341,6 +4391,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4362,9 +4414,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4023518810143987122
 MonoBehaviour:
@@ -4464,7 +4518,6 @@ MonoBehaviour:
   - {r: 0.68417066, g: 0.5426422, b: 0.54441386, a: 1}
   - {r: 0.52148426, g: 0.44653293, b: 0.5072465, a: 1}
   - {r: 0.6893872, g: 0.5457239, b: 0.5456056, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &7165661547979335990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4527,6 +4580,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4548,9 +4603,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3872956946775907568
 MonoBehaviour:
@@ -4607,7 +4664,6 @@ MonoBehaviour:
   - {r: 0.66137534, g: 0.5530847, b: 0.5499237, a: 1}
   - {r: 0.7653862, g: 0.63340545, b: 0.675634, a: 1}
   - {r: 0.67150253, g: 0.53450507, b: 0.5252178, a: 1}
-  _originalMesh: {fileID: -2493083393972963878, guid: 9ed7ddbd998b10447b45117ddbc5ec28, type: 3}
 --- !u!1 &7545783530507168610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4670,6 +4726,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4691,9 +4749,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4272965490926233384
 MonoBehaviour:
@@ -4793,7 +4853,6 @@ MonoBehaviour:
   - {r: 1.4433726, g: 1.2391099, b: 0.68140703, a: 1}
   - {r: 1.5599375, g: 1.255109, b: 0.7283133, a: 1}
   - {r: 1.4837198, g: 1.2334244, b: 0.69655854, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &7678732562299554209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4903,6 +4962,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4924,9 +4985,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8394543549731519956
 MonoBehaviour:
@@ -5026,7 +5089,6 @@ MonoBehaviour:
   - {r: 0.866725, g: 0.73840094, b: 0.55367845, a: 1}
   - {r: 1.2222782, g: 0.97999597, b: 0.6597469, a: 1}
   - {r: 0.9262267, g: 0.7917928, b: 0.57688016, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &8089491112590019228
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,6 +5151,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5110,9 +5174,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &607140296369314452
 MonoBehaviour:
@@ -5212,7 +5278,6 @@ MonoBehaviour:
   - {r: 0.750197, g: 0.66632503, b: 0.76304954, a: 1}
   - {r: 1.0948981, g: 0.9095643, b: 0.90132016, a: 1}
   - {r: 1.0103109, g: 0.8381342, b: 0.84900844, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &8201654819869183632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5275,6 +5340,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5296,9 +5363,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6021337069160695650
 MonoBehaviour:
@@ -5398,7 +5467,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1 &8525363478066643410
 GameObject:
   m_ObjectHideFlags: 0
@@ -5461,6 +5529,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5482,9 +5552,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5942689071706256598
 MonoBehaviour:
@@ -5541,7 +5613,6 @@ MonoBehaviour:
   - {r: 0.72153085, g: 0.52812046, b: 0.45037776, a: 1}
   - {r: 1.1615968, g: 0.8246881, b: 0.6534866, a: 1}
   - {r: 0.72153103, g: 0.5281206, b: 0.45037785, a: 1}
-  _originalMesh: {fileID: -2493083393972963878, guid: 9ed7ddbd998b10447b45117ddbc5ec28, type: 3}
 --- !u!1 &8539660715251339321
 GameObject:
   m_ObjectHideFlags: 0
@@ -5651,6 +5722,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5672,9 +5745,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6221638628004518206
 MonoBehaviour:
@@ -6117,7 +6192,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: -5321714129059587791, guid: b12489813f98d5e4787bb6621e9bd2c2, type: 3}
 --- !u!1 &8874006777307310343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6180,6 +6254,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6201,9 +6277,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4061530861607716935
 MonoBehaviour:
@@ -6303,7 +6381,6 @@ MonoBehaviour:
   - {r: 0.659531, g: 0.44117776, b: 0.57519203, a: 1}
   - {r: 0.849532, g: 0.523085, b: 0.649097, a: 1}
   - {r: 0.7405147, g: 0.4790366, b: 0.6233307, a: 1}
-  _originalMesh: {fileID: 7178034183554160774, guid: 14114c78ac03aaf4eb91ae7ff745ba99, type: 3}
 --- !u!1001 &352846142141615288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6482,7 +6559,6 @@ MonoBehaviour:
   - {r: 0.21267697, g: 0.21784022, b: 0.3242922, a: 1}
   - {r: 0.30834404, g: 0.31576487, b: 0.4699279, a: 1}
   - {r: 0.25678194, g: 0.26255858, b: 0.38986468, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &8021702914333479801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7761778031016271809, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -6865,7 +6941,6 @@ MonoBehaviour:
   - {r: 0.3495069, g: 0.35814613, b: 0.5335216, a: 1}
   - {r: 0.313254, g: 0.3185442, b: 0.46966386, a: 1}
   - {r: 0.3117445, g: 0.31890315, b: 0.47386876, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1001 &463728951049451689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7644,7 +7719,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: -5321714129059587791, guid: b12489813f98d5e4787bb6621e9bd2c2, type: 3}
 --- !u!1 &449527902446503645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 23208736163020404, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7687,7 +7761,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &1247315051047640289 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1666372990933967944, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7730,7 +7803,6 @@ MonoBehaviour:
   - {r: 0.7895608, g: 0.52465284, b: 0.5792192, a: 1}
   - {r: 0.70164555, g: 0.48307848, b: 0.5599479, a: 1}
   - {r: 0.7047185, g: 0.48598588, b: 0.5603362, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &1445678282254326844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1332902465059284117, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7773,7 +7845,6 @@ MonoBehaviour:
   - {r: 0.5033246, g: 0.4358049, b: 0.5030977, a: 1}
   - {r: 0.47880533, g: 0.42131978, b: 0.49749607, a: 1}
   - {r: 0.46212205, g: 0.41146392, b: 0.49368462, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2107269532931054512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1968628838460433177, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7816,7 +7887,6 @@ MonoBehaviour:
   - {r: 0.67339396, g: 0.5038362, b: 0.5471204, a: 1}
   - {r: 0.6090651, g: 0.46999428, b: 0.53257793, a: 1}
   - {r: 0.5729594, g: 0.4539027, b: 0.5237316, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2579695333616673300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2712174380987292349, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7859,7 +7929,6 @@ MonoBehaviour:
   - {r: 1.5021064, g: 0.9440333, b: 0.86455655, a: 1}
   - {r: 1.5754915, g: 0.9859732, b: 0.8785211, a: 1}
   - {r: 1.644337, g: 1.0280825, b: 0.8894127, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2799930985804119767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2356549615293777534, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7902,7 +7971,6 @@ MonoBehaviour:
   - {r: 0.607829, g: 0.4874136, b: 0.5287825, a: 1}
   - {r: 0.55692506, g: 0.45921564, b: 0.51703614, a: 1}
   - {r: 0.58454895, g: 0.47799036, b: 0.5227457, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2874832849918924147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2416755389956058586, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7945,7 +8013,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2908101998620272923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3329523905609109938, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -7988,7 +8055,6 @@ MonoBehaviour:
   - {r: 0.70044416, g: 0.5522559, b: 0.54813164, a: 1}
   - {r: 0.62483805, g: 0.50759065, b: 0.5308587, a: 1}
   - {r: 0.62483805, g: 0.50759065, b: 0.5308587, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2987718396188153229 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3394022018338532644, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8031,7 +8097,6 @@ MonoBehaviour:
   - {r: 0.7849294, g: 0.53139144, b: 0.5767408, a: 1}
   - {r: 0.69672793, g: 0.4885313, b: 0.55732477, a: 1}
   - {r: 0.6934659, g: 0.48957044, b: 0.5560954, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3317249165459092377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2911088479829723952, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8074,7 +8139,6 @@ MonoBehaviour:
   - {r: 0.49374828, g: 0.42001262, b: 0.5034195, a: 1}
   - {r: 0.47318557, g: 0.40920845, b: 0.49851617, a: 1}
   - {r: 0.45495602, g: 0.40220365, b: 0.49342245, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3861942513836051866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3744496006720435507, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8117,7 +8181,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3879913096923624128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3726525700939270761, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8160,7 +8223,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4013055940748606015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3593382238890918550, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8203,7 +8265,6 @@ MonoBehaviour:
   - {r: 0.6328685, g: 0.45310205, b: 0.5742917, a: 1}
   - {r: 0.58588547, g: 0.43055496, b: 0.5606072, a: 1}
   - {r: 0.62087244, g: 0.44556028, b: 0.5594022, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5875801064069929477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6333317721733587628, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8246,7 +8307,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6277621753187688767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5868727697791359382, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8289,7 +8349,6 @@ MonoBehaviour:
   - {r: 0.63767356, g: 0.5151733, b: 0.5337911, a: 1}
   - {r: 0.5782246, g: 0.48005307, b: 0.5202094, a: 1}
   - {r: 0.5479734, g: 0.46218178, b: 0.5132982, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7076827514667998785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7231248451514853096, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8332,7 +8391,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7875953481220833662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7719872281814940119, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8375,7 +8433,6 @@ MonoBehaviour:
   - {r: 0.48190382, g: 0.39023915, b: 0.5759199, a: 1}
   - {r: 0.46957156, g: 0.38450488, b: 0.56947553, a: 1}
   - {r: 0.48756665, g: 0.39056852, b: 0.5662801, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7928783438747881325 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7523207657701554116, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8418,7 +8475,6 @@ MonoBehaviour:
   - {r: 1.725151, g: 1.0856905, b: 0.88976353, a: 1}
   - {r: 1.7460241, g: 1.0991502, b: 0.8902108, a: 1}
   - {r: 1.7629901, g: 1.1140552, b: 0.88461363, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8046555670846075128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7621327271746504785, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8461,7 +8517,6 @@ MonoBehaviour:
   - {r: 0.7609705, g: 0.5335084, b: 0.5692457, a: 1}
   - {r: 0.6768338, g: 0.49099687, b: 0.55055094, a: 1}
   - {r: 0.6681038, g: 0.48996, b: 0.5479597, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8063057492151516189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7605105426742625460, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8504,7 +8559,6 @@ MonoBehaviour:
   - {r: 1.4732261, g: 0.98777354, b: 0.7372974, a: 1}
   - {r: 1.5798198, g: 1.0505385, b: 0.7585025, a: 1}
   - {r: 1.5849535, g: 1.0601524, b: 0.7499289, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8199667112997801675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8621137415822784098, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8547,7 +8601,6 @@ MonoBehaviour:
   - {r: 1.4979794, g: 1.0234107, b: 0.7303366, a: 1}
   - {r: 1.5793265, g: 1.0714676, b: 0.74892116, a: 1}
   - {r: 1.5907035, g: 1.0781888, b: 0.75152034, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!4 &8815968811049752246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8950873381047561759, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8595,7 +8648,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8962352039057060599 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8795482482953914974, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8638,7 +8690,6 @@ MonoBehaviour:
   - {r: 0.4986461, g: 0.416376, b: 0.5061808, a: 1}
   - {r: 0.47810918, g: 0.40587178, b: 0.501298, a: 1}
   - {r: 0.4933985, g: 0.4162751, b: 0.5042553, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9086733743635613602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8680106863891136267, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -8681,7 +8732,6 @@ MonoBehaviour:
   - {r: 1.659073, g: 1.0717083, b: 0.82926965, a: 1}
   - {r: 1.680741, g: 1.0854467, b: 0.8304681, a: 1}
   - {r: 1.641572, g: 1.0687267, b: 0.8097455, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1001 &984469656990224533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8800,7 +8850,6 @@ MonoBehaviour:
   - {r: 1.4480689, g: 0.9302264, b: 0.91238016, a: 1}
   - {r: 1.5569395, g: 0.93217486, b: 0.8980463, a: 1}
   - {r: 0.9593039, g: 0.61574197, b: 0.7108744, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!4 &7783585624347097033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7038369810472118108, guid: 29acb98e4f4b4144eabdad4f1edb0b13, type: 3}
@@ -9484,7 +9533,6 @@ MonoBehaviour:
   - {r: 1.6236051, g: 1.1711229, b: 0.744974, a: 1}
   - {r: 1.6385117, g: 1.1686565, b: 0.7505365, a: 1}
   - {r: 1.5863247, g: 1.177291, b: 0.7310626, a: 1}
-  _originalMesh: {fileID: 1485894082095146346, guid: bf7b1cc914cd4954fa72e60ec9052334, type: 3}
 --- !u!1 &1030992021497587178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 23208736163020404, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9527,7 +9575,6 @@ MonoBehaviour:
   - {r: 1.8544811, g: 1.1197902, b: 0.80829674, a: 1}
   - {r: 1.847287, g: 1.1216872, b: 0.8068408, a: 1}
   - {r: 1.8403851, g: 1.1235071, b: 0.80544394, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &1534984755480148103 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1968628838460433177, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9570,7 +9617,6 @@ MonoBehaviour:
   - {r: 0.5878355, g: 0.56563634, b: 0.5055015, a: 1}
   - {r: 0.5335531, g: 0.52502215, b: 0.49272284, a: 1}
   - {r: 0.49973914, g: 0.50224495, b: 0.48092702, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &1818469735694745558 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1666372990933967944, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9613,7 +9659,6 @@ MonoBehaviour:
   - {r: 0.78402877, g: 0.6054593, b: 0.597119, a: 1}
   - {r: 0.69550127, g: 0.55475, b: 0.5759931, a: 1}
   - {r: 0.6905653, g: 0.56081474, b: 0.5722786, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2045705455045934859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1332902465059284117, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9656,7 +9701,6 @@ MonoBehaviour:
   - {r: 0.4840639, g: 0.43991572, b: 0.4872739, a: 1}
   - {r: 0.46146747, g: 0.4250804, b: 0.4826893, a: 1}
   - {r: 0.4488534, g: 0.41437605, b: 0.48203385, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2317240156107442732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3329523905609109938, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9699,7 +9743,6 @@ MonoBehaviour:
   - {r: 0.6305389, g: 0.5658418, b: 0.5031686, a: 1}
   - {r: 0.56423813, g: 0.5197253, b: 0.4885414, a: 1}
   - {r: 0.56868106, g: 0.51883566, b: 0.49164394, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2379405783531173562 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3394022018338532644, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9742,7 +9785,6 @@ MonoBehaviour:
   - {r: 0.7406982, g: 0.6210696, b: 0.57455015, a: 1}
   - {r: 0.65675175, g: 0.5681213, b: 0.554277, a: 1}
   - {r: 0.64517874, g: 0.5694147, b: 0.5477625, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2772781904090697902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2911088479829723952, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9785,7 +9827,6 @@ MonoBehaviour:
   - {r: 0.42393705, g: 0.45163026, b: 0.45094344, a: 1}
   - {r: 0.40798905, g: 0.43806687, b: 0.44746676, a: 1}
   - {r: 0.3911969, g: 0.4257143, b: 0.4399091, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3152292990096441635 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2712174380987292349, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9828,7 +9869,6 @@ MonoBehaviour:
   - {r: 2.0019846, g: 1.1718786, b: 0.98064935, a: 1}
   - {r: 1.9897519, g: 1.1709478, b: 0.96892357, a: 1}
   - {r: 1.9995391, g: 1.1614836, b: 0.95315087, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3362078532391263712 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2356549615293777534, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9871,7 +9911,6 @@ MonoBehaviour:
   - {r: 0.53156817, g: 0.5181055, b: 0.47947928, a: 1}
   - {r: 0.48879173, g: 0.48606795, b: 0.46957073, a: 1}
   - {r: 0.5164064, g: 0.5008267, b: 0.47575462, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3429121439588546116 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2416755389956058586, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9914,7 +9953,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4443894627842904567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3726525700939270761, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -9957,7 +9995,6 @@ MonoBehaviour:
   - {r: 1.772602, g: 1.1413813, b: 0.7917258, a: 1}
   - {r: 1.7670013, g: 1.142858, b: 0.7905924, a: 1}
   - {r: 1.7552664, g: 1.1459525, b: 0.7882174, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4461865157064011437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3744496006720435507, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10000,7 +10037,6 @@ MonoBehaviour:
   - {r: 1.8175317, g: 1.1295335, b: 0.8008188, a: 1}
   - {r: 1.8111551, g: 1.131215, b: 0.7995283, a: 1}
   - {r: 1.8013067, g: 1.133812, b: 0.7975352, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4594489538965149960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3593382238890918550, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10043,7 +10079,6 @@ MonoBehaviour:
   - {r: 0.69069296, g: 0.5214241, b: 0.606029, a: 1}
   - {r: 0.63170683, g: 0.48956373, b: 0.5875099, a: 1}
   - {r: 0.6628307, g: 0.51279193, b: 0.58686316, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6483163757468154162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6333317721733587628, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10086,7 +10121,6 @@ MonoBehaviour:
   - {r: 1.6905731, g: 1.1600428, b: 0.7699635, a: 1}
   - {r: 1.6938165, g: 1.1595061, b: 0.7711738, a: 1}
   - {r: 1.692107, g: 1.159789, b: 0.7705359, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6876237144467636744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5868727697791359382, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10129,7 +10163,6 @@ MonoBehaviour:
   - {r: 0.5934215, g: 0.5239858, b: 0.5033444, a: 1}
   - {r: 0.5394753, g: 0.48798296, b: 0.49155575, a: 1}
   - {r: 0.515278, g: 0.4689793, b: 0.4881254, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7295509304964555337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7719872281814940119, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10172,7 +10205,6 @@ MonoBehaviour:
   - {r: 0.5482556, g: 0.41846213, b: 0.6014758, a: 1}
   - {r: 0.5280651, g: 0.40961275, b: 0.5906217, a: 1}
   - {r: 0.54715055, g: 0.42177665, b: 0.59281373, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7384610905549581402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7523207657701554116, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10215,7 +10247,6 @@ MonoBehaviour:
   - {r: 2.0298522, g: 1.1329758, b: 0.91213953, a: 1}
   - {r: 2.0155168, g: 1.1330751, b: 0.90177405, a: 1}
   - {r: 2.0162582, g: 1.1235585, b: 0.88295823, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7464266581672812330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7605105426742625460, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10258,7 +10289,6 @@ MonoBehaviour:
   - {r: 1.9523768, g: 1.0939757, b: 0.8281091, a: 1}
   - {r: 1.9415244, g: 1.0968373, b: 0.8259128, a: 1}
   - {r: 1.9313743, g: 1.0995139, b: 0.82385856, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7482943231978378191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7621327271746504785, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10301,7 +10331,6 @@ MonoBehaviour:
   - {r: 0.6782319, g: 0.61976165, b: 0.5428043, a: 1}
   - {r: 0.6049039, g: 0.5671489, b: 0.52524054, a: 1}
   - {r: 0.5941532, g: 0.56198335, b: 0.51902366, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7657856424951446902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7231248451514853096, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10344,7 +10373,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!4 &8226746203012363649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8950873381047561759, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10392,7 +10420,6 @@ MonoBehaviour:
   - {r: 1.7022702, g: 1.1581074, b: 0.7743283, a: 1}
   - {r: 1.705427, g: 1.157585, b: 0.7755063, a: 1}
   - {r: 1.7019867, g: 1.1581542, b: 0.7742225, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8364153490459398592 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8795482482953914974, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10435,7 +10462,6 @@ MonoBehaviour:
   - {r: 0.42474136, g: 0.45838225, b: 0.4542011, a: 1}
   - {r: 0.40908316, g: 0.44469482, b: 0.45081362, a: 1}
   - {r: 0.42484522, g: 0.4525474, b: 0.4547067, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8532433205165794453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8680106863891136267, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10478,7 +10504,6 @@ MonoBehaviour:
   - {r: 2.0033903, g: 1.0954714, b: 0.8424562, a: 1}
   - {r: 1.9854579, g: 1.0962933, b: 0.8377756, a: 1}
   - {r: 1.9666833, g: 1.090203, b: 0.83100444, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &8770983692076887548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8621137415822784098, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -10521,7 +10546,6 @@ MonoBehaviour:
   - {r: 1.9032081, g: 1.1069411, b: 0.8181582, a: 1}
   - {r: 1.894557, g: 1.1092224, b: 0.8164074, a: 1}
   - {r: 1.8817395, g: 1.1126022, b: 0.8138133, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1001 &1191213342262964911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10636,7 +10660,6 @@ MonoBehaviour:
   - {r: 0.59231657, g: 0.5462571, b: 0.63367134, a: 1}
   - {r: 0.59231657, g: 0.5462571, b: 0.63367134, a: 1}
   - {r: 1.2181982, g: 0.9563984, b: 0.7975926, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1001 &1802043569026180022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10815,7 +10838,6 @@ MonoBehaviour:
   - {r: 0.25186014, g: 0.24501005, b: 0.36321834, a: 1}
   - {r: 0.31045404, g: 0.3110602, b: 0.4511134, a: 1}
   - {r: 0.26807353, g: 0.26471776, b: 0.38988936, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &8265647840000408695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7761778031016271809, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -11198,7 +11220,6 @@ MonoBehaviour:
   - {r: 0.36619014, g: 0.3677714, b: 0.53601223, a: 1}
   - {r: 0.34684834, g: 0.3403653, b: 0.5028329, a: 1}
   - {r: 0.345081, g: 0.34101033, b: 0.5056902, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1001 &1899721136433470143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11705,7 +11726,6 @@ MonoBehaviour:
   - {r: 0.6787161, g: 0.59394646, b: 0.749676, a: 1}
   - {r: 0.6427965, g: 0.5689351, b: 0.7372897, a: 1}
   - {r: 0.5633163, g: 0.5153101, b: 0.71020716, a: 1}
-  _originalMesh: {fileID: 2619086233303812490, guid: ad033e5c8b1a9474dbda6915f9be5b6d, type: 3}
 --- !u!4 &8934802237846844515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7035714454479367900, guid: ce46495bdf214f94e8d849046c536ef6, type: 3}
@@ -11889,7 +11909,6 @@ MonoBehaviour:
   - {r: 0.30165827, g: 0.28220317, b: 0.38433018, a: 1}
   - {r: 0.39152366, g: 0.3687011, b: 0.51590276, a: 1}
   - {r: 0.35252905, g: 0.3294168, b: 0.45663717, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &8364006626076339166 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7761778031016271809, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -12272,7 +12291,6 @@ MonoBehaviour:
   - {r: 0.45385778, g: 0.42627338, b: 0.6008104, a: 1}
   - {r: 0.4101349, g: 0.37908098, b: 0.5296958, a: 1}
   - {r: 0.40724835, g: 0.37915847, b: 0.5288451, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1001 &2744672444776311782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12387,7 +12405,6 @@ MonoBehaviour:
   - {r: 0.31679967, g: 0.30761057, b: 0.42832464, a: 1}
   - {r: 0.31679967, g: 0.30761057, b: 0.42832464, a: 1}
   - {r: 0.3116033, g: 0.29269513, b: 0.3933195, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1001 &4563698378300635558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12497,7 +12514,6 @@ MonoBehaviour:
   - {r: 0.6571078, g: 0.5819925, b: 0.60295814, a: 1}
   - {r: 0.6571078, g: 0.5819925, b: 0.60295814, a: 1}
   - {r: 0.7727223, g: 0.6557448, b: 0.62845266, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!4 &6686832210887518047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7177019309992287993, guid: de80ed9132271e642ada680cc7f13823, type: 3}
@@ -12612,7 +12628,6 @@ MonoBehaviour:
   - {r: 0.4842312, g: 0.46763498, b: 0.59237593, a: 1}
   - {r: 0.4842312, g: 0.46763498, b: 0.59237593, a: 1}
   - {r: 0.58248687, g: 0.5261631, b: 0.62097627, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!4 &6638597093235024128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7177019309992287993, guid: de80ed9132271e642ada680cc7f13823, type: 3}
@@ -12724,7 +12739,6 @@ MonoBehaviour:
   - {r: 1.5955216, g: 1.2023876, b: 0.8815794, a: 1}
   - {r: 1.6142786, g: 1.2604649, b: 0.89643586, a: 1}
   - {r: 1.6072682, g: 1.266698, b: 0.97388947, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!4 &2625364174620487706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7038369810472118108, guid: 29acb98e4f4b4144eabdad4f1edb0b13, type: 3}
@@ -12848,7 +12862,6 @@ MonoBehaviour:
   - {r: 0.6290626, g: 0.5100863, b: 0.5318238, a: 1}
   - {r: 0.64206076, g: 0.51776516, b: 0.5347934, a: 1}
   - {r: 1.2211064, g: 0.8598442, b: 0.6670822, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!4 &3002505239844837472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7038369810472118108, guid: 29acb98e4f4b4144eabdad4f1edb0b13, type: 3}
@@ -12963,7 +12976,6 @@ MonoBehaviour:
   - {r: 0.255803, g: 0.23673041, b: 0.28520498, a: 1}
   - {r: 0.255803, g: 0.23673041, b: 0.28520498, a: 1}
   - {r: 0.2655232, g: 0.25092503, b: 0.31762692, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!4 &3160710417720886145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7177019309992287993, guid: de80ed9132271e642ada680cc7f13823, type: 3}
@@ -13087,7 +13099,6 @@ MonoBehaviour:
   - {r: 1.0270767, g: 0.7205401, b: 0.8261271, a: 1}
   - {r: 0.7051159, g: 0.50677264, b: 0.7027844, a: 1}
   - {r: 0.43982705, g: 0.3593125, b: 0.6020498, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!4 &3076033605200952151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7038369810472118108, guid: 29acb98e4f4b4144eabdad4f1edb0b13, type: 3}
@@ -13343,7 +13354,6 @@ MonoBehaviour:
   - {r: 0.40034863, g: 0.44545218, b: 0.48626548, a: 1}
   - {r: 0.40024287, g: 0.444871, b: 0.48605293, a: 1}
   - {r: 0.39879608, g: 0.44429255, b: 0.48448268, a: 1}
-  _originalMesh: {fileID: 3548557373508379753, guid: a55d9fc9ac9726f4795fd8a2bfdfa4e7, type: 3}
 --- !u!4 &7835426718354914842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2880696501400327242, guid: a0196821afa880446b98e9f92cc3f254, type: 3}
@@ -13458,7 +13468,6 @@ MonoBehaviour:
   - {r: 0.40202525, g: 0.35651025, b: 0.36081806, a: 1}
   - {r: 0.40202525, g: 0.35651025, b: 0.36081806, a: 1}
   - {r: 0.38554624, g: 0.3393189, b: 0.34199363, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!4 &2938884409156993843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7177019309992287993, guid: de80ed9132271e642ada680cc7f13823, type: 3}
@@ -13838,7 +13847,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2158484674076715795 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5868727697791359382, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -13881,7 +13889,6 @@ MonoBehaviour:
   - {r: 0.62473804, g: 0.51699543, b: 0.559742, a: 1}
   - {r: 0.56861943, g: 0.48144343, b: 0.5409194, a: 1}
   - {r: 0.5421775, g: 0.4630341, b: 0.5263097, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2657791604577961281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7523207657701554116, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -13924,7 +13931,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2670443225978631729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7605105426742625460, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -13967,7 +13973,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2684697498514930388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7621327271746504785, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14010,7 +14015,6 @@ MonoBehaviour:
   - {r: 0.6493479, g: 0.55928, b: 0.6439601, a: 1}
   - {r: 0.5826573, g: 0.513565, b: 0.6167443, a: 1}
   - {r: 0.5774806, g: 0.5112546, b: 0.6182713, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2857512046245219154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7719872281814940119, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14053,7 +14057,6 @@ MonoBehaviour:
   - {r: 0.4638342, g: 0.4124754, b: 0.49407578, a: 1}
   - {r: 0.44962996, g: 0.40408406, b: 0.49083066, a: 1}
   - {r: 0.4638342, g: 0.4124754, b: 0.49407578, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &2945104325938828397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7231248451514853096, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14096,7 +14099,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!4 &3508991348109270170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8950873381047561759, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14144,7 +14146,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3814687236814212494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8680106863891136267, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14187,7 +14188,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &3930030966282500315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8795482482953914974, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14230,7 +14230,6 @@ MonoBehaviour:
   - {r: 0.44485062, g: 0.42507678, b: 0.6016475, a: 1}
   - {r: 0.43018517, g: 0.41547152, b: 0.5886018, a: 1}
   - {r: 0.44315526, g: 0.42678925, b: 0.58627003, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &4260963993626871015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8621137415822784098, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14273,7 +14272,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5537148083596463345 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 23208736163020404, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14316,7 +14314,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &5730462357657904963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 217056547331397062, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14859,7 +14856,6 @@ MonoBehaviour:
   - {r: 1.6145647, g: 1.1674745, b: 0.8968258, a: 1}
   - {r: 1.6521225, g: 1.1587449, b: 0.89096534, a: 1}
   - {r: 1.6569093, g: 1.162519, b: 0.85075253, a: 1}
-  _originalMesh: {fileID: -3997124684957195950, guid: f634f3fe602825743aafa21097a70655, type: 3}
 --- !u!1 &6328801707646521756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1968628838460433177, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14902,7 +14898,6 @@ MonoBehaviour:
   - {r: 0.5873468, g: 0.52226233, b: 0.634755, a: 1}
   - {r: 0.53591603, g: 0.48617733, b: 0.6114324, a: 1}
   - {r: 0.5077978, g: 0.46808988, b: 0.60349, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6603886226552559309 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1666372990933967944, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14945,7 +14940,6 @@ MonoBehaviour:
   - {r: 0.671684, g: 0.5562095, b: 0.60206985, a: 1}
   - {r: 0.6018168, g: 0.5108513, b: 0.577733, a: 1}
   - {r: 0.6029396, g: 0.5137795, b: 0.5847525, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &6844056750484084240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1332902465059284117, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -14988,7 +14982,6 @@ MonoBehaviour:
   - {r: 0.5033246, g: 0.4358049, b: 0.5030977, a: 1}
   - {r: 0.47880533, g: 0.42131978, b: 0.49749607, a: 1}
   - {r: 0.46212205, g: 0.41146392, b: 0.49368462, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7111547452342051639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3329523905609109938, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15031,7 +15024,6 @@ MonoBehaviour:
   - {r: 0.66899437, g: 0.55657923, b: 0.6071142, a: 1}
   - {r: 0.5994912, g: 0.5111807, b: 0.5824682, a: 1}
   - {r: 0.6029702, g: 0.51068795, b: 0.5753846, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7177734964178460577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3394022018338532644, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15074,7 +15066,6 @@ MonoBehaviour:
   - {r: 0.6641728, g: 0.5614786, b: 0.6279692, a: 1}
   - {r: 0.5946137, g: 0.5149566, b: 0.6016219, a: 1}
   - {r: 0.5923416, g: 0.5152778, b: 0.60622555, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7269884488662235573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2911088479829723952, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15117,7 +15108,6 @@ MonoBehaviour:
   - {r: 0.4526754, g: 0.42689347, b: 0.59337014, a: 1}
   - {r: 0.43540028, g: 0.4159091, b: 0.580284, a: 1}
   - {r: 0.425881, g: 0.40617305, b: 0.5761521, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7576750958190241848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2712174380987292349, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15160,7 +15150,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7796214203458876667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2356549615293777534, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15203,7 +15192,6 @@ MonoBehaviour:
   - {r: 0.55319893, g: 0.49445903, b: 0.6076756, a: 1}
   - {r: 0.5140745, g: 0.46716684, b: 0.58939916, a: 1}
   - {r: 0.54523116, g: 0.48482892, b: 0.5913477, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &7858667929514631007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2416755389956058586, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15246,7 +15234,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9033043254721163283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3593382238890918550, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15289,7 +15276,6 @@ MonoBehaviour:
   - {r: 0.58534837, g: 0.4926308, b: 0.5484494, a: 1}
   - {r: 0.53950477, g: 0.46342716, b: 0.5323098, a: 1}
   - {r: 0.56617194, g: 0.48179772, b: 0.5461965, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9165622942753061100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3726525700939270761, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15332,7 +15318,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1 &9183558342090327990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3744496006720435507, guid: ea17e36d3ae1fd547b946723e6b5d534, type: 3}
@@ -15375,7 +15360,6 @@ MonoBehaviour:
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
   - {r: 1.7207954, g: 1.1550423, b: 0.7812411, a: 1}
-  _originalMesh: {fileID: 2194436060896163312, guid: bb03a4383f85f0140b1cc49d82bb4257, type: 3}
 --- !u!1001 &6578615893441071752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15549,7 +15533,6 @@ MonoBehaviour:
   - {r: 0.19199899, g: 0.227684, b: 0.23575169, a: 1}
   - {r: 0.19428141, g: 0.22812718, b: 0.23814374, a: 1}
   - {r: 0.1864874, g: 0.21968617, b: 0.22871901, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!1 &3529889387232662857 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7761778031016271809, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -15932,7 +15915,6 @@ MonoBehaviour:
   - {r: 0.2793681, g: 0.32847366, b: 0.34239832, a: 1}
   - {r: 0.33219558, g: 0.3682484, b: 0.35465142, a: 1}
   - {r: 0.27646694, g: 0.3263077, b: 0.33918822, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!4 &4803240432009223024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1865468766972760568, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -16056,7 +16038,6 @@ MonoBehaviour:
   - {r: 0.6243856, g: 0.45487943, b: 0.66797, a: 1}
   - {r: 0.9765182, g: 0.59430724, b: 0.7125336, a: 1}
   - {r: 0.65682393, g: 0.44799396, b: 0.623042, a: 1}
-  _originalMesh: {fileID: 5879801591902031113, guid: 2267bd7608a1a254e885f868f17acb33, type: 3}
 --- !u!4 &4381564540330526223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7038369810472118108, guid: 29acb98e4f4b4144eabdad4f1edb0b13, type: 3}
@@ -16176,7 +16157,6 @@ MonoBehaviour:
   - {r: 0.36271188, g: 0.36556977, b: 0.33629546, a: 1}
   - {r: 0.36271188, g: 0.36556977, b: 0.33629546, a: 1}
   - {r: 0.23759493, g: 0.26591203, b: 0.28531572, a: 1}
-  _originalMesh: {fileID: -6065862774994628656, guid: e64e906344374394a86eb8f525f837a3, type: 3}
 --- !u!1001 &6989203431639445361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16638,7 +16618,6 @@ MonoBehaviour:
   - {r: 0.40737188, g: 0.37911952, b: 0.48117638, a: 1}
   - {r: 0.48388955, g: 0.41635248, b: 0.4763148, a: 1}
   - {r: 0.38413805, g: 0.357497, b: 0.4537332, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &2379354359875301105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4754544819230704000, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -16733,7 +16712,6 @@ MonoBehaviour:
   - {r: 0.28919265, g: 0.26918316, b: 0.34171754, a: 1}
   - {r: 0.39832768, g: 0.37076703, b: 0.4706743, a: 1}
   - {r: 0.34367314, g: 0.31989405, b: 0.40609306, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!4 &8727371931221769865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1865468766972760568, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -17501,7 +17479,6 @@ MonoBehaviour:
   - {r: 0.31673858, g: 0.3429677, b: 0.5510404, a: 1}
   - {r: 0.316073, g: 0.34254417, b: 0.5509707, a: 1}
   - {r: 0.3165692, g: 0.34253293, b: 0.549824, a: 1}
-  _originalMesh: {fileID: 8260512910192245420, guid: 1a10cbecaa3fd6b4fbb491bb8fdf526b, type: 3}
 --- !u!4 &8909881128321914544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2058876762795116235, guid: 9ee57a43291300b46bd2254ecf09b343, type: 3}
@@ -17968,7 +17945,6 @@ MonoBehaviour:
   - {r: 0.29867753, g: 0.2995342, b: 0.43197381, a: 1}
   - {r: 0.30762717, g: 0.31033292, b: 0.45192507, a: 1}
   - {r: 0.3093968, g: 0.31231928, b: 0.4549475, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &3165720672673392792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4754544819230704000, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -18063,7 +18039,6 @@ MonoBehaviour:
   - {r: 0.30120263, g: 0.30399767, b: 0.4426908, a: 1}
   - {r: 0.21336731, g: 0.21352407, b: 0.30690116, a: 1}
   - {r: 0.25033626, g: 0.25196922, b: 0.3653966, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!4 &8355890944500447456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1865468766972760568, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -18580,7 +18555,6 @@ MonoBehaviour:
   - {r: 1.1096112, g: 0.87520474, b: 0.6609775, a: 1}
   - {r: 1.1061809, g: 0.8754228, b: 0.659576, a: 1}
   - {r: 0.9584641, g: 0.7811111, b: 0.6252174, a: 1}
-  _originalMesh: {fileID: 2619086233303812490, guid: ad033e5c8b1a9474dbda6915f9be5b6d, type: 3}
 --- !u!1001 &8778264295135501161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19092,7 +19066,6 @@ MonoBehaviour:
   - {r: 0.7066987, g: 0.5167762, b: 0.6185841, a: 1}
   - {r: 0.65987957, g: 0.49099588, b: 0.60812783, a: 1}
   - {r: 0.6147011, g: 0.46627182, b: 0.5977157, a: 1}
-  _originalMesh: {fileID: 2619086233303812490, guid: ad033e5c8b1a9474dbda6915f9be5b6d, type: 3}
 --- !u!1001 &8797189171515696391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19554,7 +19527,6 @@ MonoBehaviour:
   - {r: 0.3653852, g: 0.4186249, b: 0.44583052, a: 1}
   - {r: 0.35186276, g: 0.38772294, b: 0.39922044, a: 1}
   - {r: 0.32407004, g: 0.36957544, b: 0.39510837, a: 1}
-  _originalMesh: {fileID: -8878495290298759717, guid: 0df431730f4d1f94f91f8d8aa713d0cd, type: 3}
 --- !u!1 &4318509642443433095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4754544819230704000, guid: 74e4f09a649415a4194023881687de8b, type: 3}
@@ -19649,7 +19621,6 @@ MonoBehaviour:
   - {r: 0.22789723, g: 0.2596843, b: 0.27791354, a: 1}
   - {r: 0.32415563, g: 0.37095037, b: 0.39558446, a: 1}
   - {r: 0.2716503, g: 0.30958217, b: 0.33127668, a: 1}
-  _originalMesh: {fileID: 6467465946647707024, guid: 4354f79a7c88df44398a47737caa74e3, type: 3}
 --- !u!4 &7203117297163334911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1865468766972760568, guid: 74e4f09a649415a4194023881687de8b, type: 3}

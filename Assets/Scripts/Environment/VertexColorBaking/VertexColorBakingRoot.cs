@@ -1,11 +1,6 @@
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class VertexColorBakingRoot : MonoBehaviour
 {
-    [SerializeField]
-    public VertexColorBakingSettings _settings;
-
+	public VertexColorBakingSettings settings; // Named without _ because this was migrated from an old on-object format
 }

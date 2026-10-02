@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -10,35 +9,35 @@ using UnityEngine;
 /// </summary>
 public class VertexColorPrefabInstantiator : IDisposable, IAmbientOcclusionSamplerCameraOffsetter
 {
-    private readonly GameObject _instantiatedObject;
+	private readonly GameObject _instantiatedObject;
 
-    public VertexColorPrefabInstantiator(Transform root)
-    {
-        if (!IsInPrefabView(root.gameObject)) return;
+	public VertexColorPrefabInstantiator(Transform root)
+	{
+		if (!IsInPrefabView(root.gameObject)) return;
 
-        // If we made it this far, we need to insantiate a copy of this in the scene
-        _instantiatedObject = GameObject.Instantiate(root.gameObject);
-        _instantiatedObject.transform.position += VertexColorBakingSettings.InstantiatedPrefabOffset;
-    }
+		// If we made it this far, we need to insantiate a copy of this in the scene
+		_instantiatedObject = GameObject.Instantiate(root.gameObject);
+		_instantiatedObject.transform.position += VertexColorBakingSettings.InstantiatedPrefabOffset;
+	}
 
-    public void Dispose()
-    {
-        if (_instantiatedObject == null) return;
+	public void Dispose()
+	{
+		if (_instantiatedObject == null) return;
 
-        GameObject.DestroyImmediate(_instantiatedObject);
-    }
+		GameObject.DestroyImmediate(_instantiatedObject);
+	}
 
-    public static bool IsInPrefabView(GameObject obj)
-    {
-        var prefabStage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage();
-        if (prefabStage == null) return false;
+	public static bool IsInPrefabView(GameObject obj)
+	{
+		var prefabStage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage();
+		if (prefabStage == null) return false;
 
-        return prefabStage.prefabContentsRoot == obj || obj.transform.IsChildOf(prefabStage.prefabContentsRoot.transform);
-    }
+		return prefabStage.prefabContentsRoot == obj || obj.transform.IsChildOf(prefabStage.prefabContentsRoot.transform);
+	}
 
-    public void AdjustPosition(Transform camera)
-    {
-        if (_instantiatedObject == null) return;
-        camera.transform.position += VertexColorBakingSettings.InstantiatedPrefabOffset;
-    }
+	public void AdjustPosition(Transform camera)
+	{
+		if (_instantiatedObject == null) return;
+		camera.transform.position += VertexColorBakingSettings.InstantiatedPrefabOffset;
+	}
 }

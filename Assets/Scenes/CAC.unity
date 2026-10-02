@@ -14847,6 +14847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba6a280485f6c49a2421674607e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 770238dcde876df48a120042751a84d1, type: 2}
   _settings:
     SamplingDistance: 5
     SamplingCameraFOV: 135
@@ -24286,7 +24287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 565463794953964812, guid: cc5fdbe1200e0ec44acc38e4cedf1dae, type: 3}
       propertyPath: m_fontSize
-      value: 21.4
+      value: 21.25
       objectReference: {fileID: 0}
     - target: {fileID: 951350210846552960, guid: cc5fdbe1200e0ec44acc38e4cedf1dae, type: 3}
       propertyPath: m_AnchorMax.y
@@ -24826,7 +24827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3537871135742865548, guid: cc5fdbe1200e0ec44acc38e4cedf1dae, type: 3}
       propertyPath: m_fontSize
-      value: 52.95
+      value: 52.9
       objectReference: {fileID: 0}
     - target: {fileID: 3767755557761350262, guid: cc5fdbe1200e0ec44acc38e4cedf1dae, type: 3}
       propertyPath: m_AnchorMax.y
@@ -25246,7 +25247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6520996212947849153, guid: cc5fdbe1200e0ec44acc38e4cedf1dae, type: 3}
       propertyPath: m_fontSize
-      value: 19.8
+      value: 19.65
       objectReference: {fileID: 0}
     - target: {fileID: 6837689937203544228, guid: cc5fdbe1200e0ec44acc38e4cedf1dae, type: 3}
       propertyPath: m_AnchorMax.y
@@ -27108,7 +27109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753622738230849193, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366.00003
+      value: 366
       objectReference: {fileID: 0}
     - target: {fileID: 6748708911707019781, guid: a1436371b08c47e4ea70d26c2e7acf52, type: 3}
       propertyPath: m_Name

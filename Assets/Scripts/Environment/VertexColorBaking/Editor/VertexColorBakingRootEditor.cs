@@ -29,14 +29,14 @@ public class VertexColorBakingRootEditor : Editor
 		GUILayout.BeginHorizontal();
 		if (GUILayout.Button("Bake"))
 		{
-			VertexColorBakingLogic.BakeVertexColors(root.transform, root._settings);
+			VertexColorBakingLogic.BakeVertexColors(root.transform, root.settings);
 		}
 		if (GUILayout.Button("Bake (all)"))
 		{
 			var allBakingRoots = FindObjectsByType<VertexColorBakingRoot>();
 			foreach (var bakingRoot in allBakingRoots)
 			{
-				VertexColorBakingLogic.BakeVertexColors(bakingRoot.transform, bakingRoot._settings);
+				VertexColorBakingLogic.BakeVertexColors(bakingRoot.transform, bakingRoot.settings);
 			}
 		}
 		GUILayout.EndHorizontal();
