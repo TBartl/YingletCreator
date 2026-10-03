@@ -37,6 +37,6 @@ public class DebugFogOfWarVisualizer : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		_renderTextures?.Cleanup();
+		_renderTextures?.Dispose();
 	}
 }

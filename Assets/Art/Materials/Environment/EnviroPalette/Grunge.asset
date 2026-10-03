@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad2b935ac73b5041b2d68beb7f60968, type: 3}
+  m_Name: Grunge
+  m_EditorClassIdentifier: Assembly-CSharp::EnviroPalette
+  Texture: {fileID: 2800000, guid: 1a5e12d810621d247bd83a4883cecfc0, type: 3}
+  Ramp: {fileID: 11400000, guid: 561d57e9af7ab874eb349e223d8e0980, type: 2}
+  HueInfluence: 0
+  ColorRange:
+    MinColor: {r: 0.64705884, g: 0.68235296, b: 0.70980394, a: 1}
+    MidColor: {r: 0.6666667, g: 0.7019608, b: 0.7294118, a: 1}
+    MaxColor: {r: 0.70980394, g: 0.74509805, b: 0.7764706, a: 1}
+  MaskLayers: []
+  AdvancedSettings:
+    AllowBeyondRange: 0
+    BelowRangeMultiplier: 1
+    AboveRangeMultiplier: 1
+  Generated: {fileID: 2800000, guid: c809c05ee3c67e84db9e3a384845e98b, type: 3}

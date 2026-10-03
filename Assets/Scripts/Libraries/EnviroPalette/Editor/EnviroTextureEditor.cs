@@ -1,10 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(EnviroTexture))]
 public class EnviroTextureEditor : Editor
 {
-	private Editor rampEditor;
+	private Editor _rampEditor;
+	private EnviroRamp _cachedRamp;
+	private List<Editor> _maskLayerRampEditors;
+	private EnviroMaskLayer[] _cachedMaskLayers;
+
+	private void OnEnable()
+	{
+		_maskLayerRampEditors = new List<Editor>();
+	}
 
 	public override void OnInspectorGUI()
 	{
@@ -13,6 +23,11 @@ public class EnviroTextureEditor : Editor
 		EditorGUILayout.Space();
 
 		var enviroTexture = (EnviroTexture)target;
+
+		if (GUILayout.Button("Update source color range"))
+		{
+			UpdateColorRange(enviroTexture);
+		}
 
 		// Display the generated texture if it exists
 		if (enviroTexture.Texture != null)
@@ -45,24 +60,107 @@ public class EnviroTextureEditor : Editor
 		// Draw the associated EnviroRamp inspector
 		if (enviroTexture.Ramp != null)
 		{
+			EnsureRampEditor(enviroTexture);
+
 			EditorGUILayout.Space();
 			EditorGUILayout.LabelField("Ramp Settings", EditorStyles.boldLabel);
 
-			if (rampEditor == null)
-			{
-				rampEditor = CreateEditor(enviroTexture.Ramp);
-			}
+			_rampEditor.OnInspectorGUI();
 
-			rampEditor.OnInspectorGUI();
+			if (enviroTexture.MaskLayers != null && enviroTexture.MaskLayers.Length > 0)
+			{
+				EnsureMaskLayerEditors(enviroTexture.MaskLayers);
+
+				EditorGUILayout.Space();
+				EditorGUILayout.LabelField("Mask Layers", EditorStyles.boldLabel);
+
+				for (int i = 0; i < enviroTexture.MaskLayers.Length; i++)
+				{
+					var maskLayer = enviroTexture.MaskLayers[i];
+					if (maskLayer.Ramp != null && i < _maskLayerRampEditors.Count)
+					{
+						EditorGUILayout.Space();
+						_maskLayerRampEditors[i].OnInspectorGUI();
+					}
+				}
+			}
 		}
+	}
+
+	/// <summary>
+	/// Generates the ramp editor if null or has changed
+	/// </summary>
+	void EnsureRampEditor(EnviroTexture enviroTexture)
+	{
+		if (_cachedRamp == enviroTexture.Ramp) return; // Unchanged
+
+		if (_rampEditor != null)
+		{
+			DestroyImmediate(_rampEditor);
+		}
+		_rampEditor = CreateEditor(enviroTexture.Ramp);
+		_cachedRamp = enviroTexture.Ramp;
+	}
+
+	void EnsureMaskLayerEditors(EnviroMaskLayer[] maskLayers)
+	{
+		if (_cachedMaskLayers != null && _cachedMaskLayers.SequenceEqual(maskLayers)) return; // Unchanged
+
+		// Destroy existing editors
+		foreach (var editor in _maskLayerRampEditors)
+		{
+			if (editor != null)
+			{
+				DestroyImmediate(editor);
+			}
+		}
+		_maskLayerRampEditors.Clear();
+
+		// Create new editors if mask layers exist
+		if (maskLayers != null)
+		{
+			foreach (var maskLayer in maskLayers)
+			{
+				if (maskLayer.Ramp != null)
+				{
+					_maskLayerRampEditors.Add(CreateEditor(maskLayer.Ramp));
+				}
+			}
+		}
+
+		_cachedMaskLayers = maskLayers.ToArray();
 	}
 
 	private void OnDisable()
 	{
-		if (rampEditor != null)
+		if (_rampEditor != null)
 		{
-			DestroyImmediate(rampEditor);
+			DestroyImmediate(_rampEditor);
 		}
+
+		foreach (var editor in _maskLayerRampEditors)
+		{
+			DestroyImmediate(editor);
+		}
+		_maskLayerRampEditors.Clear();
+	}
+
+	public static void UpdateColorRange(EnviroTexture enviroTexture)
+	{
+		using var writeable = TexGenerationUtils.MakeTemporarilyWriteable(enviroTexture.Texture);
+		Color[] pixels = enviroTexture.Texture.GetPixels();
+
+		if (pixels.Length == 0)
+			return;
+
+		System.Array.Sort(pixels, (a, b) =>
+			a.grayscale.CompareTo(b.grayscale));
+
+		enviroTexture.ColorRange.MinColor = pixels[0];
+		enviroTexture.ColorRange.MidColor = pixels[pixels.Length / 2]; // Median
+		enviroTexture.ColorRange.MaxColor = pixels[pixels.Length - 1];
+		EditorUtility.SetDirty(enviroTexture);
+		AssetDatabase.SaveAssets();
 	}
 
 	public static void GenerateTexture(EnviroTexture enviroTexture)
@@ -84,7 +182,7 @@ public class EnviroTextureEditor : Editor
 		Texture2D generatedTexture = RenderTextureWithRamp(enviroTexture);
 		SaveTextureAsset(generatedTexture, texturePath);
 		Object.DestroyImmediate(generatedTexture);
-		ConfigureTextureImporter(texturePath);
+		ConfigureTextureImporter(texturePath, enviroTexture.Texture);
 
 		UpdateScriptableWithGenerated(enviroTexture, texturePath);
 
@@ -100,39 +198,53 @@ public class EnviroTextureEditor : Editor
 
 	static Texture2D RenderTextureWithRamp(EnviroTexture enviroTexture)
 	{
+		// Setup the target texture
+		var targetTexture = new Texture2D(enviroTexture.Texture.width, enviroTexture.Texture.height, TextureFormat.RGBA32, false, true);
+		targetTexture.wrapMode = TextureWrapMode.Repeat;
+		targetTexture.filterMode = FilterMode.Bilinear;
+
+		// Setup the render textures to write between
+		using var renderTextures = new DoubleBufferedRenderTexture(new Vector2Int(targetTexture.width, targetTexture.height));
+
+		// Setup the material
 		var material = CreateColorizeMaterial(enviroTexture);
-		var texture = new Texture2D(enviroTexture.Texture.width, enviroTexture.Texture.height, TextureFormat.RGBA32, false, true);
-		texture.wrapMode = TextureWrapMode.Mirror;
-		texture.filterMode = FilterMode.Bilinear;
 
-		BlitToTexture(enviroTexture.Texture, texture, material);
+		// Apply main texture
+		material.SetTexture("_RampTex", enviroTexture.Ramp.Generated);
+		renderTextures.Blit(material);
 
+		// Apply additional mask layers
+		foreach (var maskLayer in enviroTexture.MaskLayers)
+		{
+			material.SetTexture("_MaskTex", maskLayer.Texture);
+			material.SetTexture("_RampTex", maskLayer.Ramp.Generated);
+			renderTextures.Blit(material);
+		}
+
+		// Read from the render texture into the target texture
+		var final = renderTextures.Finalize();
+		RenderTexture.active = final;
+		targetTexture.ReadPixels(new Rect(0, 0, enviroTexture.Texture.width, enviroTexture.Texture.height), 0, 0);
+		targetTexture.Apply();
+
+		// Cleanup
+		RenderTexture.active = null;
 		Object.DestroyImmediate(material);
-		return texture;
+		return targetTexture;
 	}
 
 	static Material CreateColorizeMaterial(EnviroTexture enviroTexture)
 	{
 		var material = new Material(Shader.Find("EnviroColorize"));
-		material.SetTexture("_MainTex", enviroTexture.Texture);
-		material.SetTexture("_RampTex", enviroTexture.Ramp.Generated);
-		material.SetFloat("_HueOffset", enviroTexture.Hue);
+		material.SetTexture("_SampleTex", enviroTexture.Texture);
 		material.SetFloat("_HueInfluence", enviroTexture.HueInfluence);
+		material.SetColor("_MinColor", enviroTexture.ColorRange.MinColor);
+		material.SetColor("_MidColor", enviroTexture.ColorRange.MidColor);
+		material.SetColor("_MaxColor", enviroTexture.ColorRange.MaxColor);
+		material.SetFloat("_AllowBeyondRange", enviroTexture.AdvancedSettings.AllowBeyondRange ? 1f : 0f);
+		material.SetFloat("_BelowRangeMultiplier", enviroTexture.AdvancedSettings.BelowRangeMultiplier);
+		material.SetFloat("_AboveRangeMultiplier", enviroTexture.AdvancedSettings.AboveRangeMultiplier);
 		return material;
-	}
-
-	static void BlitToTexture(Texture2D sourceTexture, Texture2D targetTexture, Material material)
-	{
-		var rt = RenderTexture.GetTemporary(sourceTexture.width, sourceTexture.height, 0, RenderTextureFormat.ARGB32);
-		Graphics.Blit(sourceTexture, rt, material);
-
-		RenderTexture previous = RenderTexture.active;
-		RenderTexture.active = rt;
-		targetTexture.ReadPixels(new Rect(0, 0, sourceTexture.width, sourceTexture.height), 0, 0);
-		targetTexture.Apply();
-		RenderTexture.active = previous;
-
-		RenderTexture.ReleaseTemporary(rt);
 	}
 
 	static void SaveTextureAsset(Texture2D texture, string texturePath)
@@ -143,7 +255,7 @@ public class EnviroTextureEditor : Editor
 		AssetDatabase.ImportAsset(texturePath);
 	}
 
-	static void ConfigureTextureImporter(string texturePath)
+	static void ConfigureTextureImporter(string texturePath, Texture2D source)
 	{
 		var importer = AssetImporter.GetAtPath(texturePath) as TextureImporter;
 		if (importer == null)
@@ -153,7 +265,7 @@ public class EnviroTextureEditor : Editor
 		}
 
 		importer.textureCompression = TextureImporterCompression.CompressedHQ;
-		importer.wrapMode = TextureWrapMode.Clamp;
+		importer.wrapMode = source.wrapMode;
 		importer.filterMode = FilterMode.Bilinear;
 		importer.mipmapEnabled = false;
 		importer.isReadable = false;

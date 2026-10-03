@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -99,7 +100,8 @@ public class EnviroRampEditor : Editor
 			string assetPath = AssetDatabase.GUIDToAssetPath(guid);
 			EnviroTexture enviroTexture = AssetDatabase.LoadAssetAtPath<EnviroTexture>(assetPath);
 
-			if (enviroTexture != null && enviroTexture.Ramp == ramp)
+			if (enviroTexture == null) continue;
+			if (enviroTexture.Ramp == ramp || enviroTexture.MaskLayers.Any(l => l.Ramp == ramp))
 			{
 				EnviroTextureEditor.GenerateTexture(enviroTexture);
 			}

@@ -1,4 +1,5 @@
 using Reactivity.Implementation;
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -9,7 +10,7 @@ using UnityEngine.Assertions;
 /// but it doesn't give me enough control:
 /// I want to be able to clean up just the remaining render texture at the end
 /// </summary>
-public sealed class DoubleBufferedRenderTexture
+public sealed class DoubleBufferedRenderTexture : IDisposable
 {
 	RenderTexture _upToDate;
 	RenderTexture _backup;
@@ -55,7 +56,7 @@ public sealed class DoubleBufferedRenderTexture
 		if (_backup != null)
 		{
 			_backup.Release();
-			Object.Destroy(_backup);
+			SmartDestroy(_backup);
 			_backup = null;
 		}
 
@@ -68,19 +69,33 @@ public sealed class DoubleBufferedRenderTexture
 		return _upToDate;
 	}
 
-	public void Cleanup()
+	public void Dispose()
 	{
 		if (_upToDate != null)
 		{
 			_upToDate.Release();
-			Object.Destroy(_upToDate);
+			SmartDestroy(_upToDate);
 			_upToDate = null;
 		}
 		if (_backup != null)
 		{
 			_backup.Release();
-			Object.Destroy(_backup);
+			SmartDestroy(_backup);
 			_backup = null;
+		}
+	}
+
+	static void SmartDestroy(UnityEngine.Object obj)
+	{
+#if UNITY_EDITOR
+		if (!Application.isPlaying)
+		{
+			GameObject.DestroyImmediate(obj);
+		}
+		else
+#endif
+		{
+			GameObject.Destroy(obj);
 		}
 	}
 

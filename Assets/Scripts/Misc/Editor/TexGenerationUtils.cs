@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 public static class TexGenerationUtils
@@ -28,5 +29,26 @@ public static class TexGenerationUtils
 		}
 
 		return pixels;
+	}
+
+	public static IDisposable MakeTemporarilyWriteable(Texture2D texture)
+	{
+		var importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(texture)) as TextureImporter;
+		if (importer == null) throw new Exception("Texture is not an asset or cannot be found.");
+		bool originalIsReadable = importer.isReadable;
+
+		if (originalIsReadable)
+		{
+			// Already readable, no need to change anything
+			return new BasicActionDisposable(() => { });
+		}
+
+		importer.isReadable = true;
+		importer.SaveAndReimport();
+		return new BasicActionDisposable(() =>
+		{
+			importer.isReadable = originalIsReadable;
+			importer.SaveAndReimport();
+		});
 	}
 }

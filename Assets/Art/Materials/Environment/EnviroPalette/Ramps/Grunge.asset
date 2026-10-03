@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ecb54a90692d348a43b944783d2e4b, type: 3}
+  m_Name: Grunge
+  m_EditorClassIdentifier: Assembly-CSharp::EnviroRamp
+  Gradient:
+    serializedVersion: 2
+    key0: {r: 0.639, g: 0.6795714, b: 0.71, a: 1}
+    key1: {r: 0.6666667, g: 0.7019608, b: 0.7294118, a: 1}
+    key2: {r: 0.70980394, g: 0.74509805, b: 0.77647066, a: 0}
+    key3: {r: 0.41998932, g: 0.5264676, b: 0.6226415, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32575
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  Generated: {fileID: 2800000, guid: a39026e9d303de54c8bed862f315c752, type: 3}

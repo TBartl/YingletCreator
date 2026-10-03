@@ -64,7 +64,7 @@ public class FogOfWar : ReactiveBehaviour, IFogOfWar, IInitializable
 		}
 		if (_renderTextures != null)
 		{
-			_renderTextures.Cleanup();
+			_renderTextures.Dispose();
 		}
 	}
 

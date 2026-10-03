@@ -14,6 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnviroPalette
   Texture: {fileID: 2800000, guid: 17bba93147f864e4b9cc87952b6d66a3, type: 3}
   Ramp: {fileID: 11400000, guid: d7914683df40927488c059017c344dff, type: 2}
-  Hue: -0.11111111
-  HueInfluence: 0.1
+  HueInfluence: 0
+  ColorRange:
+    MinColor: {r: 0.0627451, g: 0.078431375, b: 0.09411766, a: 1}
+    MidColor: {r: 0.5686275, g: 0.5568628, b: 0.5529412, a: 1}
+    MaxColor: {r: 0.89019614, g: 0.8862746, b: 0.8862746, a: 1}
+  MaskLayers: []
+  AdvancedSettings:
+    AllowBeyondRange: 0
+    BelowRangeMultiplier: 1
+    AboveRangeMultiplier: 1
   Generated: {fileID: 2800000, guid: 25d8282cda581f046a6d5f5045c90570, type: 3}
