@@ -876,7 +876,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"e636ff2d0f1a78b4c9c001616a20f00b\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"bac1a401cbbbc674184a0b14df569d98\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -1257,7 +1257,7 @@
     "m_CustomBinding": "",
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"e636ff2d0f1a78b4c9c001616a20f00b\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0

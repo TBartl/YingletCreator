@@ -143,6 +143,7 @@ Material:
     - _Offset: 1
     - _OverlayContrastDark: 1
     - _OverlayContrastLight: 1
+    - _OverlayStrength: 0.696
     - _OverlayTiling: 0.25
     - _Parallax: 0.005
     - _QueueControl: 0

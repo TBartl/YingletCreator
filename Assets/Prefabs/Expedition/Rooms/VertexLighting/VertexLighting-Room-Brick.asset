@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VertexColorBakingSettings
   SamplingDistance: 15
   SamplingCameraFOV: 105
-  SkyColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
-  ShadowColor: {r: 0.06074225, g: 0.066126734, b: 0.14150941, a: 1}
+  SkyColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  ShadowColor: {r: 0.042052355, g: 0.042052336, b: 0.1981132, a: 1}
   RawBakeValToP:
     serializedVersion: 2
     m_Curve:

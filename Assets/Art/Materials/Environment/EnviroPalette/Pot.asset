@@ -24,6 +24,6 @@ MonoBehaviour:
     Ramp: {fileID: 11400000, guid: c54503eec6e6fe948a48238520d38888, type: 2}
   AdvancedSettings:
     AllowBeyondRange: 1
-    BelowRangeMultiplier: 0.5
+    BelowRangeMultiplier: 0.4
     AboveRangeMultiplier: 0
   Generated: {fileID: 2800000, guid: 888445021469f114dba07d1e58be89fe, type: 3}
