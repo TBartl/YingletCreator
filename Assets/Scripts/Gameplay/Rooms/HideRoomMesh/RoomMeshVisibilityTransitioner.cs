@@ -26,7 +26,7 @@ internal class RoomMeshVisibilityTransitioner : MonoBehaviour, IRoomMeshVisibili
 		for (int i = 0; i < _originalMaterials.Length; i++)
 		{
 			_cutOffMaterials[i] = new Material(_originalMaterials[i]);
-			_cutOffMaterials[i].shader = _constants.CUTOFF_FROM_TOP_SHADER;
+			_cutOffMaterials[i].shader = _constants.GetReplacementShader(_originalMaterials[i].shader);
 		}
 	}
 
