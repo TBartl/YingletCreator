@@ -22,9 +22,9 @@ public class EnviroTexture : ScriptableObject
 [System.Serializable]
 public class EnviroColorRange
 {
-	public Color MinColor;
-	public Color MidColor;
-	public Color MaxColor;
+	public Color MinColor = Color.black;
+	public Color MidColor = Color.gray;
+	public Color MaxColor = Color.white;
 }
 
 [System.Serializable]
