@@ -15,6 +15,8 @@ Shader "EnviroColorize"
         _AllowBeyondRange ("Allow Beyond Range", Float) = 1
         _BelowRangeMultiplier ("Below Range Multiplier", Float) = 1
         _AboveRangeMultiplier ("Above Range Multiplier", Float) = 1
+        _BottomHalfMultiplier ("Adjust Luminance From Bottom", Range(0, 0.5)) = 0
+        _TopHalfMultiplier ("Adjust Luminance From Top", Range(0, 0.5)) = 0
 
     }
     SubShader
@@ -56,6 +58,8 @@ Shader "EnviroColorize"
             float _AllowBeyondRange;
             float _BelowRangeMultiplier;
             float _AboveRangeMultiplier;
+            float _BottomHalfMultiplier;
+            float _TopHalfMultiplier;
             
             float Custom_ColorspaceConversion_Linear_RGB_float(float In)
             {
@@ -117,7 +121,6 @@ Shader "EnviroColorize"
             {
                 float4 sampleTexColor = SAMPLE_TEXTURE2D(_SampleTex, sampler_SampleTex, i.uv);
                 
-                // Get ramp point by sampling luminance and seeing where it falls between the defined points
                 float sampledLuminance = Custom_ColorspaceConversion_Linear_RGB_float(Luminance(sampleTexColor.rgb));
                 float minLuminance = Custom_ColorspaceConversion_Linear_RGB_float(Luminance(_MinColor.rgb));
                 float midLuminance = Custom_ColorspaceConversion_Linear_RGB_float(Luminance(_MidColor.rgb));
@@ -126,35 +129,67 @@ Shader "EnviroColorize"
                 float4 rampTexColor;
                 float4 colorOnRange;
 
-                if (_AllowBeyondRange > .5 && sampledLuminance < minLuminance)
+                // While we have the real 0-1 luminance, figure out what the expected baseline hue is in that range
+                if (sampledLuminance <= midLuminance)
                 {
-                    float percent = abs((minLuminance - sampledLuminance) / (midLuminance - minLuminance));
-                    percent = percent * _BelowRangeMultiplier;
-                    colorOnRange = _MinColor;
-                    rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(0, 0.5));
-                    rampTexColor = lerp(rampTexColor, float4(0, 0, 0, _MinColor.a), percent);
-                }
-                else if (_AllowBeyondRange > .5 && sampledLuminance > maxLuminance)
-                {
-                    float percent = abs((sampledLuminance - maxLuminance) / (maxLuminance - midLuminance));
-                    percent = percent * _AboveRangeMultiplier;
-                    colorOnRange = _MaxColor;
-                    rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(1, 0.5));
-                    rampTexColor = lerp(rampTexColor, float4(1, 1, 1, _MaxColor.a), percent);
-                }
-                else if (sampledLuminance <= midLuminance)
-                {
-                    float percent = saturate((sampledLuminance - minLuminance) / (midLuminance - minLuminance));
-                    float normalizedLuminance = 0.5 * percent;
-                    colorOnRange = lerp(_MinColor, _MidColor, percent);
-                    rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(normalizedLuminance, 0.5));
+                    if (_AllowBeyondRange > .5 && sampledLuminance < minLuminance)
+                    {
+                        colorOnRange = _MinColor;
+                    }
+                    else
+                    {
+                        float percent = saturate((sampledLuminance - minLuminance) / (midLuminance - minLuminance));
+                        colorOnRange = lerp(_MinColor, _MidColor, percent);
+                    }
                 }
                 else
                 {
-                    float percent = saturate((sampledLuminance - midLuminance) / (maxLuminance - midLuminance));
-                    float normalizedLuminance = 0.5 + 0.5 * percent;
-                    colorOnRange = lerp(_MidColor, _MaxColor, percent);
-                    rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(normalizedLuminance, 0.5));
+                    if (_AllowBeyondRange > .5 && sampledLuminance > maxLuminance)
+                    {
+                        colorOnRange = _MaxColor;
+                    }
+                    else
+                    {
+                        float percent = saturate((sampledLuminance - midLuminance) / (maxLuminance - midLuminance));
+                        colorOnRange = lerp(_MidColor, _MaxColor, percent);
+                    }
+                }
+
+                // Get ramp point by sampling luminance and seeing where it falls between the defined points
+                // - A percent of 0 represents the min or max color
+                // - A percent of 1 represents the mid color
+                // - A percent of -1 represents black or white
+                if (sampledLuminance <= midLuminance)
+                {
+                    float percent = (sampledLuminance - minLuminance) / (midLuminance - minLuminance);
+                    percent = 1 - (1- percent) * _BottomHalfMultiplier;
+                    if (_AllowBeyondRange > .5 && percent < 0)
+                    {
+                        percent = percent * _BelowRangeMultiplier;
+                        rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(0, 0.5));
+                        rampTexColor = lerp(rampTexColor, float4(0, 0, 0, _MinColor.a), abs(percent));
+                    }
+                    else
+                    {
+                        float normalizedLuminance = 0.5 * percent;
+                        rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(normalizedLuminance, 0.5));
+                    }
+                }
+                else
+                {
+                    float percent = (maxLuminance - sampledLuminance) / (maxLuminance - midLuminance);
+                    percent = 1 - (1- percent) * _TopHalfMultiplier;
+                    if (_AllowBeyondRange > .5 && percent < 0)
+                    {
+                        percent = percent * _AboveRangeMultiplier;
+                        rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(1, 0.5));
+                        rampTexColor = lerp(rampTexColor, float4(1, 1, 1, _MaxColor.a), abs(percent));
+                    }
+                    else
+                    {
+                        float normalizedLuminance = 0.5 + 0.5 * (1 - percent);
+                        rampTexColor = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(normalizedLuminance, 0.5));
+                    }
                 }
                 
                 // Adjust the hue based on the original hue shift

@@ -33,6 +33,13 @@ public class EnviroAdvancedSettings
 	public bool AllowBeyondRange = false;
 	public float BelowRangeMultiplier = 1;
 	public float AboveRangeMultiplier = 1;
+
+	[Header("Reduce this to limit how far the color ramp is sampled from in either direction.")]
+	[Range(0f, 1)]
+	public float BottomHalfMultiplier = 1;
+
+	[Range(0f, 1)]
+	public float TopRangeMultiplier = 1;
 }
 
 [System.Serializable]

@@ -244,6 +244,8 @@ public class EnviroTextureEditor : Editor
 		material.SetFloat("_AllowBeyondRange", enviroTexture.AdvancedSettings.AllowBeyondRange ? 1f : 0f);
 		material.SetFloat("_BelowRangeMultiplier", enviroTexture.AdvancedSettings.BelowRangeMultiplier);
 		material.SetFloat("_AboveRangeMultiplier", enviroTexture.AdvancedSettings.AboveRangeMultiplier);
+		material.SetFloat("_BottomHalfMultiplier", enviroTexture.AdvancedSettings.BottomHalfMultiplier);
+		material.SetFloat("_TopHalfMultiplier", enviroTexture.AdvancedSettings.TopRangeMultiplier);
 		return material;
 	}
 
