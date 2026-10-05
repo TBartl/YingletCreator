@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4630489122236343335
+--- !u!1 &1036011518158117497
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 228354315361088933}
-  - component: {fileID: 4141090178424943982}
-  - component: {fileID: 2822270937044282242}
-  - component: {fileID: 8841632760913263154}
-  - component: {fileID: 2949096599861294491}
+  - component: {fileID: 5551017100244700155}
+  - component: {fileID: 8600309849803361072}
+  - component: {fileID: 7568532100850963932}
+  - component: {fileID: 3787986371185132652}
+  - component: {fileID: 1464759358390176887}
   m_Layer: 0
-  m_Name: Carpet-Ivenmoth
+  m_Name: Rug-Ivenmoth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &228354315361088933
+--- !u!4 &5551017100244700155
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4630489122236343335}
+  m_GameObject: {fileID: 1036011518158117497}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.09003899, z: -0, w: 0.99593824}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1326, y: 1.1326, z: 1.1326}
+  m_LocalRotation: {x: -0.7071065, y: -0, z: -0, w: 0.7071071}
+  m_LocalPosition: {x: 0, y: 0.716, z: -0}
+  m_LocalScale: {x: 0.41681263, y: 0.41681263, z: 0.41681263}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -10.332, z: 0}
---- !u!33 &4141090178424943982
+  m_Father: {fileID: 9221851953753229853}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!33 &8600309849803361072
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4630489122236343335}
+  m_GameObject: {fileID: 1036011518158117497}
   m_Mesh: {fileID: 5352395035251969450, guid: 841eae34f0678e34abb0ca411830d91e, type: 3}
---- !u!23 &2822270937044282242
+--- !u!23 &7568532100850963932
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4630489122236343335}
+  m_GameObject: {fileID: 1036011518158117497}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b7ca5f11782210428f2d90a568e5297, type: 2}
+  - {fileID: 2100000, guid: 99a91fb2161950e43a5319e3b4174a8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,32 +92,64 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8841632760913263154
+--- !u!114 &3787986371185132652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4630489122236343335}
+  m_GameObject: {fileID: 1036011518158117497}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39594e6f95707354299ac0424bf178f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2949096599861294491
+--- !u!114 &1464759358390176887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4630489122236343335}
+  m_GameObject: {fileID: 1036011518158117497}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9dfd5226c33ef84488e6c3d88f336df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BakedVertexColorData
   _colors:
-  - {r: 0.8652355, g: 0.7740517, b: 1.170304, a: 1}
-  - {r: 0.8954334, g: 0.78201324, b: 0.97434837, a: 1}
-  - {r: 1.0699097, g: 0.8018183, b: 0.8875056, a: 1}
-  - {r: 1.030554, g: 0.6863183, b: 1.0888488, a: 1}
+  - {r: 0.8218753, g: 0.7378291, b: 1.0736796, a: 1}
+  - {r: 0.8492816, g: 0.7443067, b: 0.88913345, a: 1}
+  - {r: 1.0161725, g: 0.7642224, b: 0.81298864, a: 1}
+  - {r: 0.9782762, g: 0.6537844, b: 0.99640113, a: 1}
+--- !u!1 &2335321966544183932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9221851953753229853}
+  m_Layer: 0
+  m_Name: Banner-Ivenmoth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9221851953753229853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335321966544183932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5551017100244700155}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
