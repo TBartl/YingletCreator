@@ -24,4 +24,6 @@ MonoBehaviour:
     AllowBeyondRange: 0
     BelowRangeMultiplier: 1
     AboveRangeMultiplier: 1
+    BottomHalfMultiplier: 0.656
+    TopRangeMultiplier: 0.662
   Generated: {fileID: 2800000, guid: ec03c8c4cb0c27241a9c6fd8d71f13ed, type: 3}

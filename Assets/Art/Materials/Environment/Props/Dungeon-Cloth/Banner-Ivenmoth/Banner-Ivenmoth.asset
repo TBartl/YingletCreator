@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad2b935ac73b5041b2d68beb7f60968, type: 3}
+  m_Name: Banner-Ivenmoth
+  m_EditorClassIdentifier: Assembly-CSharp::EnviroTexture
+  Texture: {fileID: 2800000, guid: 57ab1e99cbf3d8642be303c89e8d23ba, type: 3}
+  Ramp: {fileID: 11400000, guid: c54503eec6e6fe948a48238520d38888, type: 2}
+  HueInfluence: 0
+  ColorRange:
+    MinColor: {r: 0.2901961, g: 0.28627452, b: 0.2901961, a: 1}
+    MidColor: {r: 0.54901963, g: 0.5411765, b: 0.54901963, a: 1}
+    MaxColor: {r: 0.7411765, g: 0.7294118, b: 0.7411765, a: 0}
+  MaskLayers:
+  - Texture: {fileID: 2800000, guid: 4aa86ed730578e54e883c6d2c11c98a3, type: 3}
+    Ramp: {fileID: 11400000, guid: 5722d16480ff4bf4ea326b4983c7af8d, type: 2}
+  AdvancedSettings:
+    AllowBeyondRange: 0
+    BelowRangeMultiplier: 1
+    AboveRangeMultiplier: 1
+    BottomHalfMultiplier: 1
+    TopRangeMultiplier: 1
+  Generated: {fileID: 2800000, guid: 586f927bd9589b9488c3fbbc74a75a64, type: 3}

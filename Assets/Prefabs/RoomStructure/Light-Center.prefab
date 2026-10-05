@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 8967157641748228801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.661, z: 0}
+  m_LocalPosition: {x: 0, y: 0.836, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,6 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0709363c13b5f4081dd8960f2bb660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 7.906699, g: 7.906699, b: 7.906699, a: 1}
+  Color: {r: 4.5412054, g: 4.2594395, b: 4.134211, a: 1}
   Intensity: 1
-  Range: 3.35
+  Range: 4
