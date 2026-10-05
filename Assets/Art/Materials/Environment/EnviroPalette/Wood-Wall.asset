@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad2b935ac73b5041b2d68beb7f60968, type: 3}
   m_Name: Wood-Wall
   m_EditorClassIdentifier: Assembly-CSharp::EnviroPalette
-  Texture: {fileID: 2800000, guid: 5bca3308e116ab44485127b93131ada3, type: 3}
+  Texture: {fileID: 2800000, guid: 8f1122e482413cc4496171ffd365b182, type: 3}
   Ramp: {fileID: 11400000, guid: 1f6147b97dccd6d4b8e2b5c306d03ef7, type: 2}
   HueInfluence: 0
   ColorRange:
-    MinColor: {r: 0.48235294, g: 0.21960784, b: 0.12941177, a: 1}
-    MidColor: {r: 0.5058824, g: 0.27058825, b: 0.11764706, a: 1}
-    MaxColor: {r: 0.5803922, g: 0.31764707, b: 0.12941177, a: 1}
+    MinColor: {r: 0.25882354, g: 0.27058825, b: 0.25882354, a: 1}
+    MidColor: {r: 0.48235294, g: 0.4745098, b: 0.48235294, a: 1}
+    MaxColor: {r: 0.70980394, g: 0.7294118, b: 0.70980394, a: 1}
   MaskLayers: []
   AdvancedSettings:
     AllowBeyondRange: 0
     BelowRangeMultiplier: 1
     AboveRangeMultiplier: 1
-    BottomHalfMultiplier: 0.656
-    TopRangeMultiplier: 0.662
+    BottomHalfMultiplier: 0.617
+    TopRangeMultiplier: 0.627
   Generated: {fileID: 2800000, guid: ec03c8c4cb0c27241a9c6fd8d71f13ed, type: 3}

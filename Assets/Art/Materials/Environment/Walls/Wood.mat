@@ -141,7 +141,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 1
-    - _OverlayStrength: 1.124
+    - _OverlayStrength: 1.373
     - _OverlayTiling: 0.13
     - _Parallax: 0.005
     - _QueueControl: 0
