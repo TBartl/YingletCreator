@@ -555,7 +555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2584753688629655401, guid: 602fb01551252874687118d66c524063, type: 3}
       propertyPath: m_Name
-      value: Room-EndTest
+      value: Room-Dirt-Test
       objectReference: {fileID: 0}
     - target: {fileID: 2607781326679265548, guid: 602fb01551252874687118d66c524063, type: 3}
       propertyPath: m_LocalPosition.x

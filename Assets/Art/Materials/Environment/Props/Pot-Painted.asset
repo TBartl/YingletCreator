@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad2b935ac73b5041b2d68beb7f60968, type: 3}
+  m_Name: Pot-Painted
+  m_EditorClassIdentifier: Assembly-CSharp::EnviroPalette
+  Texture: {fileID: 2800000, guid: b1cd91b9fc3b23f49996ccce5d80d1c2, type: 3}
+  Ramp: {fileID: 11400000, guid: 5722d16480ff4bf4ea326b4983c7af8d, type: 2}
+  HueInfluence: 0
+  ColorRange:
+    MinColor: {r: 0.1764706, g: 0.34901962, b: 0.25882354, a: 1}
+    MidColor: {r: 0.45098042, g: 0.47450984, b: 0.25882354, a: 1}
+    MaxColor: {r: 0.54901963, g: 0.61960787, b: 0.6784314, a: 1}
+  MaskLayers:
+  - Texture: {fileID: 2800000, guid: eac295fb24c5cd44d886bd9510ace912, type: 3}
+    Ramp: {fileID: 11400000, guid: c54503eec6e6fe948a48238520d38888, type: 2}
+  AdvancedSettings:
+    AllowBeyondRange: 1
+    BelowRangeMultiplier: 0.4
+    AboveRangeMultiplier: 0
+    BottomHalfMultiplier: 1
+    TopRangeMultiplier: 1
+  Generated: {fileID: 2800000, guid: 888445021469f114dba07d1e58be89fe, type: 3}

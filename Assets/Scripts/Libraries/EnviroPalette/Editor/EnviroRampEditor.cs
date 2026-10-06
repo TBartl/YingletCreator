@@ -14,16 +14,96 @@ public class EnviroRampEditor : Editor
 
 		EditorGUILayout.Space();
 
+		var ramp = (EnviroRamp)this.target;
+
+		EditorGUILayout.BeginHorizontal();
+		if (GUILayout.Button("-3% Sat."))
+		{
+			ModifyGradientSaturation(ramp, -.03f);
+		}
+		if (GUILayout.Button("-1% Sat."))
+		{
+			ModifyGradientSaturation(ramp, -.01f);
+		}
+		if (GUILayout.Button("+1% Sat."))
+		{
+			ModifyGradientSaturation(ramp, .01f);
+		}
+		if (GUILayout.Button("+3% Sat."))
+		{
+			ModifyGradientSaturation(ramp, .03f);
+		}
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		if (GUILayout.Button("-3% Bright."))
+		{
+			ModifyGradientBrightness(ramp, -.03f);
+		}
+		if (GUILayout.Button("-1% Bright."))
+		{
+			ModifyGradientBrightness(ramp, -.01f);
+		}
+		if (GUILayout.Button("+1% Bright."))
+		{
+			ModifyGradientBrightness(ramp, .01f);
+		}
+		if (GUILayout.Button("+3% Bright."))
+		{
+			ModifyGradientBrightness(ramp, .03f);
+		}
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.Space();
+
 		if (GUILayout.Button("Generate Ramp Texture"))
 		{
-			GenerateRampTexture((EnviroRamp)target);
+			GenerateRampTexture(ramp);
 		}
 
 		if (GUILayout.Button("Generate Ramp Texture and Apply to EnviroTextures"))
 		{
-			GenerateRampTexture((EnviroRamp)target);
-			ApplyToEnviroTextures((EnviroRamp)target);
+			GenerateRampTexture(ramp);
+			ApplyToEnviroTextures(ramp);
 		}
+	}
+
+	static void ModifyGradientSaturation(EnviroRamp ramp, float saturationShift)
+	{
+		Gradient gradient = ramp.Gradient;
+		GradientColorKey[] colorKeys = gradient.colorKeys;
+		GradientAlphaKey[] alphaKeys = gradient.alphaKeys;
+
+		for (int i = 0; i < colorKeys.Length; i++)
+		{
+			Color color = colorKeys[i].color;
+			Color.RGBToHSV(color, out float h, out float s, out float v);
+			s = Mathf.Clamp01(s + saturationShift);
+			colorKeys[i].color = Color.HSVToRGB(h, s, v);
+		}
+
+		gradient.SetKeys(colorKeys, alphaKeys);
+		EditorUtility.SetDirty(ramp);
+		AssetDatabase.SaveAssets();
+	}
+
+	static void ModifyGradientBrightness(EnviroRamp ramp, float brightnessShift)
+	{
+		Gradient gradient = ramp.Gradient;
+		GradientColorKey[] colorKeys = gradient.colorKeys;
+		GradientAlphaKey[] alphaKeys = gradient.alphaKeys;
+
+		for (int i = 0; i < colorKeys.Length; i++)
+		{
+			Color color = colorKeys[i].color;
+			Color.RGBToHSV(color, out float h, out float s, out float v);
+			v = Mathf.Clamp01(v + brightnessShift);
+			colorKeys[i].color = Color.HSVToRGB(h, s, v);
+		}
+
+		gradient.SetKeys(colorKeys, alphaKeys);
+		EditorUtility.SetDirty(ramp);
+		AssetDatabase.SaveAssets();
 	}
 
 	static void GenerateRampTexture(EnviroRamp ramp)

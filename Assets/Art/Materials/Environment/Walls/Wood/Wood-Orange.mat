@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grunge
+  m_Name: Wood-Orange
   m_Shader: {fileID: -6465566751694194690, guid: 5d7864a9996068244b34f510b1129aa6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1a5e12d810621d247bd83a4883cecfc0, type: 3}
+        m_Texture: {fileID: 2800000, guid: ec03c8c4cb0c27241a9c6fd8d71f13ed, type: 3}
         m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -141,10 +141,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 1
-    - _OverlayContrastDark: 1
-    - _OverlayContrastLight: 1
-    - _OverlayStrength: 0.657
-    - _OverlayTiling: 0.15
+    - _OverlayStrength: 1.373
+    - _OverlayTiling: 0.13
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -159,7 +157,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Tiling: 1.5
+    - _Tiling: 1
     - _VignetteIgnore: 0
     - _VignettePower: 1
     - _WorkflowMode: 1

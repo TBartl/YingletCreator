@@ -26,6 +26,6 @@ MonoBehaviour:
     AllowBeyondRange: 0
     BelowRangeMultiplier: 1
     AboveRangeMultiplier: 1
-    AdjustLuminanceFromBottom: 0
-    AdjustLuminanceFromTop: 0
+    BottomHalfMultiplier: 1
+    TopRangeMultiplier: 1
   Generated: {fileID: 2800000, guid: b85b1d368876d834d9c3f909a7e004e7, type: 3}

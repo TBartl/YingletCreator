@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37ecb54a90692d348a43b944783d2e4b, type: 3}
-  m_Name: Dirt
+  m_Name: Grunge-Orange
   m_EditorClassIdentifier: Assembly-CSharp::EnviroRamp
   Gradient:
     serializedVersion: 2
-    key0: {r: 0.3962264, g: 0.23680827, b: 0.13269848, a: 1}
-    key1: {r: 0.4433962, g: 0.26865092, b: 0.14431292, a: 1}
-    key2: {r: 0.5283019, g: 0.33511096, b: 0.19188322, a: 0}
-    key3: {r: 0.5764706, g: 0.34901962, b: 0.18039216, a: 0}
+    key0: {r: 0.823, g: 0.69415796, b: 0.636179, a: 1}
+    key1: {r: 0.8301887, g: 0.76886606, b: 0.74012107, a: 1}
+    key2: {r: 0.83137256, g: 0.75618756, b: 0.72329414, a: 0}
+    key3: {r: 0.8301887, g: 0.76886606, b: 0.74012107, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
@@ -42,4 +42,4 @@ MonoBehaviour:
     m_ColorSpace: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  Generated: {fileID: 2800000, guid: bb40c9e2a5ac0724da937dd199bb8560, type: 3}
+  Generated: {fileID: 2800000, guid: 2a73b49fa14314c4698bdd935f5dcc3a, type: 3}

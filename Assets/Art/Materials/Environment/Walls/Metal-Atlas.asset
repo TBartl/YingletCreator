@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad2b935ac73b5041b2d68beb7f60968, type: 3}
+  m_Name: Metal-Atlas
+  m_EditorClassIdentifier: Assembly-CSharp::EnviroPalette
+  Texture: {fileID: 2800000, guid: 13cb4816b09ebc44891d4fef74cc02fc, type: 3}
+  Ramp: {fileID: 11400000, guid: 7b017806b9bc5b843ba2aecdfb5b5e7e, type: 2}
+  HueInfluence: 0.1
+  ColorRange:
+    MinColor: {r: 0.2509804, g: 0.24705884, b: 0.33333334, a: 1}
+    MidColor: {r: 0.5019608, g: 0.5019608, b: 0.53333336, a: 1}
+    MaxColor: {r: 0.8745099, g: 0.8745099, b: 0.8745099, a: 1}
+  MaskLayers: []
+  AdvancedSettings:
+    AllowBeyondRange: 1
+    BelowRangeMultiplier: 1
+    AboveRangeMultiplier: 0.2
+    BottomHalfMultiplier: 1
+    TopRangeMultiplier: 1
+  Generated: {fileID: 2800000, guid: cf8f78d099aae5e43926f5786218325c, type: 3}
