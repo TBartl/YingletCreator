@@ -1811,7 +1811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164885696911184926, guid: 138bc972b30cc8246ae40edd4582f368, type: 3}
       propertyPath: m_Name
-      value: RandomLights
+      value: Lights-Random
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5353,7 +5353,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 294811379403114790, guid: 2e7410f7051395c48af98f3e04a18018, type: 3}
       propertyPath: m_Name
-      value: SquareSponges
+      value: Sponges-SquareRoom
       objectReference: {fileID: 0}
     - target: {fileID: 8370832345052910803, guid: 2e7410f7051395c48af98f3e04a18018, type: 3}
       propertyPath: m_LocalPosition.x

@@ -20,13 +20,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ValSalGround
-  m_Shader: {fileID: -6465566751694194690, guid: 526be0c183113734b97f88da3ca4174d, type: 3}
+  m_Name: Dirt
+  m_Shader: {fileID: -6465566751694194690, guid: 5d7864a9996068244b34f510b1129aa6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _EMISSION
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -63,7 +62,7 @@ Material:
         m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5c51ec4b6a12ed141a7f485d7e47940a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6e2e0a0d1d51bc64f81a751364bfcc02, type: 3}
         m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -72,6 +71,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OverlayTex:
+        m_Texture: {fileID: 2800000, guid: bac1a401cbbbc674184a0b14df569d98, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -138,6 +141,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 1
+    - _OverlayStrength: 1.164
+    - _OverlayTiling: 0.18
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
