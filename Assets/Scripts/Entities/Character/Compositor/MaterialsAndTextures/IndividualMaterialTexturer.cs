@@ -124,8 +124,24 @@ namespace Character.Compositor
 			var main = colorizeValues.Base.GetColor();
 			var shade = colorizeValues.Shade.GetColor();
 
+			// Temporarily here until I move it into upgrade utils and adjust all the color ids
+			float saturationIncrease = 0.07f;
+			float brightnessIncrease = 0.11f;
+			main = AdjustSaturationAndBrightness(main, saturationIncrease, brightnessIncrease);
+			shade = AdjustSaturationAndBrightness(shade, saturationIncrease, brightnessIncrease);
+
 			material.SetColor(MAIN_COLOR_PROPERTY_ID, main);
 			material.SetColor(DARK_COLOR_PROPERTY_ID, shade);
+		}
+
+		public static Color AdjustSaturationAndBrightness(Color input, float saturationPercent, float brightnessPercent)
+		{
+			Color.RGBToHSV(input, out float h, out float s, out float v);
+
+			s = Mathf.Clamp01(s * (1f + saturationPercent));
+			v = Mathf.Clamp01(v * (1f + brightnessPercent));
+
+			return Color.HSVToRGB(h, s, v);
 		}
 
 		static IEnumerable<IMixTexture> SortMixTextures(IEnumerable<IMixTexture> mixTextures, IMixTextureOrderer mixTextureOrderer)
