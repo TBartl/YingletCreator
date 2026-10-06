@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnviroRamp
   Gradient:
     serializedVersion: 2
-    key0: {r: 0.14351194, g: 0.23883861, b: 0.4056604, a: 1}
-    key1: {r: 0.2805714, g: 0.38292095, b: 0.6132076, a: 1}
-    key2: {r: 0.41051087, g: 0.5155604, b: 0.7075472, a: 0}
+    key0: {r: 0.1534902, g: 0.24455613, b: 0.40392157, a: 1}
+    key1: {r: 0.29364708, g: 0.3921121, b: 0.6117647, a: 1}
+    key2: {r: 0.42352942, g: 0.52141184, b: 0.7058824, a: 0}
     key3: {r: 0.3968, g: 0.5360874, b: 0.8, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}

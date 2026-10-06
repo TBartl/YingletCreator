@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2426312c8c6593243b97fe5d865de620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 0.05882353, g: 0.06666667, b: 0.14117648, a: 1}
+  Color: {r: 0.03893733, g: 0.041518327, b: 0.066037714, a: 1}
   Intensity: 0.4
   Range: 0.5
   Width: 5
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2426312c8c6593243b97fe5d865de620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 0.05882353, g: 0.06666667, b: 0.14117648, a: 1}
+  Color: {r: 0.03893733, g: 0.041518327, b: 0.066037714, a: 1}
   Intensity: 0.4
   Range: 0.5
   Width: 5
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2426312c8c6593243b97fe5d865de620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 0.05882353, g: 0.06666667, b: 0.14117648, a: 1}
+  Color: {r: 0.03893733, g: 0.041518327, b: 0.066037714, a: 1}
   Intensity: 0.4
   Range: 0.5
   Width: 5
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2426312c8c6593243b97fe5d865de620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 0.05882353, g: 0.06666667, b: 0.14117648, a: 1}
+  Color: {r: 0.03893733, g: 0.041518327, b: 0.066037714, a: 1}
   Intensity: 0.4
   Range: 0.5
   Width: 5
