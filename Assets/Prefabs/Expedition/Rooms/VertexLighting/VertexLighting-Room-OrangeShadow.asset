@@ -15,7 +15,7 @@ MonoBehaviour:
   SamplingDistance: 15
   SamplingCameraFOV: 105
   SkyColor: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ShadowColor: {r: 0.16037738, g: 0.06623995, b: 0.02950339, a: 1}
+  ShadowColor: {r: 0.3207547, g: 0.12033182, b: 0.03177287, a: 1}
   RawBakeValToP:
     serializedVersion: 2
     m_Curve:
