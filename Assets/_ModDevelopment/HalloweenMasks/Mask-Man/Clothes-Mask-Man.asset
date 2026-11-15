@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410c8d6b8ba8703499ece84dbc319d34, type: 3}
+  m_Name: Clothes-Mask-Man
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 6423a68c4283c2f40b5fb2122f54d0a4
+  _displayName: Mask (Human)
+  _groupReferences:
+  - m_AssetGUID: 79d28974154e5ec46b9a5f737f53aa30
+  _addedMeshReferences:
+  - m_AssetGUID: 246e36e0f1e112c42ba9dc44eaabd2ec
+  _addedTextureReferences: []
+  _eyeTextures: {fileID: 0}
+  _roomPrefab: {fileID: 0}
+  _componentReferences: []
+  _preview:
+    _sprite: {fileID: -1503363823, guid: 7252a318affe68d44bb63c6b0c6dfe6d, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: 2534be223a5da4d4a85cbed6bf43220b
+  _order:
+    _groupReference:
+      m_AssetGUID: 968c5f0717d8f674db03cab195bcd9c6
+    _index: 20000

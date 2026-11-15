@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120deaf7dc863c64580690e742f11134, type: 3}
+  m_Name: HalloweenMasks
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 4fb7df32528a842488278dcb7652607e
+  _title: Halloween Masks
+  _shortDescription: Spooooooky. Contains 8 stupid masks.
+  _author: Tabski
+  _icon: {fileID: 21300000, guid: 4036974056fd25a44a9c68017120e6db, type: 3}
+  _table:
+    Resources:
+    - Guid: 4fb7df32528a842488278dcb7652607e
+      Object: {fileID: 11400000}
+    - Guid: 148a4ed3f2fe1c3409e3cd01727cd310
+      Object: {fileID: 11400000, guid: 148a4ed3f2fe1c3409e3cd01727cd310, type: 2}
+    - Guid: ed7e68d1fb887c644aced385eebef910
+      Object: {fileID: 2100000, guid: ed7e68d1fb887c644aced385eebef910, type: 2}
+    - Guid: f9af0661f5925c344b8cdebf8a23872b
+      Object: {fileID: 11400000, guid: f9af0661f5925c344b8cdebf8a23872b, type: 2}
+    - Guid: f0eaccb37d28f924383e981f88f2f916
+      Object: {fileID: 11400000, guid: f0eaccb37d28f924383e981f88f2f916, type: 2}
+    - Guid: efc1ca62320305c4da0e6d091f0e8f42
+      Object: {fileID: 11400000, guid: efc1ca62320305c4da0e6d091f0e8f42, type: 2}
+    - Guid: bcd841d374e0dc546b412cbcd271e9c7
+      Object: {fileID: 2100000, guid: bcd841d374e0dc546b412cbcd271e9c7, type: 2}
+    - Guid: 09c97349fdb5cee4dbb6a1f27a82fd3b
+      Object: {fileID: 11400000, guid: 09c97349fdb5cee4dbb6a1f27a82fd3b, type: 2}
+    - Guid: d0773d7bf6d4e4346bfa95e350b8e938
+      Object: {fileID: 11400000, guid: d0773d7bf6d4e4346bfa95e350b8e938, type: 2}
+    - Guid: 3b6f431287fdee5469b5a089367da4b3
+      Object: {fileID: 11400000, guid: 3b6f431287fdee5469b5a089367da4b3, type: 2}
+    - Guid: 3dcc8ac22f01e6548845f95c5a5c9833
+      Object: {fileID: 2100000, guid: 3dcc8ac22f01e6548845f95c5a5c9833, type: 2}
+    - Guid: 589d65ecb6c654e49b15f3cf167c4f7d
+      Object: {fileID: 11400000, guid: 589d65ecb6c654e49b15f3cf167c4f7d, type: 2}
+    - Guid: cbfd489f7b4b281498fce0dedfac0f13
+      Object: {fileID: 11400000, guid: cbfd489f7b4b281498fce0dedfac0f13, type: 2}
+    - Guid: 8b90edf7ba63a1344982c461dac54db5
+      Object: {fileID: 11400000, guid: 8b90edf7ba63a1344982c461dac54db5, type: 2}
+    - Guid: 89f7e4d507d410a49927f1deeeeb5c4f
+      Object: {fileID: 2100000, guid: 89f7e4d507d410a49927f1deeeeb5c4f, type: 2}
+    - Guid: 246e36e0f1e112c42ba9dc44eaabd2ec
+      Object: {fileID: 11400000, guid: 246e36e0f1e112c42ba9dc44eaabd2ec, type: 2}
+    - Guid: 6423a68c4283c2f40b5fb2122f54d0a4
+      Object: {fileID: 11400000, guid: 6423a68c4283c2f40b5fb2122f54d0a4, type: 2}
+    - Guid: 47c1b0e294d94ab428afc9b78c99aa4e
+      Object: {fileID: 11400000, guid: 47c1b0e294d94ab428afc9b78c99aa4e, type: 2}
+    - Guid: 4cafcb4e09e44a846a4fc2e891d8c7d9
+      Object: {fileID: 2100000, guid: 4cafcb4e09e44a846a4fc2e891d8c7d9, type: 2}
+    - Guid: bd318b288e872124fa2873194d556fe8
+      Object: {fileID: 11400000, guid: bd318b288e872124fa2873194d556fe8, type: 2}
+    - Guid: e88c7254f8930ff4d8032bad7c8a78e5
+      Object: {fileID: 11400000, guid: e88c7254f8930ff4d8032bad7c8a78e5, type: 2}
+    - Guid: 8952705e23ba8c141b60f80332761ddd
+      Object: {fileID: 11400000, guid: 8952705e23ba8c141b60f80332761ddd, type: 2}
+    - Guid: 285cefd5d2907c64fa18620b320a7eaa
+      Object: {fileID: 2100000, guid: 285cefd5d2907c64fa18620b320a7eaa, type: 2}
+    - Guid: e590d8dc3a1678f418b79bbe907f94e0
+      Object: {fileID: 11400000, guid: e590d8dc3a1678f418b79bbe907f94e0, type: 2}
+    - Guid: 2456a9df98364a3469898e9e06e0c6e7
+      Object: {fileID: 11400000, guid: 2456a9df98364a3469898e9e06e0c6e7, type: 2}
+    - Guid: 2534be223a5da4d4a85cbed6bf43220b
+      Object: {fileID: 11400000, guid: 2534be223a5da4d4a85cbed6bf43220b, type: 2}
+  _presetYings: []
+  _steamWorkshopId: 3831106059
+  _steamWorkshopUniqueId: 4fb7df32528a842488278dcb7652607e

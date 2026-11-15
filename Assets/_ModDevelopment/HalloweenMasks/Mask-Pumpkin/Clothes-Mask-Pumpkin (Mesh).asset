@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef325111c9647d499e7fe4af01b122d, type: 3}
+  m_Name: Clothes-Mask-Pumpkin (Mesh)
+  m_EditorClassIdentifier: 
+  _skinnedMeshRendererPrefab: {fileID: -7398381582135925044, guid: 2f48712a76b31064ca70f502935053e1, type: 3}
+  _materialWithDescriptionReference:
+    m_AssetGUID: 47c1b0e294d94ab428afc9b78c99aa4e
+  _tagReferences: []
+  _boneToAttachToReference:
+    m_AssetGUID: 
