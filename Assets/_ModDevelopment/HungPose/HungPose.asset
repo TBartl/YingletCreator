@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120deaf7dc863c64580690e742f11134, type: 3}
+  m_Name: HungPose
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: fa920bb6414f4aa1a4ff6093054da28c
+  _title: Hung Pose
+  _shortDescription: Yeowch.
+  _author: Tabski
+  _icon: {fileID: 4985774531459502171, guid: 7d2febd3964049541975a2f6c5e29d4d, type: 3}
+  _table:
+    Resources:
+    - Guid: e1239495011d48cba17bcf74e998c0bf
+      Object: {fileID: 11400000, guid: e1239495011d48cba17bcf74e998c0bf, type: 2}
+    - Guid: 40032103570344a986b43bf81e02042c
+      Object: {fileID: 11400000, guid: 40032103570344a986b43bf81e02042c, type: 2}
+    - Guid: 3db5c699a4d1499da830fcee22585ed3
+      Object: {fileID: 11400000, guid: 3db5c699a4d1499da830fcee22585ed3, type: 2}
+    - Guid: fa920bb6414f4aa1a4ff6093054da28c
+      Object: {fileID: 11400000}
+  _presetYings: []
+  _steamWorkshopId: 0
+  _steamWorkshopUniqueId: 

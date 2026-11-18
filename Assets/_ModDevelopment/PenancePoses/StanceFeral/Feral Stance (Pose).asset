@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e535d3d5ddc9c604185ed216d51c8cfa, type: 3}
+  m_Name: Feral Stance (Pose)
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 9755d656ed354a999b6702e825aba467
+  _clip: {fileID: 7580172678570728664, guid: cfa42331fed64e5896cd01f995076cfa, type: 3}
+  _overrideName: Feral Stance
+  _propReferences: []
+  _preview:
+    _sprite: {fileID: -467867494, guid: 63d83da56807f9842b985e989d37052a, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: f35bc209b490f2248821013111e29562
+  _order:
+    _groupReference:
+      m_AssetGUID: d272672450db7784a95a980227e79590
+    _index: 10000

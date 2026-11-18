@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120deaf7dc863c64580690e742f11134, type: 3}
+  m_Name: PenancePoses
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 7867f2244aa74e50bf6adee818d1f886
+  _title: Penance Poses
+  _shortDescription: 19 unassorted poses.
+  _author: Tabski
+  _icon: {fileID: 21300000, guid: 0fff7fd062081a44a9c86e4b76c1db25, type: 3}
+  _table:
+    Resources:
+    - Guid: 3849c7ee02604893bc24e1b02d9a8eb5
+      Object: {fileID: 11400000, guid: 3849c7ee02604893bc24e1b02d9a8eb5, type: 2}
+    - Guid: d73b356ef01947af99694c65b95578c9
+      Object: {fileID: 11400000, guid: d73b356ef01947af99694c65b95578c9, type: 2}
+    - Guid: fbb1de88807f4fdfb2c4dc6ca5819967
+      Object: {fileID: 11400000, guid: fbb1de88807f4fdfb2c4dc6ca5819967, type: 2}
+    - Guid: 3c63df0709e54059bc6f59d916801120
+      Object: {fileID: 11400000, guid: 3c63df0709e54059bc6f59d916801120, type: 2}
+    - Guid: 1643e99b82de45739d4c92d747fe0f3e
+      Object: {fileID: 11400000, guid: 1643e99b82de45739d4c92d747fe0f3e, type: 2}
+    - Guid: 9d3c1f6a0b8e4c27a5f1e2d4b6c8a013
+      Object: {fileID: 11400000, guid: 9d3c1f6a0b8e4c27a5f1e2d4b6c8a013, type: 2}
+    - Guid: edfd781e88d1459799f401990c18bb17
+      Object: {fileID: 11400000, guid: edfd781e88d1459799f401990c18bb17, type: 2}
+    - Guid: 556c473aa2b24da2b0ef7f2542190a37
+      Object: {fileID: 11400000, guid: 556c473aa2b24da2b0ef7f2542190a37, type: 2}
+    - Guid: 70340a25a88b4b0596841b8405c80427
+      Object: {fileID: 11400000, guid: 70340a25a88b4b0596841b8405c80427, type: 2}
+    - Guid: 4e7b2a9c1d6f4e38b0a5c3d2e1f9b724
+      Object: {fileID: 11400000, guid: 4e7b2a9c1d6f4e38b0a5c3d2e1f9b724, type: 2}
+    - Guid: abec2ecd599e4ff39db238bb0f70e10a
+      Object: {fileID: 11400000, guid: abec2ecd599e4ff39db238bb0f70e10a, type: 2}
+    - Guid: 8706805bd75746f89d9bb679760ec40b
+      Object: {fileID: 11400000, guid: 8706805bd75746f89d9bb679760ec40b, type: 2}
+    - Guid: 7867f2244aa74e50bf6adee818d1f886
+      Object: {fileID: 11400000}
+    - Guid: 9e122fe4363c44fb816dae7d4c328903
+      Object: {fileID: 11400000, guid: 9e122fe4363c44fb816dae7d4c328903, type: 2}
+    - Guid: a019870e31b44bd7b315db87ecd117d4
+      Object: {fileID: 11400000, guid: a019870e31b44bd7b315db87ecd117d4, type: 2}
+    - Guid: 6135ebd383e54de3835f9f5038169758
+      Object: {fileID: 11400000, guid: 6135ebd383e54de3835f9f5038169758, type: 2}
+    - Guid: 29dd78ff36df4b88b7750fcbd983d22c
+      Object: {fileID: 11400000, guid: 29dd78ff36df4b88b7750fcbd983d22c, type: 2}
+    - Guid: 323564bc97f148168d2f90da8eae1900
+      Object: {fileID: 11400000, guid: 323564bc97f148168d2f90da8eae1900, type: 2}
+    - Guid: b19e6a2a4402422cb2fedc9c09a6a8de
+      Object: {fileID: 11400000, guid: b19e6a2a4402422cb2fedc9c09a6a8de, type: 2}
+    - Guid: 4f792f4e5dcb43eda925eccd042ff9de
+      Object: {fileID: 11400000, guid: 4f792f4e5dcb43eda925eccd042ff9de, type: 2}
+    - Guid: 0d90da789e1643e8b8f09f0bc62e5993
+      Object: {fileID: 11400000, guid: 0d90da789e1643e8b8f09f0bc62e5993, type: 2}
+    - Guid: c0fa72643a0245c58b4ed50fe7d77323
+      Object: {fileID: 11400000, guid: c0fa72643a0245c58b4ed50fe7d77323, type: 2}
+    - Guid: 4583e90f239347d082a08a90f098fc7b
+      Object: {fileID: 11400000, guid: 4583e90f239347d082a08a90f098fc7b, type: 2}
+    - Guid: 9755d656ed354a999b6702e825aba467
+      Object: {fileID: 11400000, guid: 9755d656ed354a999b6702e825aba467, type: 2}
+    - Guid: d97452d27d6d494db3c794b57042da1c
+      Object: {fileID: 11400000, guid: d97452d27d6d494db3c794b57042da1c, type: 2}
+    - Guid: 0d73ff04518d436f92046a0bfa1380c4
+      Object: {fileID: 11400000, guid: 0d73ff04518d436f92046a0bfa1380c4, type: 2}
+  _presetYings: []
+  _steamWorkshopId: 3842193409
+  _steamWorkshopUniqueId: 7867f2244aa74e50bf6adee818d1f886

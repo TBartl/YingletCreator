@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef325111c9647d499e7fe4af01b122d, type: 3}
+  m_Name: Gnomed-Snout (Mesh)
+  m_EditorClassIdentifier: 
+  _skinnedMeshRendererPrefab: {fileID: 5327016138841859667, guid: 215087074a8d4a4db5d6635bb78e1e9b, type: 3}
+  _materialWithDescriptionReference:
+    m_AssetGUID: 
+  _tagReferences: []
+  _boneToAttachToReference:
+    m_AssetGUID: 4e7b2a9c1d6f4e38b0a5c3d2e1f9b724

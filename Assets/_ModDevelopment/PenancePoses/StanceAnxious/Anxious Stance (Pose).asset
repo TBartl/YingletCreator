@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e535d3d5ddc9c604185ed216d51c8cfa, type: 3}
+  m_Name: Anxious Stance (Pose)
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 0d90da789e1643e8b8f09f0bc62e5993
+  _clip: {fileID: 7597028151073324230, guid: cfa42331fed64e5896cd01f995076cfa, type: 3}
+  _overrideName: Anxious Stance
+  _propReferences: []
+  _preview:
+    _sprite: {fileID: 102270, guid: 63d83da56807f9842b985e989d37052a, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: f35bc209b490f2248821013111e29562
+  _order:
+    _groupReference:
+      m_AssetGUID: 4e6947b94f2eafd4d9c698db37c4b8d8
+    _index: 10000

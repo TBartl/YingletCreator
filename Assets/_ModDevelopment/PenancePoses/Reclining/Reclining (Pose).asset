@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e535d3d5ddc9c604185ed216d51c8cfa, type: 3}
+  m_Name: Reclining (Pose)
+  m_EditorClassIdentifier: 
+  _uniqueAssetId: 9e122fe4363c44fb816dae7d4c328903
+  _clip: {fileID: -6897123190524479181, guid: cfa42331fed64e5896cd01f995076cfa, type: 3}
+  _overrideName: Reclining
+  _propReferences: []
+  _preview:
+    _sprite: {fileID: -526652443, guid: 63d83da56807f9842b985e989d37052a, type: 3}
+    _cameraPositionReference:
+      m_AssetGUID: f35bc209b490f2248821013111e29562
+  _order:
+    _groupReference:
+      m_AssetGUID: e682f7c2b156c354db9ffeec356416a6
+    _index: 10001
